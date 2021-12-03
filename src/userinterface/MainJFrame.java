@@ -71,7 +71,7 @@ public class MainJFrame extends javax.swing.JFrame {
 
         jSplitPane1.setDividerSize(1);
 
-        jPanel1.setBackground(new java.awt.Color(102, 102, 102));
+        jPanel1.setBackground(new java.awt.Color(103, 103, 103));
         jPanel1.setBorder(javax.swing.BorderFactory.createTitledBorder(null, "LOGIN PANEL", javax.swing.border.TitledBorder.CENTER, javax.swing.border.TitledBorder.BELOW_TOP, new java.awt.Font("Optima", 1, 14), new java.awt.Color(204, 204, 204))); // NOI18N
 
         loginJButton.setFont(new java.awt.Font("Optima", 0, 12)); // NOI18N

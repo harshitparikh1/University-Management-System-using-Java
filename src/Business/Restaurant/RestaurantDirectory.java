@@ -27,10 +27,10 @@ public class RestaurantDirectory {
         this.restaurantDirectory = restaurantDirectory;
     }
     
-    public Restaurant newRestaurant(String name, String address, String mName, String phoneNumber) {
-        Restaurant restaurant = new Restaurant(name, address, mName, phoneNumber);
+    public Restaurant newRestaurant(String restaurantName, String address,Boolean isDineInAvailable, int numberOfTables, String phoneNumber) {
+        Restaurant restaurant = new Restaurant(restaurantName, address, isDineInAvailable, numberOfTables, phoneNumber);
         restaurantDirectory.add(restaurant);
-        System.out.println(restaurantDirectory.size() + "New Res");
+        
         return restaurant;
     }
     

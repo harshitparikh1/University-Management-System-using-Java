@@ -34,11 +34,12 @@ public class ManageRestaurantJPanel extends javax.swing.JPanel {
         DefaultTableModel dtm = (DefaultTableModel) tblRestaurant.getModel();
         dtm.setRowCount(0);
         for(Restaurant restaurant : ecoSystem.getRestaurantDirectory().getRestaurantDirectory()){
-            Object [] row = new Object[4];
+            Object [] row = new Object[5];
             row[0] = restaurant;
             row[1] = restaurant.getAddress();
-            row[2] = restaurant.getManagerName();
+            row[2] = restaurant.getNumberOfTables();
             row[3] = restaurant.getPhoneNumber();
+            row[4] = restaurant.getIsDineInAvailable();
             dtm.addRow(row);
         }
     }
@@ -47,11 +48,12 @@ public class ManageRestaurantJPanel extends javax.swing.JPanel {
         DefaultTableModel dtm = (DefaultTableModel) tblRestaurant.getModel();
         dtm.setRowCount(0);
         for(Restaurant restaurant : restaurantDirectory.getRestaurantDirectory()){
-            Object [] row = new Object[4];
+            Object [] row = new Object[5];
             row[0] = restaurant;
             row[1] = restaurant.getAddress();
-            row[2] = restaurant.getManagerName();
+            row[2] = restaurant.getNumberOfTables();
             row[3] = restaurant.getPhoneNumber();
+            row[4] = restaurant.getIsDineInAvailable();
             dtm.addRow(row);
         }
     }
@@ -84,18 +86,25 @@ public class ManageRestaurantJPanel extends javax.swing.JPanel {
 
         tblRestaurant.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
-                {null, null, null, null},
-                {null, null, null, null},
-                {null, null, null, null},
-                {null, null, null, null}
+                {null, null, null, null, null},
+                {null, null, null, null, null},
+                {null, null, null, null, null},
+                {null, null, null, null, null}
             },
             new String [] {
-                "Restaurant Name ", "Address", "Manager Name", "Mobile Number"
+                "Restaurant Name ", "Address", "Number of Tables", "Mobile Number", "Dine In Available?"
             }
         ) {
-            boolean[] canEdit = new boolean [] {
-                false, false, false, false
+            Class[] types = new Class [] {
+                java.lang.Object.class, java.lang.Object.class, java.lang.Object.class, java.lang.Object.class, java.lang.Boolean.class
             };
+            boolean[] canEdit = new boolean [] {
+                false, false, false, false, false
+            };
+
+            public Class getColumnClass(int columnIndex) {
+                return types [columnIndex];
+            }
 
             public boolean isCellEditable(int rowIndex, int columnIndex) {
                 return canEdit [columnIndex];

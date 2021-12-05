@@ -7,7 +7,6 @@ package userinterface.RestaurantAdminRole;
 
 import java.awt.CardLayout;
 import javax.swing.JPanel;
-import javax.swing.table.DefaultTableModel;
 
 /**
  *
@@ -18,7 +17,6 @@ public class ManageServerJPanel extends javax.swing.JPanel {
     private JPanel userProcessContainer;
     public ManageServerJPanel() {
         initComponents();
-        PopulateTable();
     }
 
     /**
@@ -32,7 +30,7 @@ public class ManageServerJPanel extends javax.swing.JPanel {
 
         btnBack = new javax.swing.JButton();
         jScrollPane1 = new javax.swing.JScrollPane();
-        serverTable = new javax.swing.JTable();
+        jTable1 = new javax.swing.JTable();
         jButton1 = new javax.swing.JButton();
         jButton2 = new javax.swing.JButton();
         jButton3 = new javax.swing.JButton();
@@ -44,7 +42,7 @@ public class ManageServerJPanel extends javax.swing.JPanel {
             }
         });
 
-        serverTable.setModel(new javax.swing.table.DefaultTableModel(
+        jTable1.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
                 {null, null, null},
                 {null, null, null},
@@ -63,7 +61,7 @@ public class ManageServerJPanel extends javax.swing.JPanel {
                 return canEdit [columnIndex];
             }
         });
-        jScrollPane1.setViewportView(serverTable);
+        jScrollPane1.setViewportView(jTable1);
 
         jButton1.setText("Create Server");
 
@@ -139,11 +137,6 @@ public class ManageServerJPanel extends javax.swing.JPanel {
     private javax.swing.JButton jButton2;
     private javax.swing.JButton jButton3;
     private javax.swing.JScrollPane jScrollPane1;
-    private javax.swing.JTable serverTable;
+    private javax.swing.JTable jTable1;
     // End of variables declaration//GEN-END:variables
-
-    private void PopulateTable() {
-        DefaultTableModel dtm = (DefaultTableModel) serverTable.getModel();
-        dtm.setRowCount(0);
-    }
 }

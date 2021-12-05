@@ -16,12 +16,17 @@ public class Restaurant {
     private String address;
     private String managerName;
     private String phoneNumber;
+    private Boolean isDinInAvailable;
+    private int numberOfTables;
     private MenuDirectory MenuDirectory;
     
-    public Restaurant(String restaurantName, String address, String managerName, String phoneNumber) {
+    
+     public Restaurant(String restaurantName, String address, Boolean isDineInAvailable, int numberOfTables, String phoneNumber) 
+     {
         this.restaurantName = restaurantName;
         this.address = address;
-        this.managerName = managerName;
+       this.isDinInAvailable = isDineInAvailable;
+        this.numberOfTables = numberOfTables;
         this.phoneNumber = phoneNumber;
     }
 

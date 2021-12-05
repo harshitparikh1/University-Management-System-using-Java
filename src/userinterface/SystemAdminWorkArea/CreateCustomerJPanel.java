@@ -310,7 +310,7 @@ public class CreateCustomerJPanel extends javax.swing.JPanel {
         }
         
 //        Customer customer = customerDirectory.newCustomer(name, email, phoneNumber, age, homeAddress, userName);
-     
+        System.out.println(ecoSystem.toString());
         ecoSystem.getCustomerDirectory().newCustomer(name, email, phoneNumber, age, homeAddress, userName);
         Employee employee = ecoSystem.getEmployeeDirectory().createEmployee(name);
         UserAccount usserAccount = ecoSystem.getUserAccountDirectory().createUserAccount(userName, password, employee, new CustomerRole());

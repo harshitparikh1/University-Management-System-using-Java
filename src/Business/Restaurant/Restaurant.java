@@ -14,17 +14,14 @@ import Business.Menu.MenuDirectory;
 public class Restaurant {
     private String restaurantName;
     private String address;
-    private Boolean isDinInAvailable;
-    private int numberOfTables;
+    private String managerName;
     private String phoneNumber;
     private MenuDirectory MenuDirectory;
     
-    public Restaurant(String restaurantName, String address,Boolean isDineInAvailable, int numberOfTables, String phoneNumber) {
+    public Restaurant(String restaurantName, String address, String managerName, String phoneNumber) {
         this.restaurantName = restaurantName;
         this.address = address;
-        this.isDinInAvailable = isDineInAvailable;
-        this.numberOfTables = numberOfTables;
-        
+        this.managerName = managerName;
         this.phoneNumber = phoneNumber;
     }
 
@@ -54,7 +51,13 @@ public class Restaurant {
         this.address = address;
     }
 
-    
+    public String getManagerName() {
+        return managerName;
+    }
+
+    public void setManagerName(String managerName) {
+        this.managerName = managerName;
+    }
 
     public String getPhoneNumber() {
         return phoneNumber;
@@ -62,22 +65,6 @@ public class Restaurant {
 
     public void setPhoneNumber(String phoneNumber) {
         this.phoneNumber = phoneNumber;
-    }
-    
-    public Boolean getIsDinInAvailable() {
-        return isDinInAvailable;
-    }
-
-    public void setIsDinInAvailable(Boolean isDinInAvailable) {
-        this.isDinInAvailable = isDinInAvailable;
-    }
-
-    public int getNumberOfTables() {
-        return numberOfTables;
-    }
-
-    public void setNumberOfTables(int numberOfTables) {
-        this.numberOfTables = numberOfTables;
     }
     
     @Override

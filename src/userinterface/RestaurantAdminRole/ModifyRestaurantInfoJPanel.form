@@ -39,19 +39,21 @@
                                   <Component id="jLabel2" alignment="1" min="-2" pref="158" max="-2" attributes="0"/>
                                   <Component id="jLabel7" alignment="1" min="-2" max="-2" attributes="0"/>
                                   <Component id="jLabel8" alignment="1" min="-2" pref="130" max="-2" attributes="0"/>
+                                  <Component id="jLabel11" min="-2" max="-2" attributes="0"/>
                               </Group>
                               <EmptySpace min="-2" pref="44" max="-2" attributes="0"/>
                               <Group type="103" groupAlignment="0" attributes="0">
                                   <Component id="txtRestaurantName" alignment="0" min="-2" pref="165" max="-2" attributes="0"/>
                                   <Component id="txtAddress" alignment="0" min="-2" pref="165" max="-2" attributes="0"/>
-                                  <Component id="txtManagerName" alignment="0" min="-2" pref="165" max="-2" attributes="0"/>
+                                  <Component id="txtNumOfTables" alignment="0" min="-2" pref="165" max="-2" attributes="0"/>
                                   <Component id="txtPhoneNumber" alignment="0" min="-2" pref="165" max="-2" attributes="0"/>
+                                  <Component id="checkboxDineInAvailable" alignment="0" min="-2" max="-2" attributes="0"/>
                               </Group>
                           </Group>
                       </Group>
                   </Group>
                   <Group type="102" alignment="0" attributes="0">
-                      <EmptySpace min="-2" pref="332" max="-2" attributes="0"/>
+                      <EmptySpace min="-2" pref="334" max="-2" attributes="0"/>
                       <Component id="btnCreate" min="-2" pref="128" max="-2" attributes="0"/>
                   </Group>
               </Group>
@@ -80,18 +82,23 @@
               <EmptySpace min="-2" pref="26" max="-2" attributes="0"/>
               <Group type="103" groupAlignment="1" attributes="0">
                   <Component id="jLabel6" alignment="1" min="-2" max="-2" attributes="0"/>
-                  <Component id="txtManagerName" alignment="1" min="-2" max="-2" attributes="0"/>
+                  <Component id="txtNumOfTables" alignment="1" min="-2" max="-2" attributes="0"/>
               </Group>
               <EmptySpace min="-2" pref="26" max="-2" attributes="0"/>
               <Group type="103" groupAlignment="3" attributes="0">
                   <Component id="txtPhoneNumber" alignment="3" min="-2" max="-2" attributes="0"/>
                   <Component id="jLabel7" alignment="3" min="-2" max="-2" attributes="0"/>
               </Group>
-              <EmptySpace min="-2" pref="26" max="-2" attributes="0"/>
-              <Component id="jLabel8" min="-2" max="-2" attributes="0"/>
               <EmptySpace type="separate" max="-2" attributes="0"/>
+              <Group type="103" groupAlignment="1" attributes="0">
+                  <Component id="checkboxDineInAvailable" min="-2" max="-2" attributes="0"/>
+                  <Component id="jLabel11" min="-2" max="-2" attributes="0"/>
+              </Group>
+              <EmptySpace min="-2" pref="14" max="-2" attributes="0"/>
+              <Component id="jLabel8" min="-2" max="-2" attributes="0"/>
+              <EmptySpace min="-2" pref="20" max="-2" attributes="0"/>
               <Component id="btnCreate" min="-2" max="-2" attributes="0"/>
-              <EmptySpace pref="193" max="32767" attributes="0"/>
+              <EmptySpace pref="164" max="32767" attributes="0"/>
           </Group>
       </Group>
     </DimensionLayout>
@@ -128,10 +135,10 @@
           <Color blue="cc" green="cc" red="cc" type="rgb"/>
         </Property>
         <Property name="horizontalAlignment" type="int" value="4"/>
-        <Property name="text" type="java.lang.String" value="Manager Name*:"/>
+        <Property name="text" type="java.lang.String" value="Number of tables"/>
       </Properties>
     </Component>
-    <Component class="javax.swing.JTextField" name="txtManagerName">
+    <Component class="javax.swing.JTextField" name="txtNumOfTables">
     </Component>
     <Component class="javax.swing.JTextField" name="txtAddress">
     </Component>
@@ -191,6 +198,20 @@
         <Property name="horizontalAlignment" type="int" value="4"/>
         <Property name="text" type="java.lang.String" value="*Mandatory Fields"/>
       </Properties>
+    </Component>
+    <Component class="javax.swing.JLabel" name="jLabel11">
+      <Properties>
+        <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
+          <Font name="Optima" size="14" style="0"/>
+        </Property>
+        <Property name="foreground" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
+          <Color blue="cc" green="cc" red="cc" type="rgb"/>
+        </Property>
+        <Property name="horizontalAlignment" type="int" value="4"/>
+        <Property name="text" type="java.lang.String" value="Is Dine-in Available?"/>
+      </Properties>
+    </Component>
+    <Component class="javax.swing.JCheckBox" name="checkboxDineInAvailable">
     </Component>
   </SubComponents>
 </Form>

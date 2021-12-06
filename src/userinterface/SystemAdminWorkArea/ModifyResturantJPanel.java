@@ -35,7 +35,8 @@ public class ModifyResturantJPanel extends javax.swing.JPanel {
         txtRestaurantName.setText(restaurant.getRestaurantName());
         txtAddress.setText(restaurant.getAddress());
         txtPhoneNumber.setText(restaurant.getPhoneNumber());
-        txtManagerName.setText(restaurant.getManagerName());
+        txtNumOfTables.setText(String.valueOf(restaurant.getNumberOfTables()));
+        checkboxDineInAvailable.setSelected(restaurant.getIsDineInAvailable());
     }
 
     /**
@@ -53,12 +54,14 @@ public class ModifyResturantJPanel extends javax.swing.JPanel {
         txtRestaurantName = new javax.swing.JTextField();
         jLabel3 = new javax.swing.JLabel();
         txtAddress = new javax.swing.JTextField();
-        jLabel6 = new javax.swing.JLabel();
-        txtManagerName = new javax.swing.JTextField();
+        numOfTables = new javax.swing.JLabel();
+        txtNumOfTables = new javax.swing.JTextField();
         jLabel7 = new javax.swing.JLabel();
         txtPhoneNumber = new javax.swing.JTextField();
         btnCreate = new javax.swing.JButton();
         jLabel8 = new javax.swing.JLabel();
+        jLabel11 = new javax.swing.JLabel();
+        checkboxDineInAvailable = new javax.swing.JCheckBox();
 
         setBackground(new java.awt.Color(102, 102, 102));
 
@@ -84,10 +87,10 @@ public class ModifyResturantJPanel extends javax.swing.JPanel {
         jLabel3.setHorizontalAlignment(javax.swing.SwingConstants.RIGHT);
         jLabel3.setText("Address*:");
 
-        jLabel6.setFont(new java.awt.Font("Optima", 0, 14)); // NOI18N
-        jLabel6.setForeground(new java.awt.Color(204, 204, 204));
-        jLabel6.setHorizontalAlignment(javax.swing.SwingConstants.RIGHT);
-        jLabel6.setText("Manager Name*:");
+        numOfTables.setFont(new java.awt.Font("Optima", 0, 14)); // NOI18N
+        numOfTables.setForeground(new java.awt.Color(204, 204, 204));
+        numOfTables.setHorizontalAlignment(javax.swing.SwingConstants.RIGHT);
+        numOfTables.setText("Number of tables");
 
         jLabel7.setFont(new java.awt.Font("Optima", 0, 14)); // NOI18N
         jLabel7.setForeground(new java.awt.Color(204, 204, 204));
@@ -106,46 +109,60 @@ public class ModifyResturantJPanel extends javax.swing.JPanel {
         jLabel8.setHorizontalAlignment(javax.swing.SwingConstants.RIGHT);
         jLabel8.setText("*Mandatory fields");
 
+        jLabel11.setFont(new java.awt.Font("Optima", 0, 14)); // NOI18N
+        jLabel11.setForeground(new java.awt.Color(204, 204, 204));
+        jLabel11.setHorizontalAlignment(javax.swing.SwingConstants.RIGHT);
+        jLabel11.setText("Is Dine-in Available?");
+
+        checkboxDineInAvailable.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                checkboxDineInAvailableActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
         this.setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                        .addGroup(layout.createSequentialGroup()
+                            .addGap(179, 179, 179)
+                            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                                .addComponent(numOfTables, javax.swing.GroupLayout.PREFERRED_SIZE, 121, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addComponent(jLabel3, javax.swing.GroupLayout.PREFERRED_SIZE, 121, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addComponent(jLabel2, javax.swing.GroupLayout.PREFERRED_SIZE, 158, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addComponent(jLabel7)
+                                .addComponent(jLabel8)
+                                .addComponent(jLabel11, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                            .addGap(44, 44, 44)
+                            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                .addComponent(txtRestaurantName, javax.swing.GroupLayout.PREFERRED_SIZE, 165, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addComponent(txtAddress, javax.swing.GroupLayout.PREFERRED_SIZE, 165, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addComponent(txtNumOfTables, javax.swing.GroupLayout.PREFERRED_SIZE, 165, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addComponent(txtPhoneNumber, javax.swing.GroupLayout.PREFERRED_SIZE, 165, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addComponent(checkboxDineInAvailable)))
+                        .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                            .addGap(0, 0, Short.MAX_VALUE)
+                            .addComponent(jLabel1)))
                     .addGroup(layout.createSequentialGroup()
-                        .addGap(95, 95, 95)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addGroup(layout.createSequentialGroup()
-                                .addComponent(btnBack)
-                                .addGap(52, 52, 52)
-                                .addComponent(jLabel1))
-                            .addGroup(layout.createSequentialGroup()
-                                .addGap(84, 84, 84)
-                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                                    .addComponent(jLabel6, javax.swing.GroupLayout.PREFERRED_SIZE, 121, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addComponent(jLabel3, javax.swing.GroupLayout.PREFERRED_SIZE, 121, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addComponent(jLabel2, javax.swing.GroupLayout.PREFERRED_SIZE, 158, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addComponent(jLabel7)
-                                    .addComponent(jLabel8))
-                                .addGap(44, 44, 44)
-                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addComponent(txtRestaurantName, javax.swing.GroupLayout.PREFERRED_SIZE, 165, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addComponent(txtAddress, javax.swing.GroupLayout.PREFERRED_SIZE, 165, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addComponent(txtManagerName, javax.swing.GroupLayout.PREFERRED_SIZE, 165, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addComponent(txtPhoneNumber, javax.swing.GroupLayout.PREFERRED_SIZE, 165, javax.swing.GroupLayout.PREFERRED_SIZE)))))
-                    .addGroup(layout.createSequentialGroup()
-                        .addGap(314, 314, 314)
+                        .addGap(316, 316, 316)
                         .addComponent(btnCreate, javax.swing.GroupLayout.PREFERRED_SIZE, 131, javax.swing.GroupLayout.PREFERRED_SIZE)))
                 .addContainerGap(258, Short.MAX_VALUE))
+            .addGroup(layout.createSequentialGroup()
+                .addGap(94, 94, 94)
+                .addComponent(btnBack)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addGap(56, 56, 56)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel1)
-                    .addComponent(btnBack))
-                .addGap(37, 37, 37)
+                .addContainerGap()
+                .addComponent(jLabel1)
+                .addGap(24, 24, 24)
+                .addComponent(btnBack)
+                .addGap(35, 35, 35)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(txtRestaurantName, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jLabel2))
@@ -155,17 +172,21 @@ public class ModifyResturantJPanel extends javax.swing.JPanel {
                     .addComponent(txtAddress, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(18, 18, 18)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                    .addComponent(jLabel6)
-                    .addComponent(txtManagerName, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(numOfTables)
+                    .addComponent(txtNumOfTables, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(18, 18, 18)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(txtPhoneNumber, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jLabel7))
                 .addGap(18, 18, 18)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jLabel11)
+                    .addComponent(checkboxDineInAvailable))
+                .addGap(12, 12, 12)
                 .addComponent(jLabel8)
                 .addGap(18, 18, 18)
                 .addComponent(btnCreate)
-                .addContainerGap(257, Short.MAX_VALUE))
+                .addContainerGap(224, Short.MAX_VALUE))
         );
     }// </editor-fold>//GEN-END:initComponents
 
@@ -182,7 +203,7 @@ public class ModifyResturantJPanel extends javax.swing.JPanel {
 
     private void btnCreateActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCreateActionPerformed
         // TODO add your handling code here:
-        if(txtRestaurantName.getText().isEmpty() || txtManagerName.getText().isEmpty() ||
+        if(txtRestaurantName.getText().isEmpty() || txtNumOfTables.getText().isEmpty() ||
             txtPhoneNumber.getText().isEmpty() || txtAddress.getText().isEmpty()) {
             JOptionPane.showMessageDialog(null, "Fields cannot be left empty");
             return;
@@ -209,35 +230,54 @@ public class ModifyResturantJPanel extends javax.swing.JPanel {
         }
 
         String address = txtAddress.getText();
+        
+        int numberOfTables = Integer.parseInt(txtNumOfTables.getText());
+        boolean isDineInAvailable;
+        
+        if(checkboxDineInAvailable.isSelected()){
+                isDineInAvailable = true;
+            }
+            else{
+                isDineInAvailable = false;
+            }
+
 
         restaurant.setRestaurantName(txtRestaurantName.getText());
-        restaurant.setManagerName(txtManagerName.getText());
+        restaurant.setManagerName(txtNumOfTables.getText());
         restaurant.setPhoneNumber(phoneNumber);
         restaurant.setAddress(address);
+        restaurant.setNumberOfTables(numberOfTables);
+        restaurant.setIsDineInAvailable(isDineInAvailable);
 
         JOptionPane.showMessageDialog(null, "Restaurant details updated successfully!");
         
         // Empty all fields
         
         txtAddress.setText("");
-        txtManagerName.setText("");
+        txtNumOfTables.setText("");
         txtPhoneNumber.setText("");
         txtRestaurantName.setText("");
         
     }//GEN-LAST:event_btnCreateActionPerformed
 
+    private void checkboxDineInAvailableActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_checkboxDineInAvailableActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_checkboxDineInAvailableActionPerformed
+
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btnBack;
     private javax.swing.JButton btnCreate;
+    private javax.swing.JCheckBox checkboxDineInAvailable;
     private javax.swing.JLabel jLabel1;
+    private javax.swing.JLabel jLabel11;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
-    private javax.swing.JLabel jLabel6;
     private javax.swing.JLabel jLabel7;
     private javax.swing.JLabel jLabel8;
+    private javax.swing.JLabel numOfTables;
     private javax.swing.JTextField txtAddress;
-    private javax.swing.JTextField txtManagerName;
+    private javax.swing.JTextField txtNumOfTables;
     private javax.swing.JTextField txtPhoneNumber;
     private javax.swing.JTextField txtRestaurantName;
     // End of variables declaration//GEN-END:variables

@@ -16,7 +16,7 @@ public class Restaurant {
     private String address;
     private String managerName;
     private String phoneNumber;
-    private Boolean isDinInAvailable;
+    private Boolean isDineInAvailable;
     private int numberOfTables;
     private MenuDirectory MenuDirectory;
     
@@ -25,9 +25,25 @@ public class Restaurant {
      {
         this.restaurantName = restaurantName;
         this.address = address;
-       this.isDinInAvailable = isDineInAvailable;
+        this.isDineInAvailable = isDineInAvailable;
         this.numberOfTables = numberOfTables;
         this.phoneNumber = phoneNumber;
+    }
+
+    public Boolean getIsDineInAvailable() {
+        return isDineInAvailable;
+    }
+
+    public void setIsDineInAvailable(Boolean isDineInAvailable) {
+        this.isDineInAvailable = isDineInAvailable;
+    }
+
+    public int getNumberOfTables() {
+        return numberOfTables;
+    }
+
+    public void setNumberOfTables(int numberOfTables) {
+        this.numberOfTables = numberOfTables;
     }
 
     public MenuDirectory getMenuDirectory() {

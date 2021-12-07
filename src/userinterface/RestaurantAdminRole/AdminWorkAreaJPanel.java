@@ -138,7 +138,7 @@ public class AdminWorkAreaJPanel extends javax.swing.JPanel {
 
     private void manageServersActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_manageServersActionPerformed
         // TODO add your handling code here:
-        ManageServerJPanel manageServerJPanel = new ManageServerJPanel();
+        ManageServerJPanel manageServerJPanel = new ManageServerJPanel(userProcessContainer,account, ecoSystem, restaurantDirectory);
         userProcessContainer.add("ManageOrderJPanel",manageServerJPanel);
         CardLayout layout = (CardLayout) userProcessContainer.getLayout();
         layout.next(userProcessContainer);

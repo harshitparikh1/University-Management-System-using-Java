@@ -117,7 +117,7 @@
                               </Group>
                           </Group>
                       </Group>
-                      <EmptySpace pref="62" max="32767" attributes="0"/>
+                      <EmptySpace pref="27" max="32767" attributes="0"/>
                   </Group>
               </Group>
             </DimensionLayout>
@@ -135,7 +135,7 @@
                       <Component id="btnRestaurant" min="-2" max="-2" attributes="0"/>
                       <EmptySpace type="separate" max="-2" attributes="0"/>
                       <Component id="btnDelivery" min="-2" max="-2" attributes="0"/>
-                      <EmptySpace pref="209" max="32767" attributes="0"/>
+                      <EmptySpace pref="228" max="32767" attributes="0"/>
                   </Group>
               </Group>
             </DimensionLayout>

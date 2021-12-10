@@ -5,10 +5,7 @@
  */
 package Business.Customer;
 
-/**
- *
- * @author harold
- */
+
 public class Customer {
     
     private String name;

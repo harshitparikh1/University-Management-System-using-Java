@@ -1,11 +1,13 @@
 package userinterface.RestaurantAdminRole;
 
+import Business.Chef.ChefDirectory;
 import Business.Customer.CustomerDirectory;
 import Business.DeliveryMan.DeliveryManDirectory;
 import Business.EcoSystem;
 import Business.Menu.MenuDirectory;
 import Business.Order.OrderDirectory;
 import Business.Restaurant.RestaurantDirectory;
+import Business.Server.ServerDirectory;
 import Business.UserAccount.UserAccount;
 import java.awt.CardLayout;
 import javax.swing.JPanel;
@@ -24,10 +26,12 @@ public class AdminWorkAreaJPanel extends javax.swing.JPanel {
     private DeliveryManDirectory deliveryManDirectory;
     private MenuDirectory menuDirectory;
     private OrderDirectory orderDirectory;
+    private ChefDirectory chefDirectory;
+    private ServerDirectory serverDirectory;
     
     public AdminWorkAreaJPanel(JPanel userProcessContainer, UserAccount account, EcoSystem ecoSystem, 
             CustomerDirectory customerDirectory, RestaurantDirectory restaurantDirectory, 
-            DeliveryManDirectory deliveryManDirectory, MenuDirectory menuDirectory, OrderDirectory orderDirectory) {
+            DeliveryManDirectory deliveryManDirectory, MenuDirectory menuDirectory, OrderDirectory orderDirectory, ChefDirectory chefDirectory, ServerDirectory serverDirectory) {
         initComponents();
         this.userProcessContainer = userProcessContainer;
         this.account = account;
@@ -37,6 +41,8 @@ public class AdminWorkAreaJPanel extends javax.swing.JPanel {
         this.deliveryManDirectory = ecoSystem.getDeliveryManDirectory();
         this.menuDirectory = ecoSystem.getMenuDirectory();
         this.orderDirectory = ecoSystem.getOrderDirectory();
+        this.chefDirectory = ecoSystem.getChefDirectory();
+        this.serverDirectory = ecoSystem.getServerDirectory();
         valueLabel.setText(account.getUsername());
                 
                 
@@ -138,7 +144,7 @@ public class AdminWorkAreaJPanel extends javax.swing.JPanel {
 
     private void manageServersActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_manageServersActionPerformed
         // TODO add your handling code here:
-        ManageServerJPanel manageServerJPanel = new ManageServerJPanel(userProcessContainer,account, ecoSystem, restaurantDirectory);
+        ManageServerJPanel manageServerJPanel = new ManageServerJPanel(userProcessContainer,account, ecoSystem, restaurantDirectory,serverDirectory);
         userProcessContainer.add("ManageOrderJPanel",manageServerJPanel);
         CardLayout layout = (CardLayout) userProcessContainer.getLayout();
         layout.next(userProcessContainer);

@@ -8,10 +8,12 @@ package userinterface.RestaurantAdminRole;
 import Business.EcoSystem;
 import Business.Restaurant.Restaurant;
 import Business.Restaurant.RestaurantDirectory;
+import Business.Server.ServerDirectory;
 import Business.UserAccount.UserAccount;
 import java.awt.CardLayout;
 import javax.swing.JPanel;
 import javax.swing.table.DefaultTableModel;
+import userinterface.ServerRole.CreateServerJPanel;
 
 /**
  *
@@ -23,13 +25,15 @@ public class ManageServerJPanel extends javax.swing.JPanel {
     private UserAccount account;
     private EcoSystem ecoSystem;
     private RestaurantDirectory restaurantDirectory;
+    private ServerDirectory serverDirectory;
     private Restaurant restaurant;
 
-    public ManageServerJPanel(JPanel userProcessContainer, UserAccount account, EcoSystem ecoSystem, RestaurantDirectory restaurantDirectory) {
+    public ManageServerJPanel(JPanel userProcessContainer, UserAccount account, EcoSystem ecoSystem, RestaurantDirectory restaurantDirectory, ServerDirectory serverDirectory) {
         initComponents();
         this.userProcessContainer = userProcessContainer;
         this.account = account;
         this.ecoSystem = ecoSystem;
+        this.serverDirectory = ecoSystem.getServerDirectory();
         this.restaurantDirectory = ecoSystem.getRestaurantDirectory();
         PopulateTable();
     }
@@ -81,6 +85,11 @@ public class ManageServerJPanel extends javax.swing.JPanel {
         jScrollPane1.setViewportView(serverTable);
 
         jButton1.setText("Create Server");
+        jButton1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton1ActionPerformed(evt);
+            }
+        });
 
         jButton2.setText("Modify Server");
         jButton2.addActionListener(new java.awt.event.ActionListener() {
@@ -147,6 +156,15 @@ public class ManageServerJPanel extends javax.swing.JPanel {
     private void jButton3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton3ActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_jButton3ActionPerformed
+
+    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
+        // TODO add your handling code here:
+        
+        CreateServerJPanel createServerJPanel = new CreateServerJPanel(userProcessContainer,account, ecoSystem, restaurantDirectory, serverDirectory);
+        userProcessContainer.add("CreateServerJPanel",createServerJPanel);
+        CardLayout layout = (CardLayout) userProcessContainer.getLayout();
+        layout.next(userProcessContainer);
+    }//GEN-LAST:event_jButton1ActionPerformed
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables

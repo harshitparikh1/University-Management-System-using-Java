@@ -6,6 +6,7 @@ import Business.Employee.Employee;
 import Business.Restaurant.Restaurant;
 import Business.Restaurant.RestaurantDirectory;
 import Business.Role.AdminRole;
+import Business.Server.ServerDirectory;
 import Business.UserAccount.UserAccount;
 import java.awt.CardLayout;
 import java.awt.Component;
@@ -21,14 +22,16 @@ public class CreateRestaurantJPanel extends javax.swing.JPanel {
     private JPanel userProcessContainer;
     private EcoSystem ecoSystem;
     private RestaurantDirectory restaurantDirectory;
+    private ServerDirectory serverDirectory;
     /**
      * Creates new form CreateRetaurantJPanel
      */
-    public CreateRestaurantJPanel(JPanel userProcessContainer, EcoSystem ecoSystem, RestaurantDirectory restaurantDirectory) {
+    public CreateRestaurantJPanel(JPanel userProcessContainer, EcoSystem ecoSystem, RestaurantDirectory restaurantDirectory, ServerDirectory serverDirectory) {
         initComponents();
         this.userProcessContainer = userProcessContainer;
         this.ecoSystem = ecoSystem;
         this.restaurantDirectory = ecoSystem.getRestaurantDirectory();
+        this.serverDirectory = ecoSystem.getServerDirectory();
     }
 
     /**

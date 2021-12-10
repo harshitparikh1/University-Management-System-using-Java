@@ -62,7 +62,6 @@ public class CreateServerJPanel extends javax.swing.JPanel {
     private void initComponents() {
 
         btnBack = new javax.swing.JButton();
-        jLabel1 = new javax.swing.JLabel();
         createServerButton = new javax.swing.JButton();
         jLabel6 = new javax.swing.JLabel();
         jLabel9 = new javax.swing.JLabel();
@@ -82,7 +81,9 @@ public class CreateServerJPanel extends javax.swing.JPanel {
         jLabel8 = new javax.swing.JLabel();
         jLabel10 = new javax.swing.JLabel();
         serverYearsOfExperience = new javax.swing.JTextField();
+        jLabel1 = new javax.swing.JLabel();
 
+        setBackground(new java.awt.Color(102, 102, 102));
         setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         btnBack.setText("<Back");
@@ -91,11 +92,7 @@ public class CreateServerJPanel extends javax.swing.JPanel {
                 btnBackActionPerformed(evt);
             }
         });
-        add(btnBack, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 90, 83, 22));
-
-        jLabel1.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        jLabel1.setText("Create Server");
-        add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(225, 29, 215, 38));
+        add(btnBack, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 100, 83, 22));
 
         createServerButton.setText("Create Server");
         createServerButton.addActionListener(new java.awt.event.ActionListener() {
@@ -103,70 +100,76 @@ public class CreateServerJPanel extends javax.swing.JPanel {
                 createServerButtonActionPerformed(evt);
             }
         });
-        add(createServerButton, new org.netbeans.lib.awtextra.AbsoluteConstraints(346, 471, -1, -1));
+        add(createServerButton, new org.netbeans.lib.awtextra.AbsoluteConstraints(330, 470, -1, -1));
 
         jLabel6.setFont(new java.awt.Font("Optima", 0, 14)); // NOI18N
         jLabel6.setForeground(new java.awt.Color(204, 204, 204));
         jLabel6.setHorizontalAlignment(javax.swing.SwingConstants.RIGHT);
         jLabel6.setText("Home Address*:");
-        add(jLabel6, new org.netbeans.lib.awtextra.AbsoluteConstraints(163, 280, -1, -1));
+        add(jLabel6, new org.netbeans.lib.awtextra.AbsoluteConstraints(220, 280, -1, -1));
 
         jLabel9.setFont(new java.awt.Font("Optima", 0, 14)); // NOI18N
         jLabel9.setForeground(new java.awt.Color(204, 204, 204));
         jLabel9.setHorizontalAlignment(javax.swing.SwingConstants.RIGHT);
         jLabel9.setText("Password*:");
-        add(jLabel9, new org.netbeans.lib.awtextra.AbsoluteConstraints(134, 394, 132, -1));
+        add(jLabel9, new org.netbeans.lib.awtextra.AbsoluteConstraints(190, 390, 132, -1));
 
         jLabel7.setFont(new java.awt.Font("Optima", 0, 14)); // NOI18N
         jLabel7.setForeground(new java.awt.Color(204, 204, 204));
         jLabel7.setHorizontalAlignment(javax.swing.SwingConstants.RIGHT);
         jLabel7.setText("Phone Number*:");
-        add(jLabel7, new org.netbeans.lib.awtextra.AbsoluteConstraints(134, 317, 132, -1));
-        add(serverUserName, new org.netbeans.lib.awtextra.AbsoluteConstraints(366, 355, 165, -1));
-        add(serverPhoneNumber, new org.netbeans.lib.awtextra.AbsoluteConstraints(366, 317, 165, -1));
-        add(serverFirstName, new org.netbeans.lib.awtextra.AbsoluteConstraints(366, 127, 165, -1));
-        add(serverPassword, new org.netbeans.lib.awtextra.AbsoluteConstraints(366, 393, 165, -1));
-        add(serverLastName, new org.netbeans.lib.awtextra.AbsoluteConstraints(366, 165, 165, -1));
-        add(serverAge, new org.netbeans.lib.awtextra.AbsoluteConstraints(366, 241, 165, -1));
-        add(serverEmailId, new org.netbeans.lib.awtextra.AbsoluteConstraints(366, 203, 165, -1));
+        add(jLabel7, new org.netbeans.lib.awtextra.AbsoluteConstraints(190, 320, 132, -1));
+        add(serverUserName, new org.netbeans.lib.awtextra.AbsoluteConstraints(350, 360, 165, -1));
+        add(serverPhoneNumber, new org.netbeans.lib.awtextra.AbsoluteConstraints(350, 320, 165, -1));
+        add(serverFirstName, new org.netbeans.lib.awtextra.AbsoluteConstraints(350, 130, 165, -1));
+        add(serverPassword, new org.netbeans.lib.awtextra.AbsoluteConstraints(350, 390, 165, -1));
+        add(serverLastName, new org.netbeans.lib.awtextra.AbsoluteConstraints(350, 170, 165, -1));
+        add(serverAge, new org.netbeans.lib.awtextra.AbsoluteConstraints(350, 240, 165, -1));
+        add(serverEmailId, new org.netbeans.lib.awtextra.AbsoluteConstraints(350, 210, 165, -1));
 
         jLabel2.setFont(new java.awt.Font("Optima", 0, 14)); // NOI18N
         jLabel2.setForeground(new java.awt.Color(204, 204, 204));
         jLabel2.setHorizontalAlignment(javax.swing.SwingConstants.RIGHT);
         jLabel2.setText("First Name*:");
-        add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(171, 126, 95, -1));
-        add(serverHomeAddress, new org.netbeans.lib.awtextra.AbsoluteConstraints(366, 279, 165, -1));
+        add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(230, 130, 95, -1));
+        add(serverHomeAddress, new org.netbeans.lib.awtextra.AbsoluteConstraints(350, 280, 165, -1));
 
         jLabel3.setFont(new java.awt.Font("Optima", 0, 14)); // NOI18N
         jLabel3.setForeground(new java.awt.Color(204, 204, 204));
         jLabel3.setHorizontalAlignment(javax.swing.SwingConstants.RIGHT);
         jLabel3.setText("Last Name*:");
-        add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(171, 165, 95, -1));
+        add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(230, 170, 95, -1));
 
         jLabel4.setFont(new java.awt.Font("Optima", 0, 14)); // NOI18N
         jLabel4.setForeground(new java.awt.Color(204, 204, 204));
         jLabel4.setHorizontalAlignment(javax.swing.SwingConstants.RIGHT);
         jLabel4.setText("Email Address*:");
-        add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(171, 202, 95, -1));
+        add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(210, 210, 110, -1));
 
         jLabel5.setFont(new java.awt.Font("Optima", 0, 14)); // NOI18N
         jLabel5.setForeground(new java.awt.Color(204, 204, 204));
         jLabel5.setHorizontalAlignment(javax.swing.SwingConstants.RIGHT);
         jLabel5.setText("Age*:");
-        add(jLabel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(171, 239, 95, -1));
+        add(jLabel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(230, 240, 95, -1));
 
         jLabel8.setFont(new java.awt.Font("Optima", 0, 14)); // NOI18N
         jLabel8.setForeground(new java.awt.Color(204, 204, 204));
         jLabel8.setHorizontalAlignment(javax.swing.SwingConstants.RIGHT);
         jLabel8.setText("Username*:");
-        add(jLabel8, new org.netbeans.lib.awtextra.AbsoluteConstraints(134, 357, 132, -1));
+        add(jLabel8, new org.netbeans.lib.awtextra.AbsoluteConstraints(190, 360, 132, -1));
 
         jLabel10.setFont(new java.awt.Font("Optima", 0, 14)); // NOI18N
         jLabel10.setForeground(new java.awt.Color(204, 204, 204));
         jLabel10.setHorizontalAlignment(javax.swing.SwingConstants.RIGHT);
-        jLabel10.setText("Years Of Experience");
-        add(jLabel10, new org.netbeans.lib.awtextra.AbsoluteConstraints(134, 424, -1, -1));
-        add(serverYearsOfExperience, new org.netbeans.lib.awtextra.AbsoluteConstraints(366, 424, 165, -1));
+        jLabel10.setText("Years Of Experience:");
+        add(jLabel10, new org.netbeans.lib.awtextra.AbsoluteConstraints(190, 430, -1, -1));
+        add(serverYearsOfExperience, new org.netbeans.lib.awtextra.AbsoluteConstraints(350, 430, 165, -1));
+
+        jLabel1.setFont(new java.awt.Font("Optima", 1, 36)); // NOI18N
+        jLabel1.setForeground(new java.awt.Color(204, 204, 204));
+        jLabel1.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        jLabel1.setText("Create Server");
+        add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 710, 50));
     }// </editor-fold>//GEN-END:initComponents
 
     private void btnBackActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnBackActionPerformed

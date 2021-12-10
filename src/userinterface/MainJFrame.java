@@ -1,5 +1,6 @@
 package userinterface;
 
+import Business.Chef.ChefDirectory;
 import Business.EcoSystem;
 import Business.DB4OUtil.DB4OUtil;
 import javax.swing.UIManager.*;
@@ -10,6 +11,7 @@ import Business.DeliveryMan.DeliveryManDirectory;
 import Business.Menu.MenuDirectory;
 import Business.Order.OrderDirectory;
 import Business.Restaurant.RestaurantDirectory;
+import Business.Server.ServerDirectory;
 import java.awt.CardLayout;
 import javax.swing.JOptionPane;
 import javax.swing.JPanel;
@@ -30,6 +32,9 @@ public class MainJFrame extends javax.swing.JFrame {
     private DeliveryManDirectory deliveryManDirectory;
     private MenuDirectory menuDirectory;
     private OrderDirectory orderDirectory;
+    private ServerDirectory serverDirectory;
+    private ChefDirectory chefDirectory;
+    
 
     public MainJFrame() {
         initComponents();
@@ -43,6 +48,8 @@ public class MainJFrame extends javax.swing.JFrame {
         deliveryManDirectory = new DeliveryManDirectory();
         menuDirectory = new MenuDirectory();
         orderDirectory = new OrderDirectory();
+        chefDirectory = new ChefDirectory();
+        serverDirectory = new ServerDirectory();
         
     }
 
@@ -181,7 +188,7 @@ public class MainJFrame extends javax.swing.JFrame {
         System.out.println("EcoSYSTEM MAIN" + system.toString() + system.getUserAccountDirectory().getUserAccountList().size());
         
         CardLayout layout = (CardLayout) container.getLayout();
-        container.add("workArea",userAccount.getRole().createWorkArea(container, userAccount, system, customerDirectory, restaurantDirectory, deliveryManDirectory, menuDirectory, orderDirectory));
+        container.add("workArea",userAccount.getRole().createWorkArea(container, userAccount, system, customerDirectory, restaurantDirectory, deliveryManDirectory, menuDirectory, orderDirectory, chefDirectory, serverDirectory));
         layout.next(container);
         logoutJButton.setEnabled(true);
         loginJButton.setEnabled(false);

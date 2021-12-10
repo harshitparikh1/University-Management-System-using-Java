@@ -6,6 +6,7 @@
 package Business;
 
 
+import Business.Chef.ChefDirectory;
 import Business.Customer.CustomerDirectory;
 import Business.DeliveryMan.DeliveryManDirectory;
 import Business.Menu.MenuDirectory;
@@ -13,6 +14,7 @@ import Business.Order.OrderDirectory;
 import Business.Restaurant.RestaurantDirectory;
 import Business.Role.Role;
 import Business.Role.SystemAdminRole;
+import Business.Server.ServerDirectory;
 import java.util.ArrayList;
 
 /**
@@ -27,12 +29,16 @@ public class EcoSystem extends Organization{
     private DeliveryManDirectory deliveryManDirectory;
     private OrderDirectory orderDirectory;
     private MenuDirectory menuDirectory;
+    private ChefDirectory chefDirectory;
+    private ServerDirectory serverDirectory;
 
-    public EcoSystem(RestaurantDirectory restaurantDirectory, CustomerDirectory customerDirectory, DeliveryManDirectory deliveryManDirectory) {
+    public EcoSystem(RestaurantDirectory restaurantDirectory, CustomerDirectory customerDirectory, DeliveryManDirectory deliveryManDirectory, ChefDirectory chefDirectory, ServerDirectory serverDirectory) {
 
         this.restaurantDirectory = restaurantDirectory;
         this.customerDirectory = customerDirectory;
         this.deliveryManDirectory = deliveryManDirectory;
+        this.chefDirectory = chefDirectory;
+        this.serverDirectory = serverDirectory;
         
     }
 
@@ -77,6 +83,22 @@ public class EcoSystem extends Organization{
     public void setDeliveryManDirectory(DeliveryManDirectory deliveryManDirectory) {
         this.deliveryManDirectory = deliveryManDirectory;
     }
+
+    public ChefDirectory getChefDirectory() {
+        return chefDirectory;
+    }
+
+    public void setChefDirectory(ChefDirectory chefDirectory) {
+        this.chefDirectory = chefDirectory;
+    }
+
+    public ServerDirectory getServerDirectory() {
+        return serverDirectory;
+    }
+
+    public void setServerDirectory(ServerDirectory serverDirectory) {
+        this.serverDirectory = serverDirectory;
+    }
     
     
     
@@ -100,6 +122,8 @@ public class EcoSystem extends Organization{
         deliveryManDirectory = new DeliveryManDirectory();
         menuDirectory = new MenuDirectory();
         orderDirectory = new OrderDirectory();
+        chefDirectory = new ChefDirectory();
+        serverDirectory = new ServerDirectory();
         
        // networkList=new ArrayList<Network>();
     }

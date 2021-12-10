@@ -1,6 +1,7 @@
 
 package userinterface.SystemAdminWorkArea;
 
+import Business.Chef.ChefDirectory;
 import Business.Customer.Customer;
 import Business.EcoSystem;
 
@@ -9,6 +10,7 @@ import Business.DeliveryMan.DeliveryMan;
 import Business.DeliveryMan.DeliveryManDirectory;
 import Business.Restaurant.Restaurant;
 import Business.Restaurant.RestaurantDirectory;
+import Business.Server.ServerDirectory;
 import java.awt.CardLayout;
 import java.util.ArrayList;
 import javax.swing.JPanel;
@@ -27,8 +29,10 @@ public class SystemAdminWorkAreaJPanel extends javax.swing.JPanel {
     CustomerDirectory customerDirectory;
     RestaurantDirectory restaurantDirectory;
     DeliveryManDirectory deliveryManDirectory;
+    ChefDirectory chefDirectory;
+    ServerDirectory serverDirectory;
 
-    public SystemAdminWorkAreaJPanel(JPanel userProcessContainer, EcoSystem ecosystem, CustomerDirectory customerDirectory, RestaurantDirectory restaurantDirectory, DeliveryManDirectory deliveryManDirectory) {
+    public SystemAdminWorkAreaJPanel(JPanel userProcessContainer, EcoSystem ecosystem, CustomerDirectory customerDirectory, RestaurantDirectory restaurantDirectory, DeliveryManDirectory deliveryManDirectory,ChefDirectory chefDirectory, ServerDirectory serverDirectory) {
     
         initComponents();
         this.userProcessContainer = userProcessContainer;
@@ -36,6 +40,8 @@ public class SystemAdminWorkAreaJPanel extends javax.swing.JPanel {
         this.customerDirectory = ecosystem.getCustomerDirectory();
         this.deliveryManDirectory = ecosystem.getDeliveryManDirectory();
         this.restaurantDirectory = ecosystem.getRestaurantDirectory();
+        this.chefDirectory = ecosystem.getChefDirectory();
+        this.serverDirectory = ecosystem.getServerDirectory();
 
         populateTree();
         
@@ -223,7 +229,7 @@ public class SystemAdminWorkAreaJPanel extends javax.swing.JPanel {
     }//GEN-LAST:event_btnCustomerActionPerformed
 
     private void btnRestaurantActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnRestaurantActionPerformed
-        ManageRestaurantJPanel mRestJPnl = new ManageRestaurantJPanel(userProcessContainer, ecosystem, restaurantDirectory);
+        ManageRestaurantJPanel mRestJPnl = new ManageRestaurantJPanel(userProcessContainer, ecosystem, restaurantDirectory, serverDirectory);
         userProcessContainer.add("ManageRestaurantJPanel", mRestJPnl);
         CardLayout layout = (CardLayout) userProcessContainer.getLayout();
         layout.next(userProcessContainer);

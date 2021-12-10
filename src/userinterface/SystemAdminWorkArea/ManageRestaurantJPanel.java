@@ -5,6 +5,7 @@ package userinterface.SystemAdminWorkArea;
 import Business.EcoSystem;
 import Business.Restaurant.Restaurant;
 import Business.Restaurant.RestaurantDirectory;
+import Business.Server.ServerDirectory;
 import java.awt.CardLayout;
 import javax.swing.JOptionPane;
 import javax.swing.JPanel;
@@ -19,14 +20,16 @@ public class ManageRestaurantJPanel extends javax.swing.JPanel {
     private JPanel userProcessContainer;
     private EcoSystem ecoSystem;
     private RestaurantDirectory restaurantDirectory;
+    private ServerDirectory serverDirectory;
     /**
      * Creates new form ManageRestaurantJPanel
      */
-    public ManageRestaurantJPanel(JPanel userProcessContainer, EcoSystem ecoSystem, RestaurantDirectory restaurantDirectory) {
+    public ManageRestaurantJPanel(JPanel userProcessContainer, EcoSystem ecoSystem, RestaurantDirectory restaurantDirectory, ServerDirectory serverDirectory) {
         initComponents();
         this.userProcessContainer = userProcessContainer;
         this.ecoSystem =  ecoSystem;
         this.restaurantDirectory = ecoSystem.getRestaurantDirectory();
+        this.serverDirectory = ecoSystem.getServerDirectory();
         populateTable();
     }
     
@@ -215,7 +218,7 @@ public class ManageRestaurantJPanel extends javax.swing.JPanel {
 
     private void btnCreateActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCreateActionPerformed
         // TODO add your handling code here:
-        CreateRestaurantJPanel createRestaurant = new CreateRestaurantJPanel(userProcessContainer, ecoSystem, restaurantDirectory);
+        CreateRestaurantJPanel createRestaurant = new CreateRestaurantJPanel(userProcessContainer, ecoSystem, restaurantDirectory, serverDirectory);
         userProcessContainer.add("CreateCustomersJPanel",createRestaurant);
         CardLayout layout=(CardLayout)userProcessContainer.getLayout();
         layout.next(userProcessContainer);

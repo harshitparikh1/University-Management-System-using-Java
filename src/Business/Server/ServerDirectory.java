@@ -27,8 +27,8 @@ public class ServerDirectory {
         this.serverDirectory = serverDirectory;
     }
     
-    public Server addServer(int ServerId, String name, int age, long phoneNumber, int yearsOfExperience){
-      Server server = new Server(ServerId, name, age, phoneNumber, yearsOfExperience);
+    public Server addServer(int ServerId, String name,String email, String phoneNumber, int age, String homeAddress, String userName, int yearsOfExperience){
+      Server server = new Server(ServerId, name, email, phoneNumber, age, homeAddress, userName, yearsOfExperience);
       serverDirectory.add(server);
      return server;
     }

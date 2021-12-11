@@ -296,7 +296,7 @@ public class CreateRestaurantJPanel extends javax.swing.JPanel {
         //Restaurant restaurant = restaurantDirectory.newRestaurant(restaurantName, address, managerName, phoneNumber);
         //System.out.println(restaurant.getRestaurantName() + " + ");
         System.out.println("Eco" + ecoSystem.getRestaurantDirectory().getRestaurantDirectory().size());
-        ecoSystem.getRestaurantDirectory().newRestaurant(restaurantName, address, isDineInAvailable, numberOfTables, phoneNumber);
+        ecoSystem.getRestaurantDirectory().newRestaurant(restaurantName, userName, address, isDineInAvailable, numberOfTables, phoneNumber);
         
         Employee employee = ecoSystem.getEmployeeDirectory().createEmployee(restaurantName);
         UserAccount userAccount = ecoSystem.getUserAccountDirectory().createUserAccount(userName, password, employee, new AdminRole());

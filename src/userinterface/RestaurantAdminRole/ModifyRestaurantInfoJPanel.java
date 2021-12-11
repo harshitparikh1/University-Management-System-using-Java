@@ -224,7 +224,6 @@ public class ModifyRestaurantInfoJPanel extends javax.swing.JPanel {
 
 
         restaurant.setRestaurantName(txtRestaurantName.getText());
-        restaurant.setManagerName(txtNumOfTables.getText());
         restaurant.setPhoneNumber(phoneNumber);
         restaurant.setAddress(address);
         restaurant.setNumberOfTables(numberOfTables);

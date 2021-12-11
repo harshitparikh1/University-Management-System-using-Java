@@ -13,6 +13,7 @@ import Business.Menu.MenuDirectory;
 import Business.Order.OrderDirectory;
 import Business.Restaurant.RestaurantDirectory;
 import Business.Server.ServerDirectory;
+import Business.UserAccount.UserAccountDirectory;
 import java.awt.CardLayout;
 import javax.swing.JOptionPane;
 import javax.swing.JPanel;
@@ -28,6 +29,7 @@ public class MainJFrame extends javax.swing.JFrame {
     private DB4OUtil dB4OUtil = DB4OUtil.getInstance();
     private UserAccount userAccount;
     private JPanel userProcessContainer;
+    private UserAccountDirectory userAccountDirectory;
     private CustomerDirectory customerDirectory;
     private RestaurantDirectory restaurantDirectory;
     private DeliveryManDirectory deliveryManDirectory;
@@ -44,7 +46,7 @@ public class MainJFrame extends javax.swing.JFrame {
         system = dB4OUtil.retrieveSystem();
         this.setSize(1680, 1050);
         
-        
+        userAccountDirectory = new UserAccountDirectory();
         customerDirectory = new CustomerDirectory();
         restaurantDirectory = new RestaurantDirectory();
         deliveryManDirectory = new DeliveryManDirectory();

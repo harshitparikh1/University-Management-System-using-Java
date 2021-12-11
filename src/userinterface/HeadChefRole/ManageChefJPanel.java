@@ -5,6 +5,11 @@
  */
 package userinterface.HeadChefRole;
 
+import Business.Chef.ChefDirectory;
+import Business.EcoSystem;
+import Business.HeadChef.HeadChefDirectory;
+import Business.Restaurant.RestaurantDirectory;
+import Business.UserAccount.UserAccount;
 import java.awt.CardLayout;
 import javax.swing.JPanel;
 
@@ -15,14 +20,28 @@ import javax.swing.JPanel;
 public class ManageChefJPanel extends javax.swing.JPanel {
 
     private JPanel userProcessContainer;
+    private UserAccount account;
+    private EcoSystem ecoSystem;
+    private RestaurantDirectory restaurantDirectory;
+    private HeadChefDirectory headChefDirectory;
+    private ChefDirectory chefDirectory;
     
     /**
      * Creates new form hi
      */
     public ManageChefJPanel() {
+        
+    }
+
+    ManageChefJPanel(JPanel userProcessContainer, UserAccount account, EcoSystem ecoSystem, RestaurantDirectory restaurantDirectory, HeadChefDirectory headChefDirectory, ChefDirectory chefDirectory) {
         initComponents();
         this.userProcessContainer = userProcessContainer;
-    }
+        this.ecoSystem = ecoSystem;
+        this.account = account;
+        this.restaurantDirectory = ecoSystem.getRestaurantDirectory();
+        this.headChefDirectory = ecoSystem.getHeadChefDirectory();
+        this.chefDirectory = ecoSystem.getChefDirectory();
+        }
 
     /**
      * This method is called from within the constructor to initialize the form.

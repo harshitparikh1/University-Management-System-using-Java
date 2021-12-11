@@ -237,7 +237,8 @@ public class ManageRestaurantJPanel extends javax.swing.JPanel {
         }
 
         Restaurant restaurant = (Restaurant) tblRestaurant.getValueAt(selectedRow, 0);
-        
+        UserAccount account1 = ecoSystem.getUserAccountDirectory().findUserAccount(restaurant.getUserName());
+        ecoSystem.getUserAccountDirectory().deleteUserAccount(account1);
         
         restaurantDirectory.removeRestaurant(restaurant);
         populateTable();

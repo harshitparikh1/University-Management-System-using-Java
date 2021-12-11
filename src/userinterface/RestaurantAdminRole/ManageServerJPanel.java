@@ -238,19 +238,22 @@ public class ManageServerJPanel extends javax.swing.JPanel {
     // End of variables declaration//GEN-END:variables
 
     public void populateTable() {
+        String restaurantName = account.getEmployee().getName();
         DefaultTableModel dtm = (DefaultTableModel) tblServer.getModel();
         dtm.setRowCount(0);
 
         for(Server server: ecoSystem.getServerDirectory().getServerDirectory()){
 
-            Object [] row = new Object[6];
-            row[0] = server;
-            row[1] = server.getName();
-            row[2] = server.getEmail();
-            row[3] = server.getHomeAddress();
-            row[4] = server.getPhoneNumber();
-            row[5] = server.getAge();
-            dtm.addRow(row);
+            if(server.getRestaurantName().equals(restaurantName)){
+                Object [] row = new Object[6];
+                row[0] = server;
+                row[1] = server.getName();
+                row[2] = server.getEmail();
+                row[3] = server.getHomeAddress();
+                row[4] = server.getPhoneNumber();
+                row[5] = server.getAge();
+                dtm.addRow(row);
+            }
 
 
             }

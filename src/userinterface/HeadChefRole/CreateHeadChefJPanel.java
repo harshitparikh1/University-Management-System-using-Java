@@ -205,12 +205,20 @@ public class CreateHeadChefJPanel extends javax.swing.JPanel {
             JOptionPane.showMessageDialog(null, "Email Address must be in format: example@mail.com");
             return;
         }
-        System.out.println(headChefDirectory.getHeadChefDirectory());
-        for(HeadChef headChef : headChefDirectory.getHeadChefDirectory()) {
-            if(headChef.getEmail().equals(email)) {
-                JOptionPane.showMessageDialog(null, "Email Address already exists");
+        
+        
+        try {
+            for(HeadChef headChef : headChefDirectory.getHeadChefDirectory()) {
+                System.out.println(headChef);
+                if(headChef.getEmail().equals(email)) {
+                    JOptionPane.showMessageDialog(null, "Email Address already exists");
+                }
             }
+        } catch (Exception e) {
+            System.out.println("No headchef exists.");
         }
+        
+        
 
         String phoneNumber = headChefPhoneNumber.getText();
 
@@ -223,11 +231,19 @@ public class CreateHeadChefJPanel extends javax.swing.JPanel {
             JOptionPane.showMessageDialog(null, "Phone Number must have 0-9 digits only");
             return;
         }
-        for(HeadChef headChef : headChefDirectory.getHeadChefDirectory()) {
-            if(headChef.getPhoneNumber().equals(phoneNumber)) {
-                JOptionPane.showMessageDialog(null, "Phone Number already exists");
+        
+        try {
+            for(HeadChef headChef : headChefDirectory.getHeadChefDirectory()) {
+                if(headChef.getPhoneNumber().equals(phoneNumber)) {
+                    JOptionPane.showMessageDialog(null, "Phone Number already exists");
+                }
             }
+        } catch (Exception e) {
+            System.out.println("No headchef phone number exists.");
+            
         }
+        
+        
 
         int age = 0;
         int experience = Integer.parseInt(headChefYearsOfExperience.getText());

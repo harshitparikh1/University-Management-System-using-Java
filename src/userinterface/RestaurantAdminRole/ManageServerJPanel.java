@@ -206,9 +206,8 @@ public class ManageServerJPanel extends javax.swing.JPanel {
         
         Server server = (Server) tblServer.getValueAt(selectedRow, 0);
         
-        if (account.getUsername().equals(server.getUserName()) ) {
-            
-        }
+        UserAccount account1 = ecoSystem.getUserAccountDirectory().findUserAccount(server.getUserName());
+        ecoSystem.getUserAccountDirectory().deleteUserAccount(account1);
         serverDirectory.removeServer(server);
         populateTable();
     }//GEN-LAST:event_btnDeleteActionPerformed

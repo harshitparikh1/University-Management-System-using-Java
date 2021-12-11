@@ -14,7 +14,7 @@ import Business.Menu.MenuDirectory;
 public class Restaurant {
     private String restaurantName;
     private String address;
-    private String managerName;
+    private String userName;
     private String phoneNumber;
     private Boolean isDineInAvailable;
     private int numberOfTables;
@@ -22,13 +22,14 @@ public class Restaurant {
     
     
     
-     public Restaurant(String restaurantName, String address, Boolean isDineInAvailable, int numberOfTables, String phoneNumber) 
+     public Restaurant(String restaurantName, String userName, String address, Boolean isDineInAvailable, int numberOfTables, String phoneNumber) 
      {
         this.restaurantName = restaurantName;
         this.address = address;
         this.isDineInAvailable = isDineInAvailable;
         this.numberOfTables = numberOfTables;
         this.phoneNumber = phoneNumber;
+        this.userName = userName;
     }
 
     public Boolean getIsDineInAvailable() {
@@ -73,13 +74,7 @@ public class Restaurant {
         this.address = address;
     }
 
-    public String getManagerName() {
-        return managerName;
-    }
-
-    public void setManagerName(String managerName) {
-        this.managerName = managerName;
-    }
+    
 
     public String getPhoneNumber() {
         return phoneNumber;
@@ -88,6 +83,15 @@ public class Restaurant {
     public void setPhoneNumber(String phoneNumber) {
         this.phoneNumber = phoneNumber;
     }
+
+    public String getUserName() {
+        return userName;
+    }
+
+    public void setUserName(String userName) {
+        this.userName = userName;
+    }
+    
     
     @Override
     public String toString() {

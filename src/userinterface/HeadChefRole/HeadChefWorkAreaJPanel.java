@@ -5,12 +5,15 @@
  */
 package userinterface.HeadChefRole;
 
+import Business.Chef.ChefDirectory;
 import Business.Customer.CustomerDirectory;
 import Business.EcoSystem;
 import Business.HeadChef.HeadChefDirectory;
 import Business.Restaurant.RestaurantDirectory;
 import Business.UserAccount.UserAccount;
+import java.awt.CardLayout;
 import javax.swing.JPanel;
+import userinterface.RestaurantAdminRole.ModifyServerJPanel;
 
 /**
  *
@@ -23,22 +26,24 @@ public class HeadChefWorkAreaJPanel extends javax.swing.JPanel {
      */
     private JPanel userProcessContainer;
     UserAccount account;
-    EcoSystem ecoSystem;
-    RestaurantDirectory restaurantDirectory;
-    HeadChefDirectory headChefDirectory;
+    private EcoSystem ecoSystem;
+    private RestaurantDirectory restaurantDirectory;
+    private HeadChefDirectory headChefDirectory;
+    private ChefDirectory chefDirectory;
     
     
     public HeadChefWorkAreaJPanel() {
         
     }
 
-    public HeadChefWorkAreaJPanel(JPanel userProcessContainer, UserAccount account, EcoSystem ecoSystem, RestaurantDirectory restaurantDirectory,HeadChefDirectory headChefDirectory) {
+    public HeadChefWorkAreaJPanel(JPanel userProcessContainer, UserAccount account, EcoSystem ecoSystem, RestaurantDirectory restaurantDirectory,HeadChefDirectory headChefDirectory, ChefDirectory chefDirectory) {
         initComponents();
         this.userProcessContainer = userProcessContainer;
         this.account = account;
         this.ecoSystem = ecoSystem;
         this.restaurantDirectory = ecoSystem.getRestaurantDirectory();
         this.headChefDirectory = ecoSystem.getHeadChefDirectory();
+        this.chefDirectory = ecoSystem.getChefDirectory();
         
         
     }
@@ -55,69 +60,48 @@ public class HeadChefWorkAreaJPanel extends javax.swing.JPanel {
     private void initComponents() {
 
         jLabel1 = new javax.swing.JLabel();
-        jButton1 = new javax.swing.JButton();
-        jButton2 = new javax.swing.JButton();
+        manageChefButton = new javax.swing.JButton();
+        manageMenuButton = new javax.swing.JButton();
+
+        setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         jLabel1.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         jLabel1.setText("Welcome ");
+        add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(129, 37, 189, 41));
 
-        jButton1.setText("Manage Chefs");
-        jButton1.addActionListener(new java.awt.event.ActionListener() {
+        manageChefButton.setText("Manage Chefs");
+        manageChefButton.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton1ActionPerformed(evt);
+                manageChefButtonActionPerformed(evt);
             }
         });
+        add(manageChefButton, new org.netbeans.lib.awtextra.AbsoluteConstraints(22, 148, 185, -1));
 
-        jButton2.setText("Manage Menu ingredients");
-        jButton2.addActionListener(new java.awt.event.ActionListener() {
+        manageMenuButton.setText("Manage Menu ingredients");
+        manageMenuButton.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton2ActionPerformed(evt);
+                manageMenuButtonActionPerformed(evt);
             }
         });
-
-        javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
-        this.setLayout(layout);
-        layout.setHorizontalGroup(
-            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
-                .addGap(22, 22, 22)
-                .addComponent(jButton1)
-                .addGap(34, 34, 34)
-                .addComponent(jButton2)
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 189, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(118, 118, 118))
-        );
-
-        layout.linkSize(javax.swing.SwingConstants.HORIZONTAL, new java.awt.Component[] {jButton1, jButton2});
-
-        layout.setVerticalGroup(
-            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
-                .addGap(37, 37, 37)
-                .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 41, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(70, 70, 70)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jButton1)
-                    .addComponent(jButton2))
-                .addContainerGap(127, Short.MAX_VALUE))
-        );
+        add(manageMenuButton, new org.netbeans.lib.awtextra.AbsoluteConstraints(241, 148, -1, -1));
     }// </editor-fold>//GEN-END:initComponents
 
-    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
+    private void manageChefButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_manageChefButtonActionPerformed
+        ManageChefJPanel mchp = new ManageChefJPanel(userProcessContainer, account, ecoSystem, restaurantDirectory, headChefDirectory, chefDirectory);
+        userProcessContainer.add("ManageChefJPanel", mchp);
+        CardLayout layout=(CardLayout)userProcessContainer.getLayout();
+        layout.next(userProcessContainer);
         
-    }//GEN-LAST:event_jButton1ActionPerformed
+    }//GEN-LAST:event_manageChefButtonActionPerformed
 
-    private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
+    private void manageMenuButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_manageMenuButtonActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_jButton2ActionPerformed
+    }//GEN-LAST:event_manageMenuButtonActionPerformed
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton jButton1;
-    private javax.swing.JButton jButton2;
     private javax.swing.JLabel jLabel1;
+    private javax.swing.JButton manageChefButton;
+    private javax.swing.JButton manageMenuButton;
     // End of variables declaration//GEN-END:variables
 }

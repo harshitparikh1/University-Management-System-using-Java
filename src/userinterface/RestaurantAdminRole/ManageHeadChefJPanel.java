@@ -186,6 +186,10 @@ public class ManageHeadChefJPanel extends javax.swing.JPanel {
         }
         HeadChef headchef = (HeadChef)tblHeadchef.getValueAt(selectedRow, 0);
         ModifyHeadChefJPanel modifyHeadChef = new ModifyHeadChefJPanel(userProcessContainer, ecoSystem, headChefDirectory, headchef);
+        userProcessContainer.add("ModifyHeadChefJPanel", modifyHeadChef);
+        CardLayout layout=(CardLayout)userProcessContainer.getLayout();
+        layout.next(userProcessContainer);
+        
     }//GEN-LAST:event_modifyHeadChefActionPerformed
 
     private void deleteHeadChefActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_deleteHeadChefActionPerformed
@@ -197,6 +201,7 @@ public class ManageHeadChefJPanel extends javax.swing.JPanel {
         }
         HeadChef headchef = (HeadChef) tblHeadchef.getValueAt(selectedRow, 0);
         headChefDirectory.removeHeadChef(headchef);
+        populateTable();
     }//GEN-LAST:event_deleteHeadChefActionPerformed
 
     private void btnBackActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnBackActionPerformed

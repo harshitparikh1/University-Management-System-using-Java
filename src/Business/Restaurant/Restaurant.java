@@ -21,6 +21,7 @@ public class Restaurant {
     private MenuDirectory MenuDirectory;
     
     
+    
      public Restaurant(String restaurantName, String address, Boolean isDineInAvailable, int numberOfTables, String phoneNumber) 
      {
         this.restaurantName = restaurantName;

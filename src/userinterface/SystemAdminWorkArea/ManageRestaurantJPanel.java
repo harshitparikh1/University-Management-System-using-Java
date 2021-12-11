@@ -6,6 +6,7 @@ import Business.EcoSystem;
 import Business.Restaurant.Restaurant;
 import Business.Restaurant.RestaurantDirectory;
 import Business.Server.ServerDirectory;
+import Business.UserAccount.UserAccount;
 import java.awt.CardLayout;
 import javax.swing.JOptionPane;
 import javax.swing.JPanel;
@@ -21,12 +22,14 @@ public class ManageRestaurantJPanel extends javax.swing.JPanel {
     private EcoSystem ecoSystem;
     private RestaurantDirectory restaurantDirectory;
     private ServerDirectory serverDirectory;
+    private UserAccount account;
     /**
      * Creates new form ManageRestaurantJPanel
      */
-    public ManageRestaurantJPanel(JPanel userProcessContainer, EcoSystem ecoSystem, RestaurantDirectory restaurantDirectory, ServerDirectory serverDirectory) {
+    public ManageRestaurantJPanel(JPanel userProcessContainer, UserAccount account, EcoSystem ecoSystem, RestaurantDirectory restaurantDirectory, ServerDirectory serverDirectory) {
         initComponents();
         this.userProcessContainer = userProcessContainer;
+        this.account = account;
         this.ecoSystem =  ecoSystem;
         this.restaurantDirectory = ecoSystem.getRestaurantDirectory();
         this.serverDirectory = ecoSystem.getServerDirectory();
@@ -234,6 +237,8 @@ public class ManageRestaurantJPanel extends javax.swing.JPanel {
         }
 
         Restaurant restaurant = (Restaurant) tblRestaurant.getValueAt(selectedRow, 0);
+        
+        
         restaurantDirectory.removeRestaurant(restaurant);
         populateTable();
 

@@ -22,7 +22,7 @@ import javax.swing.table.DefaultTableModel;
  *
  * @author Talre
  */
-public class CustomerAreaJPanel extends javax.swing.JPanel {
+public class CustomerDeliveryJPanel extends javax.swing.JPanel {
 
     private JPanel userProcessContainer;
     private EcoSystem ecoSystem;
@@ -34,7 +34,7 @@ public class CustomerAreaJPanel extends javax.swing.JPanel {
     private OrderDirectory orderDirectory;
     private static int count = 1;
    
-    public CustomerAreaJPanel(JPanel userProcessContainer, UserAccount account, EcoSystem ecoSystem, 
+    public CustomerDeliveryJPanel(JPanel userProcessContainer, UserAccount account, EcoSystem ecoSystem, 
             CustomerDirectory customerDirectory, RestaurantDirectory restaurantDirectory, 
             DeliveryManDirectory deliveryManDirectory, MenuDirectory menuDirectory, OrderDirectory orderDirectory) {
         initComponents();

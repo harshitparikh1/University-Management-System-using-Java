@@ -61,6 +61,7 @@ public class ManageChefJPanel extends javax.swing.JPanel {
         btnBack = new javax.swing.JButton();
 
         setBackground(new java.awt.Color(102, 102, 102));
+        setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         tblCustomer.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
@@ -83,10 +84,13 @@ public class ManageChefJPanel extends javax.swing.JPanel {
         });
         jScrollPane1.setViewportView(tblCustomer);
 
+        add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 106, 598, 132));
+
         jLabel1.setFont(new java.awt.Font("Optima", 1, 36)); // NOI18N
         jLabel1.setForeground(new java.awt.Color(204, 204, 204));
         jLabel1.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         jLabel1.setText("Head Chef Work Area");
+        add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 618, -1));
 
         createChef.setText("Create Chef");
         createChef.addActionListener(new java.awt.event.ActionListener() {
@@ -94,6 +98,7 @@ public class ManageChefJPanel extends javax.swing.JPanel {
                 createChefActionPerformed(evt);
             }
         });
+        add(createChef, new org.netbeans.lib.awtextra.AbsoluteConstraints(102, 284, -1, -1));
 
         modifyChef.setText("Modify Chef");
         modifyChef.addActionListener(new java.awt.event.ActionListener() {
@@ -101,6 +106,7 @@ public class ManageChefJPanel extends javax.swing.JPanel {
                 modifyChefActionPerformed(evt);
             }
         });
+        add(modifyChef, new org.netbeans.lib.awtextra.AbsoluteConstraints(258, 284, -1, -1));
 
         deleteChef.setText("Delete Chef");
         deleteChef.addActionListener(new java.awt.event.ActionListener() {
@@ -108,6 +114,7 @@ public class ManageChefJPanel extends javax.swing.JPanel {
                 deleteChefActionPerformed(evt);
             }
         });
+        add(deleteChef, new org.netbeans.lib.awtextra.AbsoluteConstraints(408, 284, -1, -1));
 
         btnBack.setText("<Back");
         btnBack.addActionListener(new java.awt.event.ActionListener() {
@@ -115,44 +122,7 @@ public class ManageChefJPanel extends javax.swing.JPanel {
                 btnBackActionPerformed(evt);
             }
         });
-
-        javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
-        this.setLayout(layout);
-        layout.setHorizontalGroup(
-            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jLabel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                .addContainerGap(102, Short.MAX_VALUE)
-                .addComponent(createChef)
-                .addGap(53, 53, 53)
-                .addComponent(modifyChef)
-                .addGap(49, 49, 49)
-                .addComponent(deleteChef)
-                .addGap(107, 107, 107))
-            .addGroup(layout.createSequentialGroup()
-                .addContainerGap()
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(layout.createSequentialGroup()
-                        .addComponent(btnBack)
-                        .addGap(0, 0, Short.MAX_VALUE))
-                    .addComponent(jScrollPane1, javax.swing.GroupLayout.Alignment.TRAILING))
-                .addContainerGap())
-        );
-        layout.setVerticalGroup(
-            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
-                .addComponent(jLabel1)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(btnBack)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 28, Short.MAX_VALUE)
-                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 132, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(46, 46, 46)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(createChef)
-                    .addComponent(modifyChef)
-                    .addComponent(deleteChef))
-                .addGap(59, 59, 59))
-        );
+        add(btnBack, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 53, -1, -1));
     }// </editor-fold>//GEN-END:initComponents
 
     private void createChefActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_createChefActionPerformed

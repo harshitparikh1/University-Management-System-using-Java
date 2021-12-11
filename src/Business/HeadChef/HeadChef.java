@@ -107,4 +107,9 @@ public class HeadChef {
         this.restaurantName = restaurantName;
     }
     
+    @Override
+    public String toString() {
+        return userName;
+    }
+    
 }

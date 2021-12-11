@@ -15,8 +15,10 @@ import Business.Role.HeadChefRole;
 import Business.Server.ServerDirectory;
 import Business.UserAccount.UserAccount;
 import java.awt.CardLayout;
+import java.awt.Component;
 import javax.swing.JOptionPane;
 import javax.swing.JPanel;
+import userinterface.RestaurantAdminRole.ManageHeadChefJPanel;
 
 /**
  *
@@ -35,9 +37,6 @@ public class CreateHeadChefJPanel extends javax.swing.JPanel {
     /**
      * Creates new form CreateHeadChefJPanel
      */
-    public CreateHeadChefJPanel() {
-        
-    }
 
     public CreateHeadChefJPanel(JPanel userProcessContainer, UserAccount account, EcoSystem ecoSystem, RestaurantDirectory restaurantDirectory, HeadChefDirectory headChefDirectory) {
         initComponents();
@@ -270,7 +269,7 @@ public class CreateHeadChefJPanel extends javax.swing.JPanel {
 
         String restaurantName = (account.getEmployee().getName());
         
-        if(count<=1){
+        if(count<=10){
             ecoSystem.getHeadChefDirectory().addHeadChef(count++, name, email, phoneNumber, age, homeAddress, userName, experience, restaurantName);
 
             Employee employee = ecoSystem.getEmployeeDirectory().createEmployee(name);
@@ -297,6 +296,10 @@ public class CreateHeadChefJPanel extends javax.swing.JPanel {
     private void btnBackActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnBackActionPerformed
         // TODO add your handling code here:
         userProcessContainer.remove(this);
+        Component[] componentArray = userProcessContainer.getComponents();
+        Component component = componentArray[componentArray.length - 1];
+        ManageHeadChefJPanel mhcjp = (ManageHeadChefJPanel) component;
+        mhcjp.populateTable();
         CardLayout layout = (CardLayout) userProcessContainer.getLayout();
         layout.previous(userProcessContainer);
     }//GEN-LAST:event_btnBackActionPerformed

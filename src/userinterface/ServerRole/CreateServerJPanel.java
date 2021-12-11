@@ -49,6 +49,7 @@ public class CreateServerJPanel extends javax.swing.JPanel {
         this.serverDirectory = ecoSystem.getServerDirectory();
         this.restaurantDirectory = ecoSystem.getRestaurantDirectory();
         
+        
 
     }
 
@@ -264,8 +265,11 @@ public class CreateServerJPanel extends javax.swing.JPanel {
         }
         
 //        Customer customer = customerDirectory.newCustomer(name, email, phoneNumber, age, homeAddress, userName);
-        System.out.println(ecoSystem.toString());
-        ecoSystem.getServerDirectory().addServer(count++, name, email, phoneNumber, age, homeAddress, userName, experience);
+        
+        String restaurantName = (account.getEmployee().getName());
+
+        ecoSystem.getServerDirectory().addServer(count++, name, email, phoneNumber, age, homeAddress, userName, experience, restaurantName,true);
+        
         Employee employee = ecoSystem.getEmployeeDirectory().createEmployee(name);
         UserAccount usserAccount = ecoSystem.getUserAccountDirectory().createUserAccount(userName, password, employee, new ServerRole());
         

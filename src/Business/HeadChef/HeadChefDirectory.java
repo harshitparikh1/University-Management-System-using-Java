@@ -15,9 +15,19 @@ import java.util.ArrayList;
 public class HeadChefDirectory {
     private ArrayList<HeadChef> headChefDirectory;
     
-    HeadChefDirectory(){
-        headChefDirectory = new ArrayList<>();
+    public HeadChefDirectory(){
+        headChefDirectory = new ArrayList();
     }
+
+    public ArrayList<HeadChef> getHeadChefDirectory() {
+        return headChefDirectory;
+    }
+
+    public void setHeadChefDirectory(ArrayList<HeadChef> headChefDirectory) {
+        this.headChefDirectory = headChefDirectory;
+    }
+    
+    
     
     public HeadChef addHeadChef(int headChefId, String name,String email, String phoneNumber, int age, String homeAddress, String userName, int yearsOfExperience){
       HeadChef  headChef = new HeadChef(headChefId, name, email, phoneNumber, age, homeAddress, userName, yearsOfExperience);

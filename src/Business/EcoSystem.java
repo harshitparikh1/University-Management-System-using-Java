@@ -9,6 +9,7 @@ package Business;
 import Business.Chef.ChefDirectory;
 import Business.Customer.CustomerDirectory;
 import Business.DeliveryMan.DeliveryManDirectory;
+import Business.HeadChef.HeadChefDirectory;
 import Business.Menu.MenuDirectory;
 import Business.Order.OrderDirectory;
 import Business.Restaurant.RestaurantDirectory;
@@ -31,14 +32,16 @@ public class EcoSystem extends Organization{
     private MenuDirectory menuDirectory;
     private ChefDirectory chefDirectory;
     private ServerDirectory serverDirectory;
+    private HeadChefDirectory headChefDirectory;
 
-    public EcoSystem(RestaurantDirectory restaurantDirectory, CustomerDirectory customerDirectory, DeliveryManDirectory deliveryManDirectory, ChefDirectory chefDirectory, ServerDirectory serverDirectory) {
+    public EcoSystem(RestaurantDirectory restaurantDirectory, CustomerDirectory customerDirectory, DeliveryManDirectory deliveryManDirectory, ChefDirectory chefDirectory, ServerDirectory serverDirectory,HeadChefDirectory headChefDirectory) {
 
         this.restaurantDirectory = restaurantDirectory;
         this.customerDirectory = customerDirectory;
         this.deliveryManDirectory = deliveryManDirectory;
         this.chefDirectory = chefDirectory;
         this.serverDirectory = serverDirectory;
+        this.headChefDirectory = headChefDirectory;
         
     }
 
@@ -99,6 +102,16 @@ public class EcoSystem extends Organization{
     public void setServerDirectory(ServerDirectory serverDirectory) {
         this.serverDirectory = serverDirectory;
     }
+
+    public HeadChefDirectory getHeadChefDirectory() {
+        return headChefDirectory;
+    }
+
+    public void setHeadChefDirectory(HeadChefDirectory headChefDirectory) {
+        this.headChefDirectory = headChefDirectory;
+    }
+    
+    
     
     
     
@@ -124,6 +137,7 @@ public class EcoSystem extends Organization{
         orderDirectory = new OrderDirectory();
         chefDirectory = new ChefDirectory();
         serverDirectory = new ServerDirectory();
+        headChefDirectory = new HeadChefDirectory();
         
        // networkList=new ArrayList<Network>();
     }

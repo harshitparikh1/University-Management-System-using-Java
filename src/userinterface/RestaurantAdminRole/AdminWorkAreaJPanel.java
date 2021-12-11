@@ -4,13 +4,16 @@ import Business.Chef.ChefDirectory;
 import Business.Customer.CustomerDirectory;
 import Business.DeliveryMan.DeliveryManDirectory;
 import Business.EcoSystem;
+import Business.HeadChef.HeadChefDirectory;
 import Business.Menu.MenuDirectory;
 import Business.Order.OrderDirectory;
+import Business.Restaurant.Restaurant;
 import Business.Restaurant.RestaurantDirectory;
 import Business.Server.ServerDirectory;
 import Business.UserAccount.UserAccount;
 import java.awt.CardLayout;
 import javax.swing.JPanel;
+import userinterface.HeadChefRole.HeadChefWorkAreaJPanel;
 
 /**
  *
@@ -28,10 +31,11 @@ public class AdminWorkAreaJPanel extends javax.swing.JPanel {
     private OrderDirectory orderDirectory;
     private ChefDirectory chefDirectory;
     private ServerDirectory serverDirectory;
+    private HeadChefDirectory headChefDirectory;
     
     public AdminWorkAreaJPanel(JPanel userProcessContainer, UserAccount account, EcoSystem ecoSystem, 
             CustomerDirectory customerDirectory, RestaurantDirectory restaurantDirectory, 
-            DeliveryManDirectory deliveryManDirectory, MenuDirectory menuDirectory, OrderDirectory orderDirectory, ChefDirectory chefDirectory, ServerDirectory serverDirectory) {
+            DeliveryManDirectory deliveryManDirectory, MenuDirectory menuDirectory, OrderDirectory orderDirectory, ChefDirectory chefDirectory, ServerDirectory serverDirectory,HeadChefDirectory headChefDirectory) {
         initComponents();
         this.userProcessContainer = userProcessContainer;
         this.account = account;
@@ -43,11 +47,19 @@ public class AdminWorkAreaJPanel extends javax.swing.JPanel {
         this.orderDirectory = ecoSystem.getOrderDirectory();
         this.chefDirectory = ecoSystem.getChefDirectory();
         this.serverDirectory = ecoSystem.getServerDirectory();
-        valueLabel.setText(account.getUsername());
-                
-                
+        this.headChefDirectory = ecoSystem.getHeadChefDirectory();
         
-        //valueLabel.setText();
+        valueLabel.setText(account.getEmployee().getName());
+        
+        for(Restaurant restaurant : ecoSystem.getRestaurantDirectory().getRestaurantDirectory()){
+            if(restaurant.getRestaurantName().equals(account.getEmployee().getName())){
+                if(restaurant.getIsDineInAvailable() == false){
+                    manageServers.setEnabled(false);
+                }
+            }
+        }
+        
+ 
     }
     
     /** This method is called from within the constructor to
@@ -65,6 +77,7 @@ public class AdminWorkAreaJPanel extends javax.swing.JPanel {
         enterpriseLabel = new javax.swing.JLabel();
         valueLabel = new javax.swing.JLabel();
         manageServers = new javax.swing.JButton();
+        manageHeadChef = new javax.swing.JButton();
 
         setBackground(new java.awt.Color(102, 102, 102));
         setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
@@ -100,13 +113,13 @@ public class AdminWorkAreaJPanel extends javax.swing.JPanel {
 
         enterpriseLabel.setFont(new java.awt.Font("Optima", 1, 18)); // NOI18N
         enterpriseLabel.setForeground(new java.awt.Color(204, 204, 204));
-        enterpriseLabel.setText("Restaurant Manager:");
-        add(enterpriseLabel, new org.netbeans.lib.awtextra.AbsoluteConstraints(80, 90, 230, 30));
+        enterpriseLabel.setText("Restaurant Name:");
+        add(enterpriseLabel, new org.netbeans.lib.awtextra.AbsoluteConstraints(80, 90, 160, 30));
 
         valueLabel.setFont(new java.awt.Font("Lucida Grande", 0, 14)); // NOI18N
         valueLabel.setForeground(new java.awt.Color(204, 204, 204));
         valueLabel.setText("<value>");
-        add(valueLabel, new org.netbeans.lib.awtextra.AbsoluteConstraints(280, 90, 210, 30));
+        add(valueLabel, new org.netbeans.lib.awtextra.AbsoluteConstraints(250, 90, 210, 30));
 
         manageServers.setText("Manage Servers");
         manageServers.addActionListener(new java.awt.event.ActionListener() {
@@ -115,6 +128,14 @@ public class AdminWorkAreaJPanel extends javax.swing.JPanel {
             }
         });
         add(manageServers, new org.netbeans.lib.awtextra.AbsoluteConstraints(200, 260, 230, -1));
+
+        manageHeadChef.setText("Manage Head Chef");
+        manageHeadChef.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                manageHeadChefActionPerformed(evt);
+            }
+        });
+        add(manageHeadChef, new org.netbeans.lib.awtextra.AbsoluteConstraints(200, 300, 230, -1));
     }// </editor-fold>//GEN-END:initComponents
 
     private void userJButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_userJButtonActionPerformed
@@ -149,12 +170,21 @@ public class AdminWorkAreaJPanel extends javax.swing.JPanel {
         CardLayout layout = (CardLayout) userProcessContainer.getLayout();
         layout.next(userProcessContainer);
     }//GEN-LAST:event_manageServersActionPerformed
+
+    private void manageHeadChefActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_manageHeadChefActionPerformed
+        ManageHeadChefJPanel manageHeadChefJPanel = new ManageHeadChefJPanel(userProcessContainer,account, ecoSystem, restaurantDirectory, headChefDirectory);
+        userProcessContainer.add("headChefWorkAreaJPanel",manageHeadChefJPanel);
+        CardLayout layout = (CardLayout) userProcessContainer.getLayout();
+        layout.next(userProcessContainer);
+        
+    }//GEN-LAST:event_manageHeadChefActionPerformed
     
     
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JLabel enterpriseLabel;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JButton manageEmployeeJButton;
+    private javax.swing.JButton manageHeadChef;
     private javax.swing.JButton manageOrganizationJButton;
     private javax.swing.JButton manageServers;
     private javax.swing.JButton userJButton;

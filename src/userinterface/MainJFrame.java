@@ -12,6 +12,7 @@ import Business.HeadChef.HeadChefDirectory;
 import Business.Menu.MenuDirectory;
 import Business.Order.OrderDirectory;
 import Business.Restaurant.RestaurantDirectory;
+import Business.RestaurantTable.RestaurantTableDirectory;
 import Business.Server.ServerDirectory;
 import Business.UserAccount.UserAccountDirectory;
 import java.awt.CardLayout;
@@ -38,6 +39,7 @@ public class MainJFrame extends javax.swing.JFrame {
     private ServerDirectory serverDirectory;
     private ChefDirectory chefDirectory;
     private HeadChefDirectory headChefDirectory;
+    private RestaurantTableDirectory restaurantTableDirectory;
     
 
     public MainJFrame() {
@@ -55,6 +57,7 @@ public class MainJFrame extends javax.swing.JFrame {
         chefDirectory = new ChefDirectory();
         serverDirectory = new ServerDirectory();
         headChefDirectory = new HeadChefDirectory();
+        restaurantTableDirectory = new RestaurantTableDirectory();
         
     }
 
@@ -193,7 +196,7 @@ public class MainJFrame extends javax.swing.JFrame {
         System.out.println("EcoSYSTEM MAIN" + system.toString() + system.getUserAccountDirectory().getUserAccountList().size());
         
         CardLayout layout = (CardLayout) container.getLayout();
-        container.add("workArea",userAccount.getRole().createWorkArea(container, userAccount, system, customerDirectory, restaurantDirectory, deliveryManDirectory, menuDirectory, orderDirectory, chefDirectory, serverDirectory, headChefDirectory));
+        container.add("workArea",userAccount.getRole().createWorkArea(container, userAccount, system, customerDirectory, restaurantDirectory, deliveryManDirectory, menuDirectory, orderDirectory, chefDirectory, serverDirectory, headChefDirectory, restaurantTableDirectory));
         layout.next(container);
         logoutJButton.setEnabled(true);
         loginJButton.setEnabled(false);

@@ -39,10 +39,7 @@ public class ManageHeadChefJPanel extends javax.swing.JPanel {
     /**
      * Creates new form ManageHeadChefJPanel
      */
-    public ManageHeadChefJPanel() {
-        
-    }
-
+    
     ManageHeadChefJPanel(JPanel userProcessContainer, UserAccount account, EcoSystem ecoSystem, RestaurantDirectory restaurantDirectory, HeadChefDirectory headChefDirectory) {
         initComponents();
         this.userProcessContainer = userProcessContainer;
@@ -57,15 +54,20 @@ public class ManageHeadChefJPanel extends javax.swing.JPanel {
     public void populateTable() {
         DefaultTableModel dtm = (DefaultTableModel) tblHeadchef.getModel();
         dtm.setRowCount(0);
+        String restaurantName = account.getEmployee().getName();
+        
         for(HeadChef headchef : ecoSystem.getHeadChefDirectory().getHeadChefDirectory()){
-            Object [] row = new Object[6];
-            row[0] = headchef;
-            row[1] = headchef.getName();
-            row[2] = headchef.getEmail();
-            row[3] = headchef.getHomeAddress();
-            row[4] = headchef.getPhoneNumber();
-            row[5] = headchef.getAge();
-            dtm.addRow(row);
+            
+            if(headchef.getRestaurantName().equals(restaurantName)){
+                Object [] row = new Object[6];
+                row[0] = headchef;
+                row[1] = headchef.getName();
+                row[2] = headchef.getEmail();
+                row[3] = headchef.getHomeAddress();
+                row[4] = headchef.getPhoneNumber();
+                row[5] = headchef.getAge();
+                dtm.addRow(row);
+            }
         }
 
     }
@@ -121,7 +123,7 @@ public class ManageHeadChefJPanel extends javax.swing.JPanel {
         });
         jScrollPane1.setViewportView(tblHeadchef);
 
-        add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 110, 637, 132));
+        add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 110, 637, 132));
 
         jLabel1.setFont(new java.awt.Font("Optima", 1, 36)); // NOI18N
         jLabel1.setForeground(new java.awt.Color(204, 204, 204));
@@ -167,7 +169,7 @@ public class ManageHeadChefJPanel extends javax.swing.JPanel {
                 refreshJButton1ActionPerformed(evt);
             }
         });
-        add(refreshJButton1, new org.netbeans.lib.awtextra.AbsoluteConstraints(590, 70, -1, -1));
+        add(refreshJButton1, new org.netbeans.lib.awtextra.AbsoluteConstraints(570, 80, -1, -1));
     }// </editor-fold>//GEN-END:initComponents
 
     private void createHeadChefActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_createHeadChefActionPerformed

@@ -29,8 +29,8 @@ public class HeadChefDirectory {
     
     
     
-    public HeadChef addHeadChef(int headChefId, String name,String email, String phoneNumber, int age, String homeAddress, String userName, int yearsOfExperience){
-      HeadChef  headChef = new HeadChef(headChefId, name, email, phoneNumber, age, homeAddress, userName, yearsOfExperience);
+    public HeadChef addHeadChef(int headChefId, String name,String email, String phoneNumber, int age, String homeAddress, String userName, int yearsOfExperience, String restaurantName){
+      HeadChef  headChef = new HeadChef(headChefId, name, email, phoneNumber, age, homeAddress, userName, yearsOfExperience, restaurantName);
       headChefDirectory.add(headChef);
      return headChef;
     }

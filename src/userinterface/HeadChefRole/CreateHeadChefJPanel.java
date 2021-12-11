@@ -268,26 +268,26 @@ public class CreateHeadChefJPanel extends javax.swing.JPanel {
             }
         }
 
-
-        String headChefName = (account.getEmployee().getName());
-        if(count<=1){
-        ecoSystem.getHeadChefDirectory().addHeadChef(count++, name, email, phoneNumber, age, homeAddress, userName, experience);
+        String restaurantName = (account.getEmployee().getName());
         
-        Employee employee = ecoSystem.getEmployeeDirectory().createEmployee(name);
-        UserAccount usserAccount = ecoSystem.getUserAccountDirectory().createUserAccount(userName, password, employee, new HeadChefRole());
+        if(count<=1){
+            ecoSystem.getHeadChefDirectory().addHeadChef(count++, name, email, phoneNumber, age, homeAddress, userName, experience, restaurantName);
 
-        JOptionPane.showMessageDialog(null, "New Head Chef added successfully");
+            Employee employee = ecoSystem.getEmployeeDirectory().createEmployee(name);
+            UserAccount usserAccount = ecoSystem.getUserAccountDirectory().createUserAccount(userName, password, employee, new HeadChefRole());
 
-        // Empty All Fields
-        headChefAge.setText("");
-        headChefFirstName.setText("");
-        headChefHomeAddress.setText("");
-        headChefLastName.setText("");
-        headChefPassword.setText("");
-        headChefPhoneNumber.setText("");
-        headChefUserName.setText("");
-        headChefEmailId.setText("");
-        headChefYearsOfExperience.setText("");
+            JOptionPane.showMessageDialog(null, "New Head Chef added successfully");
+
+            // Empty All Fields
+            headChefAge.setText("");
+            headChefFirstName.setText("");
+            headChefHomeAddress.setText("");
+            headChefLastName.setText("");
+            headChefPassword.setText("");
+            headChefPhoneNumber.setText("");
+            headChefUserName.setText("");
+            headChefEmailId.setText("");
+            headChefYearsOfExperience.setText("");
         }
         else{
             JOptionPane.showMessageDialog(null, "Only one HeadChef can be added.");

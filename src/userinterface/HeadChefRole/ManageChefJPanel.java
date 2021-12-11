@@ -29,9 +29,7 @@ public class ManageChefJPanel extends javax.swing.JPanel {
     /**
      * Creates new form hi
      */
-    public ManageChefJPanel() {
-        
-    }
+    
 
     ManageChefJPanel(JPanel userProcessContainer, UserAccount account, EcoSystem ecoSystem, RestaurantDirectory restaurantDirectory, HeadChefDirectory headChefDirectory, ChefDirectory chefDirectory) {
         initComponents();
@@ -41,6 +39,7 @@ public class ManageChefJPanel extends javax.swing.JPanel {
         this.restaurantDirectory = ecoSystem.getRestaurantDirectory();
         this.headChefDirectory = ecoSystem.getHeadChefDirectory();
         this.chefDirectory = ecoSystem.getChefDirectory();
+        
         }
 
     /**
@@ -89,7 +88,7 @@ public class ManageChefJPanel extends javax.swing.JPanel {
         jLabel1.setFont(new java.awt.Font("Optima", 1, 36)); // NOI18N
         jLabel1.setForeground(new java.awt.Color(204, 204, 204));
         jLabel1.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        jLabel1.setText("Head Chef Work Area");
+        jLabel1.setText("Manage Chefs ");
         add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 618, -1));
 
         createChef.setText("Create Chef");

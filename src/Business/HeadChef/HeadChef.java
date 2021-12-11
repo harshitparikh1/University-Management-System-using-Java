@@ -5,8 +5,6 @@
  */
 package Business.HeadChef;
 
-import Business.Restaurant.Restaurant;
-
 /**
  *
  * @author talre
@@ -20,10 +18,10 @@ public class HeadChef {
     private String homeAddress;
     private String userName;
     private int yearsOfExperience;
-    private Restaurant restaurant;
+    private String restaurantName;
     
 
-    HeadChef(int headChefId, String name, String email, String phoneNumber, int age, String homeAddress, String userName, int yearsOfExperience) {
+    HeadChef(int headChefId, String name, String email, String phoneNumber, int age, String homeAddress, String userName, int yearsOfExperience, String restaurantName) {
         this.headChefId = headChefId;
         this.name = name;
         this.email = email;
@@ -32,7 +30,7 @@ public class HeadChef {
         this.homeAddress = homeAddress;
         this.userName = userName;
         this.yearsOfExperience = yearsOfExperience;
-        this.restaurant = restaurant;
+        this.restaurantName = restaurantName;
     }
 
     
@@ -101,15 +99,12 @@ public class HeadChef {
         this.yearsOfExperience = yearsOfExperience;
     }
 
-    public Restaurant getRestaurant() {
-        return restaurant;
+    public String getRestaurantName() {
+        return restaurantName;
     }
 
-    public void setRestaurant(Restaurant restaurant) {
-        this.restaurant = restaurant;
+    public void setRestaurantName(String restaurantName) {
+        this.restaurantName = restaurantName;
     }
-    
-    
-    
     
 }

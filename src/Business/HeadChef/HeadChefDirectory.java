@@ -35,11 +35,11 @@ public class HeadChefDirectory {
      return headChef;
     }
     
-    public void removeServer(HeadChef headChef){
+    public void removeHeadChef(HeadChef headChef){
         headChefDirectory.remove(headChef);
     }
     
-    public HeadChef getServer(String name){
+    public HeadChef getHeadChef(String name){
         for(HeadChef headChef: headChefDirectory){
             if(headChef.getName().equals(name)){
                 return headChef;

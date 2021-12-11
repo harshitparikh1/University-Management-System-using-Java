@@ -36,9 +36,9 @@ public class ManageChefJPanel extends javax.swing.JPanel {
         jScrollPane1 = new javax.swing.JScrollPane();
         tblCustomer = new javax.swing.JTable();
         jLabel1 = new javax.swing.JLabel();
-        jButton1 = new javax.swing.JButton();
-        jButton2 = new javax.swing.JButton();
-        jButton3 = new javax.swing.JButton();
+        createChef = new javax.swing.JButton();
+        modifyChef = new javax.swing.JButton();
+        deleteChef = new javax.swing.JButton();
         btnBack = new javax.swing.JButton();
 
         setBackground(new java.awt.Color(102, 102, 102));
@@ -69,24 +69,24 @@ public class ManageChefJPanel extends javax.swing.JPanel {
         jLabel1.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         jLabel1.setText("Head Chef Work Area");
 
-        jButton1.setText("Create Chef");
-        jButton1.addActionListener(new java.awt.event.ActionListener() {
+        createChef.setText("Create Chef");
+        createChef.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton1ActionPerformed(evt);
+                createChefActionPerformed(evt);
             }
         });
 
-        jButton2.setText("Modify Chef");
-        jButton2.addActionListener(new java.awt.event.ActionListener() {
+        modifyChef.setText("Modify Chef");
+        modifyChef.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton2ActionPerformed(evt);
+                modifyChefActionPerformed(evt);
             }
         });
 
-        jButton3.setText("Delete Chef");
-        jButton3.addActionListener(new java.awt.event.ActionListener() {
+        deleteChef.setText("Delete Chef");
+        deleteChef.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton3ActionPerformed(evt);
+                deleteChefActionPerformed(evt);
             }
         });
 
@@ -104,11 +104,11 @@ public class ManageChefJPanel extends javax.swing.JPanel {
             .addComponent(jLabel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
                 .addContainerGap(102, Short.MAX_VALUE)
-                .addComponent(jButton1)
+                .addComponent(createChef)
                 .addGap(53, 53, 53)
-                .addComponent(jButton2)
+                .addComponent(modifyChef)
                 .addGap(49, 49, 49)
-                .addComponent(jButton3)
+                .addComponent(deleteChef)
                 .addGap(107, 107, 107))
             .addGroup(layout.createSequentialGroup()
                 .addContainerGap()
@@ -129,24 +129,24 @@ public class ManageChefJPanel extends javax.swing.JPanel {
                 .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 132, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(46, 46, 46)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jButton1)
-                    .addComponent(jButton2)
-                    .addComponent(jButton3))
+                    .addComponent(createChef)
+                    .addComponent(modifyChef)
+                    .addComponent(deleteChef))
                 .addGap(59, 59, 59))
         );
     }// </editor-fold>//GEN-END:initComponents
 
-    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
+    private void createChefActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_createChefActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_jButton1ActionPerformed
+    }//GEN-LAST:event_createChefActionPerformed
 
-    private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
+    private void modifyChefActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_modifyChefActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_jButton2ActionPerformed
+    }//GEN-LAST:event_modifyChefActionPerformed
 
-    private void jButton3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton3ActionPerformed
+    private void deleteChefActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_deleteChefActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_jButton3ActionPerformed
+    }//GEN-LAST:event_deleteChefActionPerformed
 
     private void btnBackActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnBackActionPerformed
         // TODO add your handling code here:
@@ -159,11 +159,11 @@ public class ManageChefJPanel extends javax.swing.JPanel {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btnBack;
-    private javax.swing.JButton jButton1;
-    private javax.swing.JButton jButton2;
-    private javax.swing.JButton jButton3;
+    private javax.swing.JButton createChef;
+    private javax.swing.JButton deleteChef;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JScrollPane jScrollPane1;
+    private javax.swing.JButton modifyChef;
     private javax.swing.JTable tblCustomer;
     // End of variables declaration//GEN-END:variables
 }

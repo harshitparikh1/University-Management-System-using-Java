@@ -5,6 +5,8 @@
  */
 package userinterface.RestaurantAdminRole;
 
+
+import Business.HeadChef.HeadChef;
 import Business.EcoSystem;
 import Business.HeadChef.HeadChefDirectory;
 import Business.Restaurant.Restaurant;
@@ -12,8 +14,11 @@ import Business.Restaurant.RestaurantDirectory;
 import Business.Server.ServerDirectory;
 import Business.UserAccount.UserAccount;
 import java.awt.CardLayout;
+import javax.swing.JOptionPane;
 import javax.swing.JPanel;
+import javax.swing.table.DefaultTableModel;
 import userinterface.HeadChefRole.CreateHeadChefJPanel;
+import userinterface.HeadChefRole.ModifyHeadChefJPanel;
 import userinterface.ServerRole.CreateServerJPanel;
 
 /**
@@ -48,6 +53,23 @@ public class ManageHeadChefJPanel extends javax.swing.JPanel {
         this.headChefDirectory = ecoSystem.getHeadChefDirectory();
         populateTable();
         }
+    
+    public void populateTable() {
+        DefaultTableModel dtm = (DefaultTableModel) tblHeadchef.getModel();
+        dtm.setRowCount(0);
+        for(HeadChef headchef : ecoSystem.getHeadChefDirectory().getHeadChefDirectory()){
+            Object [] row = new Object[6];
+            row[0] = headchef;
+            row[1] = headchef.getName();
+            row[2] = headchef.getEmail();
+            row[3] = headchef.getHomeAddress();
+            row[4] = headchef.getPhoneNumber();
+            row[5] = headchef.getAge();
+            dtm.addRow(row);
+        }
+
+    }
+
 
     /**
      * This method is called from within the constructor to initialize the form.
@@ -58,18 +80,27 @@ public class ManageHeadChefJPanel extends javax.swing.JPanel {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
+        refreshJButton = new javax.swing.JButton();
         jScrollPane1 = new javax.swing.JScrollPane();
-        tblCustomer = new javax.swing.JTable();
+        tblHeadchef = new javax.swing.JTable();
         jLabel1 = new javax.swing.JLabel();
         createHeadChef = new javax.swing.JButton();
         modifyHeadChef = new javax.swing.JButton();
         deleteHeadChef = new javax.swing.JButton();
         btnBack = new javax.swing.JButton();
+        refreshJButton1 = new javax.swing.JButton();
+
+        refreshJButton.setText("Refresh");
+        refreshJButton.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                refreshJButtonActionPerformed(evt);
+            }
+        });
 
         setBackground(new java.awt.Color(102, 102, 102));
         setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        tblCustomer.setModel(new javax.swing.table.DefaultTableModel(
+        tblHeadchef.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
                 {null, null, null, null, null, null},
                 {null, null, null, null, null, null},
@@ -88,15 +119,15 @@ public class ManageHeadChefJPanel extends javax.swing.JPanel {
                 return canEdit [columnIndex];
             }
         });
-        jScrollPane1.setViewportView(tblCustomer);
+        jScrollPane1.setViewportView(tblHeadchef);
 
-        add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 84, 637, 132));
+        add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 110, 637, 132));
 
         jLabel1.setFont(new java.awt.Font("Optima", 1, 36)); // NOI18N
         jLabel1.setForeground(new java.awt.Color(204, 204, 204));
         jLabel1.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         jLabel1.setText("Manage Head Chef");
-        add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 657, -1));
+        add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 680, -1));
 
         createHeadChef.setText("Create Head Chef");
         createHeadChef.addActionListener(new java.awt.event.ActionListener() {
@@ -104,7 +135,7 @@ public class ManageHeadChefJPanel extends javax.swing.JPanel {
                 createHeadChefActionPerformed(evt);
             }
         });
-        add(createHeadChef, new org.netbeans.lib.awtextra.AbsoluteConstraints(28, 262, -1, -1));
+        add(createHeadChef, new org.netbeans.lib.awtextra.AbsoluteConstraints(110, 270, -1, -1));
 
         modifyHeadChef.setText("Modify HeadChef");
         modifyHeadChef.addActionListener(new java.awt.event.ActionListener() {
@@ -112,7 +143,7 @@ public class ManageHeadChefJPanel extends javax.swing.JPanel {
                 modifyHeadChefActionPerformed(evt);
             }
         });
-        add(modifyHeadChef, new org.netbeans.lib.awtextra.AbsoluteConstraints(218, 262, -1, -1));
+        add(modifyHeadChef, new org.netbeans.lib.awtextra.AbsoluteConstraints(300, 270, -1, -1));
 
         deleteHeadChef.setText("Delete Head Chef");
         deleteHeadChef.addActionListener(new java.awt.event.ActionListener() {
@@ -120,7 +151,7 @@ public class ManageHeadChefJPanel extends javax.swing.JPanel {
                 deleteHeadChefActionPerformed(evt);
             }
         });
-        add(deleteHeadChef, new org.netbeans.lib.awtextra.AbsoluteConstraints(400, 262, -1, -1));
+        add(deleteHeadChef, new org.netbeans.lib.awtextra.AbsoluteConstraints(480, 270, -1, -1));
 
         btnBack.setText("<Back");
         btnBack.addActionListener(new java.awt.event.ActionListener() {
@@ -128,7 +159,15 @@ public class ManageHeadChefJPanel extends javax.swing.JPanel {
                 btnBackActionPerformed(evt);
             }
         });
-        add(btnBack, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 53, -1, -1));
+        add(btnBack, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 60, -1, -1));
+
+        refreshJButton1.setText("Refresh");
+        refreshJButton1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                refreshJButton1ActionPerformed(evt);
+            }
+        });
+        add(refreshJButton1, new org.netbeans.lib.awtextra.AbsoluteConstraints(590, 70, -1, -1));
     }// </editor-fold>//GEN-END:initComponents
 
     private void createHeadChefActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_createHeadChefActionPerformed
@@ -140,10 +179,24 @@ public class ManageHeadChefJPanel extends javax.swing.JPanel {
 
     private void modifyHeadChefActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_modifyHeadChefActionPerformed
         // TODO add your handling code here:
+        int selectedRow = tblHeadchef.getSelectedRow();
+        if (selectedRow < 0){
+            JOptionPane.showMessageDialog(null,"Please Select a row from table first", "Warining", JOptionPane.WARNING_MESSAGE);
+            return;
+        }
+        HeadChef headchef = (HeadChef)tblHeadchef.getValueAt(selectedRow, 0);
+        ModifyHeadChefJPanel modifyHeadChef = new ModifyHeadChefJPanel(userProcessContainer, ecoSystem, headChefDirectory, headchef);
     }//GEN-LAST:event_modifyHeadChefActionPerformed
 
     private void deleteHeadChefActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_deleteHeadChefActionPerformed
         // TODO add your handling code here:
+        int selectedRow = tblHeadchef.getSelectedRow();
+        if (selectedRow < 0){
+            JOptionPane.showMessageDialog(null,"Please Select a row from table first", "Warining", JOptionPane.WARNING_MESSAGE);
+            return;
+        }
+        HeadChef headchef = (HeadChef) tblHeadchef.getValueAt(selectedRow, 0);
+        headChefDirectory.removeHeadChef(headchef);
     }//GEN-LAST:event_deleteHeadChefActionPerformed
 
     private void btnBackActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnBackActionPerformed
@@ -154,6 +207,14 @@ public class ManageHeadChefJPanel extends javax.swing.JPanel {
         // TODO add your handling code here:
     }//GEN-LAST:event_btnBackActionPerformed
 
+    private void refreshJButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_refreshJButtonActionPerformed
+        populateTable();
+    }//GEN-LAST:event_refreshJButtonActionPerformed
+
+    private void refreshJButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_refreshJButton1ActionPerformed
+        populateTable();
+    }//GEN-LAST:event_refreshJButton1ActionPerformed
+
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btnBack;
@@ -162,9 +223,9 @@ public class ManageHeadChefJPanel extends javax.swing.JPanel {
     private javax.swing.JLabel jLabel1;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JButton modifyHeadChef;
-    private javax.swing.JTable tblCustomer;
+    private javax.swing.JButton refreshJButton;
+    private javax.swing.JButton refreshJButton1;
+    private javax.swing.JTable tblHeadchef;
     // End of variables declaration//GEN-END:variables
 
-    private void populateTable() {
-        }
 }

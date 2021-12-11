@@ -8,9 +8,11 @@ package userinterface.RestaurantAdminRole;
 import Business.EcoSystem;
 import Business.Restaurant.Restaurant;
 import Business.Restaurant.RestaurantDirectory;
+import Business.Server.Server;
 import Business.Server.ServerDirectory;
 import Business.UserAccount.UserAccount;
 import java.awt.CardLayout;
+import javax.swing.JOptionPane;
 import javax.swing.JPanel;
 import javax.swing.table.DefaultTableModel;
 import userinterface.ServerRole.CreateServerJPanel;
@@ -27,7 +29,8 @@ public class ManageServerJPanel extends javax.swing.JPanel {
     private RestaurantDirectory restaurantDirectory;
     private ServerDirectory serverDirectory;
     private Restaurant restaurant;
-
+    
+    
     public ManageServerJPanel(JPanel userProcessContainer, UserAccount account, EcoSystem ecoSystem, RestaurantDirectory restaurantDirectory, ServerDirectory serverDirectory) {
         initComponents();
         this.userProcessContainer = userProcessContainer;
@@ -35,7 +38,7 @@ public class ManageServerJPanel extends javax.swing.JPanel {
         this.ecoSystem = ecoSystem;
         this.serverDirectory = ecoSystem.getServerDirectory();
         this.restaurantDirectory = ecoSystem.getRestaurantDirectory();
-        PopulateTable();
+        populateTable();
     }
 
     /**
@@ -49,11 +52,12 @@ public class ManageServerJPanel extends javax.swing.JPanel {
 
         btnBack = new javax.swing.JButton();
         jScrollPane1 = new javax.swing.JScrollPane();
-        serverTable = new javax.swing.JTable();
+        tblServer = new javax.swing.JTable();
         btnCreate = new javax.swing.JButton();
         btnUpdate = new javax.swing.JButton();
         btnDelete = new javax.swing.JButton();
         jLabel1 = new javax.swing.JLabel();
+        refreshJButton = new javax.swing.JButton();
 
         setBackground(new java.awt.Color(102, 102, 102));
 
@@ -64,7 +68,7 @@ public class ManageServerJPanel extends javax.swing.JPanel {
             }
         });
 
-        serverTable.setModel(new javax.swing.table.DefaultTableModel(
+        tblServer.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
                 {null, null, null},
                 {null, null, null},
@@ -75,15 +79,22 @@ public class ManageServerJPanel extends javax.swing.JPanel {
                 "ServerID", "Name", "isAvailable"
             }
         ) {
+            Class[] types = new Class [] {
+                java.lang.Object.class, java.lang.Object.class, java.lang.Boolean.class
+            };
             boolean[] canEdit = new boolean [] {
                 false, false, false
             };
+
+            public Class getColumnClass(int columnIndex) {
+                return types [columnIndex];
+            }
 
             public boolean isCellEditable(int rowIndex, int columnIndex) {
                 return canEdit [columnIndex];
             }
         });
-        jScrollPane1.setViewportView(serverTable);
+        jScrollPane1.setViewportView(tblServer);
 
         btnCreate.setText("Create Server");
         btnCreate.addActionListener(new java.awt.event.ActionListener() {
@@ -111,6 +122,13 @@ public class ManageServerJPanel extends javax.swing.JPanel {
         jLabel1.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         jLabel1.setText("Server Details");
 
+        refreshJButton.setText("Refresh");
+        refreshJButton.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                refreshJButtonActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
         this.setLayout(layout);
         layout.setHorizontalGroup(
@@ -125,13 +143,16 @@ public class ManageServerJPanel extends javax.swing.JPanel {
                             .addGroup(layout.createSequentialGroup()
                                 .addGap(75, 75, 75)
                                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 452, javax.swing.GroupLayout.PREFERRED_SIZE)
                                     .addGroup(layout.createSequentialGroup()
                                         .addComponent(btnCreate)
-                                        .addGap(53, 53, 53)
+                                        .addGap(48, 48, 48)
                                         .addComponent(btnUpdate)
-                                        .addGap(49, 49, 49)
-                                        .addComponent(btnDelete))
-                                    .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 452, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                                        .addGap(55, 55, 55)
+                                        .addComponent(btnDelete))))
+                            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                                .addContainerGap()
+                                .addComponent(refreshJButton, javax.swing.GroupLayout.PREFERRED_SIZE, 99, javax.swing.GroupLayout.PREFERRED_SIZE)))
                         .addGap(0, 89, Short.MAX_VALUE))
                     .addComponent(jLabel1, javax.swing.GroupLayout.DEFAULT_SIZE, 616, Short.MAX_VALUE))
                 .addContainerGap())
@@ -142,6 +163,8 @@ public class ManageServerJPanel extends javax.swing.JPanel {
                 .addComponent(jLabel1)
                 .addGap(18, 18, 18)
                 .addComponent(btnBack)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(refreshJButton)
                 .addGap(18, 18, 18)
                 .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 112, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(18, 18, 18)
@@ -149,7 +172,7 @@ public class ManageServerJPanel extends javax.swing.JPanel {
                     .addComponent(btnCreate)
                     .addComponent(btnUpdate)
                     .addComponent(btnDelete))
-                .addContainerGap(83, Short.MAX_VALUE))
+                .addContainerGap(54, Short.MAX_VALUE))
         );
     }// </editor-fold>//GEN-END:initComponents
 
@@ -162,10 +185,32 @@ public class ManageServerJPanel extends javax.swing.JPanel {
 
     private void btnUpdateActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnUpdateActionPerformed
         // TODO add your handling code here:
+        // TODO add your handling code here:
+        int selectedRow = tblServer.getSelectedRow();
+        if(selectedRow < 0) {
+            JOptionPane.showMessageDialog(null,"Please Select a row from table first", "Warining", JOptionPane.WARNING_MESSAGE);
+            return;
+        }
+        Server server = (Server)tblServer.getValueAt(selectedRow, 0);
+        
+        ModifyServerJPanel modifyServer = new ModifyServerJPanel(userProcessContainer, ecoSystem, serverDirectory, server);
+        userProcessContainer.add("ModifyServerJPanel", modifyServer);
+        CardLayout layout=(CardLayout)userProcessContainer.getLayout();
+        layout.next(userProcessContainer);
+
     }//GEN-LAST:event_btnUpdateActionPerformed
 
     private void btnDeleteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnDeleteActionPerformed
         // TODO add your handling code here:
+        int selectedRow = tblServer.getSelectedRow();
+        if(selectedRow < 0) {
+            JOptionPane.showMessageDialog(null,"Please Select a row from table first", "Warining", JOptionPane.WARNING_MESSAGE);
+            return;
+        }
+        
+        Server server = (Server) tblServer.getValueAt(selectedRow, 0);
+        serverDirectory.removeServer(server);
+        populateTable();
     }//GEN-LAST:event_btnDeleteActionPerformed
 
     private void btnCreateActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCreateActionPerformed
@@ -177,6 +222,10 @@ public class ManageServerJPanel extends javax.swing.JPanel {
         layout.next(userProcessContainer);
     }//GEN-LAST:event_btnCreateActionPerformed
 
+    private void refreshJButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_refreshJButtonActionPerformed
+        populateTable();
+    }//GEN-LAST:event_refreshJButtonActionPerformed
+
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btnBack;
@@ -185,11 +234,24 @@ public class ManageServerJPanel extends javax.swing.JPanel {
     private javax.swing.JButton btnUpdate;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JScrollPane jScrollPane1;
-    private javax.swing.JTable serverTable;
+    private javax.swing.JButton refreshJButton;
+    private javax.swing.JTable tblServer;
     // End of variables declaration//GEN-END:variables
 
-    private void PopulateTable() {
-        DefaultTableModel dtm = (DefaultTableModel) serverTable.getModel();
+    public void populateTable() {
+        DefaultTableModel dtm = (DefaultTableModel) tblServer.getModel();
         dtm.setRowCount(0);
-    }
+
+        for(Server server: ecoSystem.getServerDirectory().getServerDirectory()){
+
+            Object [] row = new Object[3];
+            row[0] = server;
+            row[1] = server.getServerId();
+            row[2] = server.isIsAvailable();
+            dtm.addRow(row);
+
+
+            }
+        }
+    
 }

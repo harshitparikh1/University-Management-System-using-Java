@@ -16,7 +16,7 @@ import Business.Organization;
 import Business.Restaurant.RestaurantDirectory;
 import Business.Server.ServerDirectory;
 import Business.UserAccount.UserAccount;
-import userinterface.CustomerRole.CustomerAreaJPanel;
+import userinterface.CustomerRole.CustomerDeliveryJPanel;
 import javax.swing.JPanel;
 
 /**
@@ -27,7 +27,7 @@ public class CustomerRole extends Role{
 
     
     public JPanel createWorkArea(JPanel userProcessContainer, UserAccount account, EcoSystem business, CustomerDirectory customerDirectory, RestaurantDirectory restaurantDirectory, DeliveryManDirectory deliveryManDirectory, MenuDirectory menuDirectory, OrderDirectory orderDirectory, ChefDirectory chefDirectory, ServerDirectory serverDirectory, HeadChefDirectory headChefDirectory) {
-        return new CustomerAreaJPanel(userProcessContainer, account, business, customerDirectory, restaurantDirectory, deliveryManDirectory, menuDirectory, orderDirectory);
+        return new CustomerDeliveryJPanel(userProcessContainer, account, business, customerDirectory, restaurantDirectory, deliveryManDirectory, menuDirectory, orderDirectory);
     }
     
     

@@ -13,6 +13,7 @@ import Business.Restaurant.RestaurantDirectory;
 import Business.UserAccount.UserAccount;
 import javax.swing.JPanel;
 import Business.DeliveryMan.DeliveryManDirectory;
+import Business.HeadChef.HeadChefDirectory;
 import Business.Menu.MenuDirectory;
 import Business.Order.OrderDirectory;
 import Business.Server.ServerDirectory;
@@ -29,7 +30,8 @@ public abstract class Role {
         DeliveryMan("Delivery"),
         SysAdmin("Sysadmin"),
         Server("Server"),
-        Chef("Chef");
+        Chef("Chef"),
+        HeadChef("HeadChef");
         
         private String value;
         private RoleType(String value){
@@ -48,7 +50,7 @@ public abstract class Role {
     
     public abstract JPanel createWorkArea(JPanel userProcessContainer, UserAccount account, EcoSystem business
             , CustomerDirectory customerDirectory, RestaurantDirectory restaurantDirectory, 
-            DeliveryManDirectory deliveryManDirectory, MenuDirectory menuDirectory, OrderDirectory oderDirectory, ChefDirectory chefDirectory, ServerDirectory serverDirectory);
+            DeliveryManDirectory deliveryManDirectory, MenuDirectory menuDirectory, OrderDirectory oderDirectory, ChefDirectory chefDirectory, ServerDirectory serverDirectory, HeadChefDirectory headChefDirectory);
 
     @Override
     public String toString() {

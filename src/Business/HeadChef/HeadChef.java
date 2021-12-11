@@ -3,7 +3,7 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package Business.Server;
+package Business.HeadChef;
 
 import Business.Restaurant.Restaurant;
 
@@ -11,8 +11,8 @@ import Business.Restaurant.Restaurant;
  *
  * @author talre
  */
-public class Server {
-    private int ServerId;
+public class HeadChef {
+    private int headChefId;
     private String name;
     private String email;
     private String phoneNumber;
@@ -20,11 +20,11 @@ public class Server {
     private String homeAddress;
     private String userName;
     private int yearsOfExperience;
-    private String restaurantName;
-    private boolean isAvailable = false;
+    private Restaurant restaurant;
+    
 
-    Server(int ServerId, String name, String email, String phoneNumber, int age, String homeAddress, String userName, int yearsOfExperience, String restaurantName, boolean isAvailable) {
-        this.ServerId = ServerId;
+    HeadChef(int headChefId, String name, String email, String phoneNumber, int age, String homeAddress, String userName, int yearsOfExperience) {
+        this.headChefId = headChefId;
         this.name = name;
         this.email = email;
         this.phoneNumber = phoneNumber;
@@ -32,32 +32,25 @@ public class Server {
         this.homeAddress = homeAddress;
         this.userName = userName;
         this.yearsOfExperience = yearsOfExperience;
-        this.restaurantName = restaurantName;
-        this.isAvailable = isAvailable;
+        this.restaurant = restaurant;
     }
 
+    
+  
+    public int getHeadChefId() {
+        return headChefId;
+    }
+
+    public void setHeadChefId(int headChefId) {
+        this.headChefId = headChefId;
+    }
+    
     public String getName() {
         return name;
     }
 
     public void setName(String name) {
         this.name = name;
-    }
-
-    public int getServerId() {
-        return ServerId;
-    }
-
-    public void setServerId(int ServerId) {
-        this.ServerId = ServerId;
-    }
-
-    public int getAge() {
-        return age;
-    }
-
-    public void setAge(int age) {
-        this.age = age;
     }
 
     public String getEmail() {
@@ -76,6 +69,14 @@ public class Server {
         this.phoneNumber = phoneNumber;
     }
 
+    public int getAge() {
+        return age;
+    }
+
+    public void setAge(int age) {
+        this.age = age;
+    }
+
     public String getHomeAddress() {
         return homeAddress;
     }
@@ -92,8 +93,6 @@ public class Server {
         this.userName = userName;
     }
 
-   
-
     public int getYearsOfExperience() {
         return yearsOfExperience;
     }
@@ -102,27 +101,15 @@ public class Server {
         this.yearsOfExperience = yearsOfExperience;
     }
 
-    public String getRestaurantName() {
-        return restaurantName;
+    public Restaurant getRestaurant() {
+        return restaurant;
     }
 
-    public void setRestaurantName(String restaurantName) {
-        this.restaurantName = restaurantName;
-    }
-
-    
-
-    public boolean isIsAvailable() {
-        return isAvailable;
-    }
-
-    public void setIsAvailable(boolean isAvailable) {
-        this.isAvailable = isAvailable;
+    public void setRestaurant(Restaurant restaurant) {
+        this.restaurant = restaurant;
     }
     
-    public String toString() {
-        return name;
-    }
+    
     
     
 }

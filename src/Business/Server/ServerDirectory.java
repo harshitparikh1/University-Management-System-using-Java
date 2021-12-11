@@ -5,6 +5,7 @@
  */
 package Business.Server;
 
+import Business.Restaurant.Restaurant;
 import java.util.ArrayList;
 
 /**
@@ -27,8 +28,8 @@ public class ServerDirectory {
         this.serverDirectory = serverDirectory;
     }
     
-    public Server addServer(int ServerId, String name,String email, String phoneNumber, int age, String homeAddress, String userName, int yearsOfExperience){
-      Server server = new Server(ServerId, name, email, phoneNumber, age, homeAddress, userName, yearsOfExperience);
+    public Server addServer(int ServerId, String name,String email, String phoneNumber, int age, String homeAddress, String userName, int yearsOfExperience, String restaurantName, boolean isAvailable){
+      Server server = new Server(ServerId, name, email, phoneNumber, age, homeAddress, userName, yearsOfExperience, restaurantName, isAvailable);
       serverDirectory.add(server);
      return server;
     }

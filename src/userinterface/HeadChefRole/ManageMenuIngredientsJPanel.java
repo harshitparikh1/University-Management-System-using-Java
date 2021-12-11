@@ -5,17 +5,37 @@
  */
 package userinterface.HeadChefRole;
 
+import Business.Customer.Customer;
+import Business.EcoSystem;
+import Business.Menu.Menu;
+import Business.Menu.MenuDirectory;
+import java.awt.CardLayout;
+import javax.swing.JOptionPane;
+import javax.swing.JPanel;
+import javax.swing.table.DefaultTableModel;
+import userinterface.SystemAdminWorkArea.ModifyCustomerJPanel;
+import userinterface.HeadChefRole.IngredientWorkAreaJPanel;
+
 /**
  *
  * @author talre
  */
 public class ManageMenuIngredientsJPanel extends javax.swing.JPanel {
+    
+    private JPanel userProcessContainer; 
+    private EcoSystem ecoSystem; 
+    private MenuDirectory menuDirectory;
 
     /**
      * Creates new form ManageMenuIngredientsJPanel
      */
-    public ManageMenuIngredientsJPanel() {
+
+    public ManageMenuIngredientsJPanel(JPanel userProcessContainer, EcoSystem ecoSystem, MenuDirectory menuDirectory) {
         initComponents();
+        this.userProcessContainer = userProcessContainer;
+        this.ecoSystem = ecoSystem;
+        this.menuDirectory = menuDirectory;
+        
         populateTable();
     }
 
@@ -31,7 +51,15 @@ public class ManageMenuIngredientsJPanel extends javax.swing.JPanel {
         jScrollPane1 = new javax.swing.JScrollPane();
         tblMenu = new javax.swing.JTable();
         viewIngredients = new javax.swing.JButton();
+        jLabel1 = new javax.swing.JLabel();
+        btnBack = new javax.swing.JButton();
+        jScrollPane2 = new javax.swing.JScrollPane();
+        tblMenu1 = new javax.swing.JTable();
+        btnCreate = new javax.swing.JButton();
+        btnModify = new javax.swing.JButton();
+        btnDelete = new javax.swing.JButton();
 
+        setBackground(new java.awt.Color(102, 102, 102));
         setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         tblMenu.setModel(new javax.swing.table.DefaultTableModel(
@@ -55,20 +83,144 @@ public class ManageMenuIngredientsJPanel extends javax.swing.JPanel {
         });
         jScrollPane1.setViewportView(tblMenu);
 
-        add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(80, 60, -1, 100));
+        add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(80, 110, -1, 100));
 
         viewIngredients.setText("View Ingredients");
-        add(viewIngredients, new org.netbeans.lib.awtextra.AbsoluteConstraints(250, 230, -1, -1));
+        viewIngredients.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                viewIngredientsActionPerformed(evt);
+            }
+        });
+        add(viewIngredients, new org.netbeans.lib.awtextra.AbsoluteConstraints(240, 240, -1, -1));
+
+        jLabel1.setFont(new java.awt.Font("Optima", 1, 36)); // NOI18N
+        jLabel1.setForeground(new java.awt.Color(204, 204, 204));
+        jLabel1.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        jLabel1.setText("Manage Menu Ingredients Panel");
+        add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 630, -1));
+
+        btnBack.setText("<Back");
+        btnBack.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnBackActionPerformed(evt);
+            }
+        });
+        add(btnBack, new org.netbeans.lib.awtextra.AbsoluteConstraints(80, 70, -1, -1));
+
+        tblMenu1.setModel(new javax.swing.table.DefaultTableModel(
+            new Object [][] {
+                {null, null},
+                {null, null},
+                {null, null},
+                {null, null}
+            },
+            new String [] {
+                "Ingredient", "Quantity"
+            }
+        ) {
+            Class[] types = new Class [] {
+                java.lang.Object.class, java.lang.Integer.class
+            };
+            boolean[] canEdit = new boolean [] {
+                false, false
+            };
+
+            public Class getColumnClass(int columnIndex) {
+                return types [columnIndex];
+            }
+
+            public boolean isCellEditable(int rowIndex, int columnIndex) {
+                return canEdit [columnIndex];
+            }
+        });
+        jScrollPane2.setViewportView(tblMenu1);
+
+        add(jScrollPane2, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 300, 594, 172));
+
+        btnCreate.setText("Add Ingredient");
+        btnCreate.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnCreateActionPerformed(evt);
+            }
+        });
+        add(btnCreate, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 500, 144, -1));
+
+        btnModify.setText("Update Ingredient");
+        btnModify.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnModifyActionPerformed(evt);
+            }
+        });
+        add(btnModify, new org.netbeans.lib.awtextra.AbsoluteConstraints(240, 500, 165, -1));
+
+        btnDelete.setText("Delete Ingredient");
+        btnDelete.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnDeleteActionPerformed(evt);
+            }
+        });
+        add(btnDelete, new org.netbeans.lib.awtextra.AbsoluteConstraints(460, 500, 165, -1));
     }// </editor-fold>//GEN-END:initComponents
+
+    private void viewIngredientsActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_viewIngredientsActionPerformed
+        // TODO add your handling code here:
+
+        int selectedRow = tblMenu.getSelectedRow();
+        if(selectedRow < 0) {
+            JOptionPane.showMessageDialog(null,"Please Select a row from table first", "Warining", JOptionPane.WARNING_MESSAGE);
+            return;
+        }
+        Menu menu = (Menu)tblMenu.getValueAt(selectedRow,0);
+        
+        IngredientWorkAreaJPanel ingredientWorkArea = new IngredientWorkAreaJPanel(userProcessContainer, ecoSystem, menuDirectory, menu);
+        userProcessContainer.add("IngredientWorkAreaJPanel",ingredientWorkArea);
+        CardLayout layout=(CardLayout)userProcessContainer.getLayout();
+        layout.next(userProcessContainer);
+        
+    }//GEN-LAST:event_viewIngredientsActionPerformed
+
+    private void btnBackActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnBackActionPerformed
+        // TODO add your handling code here:
+        userProcessContainer.remove(this);
+        CardLayout layout = (CardLayout) userProcessContainer.getLayout();
+        layout.previous(userProcessContainer);
+    }//GEN-LAST:event_btnBackActionPerformed
+
+    private void btnCreateActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCreateActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_btnCreateActionPerformed
+
+    private void btnModifyActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnModifyActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_btnModifyActionPerformed
+
+    private void btnDeleteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnDeleteActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_btnDeleteActionPerformed
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton btnBack;
+    private javax.swing.JButton btnCreate;
+    private javax.swing.JButton btnDelete;
+    private javax.swing.JButton btnModify;
+    private javax.swing.JLabel jLabel1;
     private javax.swing.JScrollPane jScrollPane1;
+    private javax.swing.JScrollPane jScrollPane2;
     private javax.swing.JTable tblMenu;
+    private javax.swing.JTable tblMenu1;
     private javax.swing.JButton viewIngredients;
     // End of variables declaration//GEN-END:variables
 
     private void populateTable() {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+        DefaultTableModel dtm = (DefaultTableModel) tblMenu.getModel();
+        dtm.setRowCount(0);
+        for(Menu menu: ecoSystem.getMenuDirectory().getMenuDirectory()){
+            Object [] row = new Object[2];
+            row[0] = menu;
+            row[1] = 1;
+            dtm.addRow(row);
+
+        }
     }
 }

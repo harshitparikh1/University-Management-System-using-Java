@@ -26,7 +26,7 @@ public class HeadChefRole extends Role{
 
     @Override
     public JPanel createWorkArea(JPanel userProcessContainer, UserAccount account, EcoSystem business, CustomerDirectory customerDirectory, RestaurantDirectory restaurantDirectory, DeliveryManDirectory deliveryManDirectory, MenuDirectory menuDirectory, OrderDirectory oderDirectory, ChefDirectory chefDirectory, ServerDirectory serverDirectory, HeadChefDirectory headChefDirectory) {
-        return new HeadChefWorkAreaJPanel(userProcessContainer, account, business, restaurantDirectory, headChefDirectory, chefDirectory);
+        return new HeadChefWorkAreaJPanel(userProcessContainer, account, business, restaurantDirectory, headChefDirectory, chefDirectory, menuDirectory);
     }
     
 }

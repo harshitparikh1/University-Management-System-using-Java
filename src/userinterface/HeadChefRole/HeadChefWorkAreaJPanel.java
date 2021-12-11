@@ -9,9 +9,11 @@ import Business.Chef.ChefDirectory;
 import Business.Customer.CustomerDirectory;
 import Business.EcoSystem;
 import Business.HeadChef.HeadChefDirectory;
+import Business.Menu.MenuDirectory;
 import Business.Restaurant.RestaurantDirectory;
 import Business.UserAccount.UserAccount;
 import java.awt.CardLayout;
+import static java.awt.SystemColor.menu;
 import javax.swing.JPanel;
 import userinterface.RestaurantAdminRole.ModifyServerJPanel;
 
@@ -30,13 +32,14 @@ public class HeadChefWorkAreaJPanel extends javax.swing.JPanel {
     private RestaurantDirectory restaurantDirectory;
     private HeadChefDirectory headChefDirectory;
     private ChefDirectory chefDirectory;
+    private MenuDirectory menuDirectory;
     
     
     public HeadChefWorkAreaJPanel() {
         
     }
 
-    public HeadChefWorkAreaJPanel(JPanel userProcessContainer, UserAccount account, EcoSystem ecoSystem, RestaurantDirectory restaurantDirectory,HeadChefDirectory headChefDirectory, ChefDirectory chefDirectory) {
+    public HeadChefWorkAreaJPanel(JPanel userProcessContainer, UserAccount account, EcoSystem ecoSystem, RestaurantDirectory restaurantDirectory,HeadChefDirectory headChefDirectory, ChefDirectory chefDirectory, MenuDirectory menuDirectory) {
         initComponents();
         this.userProcessContainer = userProcessContainer;
         this.account = account;
@@ -44,7 +47,7 @@ public class HeadChefWorkAreaJPanel extends javax.swing.JPanel {
         this.restaurantDirectory = ecoSystem.getRestaurantDirectory();
         this.headChefDirectory = ecoSystem.getHeadChefDirectory();
         this.chefDirectory = ecoSystem.getChefDirectory();
-        
+        this.menuDirectory = ecoSystem.getMenuDirectory();
         
     }
 
@@ -59,15 +62,12 @@ public class HeadChefWorkAreaJPanel extends javax.swing.JPanel {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        jLabel1 = new javax.swing.JLabel();
         manageChefButton = new javax.swing.JButton();
         manageMenuButton = new javax.swing.JButton();
+        jLabel1 = new javax.swing.JLabel();
 
+        setBackground(new java.awt.Color(102, 102, 102));
         setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
-
-        jLabel1.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        jLabel1.setText("Welcome ");
-        add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(129, 37, 189, 41));
 
         manageChefButton.setText("Manage Chefs");
         manageChefButton.addActionListener(new java.awt.event.ActionListener() {
@@ -75,7 +75,7 @@ public class HeadChefWorkAreaJPanel extends javax.swing.JPanel {
                 manageChefButtonActionPerformed(evt);
             }
         });
-        add(manageChefButton, new org.netbeans.lib.awtextra.AbsoluteConstraints(22, 148, 185, -1));
+        add(manageChefButton, new org.netbeans.lib.awtextra.AbsoluteConstraints(57, 148, 150, -1));
 
         manageMenuButton.setText("Manage Menu ingredients");
         manageMenuButton.addActionListener(new java.awt.event.ActionListener() {
@@ -84,6 +84,12 @@ public class HeadChefWorkAreaJPanel extends javax.swing.JPanel {
             }
         });
         add(manageMenuButton, new org.netbeans.lib.awtextra.AbsoluteConstraints(241, 148, -1, -1));
+
+        jLabel1.setFont(new java.awt.Font("Optima", 1, 36)); // NOI18N
+        jLabel1.setForeground(new java.awt.Color(204, 204, 204));
+        jLabel1.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        jLabel1.setText(" Head Chef Work Area");
+        add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 580, 50));
     }// </editor-fold>//GEN-END:initComponents
 
     private void manageChefButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_manageChefButtonActionPerformed
@@ -96,6 +102,13 @@ public class HeadChefWorkAreaJPanel extends javax.swing.JPanel {
 
     private void manageMenuButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_manageMenuButtonActionPerformed
         // TODO add your handling code here:
+        
+        ManageMenuIngredientsJPanel manageIngredients = new ManageMenuIngredientsJPanel(userProcessContainer, ecoSystem, menuDirectory);
+        userProcessContainer.add("ManageIngredientsJPanel",manageIngredients);
+        CardLayout layout=(CardLayout)userProcessContainer.getLayout();
+        layout.next(userProcessContainer);
+
+        
     }//GEN-LAST:event_manageMenuButtonActionPerformed
 
 

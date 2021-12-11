@@ -4,6 +4,8 @@ package userinterface.RestaurantAdminRole;
 import Business.EcoSystem;
 import Business.Restaurant.Restaurant;
 import Business.Restaurant.RestaurantDirectory;
+import Business.RestaurantTable.Table;
+import Business.UserAccount.UserAccount;
 import java.awt.CardLayout;
 import java.awt.Component;
 import javax.swing.JOptionPane;
@@ -16,15 +18,17 @@ import javax.swing.JPanel;
 public class ModifyRestaurantInfoJPanel extends javax.swing.JPanel {
 
     private JPanel userProcessContainer;
+    private UserAccount account;
     private EcoSystem ecoSystem;
     private RestaurantDirectory restaurantDirectory;
     private Restaurant restaurant;
     /**
      * Creates new form ModifyRestaurantInfoJPanel
      */
-    public ModifyRestaurantInfoJPanel(JPanel userProcessContainer, EcoSystem ecoSystem, RestaurantDirectory restaurantDirectory, Restaurant restaurant) {
+    public ModifyRestaurantInfoJPanel(JPanel userProcessContainer,UserAccount account, EcoSystem ecoSystem, RestaurantDirectory restaurantDirectory, Restaurant restaurant) {
         initComponents();
         this.userProcessContainer = userProcessContainer;
+        this.account = account;
         this.ecoSystem = ecoSystem;
         this.restaurant = restaurant;
         this.restaurantDirectory = ecoSystem.getRestaurantDirectory();
@@ -228,8 +232,20 @@ public class ModifyRestaurantInfoJPanel extends javax.swing.JPanel {
         restaurant.setAddress(address);
         restaurant.setNumberOfTables(numberOfTables);
         restaurant.setIsDineInAvailable(isDineInAvailable);
-
-
+        
+        for(Table table : ecoSystem.getRestaurantTableDirectory().getRestaurantTableDirectory()){
+            if(table.getRestaurantName().equals(account.getEmployee().getName())){
+                ecoSystem.getRestaurantTableDirectory().getRestaurantTableDirectory().remove(table);
+            }
+        }
+        
+        if(isDineInAvailable){  
+            for(int i=0;i<numberOfTables;i++){
+            String number = ""+(i+1);
+            ecoSystem.getRestaurantTableDirectory().addTable(number, true, account.getEmployee().getName(), 4);
+            }
+        }
+        
         JOptionPane.showMessageDialog(null, "Restaurant Updated");
     }//GEN-LAST:event_btnCreateActionPerformed
 

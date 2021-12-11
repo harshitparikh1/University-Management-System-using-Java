@@ -51,13 +51,13 @@ public class ManageServerJPanel extends javax.swing.JPanel {
     private void initComponents() {
 
         btnBack = new javax.swing.JButton();
-        jScrollPane1 = new javax.swing.JScrollPane();
-        tblServer = new javax.swing.JTable();
         btnCreate = new javax.swing.JButton();
         btnUpdate = new javax.swing.JButton();
         btnDelete = new javax.swing.JButton();
         jLabel1 = new javax.swing.JLabel();
         refreshJButton = new javax.swing.JButton();
+        jScrollPane1 = new javax.swing.JScrollPane();
+        tblServer = new javax.swing.JTable();
 
         setBackground(new java.awt.Color(102, 102, 102));
 
@@ -67,34 +67,6 @@ public class ManageServerJPanel extends javax.swing.JPanel {
                 btnBackActionPerformed(evt);
             }
         });
-
-        tblServer.setModel(new javax.swing.table.DefaultTableModel(
-            new Object [][] {
-                {null, null, null},
-                {null, null, null},
-                {null, null, null},
-                {null, null, null}
-            },
-            new String [] {
-                "ServerID", "Name", "isAvailable"
-            }
-        ) {
-            Class[] types = new Class [] {
-                java.lang.Object.class, java.lang.Object.class, java.lang.Boolean.class
-            };
-            boolean[] canEdit = new boolean [] {
-                false, false, false
-            };
-
-            public Class getColumnClass(int columnIndex) {
-                return types [columnIndex];
-            }
-
-            public boolean isCellEditable(int rowIndex, int columnIndex) {
-                return canEdit [columnIndex];
-            }
-        });
-        jScrollPane1.setViewportView(tblServer);
 
         btnCreate.setText("Create Server");
         btnCreate.addActionListener(new java.awt.event.ActionListener() {
@@ -129,50 +101,74 @@ public class ManageServerJPanel extends javax.swing.JPanel {
             }
         });
 
+        tblServer.setModel(new javax.swing.table.DefaultTableModel(
+            new Object [][] {
+                {null, null, null, null, null, null},
+                {null, null, null, null, null, null},
+                {null, null, null, null, null, null},
+                {null, null, null, null, null, null}
+            },
+            new String [] {
+                "Username", "Name ", "Email Address", "Address", "Mobile Number", "Age"
+            }
+        ) {
+            boolean[] canEdit = new boolean [] {
+                false, false, false, false, false, false
+            };
+
+            public boolean isCellEditable(int rowIndex, int columnIndex) {
+                return canEdit [columnIndex];
+            }
+        });
+        jScrollPane1.setViewportView(tblServer);
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
         this.setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jLabel1, javax.swing.GroupLayout.DEFAULT_SIZE, 862, Short.MAX_VALUE)
                     .addGroup(layout.createSequentialGroup()
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addGroup(layout.createSequentialGroup()
-                                .addContainerGap()
-                                .addComponent(btnBack, javax.swing.GroupLayout.PREFERRED_SIZE, 97, javax.swing.GroupLayout.PREFERRED_SIZE))
-                            .addGroup(layout.createSequentialGroup()
-                                .addGap(75, 75, 75)
-                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 452, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addGroup(layout.createSequentialGroup()
-                                        .addComponent(btnCreate)
-                                        .addGap(48, 48, 48)
-                                        .addComponent(btnUpdate)
-                                        .addGap(55, 55, 55)
-                                        .addComponent(btnDelete))))
-                            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                                .addContainerGap()
-                                .addComponent(refreshJButton, javax.swing.GroupLayout.PREFERRED_SIZE, 99, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                        .addGap(0, 89, Short.MAX_VALUE))
-                    .addComponent(jLabel1, javax.swing.GroupLayout.DEFAULT_SIZE, 616, Short.MAX_VALUE))
+                        .addGap(75, 75, 75)
+                        .addComponent(btnCreate)
+                        .addGap(48, 48, 48)
+                        .addComponent(btnUpdate)
+                        .addGap(55, 55, 55)
+                        .addComponent(btnDelete)
+                        .addGap(0, 0, Short.MAX_VALUE)))
                 .addContainerGap())
+            .addGroup(layout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(btnBack, javax.swing.GroupLayout.PREFERRED_SIZE, 97, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(refreshJButton, javax.swing.GroupLayout.PREFERRED_SIZE, 99, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(185, 185, 185))
+            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                .addGroup(layout.createSequentialGroup()
+                    .addContainerGap()
+                    .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 677, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addContainerGap(185, Short.MAX_VALUE)))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
                 .addComponent(jLabel1)
                 .addGap(18, 18, 18)
-                .addComponent(btnBack)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(refreshJButton)
-                .addGap(18, 18, 18)
-                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 112, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(18, 18, 18)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(btnBack)
+                    .addComponent(refreshJButton))
+                .addGap(177, 177, 177)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(btnCreate)
                     .addComponent(btnUpdate)
                     .addComponent(btnDelete))
                 .addContainerGap(54, Short.MAX_VALUE))
+            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                .addGroup(layout.createSequentialGroup()
+                    .addGap(105, 105, 105)
+                    .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 132, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addContainerGap(105, Short.MAX_VALUE)))
         );
     }// </editor-fold>//GEN-END:initComponents
 
@@ -244,10 +240,13 @@ public class ManageServerJPanel extends javax.swing.JPanel {
 
         for(Server server: ecoSystem.getServerDirectory().getServerDirectory()){
 
-            Object [] row = new Object[3];
+            Object [] row = new Object[6];
             row[0] = server;
-            row[1] = server.getServerId();
-            row[2] = server.isIsAvailable();
+            row[1] = server.getName();
+            row[2] = server.getEmail();
+            row[3] = server.getHomeAddress();
+            row[4] = server.getPhoneNumber();
+            row[5] = server.getAge();
             dtm.addRow(row);
 
 

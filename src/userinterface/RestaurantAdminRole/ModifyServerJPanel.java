@@ -38,6 +38,12 @@ public class ModifyServerJPanel extends javax.swing.JPanel {
         this.ecoSystem = ecoSystem;
         this.server = server;
         this.serverDirectory = ecoSystem.getServerDirectory();
+        txtName.setText(server.getName());
+        txtEmailAddress.setText(server.getEmail());
+        txtAge.setText(String.valueOf(server.getAge()));
+        txtHomeAddress.setText(server.getHomeAddress());
+        txtPhoneNumber.setText(server.getPhoneNumber());
+        
     }
 
     /**
@@ -64,11 +70,13 @@ public class ModifyServerJPanel extends javax.swing.JPanel {
         btnCreate = new javax.swing.JButton();
 
         setBackground(new java.awt.Color(102, 102, 102));
+        setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         jLabel1.setFont(new java.awt.Font("Optima", 1, 36)); // NOI18N
         jLabel1.setForeground(new java.awt.Color(204, 204, 204));
         jLabel1.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         jLabel1.setText("Update Server");
+        add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 580, -1));
 
         btnBack.setText("<Back");
         btnBack.addActionListener(new java.awt.event.ActionListener() {
@@ -76,35 +84,46 @@ public class ModifyServerJPanel extends javax.swing.JPanel {
                 btnBackActionPerformed(evt);
             }
         });
+        add(btnBack, new org.netbeans.lib.awtextra.AbsoluteConstraints(31, 65, -1, -1));
 
         jLabel2.setFont(new java.awt.Font("Optima", 0, 14)); // NOI18N
         jLabel2.setForeground(new java.awt.Color(204, 204, 204));
         jLabel2.setHorizontalAlignment(javax.swing.SwingConstants.RIGHT);
         jLabel2.setText("Name*:");
+        add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(110, 106, 130, -1));
 
         txtName.setEditable(false);
+        add(txtName, new org.netbeans.lib.awtextra.AbsoluteConstraints(313, 107, 165, -1));
 
         txtEmailAddress.setEditable(false);
+        add(txtEmailAddress, new org.netbeans.lib.awtextra.AbsoluteConstraints(313, 146, 165, -1));
+        add(txtAge, new org.netbeans.lib.awtextra.AbsoluteConstraints(313, 185, 165, -1));
+        add(txtHomeAddress, new org.netbeans.lib.awtextra.AbsoluteConstraints(313, 224, 165, -1));
+        add(txtPhoneNumber, new org.netbeans.lib.awtextra.AbsoluteConstraints(313, 263, 165, -1));
 
         jLabel7.setFont(new java.awt.Font("Optima", 0, 14)); // NOI18N
         jLabel7.setForeground(new java.awt.Color(204, 204, 204));
         jLabel7.setHorizontalAlignment(javax.swing.SwingConstants.RIGHT);
         jLabel7.setText("Phone Number*:");
+        add(jLabel7, new org.netbeans.lib.awtextra.AbsoluteConstraints(129, 262, 111, -1));
 
         jLabel6.setFont(new java.awt.Font("Optima", 0, 14)); // NOI18N
         jLabel6.setForeground(new java.awt.Color(204, 204, 204));
         jLabel6.setHorizontalAlignment(javax.swing.SwingConstants.RIGHT);
         jLabel6.setText("Home Address*:");
+        add(jLabel6, new org.netbeans.lib.awtextra.AbsoluteConstraints(110, 223, 130, -1));
 
         jLabel5.setFont(new java.awt.Font("Optima", 0, 14)); // NOI18N
         jLabel5.setForeground(new java.awt.Color(204, 204, 204));
         jLabel5.setHorizontalAlignment(javax.swing.SwingConstants.RIGHT);
         jLabel5.setText("Age*:");
+        add(jLabel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(110, 184, 130, -1));
 
         jLabel4.setFont(new java.awt.Font("Optima", 0, 14)); // NOI18N
         jLabel4.setForeground(new java.awt.Color(204, 204, 204));
         jLabel4.setHorizontalAlignment(javax.swing.SwingConstants.RIGHT);
         jLabel4.setText("Email Address*:");
+        add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(110, 145, 130, -1));
 
         btnCreate.setText("Submit");
         btnCreate.addActionListener(new java.awt.event.ActionListener() {
@@ -112,74 +131,7 @@ public class ModifyServerJPanel extends javax.swing.JPanel {
                 btnCreateActionPerformed(evt);
             }
         });
-
-        javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
-        this.setLayout(layout);
-        layout.setHorizontalGroup(
-            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jLabel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                .addContainerGap(116, Short.MAX_VALUE)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
-                    .addGroup(layout.createSequentialGroup()
-                        .addComponent(jLabel2, javax.swing.GroupLayout.PREFERRED_SIZE, 130, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addComponent(txtName, javax.swing.GroupLayout.PREFERRED_SIZE, 165, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(layout.createSequentialGroup()
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
-                            .addComponent(jLabel4, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.PREFERRED_SIZE, 130, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(jLabel5, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.PREFERRED_SIZE, 130, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(jLabel6, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.PREFERRED_SIZE, 130, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addGroup(layout.createSequentialGroup()
-                                .addGap(19, 19, 19)
-                                .addComponent(jLabel7, javax.swing.GroupLayout.PREFERRED_SIZE, 111, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                        .addGap(73, 73, 73)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(txtPhoneNumber, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 165, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(txtHomeAddress, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 165, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(txtAge, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 165, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(txtEmailAddress, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 165, javax.swing.GroupLayout.PREFERRED_SIZE))))
-                .addGap(110, 110, 110))
-            .addGroup(layout.createSequentialGroup()
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(layout.createSequentialGroup()
-                        .addGap(31, 31, 31)
-                        .addComponent(btnBack))
-                    .addGroup(layout.createSequentialGroup()
-                        .addGap(230, 230, 230)
-                        .addComponent(btnCreate, javax.swing.GroupLayout.PREFERRED_SIZE, 124, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-        );
-        layout.setVerticalGroup(
-            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
-                .addComponent(jLabel1)
-                .addGap(18, 18, 18)
-                .addComponent(btnBack)
-                .addGap(18, 18, 18)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(txtName, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jLabel2))
-                .addGap(18, 18, 18)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel4)
-                    .addComponent(txtEmailAddress, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(18, 18, 18)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel5)
-                    .addComponent(txtAge, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(18, 18, 18)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel6)
-                    .addComponent(txtHomeAddress, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(18, 18, 18)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel7)
-                    .addComponent(txtPhoneNumber, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(18, 18, 18)
-                .addComponent(btnCreate)
-                .addGap(0, 40, Short.MAX_VALUE))
-        );
+        add(btnCreate, new org.netbeans.lib.awtextra.AbsoluteConstraints(229, 320, 124, -1));
     }// </editor-fold>//GEN-END:initComponents
 
     private void btnBackActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnBackActionPerformed

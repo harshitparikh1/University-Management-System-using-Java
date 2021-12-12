@@ -6,6 +6,8 @@
 package Business.Restaurant;
 
 import Business.Menu.MenuDirectory;
+import java.util.HashMap;
+import java.util.Map;
 
 /**
  *
@@ -14,15 +16,51 @@ import Business.Menu.MenuDirectory;
 public class Restaurant {
     private String restaurantName;
     private String address;
-    private String managerName;
+    private String userName;
     private String phoneNumber;
+    private Boolean isDineInAvailable;
+    private int numberOfTables;
     private MenuDirectory MenuDirectory;
+    private HashMap<String, Integer> inventory;
     
-    public Restaurant(String restaurantName, String address, String managerName, String phoneNumber) {
+    
+    
+     public Restaurant(String restaurantName, String userName, String address, Boolean isDineInAvailable, int numberOfTables, String phoneNumber, HashMap<String, Integer> inventory) 
+     {
         this.restaurantName = restaurantName;
         this.address = address;
-        this.managerName = managerName;
+        this.isDineInAvailable = isDineInAvailable;
+        this.numberOfTables = numberOfTables;
         this.phoneNumber = phoneNumber;
+        this.userName = userName;
+        this.inventory = inventory;
+    }
+
+    public HashMap<String, Integer> getInventory() {
+        return inventory;
+    }
+
+    public void setInventory(HashMap<String, Integer> inventory) {
+        this.inventory = inventory;
+    }
+
+   
+     
+
+    public Boolean getIsDineInAvailable() {
+        return isDineInAvailable;
+    }
+
+    public void setIsDineInAvailable(Boolean isDineInAvailable) {
+        this.isDineInAvailable = isDineInAvailable;
+    }
+
+    public int getNumberOfTables() {
+        return numberOfTables;
+    }
+
+    public void setNumberOfTables(int numberOfTables) {
+        this.numberOfTables = numberOfTables;
     }
 
     public MenuDirectory getMenuDirectory() {
@@ -51,13 +89,7 @@ public class Restaurant {
         this.address = address;
     }
 
-    public String getManagerName() {
-        return managerName;
-    }
-
-    public void setManagerName(String managerName) {
-        this.managerName = managerName;
-    }
+    
 
     public String getPhoneNumber() {
         return phoneNumber;
@@ -66,6 +98,15 @@ public class Restaurant {
     public void setPhoneNumber(String phoneNumber) {
         this.phoneNumber = phoneNumber;
     }
+
+    public String getUserName() {
+        return userName;
+    }
+
+    public void setUserName(String userName) {
+        this.userName = userName;
+    }
+    
     
     @Override
     public String toString() {

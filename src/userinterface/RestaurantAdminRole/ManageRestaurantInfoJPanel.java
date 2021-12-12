@@ -6,6 +6,7 @@ import Business.Restaurant.Restaurant;
 import Business.Restaurant.RestaurantDirectory;
 import Business.UserAccount.UserAccount;
 import java.awt.CardLayout;
+import java.awt.Component;
 import javax.swing.JOptionPane;
 import javax.swing.JPanel;
 import javax.swing.table.DefaultTableModel;
@@ -44,11 +45,12 @@ public class ManageRestaurantInfoJPanel extends javax.swing.JPanel {
     public void populateTable() {
         DefaultTableModel dtm = (DefaultTableModel) tblRestaurant.getModel();
         dtm.setRowCount(0);
-        Object [] row = new Object[4];
+        Object [] row = new Object[5];
         row[0] = restaurant;
         row[1] = restaurant.getAddress();
-        row[2] = restaurant.getManagerName();
+        row[2] = restaurant.getNumberOfTables();
         row[3] = restaurant.getPhoneNumber();
+        row[4] = restaurant.getIsDineInAvailable();
         
         dtm.addRow(row);
     }
@@ -56,12 +58,12 @@ public class ManageRestaurantInfoJPanel extends javax.swing.JPanel {
     public void refreshTable() {
         DefaultTableModel dtm = (DefaultTableModel) tblRestaurant.getModel();
         dtm.setRowCount(0);
-        
-        Object [] row = new Object[4];
+        Object [] row = new Object[5];
         row[0] = restaurant;
         row[1] = restaurant.getAddress();
-        row[2] = restaurant.getManagerName();
+        row[2] = restaurant.getNumberOfTables();
         row[3] = restaurant.getPhoneNumber();
+        row[4] = restaurant.getIsDineInAvailable();
         dtm.addRow(row);
     }
 
@@ -84,18 +86,25 @@ public class ManageRestaurantInfoJPanel extends javax.swing.JPanel {
 
         tblRestaurant.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
-                {null, null, null, null},
-                {null, null, null, null},
-                {null, null, null, null},
-                {null, null, null, null}
+                {null, null, null, null, null},
+                {null, null, null, null, null},
+                {null, null, null, null, null},
+                {null, null, null, null, null}
             },
             new String [] {
-                "Restaurant Name ", "Address", "Manager Name", "Mobile Number"
+                "Restaurant Name ", "Address", "Number of Table", "Mobile Number", "Dine in available"
             }
         ) {
-            boolean[] canEdit = new boolean [] {
-                false, false, false, false
+            Class[] types = new Class [] {
+                java.lang.Object.class, java.lang.Object.class, java.lang.Object.class, java.lang.Object.class, java.lang.Boolean.class
             };
+            boolean[] canEdit = new boolean [] {
+                false, false, false, false, false
+            };
+
+            public Class getColumnClass(int columnIndex) {
+                return types [columnIndex];
+            }
 
             public boolean isCellEditable(int rowIndex, int columnIndex) {
                 return canEdit [columnIndex];
@@ -159,7 +168,7 @@ public class ManageRestaurantInfoJPanel extends javax.swing.JPanel {
             return;
         }
         Restaurant restaurant = (Restaurant)tblRestaurant.getValueAt(selectedRow,0);
-        ModifyRestaurantInfoJPanel modifyManager = new ModifyRestaurantInfoJPanel(userProcessContainer, ecoSystem, restaurantDirectory, restaurant);
+        ModifyRestaurantInfoJPanel modifyManager = new ModifyRestaurantInfoJPanel(userProcessContainer, account, ecoSystem, restaurantDirectory, restaurant);
         userProcessContainer.add("ModifyRestaurantInfoJPanel",modifyManager);
         CardLayout layout=(CardLayout)userProcessContainer.getLayout();
         layout.next(userProcessContainer);
@@ -168,6 +177,11 @@ public class ManageRestaurantInfoJPanel extends javax.swing.JPanel {
     private void btnBackActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnBackActionPerformed
         // TODO add your handling code here:
         userProcessContainer.remove(this);
+        
+        Component[] componentArray = userProcessContainer.getComponents();
+        Component component = componentArray[componentArray.length - 1];
+        AdminWorkAreaJPanel aWAJP = (AdminWorkAreaJPanel) component;
+        //aWAJP.populateTable();
         CardLayout layout = (CardLayout) userProcessContainer.getLayout();
         layout.previous(userProcessContainer);
     }//GEN-LAST:event_btnBackActionPerformed

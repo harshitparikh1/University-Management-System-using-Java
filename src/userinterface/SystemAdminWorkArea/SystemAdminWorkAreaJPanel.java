@@ -1,14 +1,18 @@
 
 package userinterface.SystemAdminWorkArea;
 
+import Business.Chef.ChefDirectory;
 import Business.Customer.Customer;
 import Business.EcoSystem;
 
 import Business.Customer.CustomerDirectory;
 import Business.DeliveryMan.DeliveryMan;
 import Business.DeliveryMan.DeliveryManDirectory;
+
 import Business.Restaurant.Restaurant;
 import Business.Restaurant.RestaurantDirectory;
+import Business.Server.ServerDirectory;
+import Business.UserAccount.UserAccount;
 import java.awt.CardLayout;
 import java.util.ArrayList;
 import javax.swing.JPanel;
@@ -27,15 +31,22 @@ public class SystemAdminWorkAreaJPanel extends javax.swing.JPanel {
     CustomerDirectory customerDirectory;
     RestaurantDirectory restaurantDirectory;
     DeliveryManDirectory deliveryManDirectory;
+    ChefDirectory chefDirectory;
+    ServerDirectory serverDirectory;
+    UserAccount account;
 
-    public SystemAdminWorkAreaJPanel(JPanel userProcessContainer, EcoSystem ecosystem, CustomerDirectory customerDirectory, RestaurantDirectory restaurantDirectory, DeliveryManDirectory deliveryManDirectory) {
+
+    public SystemAdminWorkAreaJPanel(JPanel userProcessContainer, UserAccount account, EcoSystem ecosystem, CustomerDirectory customerDirectory, RestaurantDirectory restaurantDirectory, DeliveryManDirectory deliveryManDirectory,ChefDirectory chefDirectory, ServerDirectory serverDirectory) {
     
         initComponents();
         this.userProcessContainer = userProcessContainer;
         this.ecosystem = ecosystem;
+        this.account = account;
         this.customerDirectory = ecosystem.getCustomerDirectory();
         this.deliveryManDirectory = ecosystem.getDeliveryManDirectory();
         this.restaurantDirectory = ecosystem.getRestaurantDirectory();
+        this.chefDirectory = ecosystem.getChefDirectory();
+        this.serverDirectory = ecosystem.getServerDirectory();
 
         populateTree();
         
@@ -191,7 +202,7 @@ public class SystemAdminWorkAreaJPanel extends javax.swing.JPanel {
                             .addComponent(btnRestaurant, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                             .addComponent(btnCustomer, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                             .addComponent(btnDelivery, javax.swing.GroupLayout.PREFERRED_SIZE, 185, javax.swing.GroupLayout.PREFERRED_SIZE))))
-                .addContainerGap(62, Short.MAX_VALUE))
+                .addContainerGap(27, Short.MAX_VALUE))
         );
         jPanel2Layout.setVerticalGroup(
             jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -206,7 +217,7 @@ public class SystemAdminWorkAreaJPanel extends javax.swing.JPanel {
                 .addComponent(btnRestaurant)
                 .addGap(18, 18, 18)
                 .addComponent(btnDelivery)
-                .addContainerGap(209, Short.MAX_VALUE))
+                .addContainerGap(228, Short.MAX_VALUE))
         );
 
         jSplitPane.setRightComponent(jPanel2);
@@ -223,7 +234,7 @@ public class SystemAdminWorkAreaJPanel extends javax.swing.JPanel {
     }//GEN-LAST:event_btnCustomerActionPerformed
 
     private void btnRestaurantActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnRestaurantActionPerformed
-        ManageRestaurantJPanel mRestJPnl = new ManageRestaurantJPanel(userProcessContainer, ecosystem, restaurantDirectory);
+        ManageRestaurantJPanel mRestJPnl = new ManageRestaurantJPanel(userProcessContainer, account, ecosystem, restaurantDirectory, serverDirectory);
         userProcessContainer.add("ManageRestaurantJPanel", mRestJPnl);
         CardLayout layout = (CardLayout) userProcessContainer.getLayout();
         layout.next(userProcessContainer);

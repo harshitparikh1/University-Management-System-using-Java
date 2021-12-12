@@ -4,6 +4,7 @@
  */
 package Business.Role;
 
+import Business.Chef.ChefDirectory;
 import Business.Customer.CustomerDirectory;
 import Business.EcoSystem;
 
@@ -12,20 +13,25 @@ import Business.Restaurant.RestaurantDirectory;
 import Business.UserAccount.UserAccount;
 import javax.swing.JPanel;
 import Business.DeliveryMan.DeliveryManDirectory;
+import Business.HeadChef.HeadChefDirectory;
 import Business.Menu.MenuDirectory;
 import Business.Order.OrderDirectory;
+import Business.RestaurantTable.RestaurantTableDirectory;
+import Business.Server.ServerDirectory;
 
-/**
- *
- * @author raunak
- */
+
 public abstract class Role {
     
     public enum RoleType{
         RestaurantAdmin("RestaurantAdmin"),
         Customer("Customer"),
         DeliveryMan("Delivery"),
-        SysAdmin("Sysadmin");
+        SysAdmin("Sysadmin"),
+        Server("Server"),
+        Chef("Chef"),
+        HeadChef("HeadChef"),
+        Supplier("Supplier"),
+        Food("Food");
         
         private String value;
         private RoleType(String value){
@@ -44,8 +50,13 @@ public abstract class Role {
     
     public abstract JPanel createWorkArea(JPanel userProcessContainer, UserAccount account, EcoSystem business
             , CustomerDirectory customerDirectory, RestaurantDirectory restaurantDirectory, 
-            DeliveryManDirectory deliveryManDirectory, MenuDirectory menuDirectory, OrderDirectory oderDirectory);
-
+            DeliveryManDirectory deliveryManDirectory, MenuDirectory menuDirectory, OrderDirectory oderDirectory, ChefDirectory chefDirectory, ServerDirectory serverDirectory, HeadChefDirectory headChefDirectory, RestaurantTableDirectory restaurantTableDirectory);
+    
+    public abstract JPanel createWorkArea1(JPanel userProcessContainer);
+    
+    
+    
+    
     @Override
     public String toString() {
         return this.getClass().getName();

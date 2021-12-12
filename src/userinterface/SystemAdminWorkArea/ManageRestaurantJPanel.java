@@ -5,6 +5,8 @@ package userinterface.SystemAdminWorkArea;
 import Business.EcoSystem;
 import Business.Restaurant.Restaurant;
 import Business.Restaurant.RestaurantDirectory;
+import Business.Server.ServerDirectory;
+import Business.UserAccount.UserAccount;
 import java.awt.CardLayout;
 import javax.swing.JOptionPane;
 import javax.swing.JPanel;
@@ -19,14 +21,18 @@ public class ManageRestaurantJPanel extends javax.swing.JPanel {
     private JPanel userProcessContainer;
     private EcoSystem ecoSystem;
     private RestaurantDirectory restaurantDirectory;
+    private ServerDirectory serverDirectory;
+    private UserAccount account;
     /**
      * Creates new form ManageRestaurantJPanel
      */
-    public ManageRestaurantJPanel(JPanel userProcessContainer, EcoSystem ecoSystem, RestaurantDirectory restaurantDirectory) {
+    public ManageRestaurantJPanel(JPanel userProcessContainer, UserAccount account, EcoSystem ecoSystem, RestaurantDirectory restaurantDirectory, ServerDirectory serverDirectory) {
         initComponents();
         this.userProcessContainer = userProcessContainer;
+        this.account = account;
         this.ecoSystem =  ecoSystem;
         this.restaurantDirectory = ecoSystem.getRestaurantDirectory();
+        this.serverDirectory = ecoSystem.getServerDirectory();
         populateTable();
     }
     
@@ -34,11 +40,12 @@ public class ManageRestaurantJPanel extends javax.swing.JPanel {
         DefaultTableModel dtm = (DefaultTableModel) tblRestaurant.getModel();
         dtm.setRowCount(0);
         for(Restaurant restaurant : ecoSystem.getRestaurantDirectory().getRestaurantDirectory()){
-            Object [] row = new Object[4];
+            Object [] row = new Object[5];
             row[0] = restaurant;
             row[1] = restaurant.getAddress();
-            row[2] = restaurant.getManagerName();
+            row[2] = restaurant.getNumberOfTables();
             row[3] = restaurant.getPhoneNumber();
+            row[4] = restaurant.getIsDineInAvailable();
             dtm.addRow(row);
         }
     }
@@ -47,11 +54,12 @@ public class ManageRestaurantJPanel extends javax.swing.JPanel {
         DefaultTableModel dtm = (DefaultTableModel) tblRestaurant.getModel();
         dtm.setRowCount(0);
         for(Restaurant restaurant : restaurantDirectory.getRestaurantDirectory()){
-            Object [] row = new Object[4];
+            Object [] row = new Object[5];
             row[0] = restaurant;
             row[1] = restaurant.getAddress();
-            row[2] = restaurant.getManagerName();
+            row[2] = restaurant.getNumberOfTables();
             row[3] = restaurant.getPhoneNumber();
+            row[4] = restaurant.getIsDineInAvailable();
             dtm.addRow(row);
         }
     }
@@ -84,18 +92,25 @@ public class ManageRestaurantJPanel extends javax.swing.JPanel {
 
         tblRestaurant.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
-                {null, null, null, null},
-                {null, null, null, null},
-                {null, null, null, null},
-                {null, null, null, null}
+                {null, null, null, null, null},
+                {null, null, null, null, null},
+                {null, null, null, null, null},
+                {null, null, null, null, null}
             },
             new String [] {
-                "Restaurant Name ", "Address", "Manager Name", "Mobile Number"
+                "Restaurant Name ", "Address", "Number of Tables", "Mobile Number", "Dine In Available?"
             }
         ) {
-            boolean[] canEdit = new boolean [] {
-                false, false, false, false
+            Class[] types = new Class [] {
+                java.lang.Object.class, java.lang.Object.class, java.lang.Object.class, java.lang.Object.class, java.lang.Boolean.class
             };
+            boolean[] canEdit = new boolean [] {
+                false, false, false, false, false
+            };
+
+            public Class getColumnClass(int columnIndex) {
+                return types [columnIndex];
+            }
 
             public boolean isCellEditable(int rowIndex, int columnIndex) {
                 return canEdit [columnIndex];
@@ -206,7 +221,7 @@ public class ManageRestaurantJPanel extends javax.swing.JPanel {
 
     private void btnCreateActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCreateActionPerformed
         // TODO add your handling code here:
-        CreateRestaurantJPanel createRestaurant = new CreateRestaurantJPanel(userProcessContainer, ecoSystem, restaurantDirectory);
+        CreateRestaurantJPanel createRestaurant = new CreateRestaurantJPanel(userProcessContainer, ecoSystem, restaurantDirectory, serverDirectory);
         userProcessContainer.add("CreateCustomersJPanel",createRestaurant);
         CardLayout layout=(CardLayout)userProcessContainer.getLayout();
         layout.next(userProcessContainer);
@@ -222,6 +237,9 @@ public class ManageRestaurantJPanel extends javax.swing.JPanel {
         }
 
         Restaurant restaurant = (Restaurant) tblRestaurant.getValueAt(selectedRow, 0);
+        UserAccount account1 = ecoSystem.getUserAccountDirectory().findUserAccount(restaurant.getUserName());
+        ecoSystem.getUserAccountDirectory().deleteUserAccount(account1);
+        
         restaurantDirectory.removeRestaurant(restaurant);
         populateTable();
 

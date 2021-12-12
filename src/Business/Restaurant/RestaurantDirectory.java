@@ -6,6 +6,9 @@
 package Business.Restaurant;
 
 import java.util.ArrayList;
+import java.util.Collections;
+import java.util.HashMap;
+import java.util.Map;
 
 /**
  *
@@ -27,8 +30,9 @@ public class RestaurantDirectory {
         this.restaurantDirectory = restaurantDirectory;
     }
     
-    public Restaurant newRestaurant(String name, String address, String mName, String phoneNumber) {
-        Restaurant restaurant = new Restaurant(name, address, mName, phoneNumber);
+    public Restaurant newRestaurant(String restaurantName, String userName, String address, Boolean isDineInAvailable, int numberOfTables, String phoneNumber, HashMap<String, Integer> inventory) {
+        Restaurant restaurant = null;
+         restaurant = new Restaurant(restaurantName, userName, address,isDineInAvailable, numberOfTables, phoneNumber, new HashMap<String, Integer>());
         restaurantDirectory.add(restaurant);
         System.out.println(restaurantDirectory.size() + "New Res");
         return restaurant;

@@ -1,5 +1,6 @@
 package userinterface;
 
+import Business.Chef.ChefDirectory;
 import Business.EcoSystem;
 import Business.DB4OUtil.DB4OUtil;
 import javax.swing.UIManager.*;
@@ -7,9 +8,14 @@ import Business.Organization;
 import Business.UserAccount.UserAccount;
 import Business.Customer.CustomerDirectory;
 import Business.DeliveryMan.DeliveryManDirectory;
+import Business.HeadChef.HeadChefDirectory;
+
 import Business.Menu.MenuDirectory;
 import Business.Order.OrderDirectory;
 import Business.Restaurant.RestaurantDirectory;
+import Business.RestaurantTable.RestaurantTableDirectory;
+import Business.Server.ServerDirectory;
+import Business.UserAccount.UserAccountDirectory;
 import java.awt.CardLayout;
 import javax.swing.JOptionPane;
 import javax.swing.JPanel;
@@ -25,11 +31,18 @@ public class MainJFrame extends javax.swing.JFrame {
     private DB4OUtil dB4OUtil = DB4OUtil.getInstance();
     private UserAccount userAccount;
     private JPanel userProcessContainer;
+    private UserAccountDirectory userAccountDirectory;
     private CustomerDirectory customerDirectory;
     private RestaurantDirectory restaurantDirectory;
     private DeliveryManDirectory deliveryManDirectory;
     private MenuDirectory menuDirectory;
     private OrderDirectory orderDirectory;
+    private ServerDirectory serverDirectory;
+    private ChefDirectory chefDirectory;
+    private HeadChefDirectory headChefDirectory;
+    private RestaurantTableDirectory restaurantTableDirectory;
+    
+    
 
     public MainJFrame() {
         initComponents();
@@ -37,12 +50,17 @@ public class MainJFrame extends javax.swing.JFrame {
         system = dB4OUtil.retrieveSystem();
         this.setSize(1680, 1050);
         
-        
+        userAccountDirectory = new UserAccountDirectory();
         customerDirectory = new CustomerDirectory();
         restaurantDirectory = new RestaurantDirectory();
         deliveryManDirectory = new DeliveryManDirectory();
         menuDirectory = new MenuDirectory();
         orderDirectory = new OrderDirectory();
+        chefDirectory = new ChefDirectory();
+        serverDirectory = new ServerDirectory();
+        headChefDirectory = new HeadChefDirectory();
+        restaurantTableDirectory = new RestaurantTableDirectory();
+       
         
     }
 
@@ -71,7 +89,7 @@ public class MainJFrame extends javax.swing.JFrame {
 
         jSplitPane1.setDividerSize(1);
 
-        jPanel1.setBackground(new java.awt.Color(102, 102, 102));
+        jPanel1.setBackground(new java.awt.Color(103, 103, 103));
         jPanel1.setBorder(javax.swing.BorderFactory.createTitledBorder(null, "LOGIN PANEL", javax.swing.border.TitledBorder.CENTER, javax.swing.border.TitledBorder.BELOW_TOP, new java.awt.Font("Optima", 1, 14), new java.awt.Color(204, 204, 204))); // NOI18N
 
         loginJButton.setFont(new java.awt.Font("Optima", 0, 12)); // NOI18N
@@ -110,26 +128,26 @@ public class MainJFrame extends javax.swing.JFrame {
         jPanel1Layout.setHorizontalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel1Layout.createSequentialGroup()
-                .addGap(34, 34, 34)
-                .addComponent(jLabel2))
-            .addComponent(passwordField, javax.swing.GroupLayout.PREFERRED_SIZE, 118, javax.swing.GroupLayout.PREFERRED_SIZE)
-            .addGroup(jPanel1Layout.createSequentialGroup()
-                .addGap(4, 4, 4)
-                .addComponent(loginJButton, javax.swing.GroupLayout.PREFERRED_SIZE, 110, javax.swing.GroupLayout.PREFERRED_SIZE))
-            .addGroup(jPanel1Layout.createSequentialGroup()
-                .addGap(124, 124, 124)
-                .addComponent(loginJLabel))
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(jPanel1Layout.createSequentialGroup()
+                        .addGap(34, 34, 34)
+                        .addComponent(jLabel2))
+                    .addGroup(jPanel1Layout.createSequentialGroup()
+                        .addGap(124, 124, 124)
+                        .addComponent(loginJLabel)))
+                .addGap(8, 8, 8))
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
                 .addContainerGap()
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addGap(24, 24, 24)
-                        .addComponent(jLabel1))
-                    .addComponent(userNameJTextField, javax.swing.GroupLayout.PREFERRED_SIZE, 118, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                        .addGroup(jPanel1Layout.createSequentialGroup()
+                            .addGap(24, 24, 24)
+                            .addComponent(jLabel1))
+                        .addComponent(userNameJTextField, javax.swing.GroupLayout.PREFERRED_SIZE, 118, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(passwordField, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 118, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(loginJButton, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 110, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(logoutJButton, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 110, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addContainerGap())
-            .addGroup(jPanel1Layout.createSequentialGroup()
-                .addContainerGap()
-                .addComponent(logoutJButton, javax.swing.GroupLayout.PREFERRED_SIZE, 110, javax.swing.GroupLayout.PREFERRED_SIZE))
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -140,15 +158,15 @@ public class MainJFrame extends javax.swing.JFrame {
                 .addComponent(userNameJTextField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jLabel2)
-                .addGap(1, 1, 1)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(passwordField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(15, 15, 15)
+                .addGap(18, 18, 18)
                 .addComponent(loginJButton)
-                .addGap(72, 72, 72)
-                .addComponent(loginJLabel)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 829, Short.MAX_VALUE)
+                .addGap(18, 18, 18)
                 .addComponent(logoutJButton)
-                .addGap(34, 34, 34))
+                .addGap(52, 52, 52)
+                .addComponent(loginJLabel)
+                .addContainerGap(857, Short.MAX_VALUE))
         );
 
         jSplitPane1.setLeftComponent(jPanel1);
@@ -181,8 +199,15 @@ public class MainJFrame extends javax.swing.JFrame {
         System.out.println("EcoSYSTEM MAIN" + system.toString() + system.getUserAccountDirectory().getUserAccountList().size());
         
         CardLayout layout = (CardLayout) container.getLayout();
-        container.add("workArea",userAccount.getRole().createWorkArea(container, userAccount, system, customerDirectory, restaurantDirectory, deliveryManDirectory, menuDirectory, orderDirectory));
-        layout.next(container);
+        if(userNameJTextField.getText().equals("supplier")){
+           container.add("workArea",userAccount.getRole().createWorkArea1(container));
+        
+        }
+        else{
+            container.add("workArea",userAccount.getRole().createWorkArea(container, userAccount, system, customerDirectory, restaurantDirectory, deliveryManDirectory, menuDirectory, orderDirectory, chefDirectory, serverDirectory, headChefDirectory, restaurantTableDirectory));
+
+        }
+         layout.next(container);
         logoutJButton.setEnabled(true);
         loginJButton.setEnabled(false);
         userNameJTextField.setEditable(false);
@@ -195,14 +220,17 @@ public class MainJFrame extends javax.swing.JFrame {
 logoutJButton.setEnabled(false);
 userNameJTextField.setEnabled(true);
 passwordField.setEnabled(true);
-loginJButton.setEnabled(true); userNameJTextField.setText("");
+loginJButton.setEnabled(true);
+userNameJTextField.setText("");
 passwordField.setText("");
 container.removeAll();
 JPanel blankJP = new JPanel();
 container.add("blank", blankJP);
 CardLayout crdLyt = (CardLayout) container.getLayout();
-crdLyt.next(container); userNameJTextField.setEditable(true);
-passwordField.setEditable(true); dB4OUtil.storeSystem(system);
+crdLyt.next(container);
+userNameJTextField.setEditable(true);
+passwordField.setEditable(true);
+dB4OUtil.storeSystem(system);
 
 
     }//GEN-LAST:event_logoutJButtonActionPerformed

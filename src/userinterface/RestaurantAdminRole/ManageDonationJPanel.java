@@ -92,7 +92,6 @@ public class ManageDonationJPanel extends javax.swing.JPanel {
         jLabel1 = new javax.swing.JLabel();
         enterpriseLabel1 = new javax.swing.JLabel();
         boxNgo = new javax.swing.JComboBox<>();
-        btnMenuShow = new javax.swing.JButton();
         jScrollPane2 = new javax.swing.JScrollPane();
         tblItem = new javax.swing.JTable();
         lblModelName = new javax.swing.JLabel();
@@ -125,13 +124,6 @@ public class ManageDonationJPanel extends javax.swing.JPanel {
         boxNgo.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 boxNgoActionPerformed(evt);
-            }
-        });
-
-        btnMenuShow.setText("Show Menu");
-        btnMenuShow.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnMenuShowActionPerformed(evt);
             }
         });
 
@@ -215,8 +207,8 @@ public class ManageDonationJPanel extends javax.swing.JPanel {
                         .addComponent(btnMenuShow1))
                     .addGroup(layout.createSequentialGroup()
                         .addGap(38, 38, 38)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                            .addComponent(jScrollPane2)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 525, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addGroup(layout.createSequentialGroup()
                                 .addComponent(enterpriseLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 154, javax.swing.GroupLayout.PREFERRED_SIZE)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
@@ -224,9 +216,7 @@ public class ManageDonationJPanel extends javax.swing.JPanel {
                             .addGroup(layout.createSequentialGroup()
                                 .addComponent(enterpriseLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 160, javax.swing.GroupLayout.PREFERRED_SIZE)
                                 .addGap(10, 10, 10)
-                                .addComponent(valueLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 210, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addGap(56, 56, 56)
-                                .addComponent(btnMenuShow)))))
+                                .addComponent(valueLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 210, javax.swing.GroupLayout.PREFERRED_SIZE)))))
                 .addContainerGap(87, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
@@ -236,9 +226,7 @@ public class ManageDonationJPanel extends javax.swing.JPanel {
                 .addGap(16, 16, 16)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(enterpriseLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                        .addComponent(valueLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addComponent(btnMenuShow)))
+                    .addComponent(valueLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(boxNgo, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -266,11 +254,6 @@ public class ManageDonationJPanel extends javax.swing.JPanel {
     private void boxNgoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_boxNgoActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_boxNgoActionPerformed
-
-    private void btnMenuShowActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnMenuShowActionPerformed
-        // TODO add your handling code here:
-        populateTable();
-    }//GEN-LAST:event_btnMenuShowActionPerformed
 
     private void tblItemMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_tblItemMouseClicked
         // TODO add your handling code here:
@@ -307,6 +290,9 @@ public class ManageDonationJPanel extends javax.swing.JPanel {
     }//GEN-LAST:event_txtQtyKeyReleased
 
     private void btnMenuShow1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnMenuShow1ActionPerformed
+
+        
+        
         String itemName = txtItemName.getText();
         int quantity = Integer.parseInt(txtQty.getText());
         for(Donation donation : ecoSystem.getDonationDirectory().getDonationDirectory()){
@@ -322,7 +308,6 @@ public class ManageDonationJPanel extends javax.swing.JPanel {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JComboBox<String> boxNgo;
-    private javax.swing.JButton btnMenuShow;
     private javax.swing.JButton btnMenuShow1;
     private javax.swing.JLabel enterpriseLabel;
     private javax.swing.JLabel enterpriseLabel1;

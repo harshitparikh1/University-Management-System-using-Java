@@ -136,14 +136,14 @@ public class CustomerWorkAreaJPanel extends javax.swing.JPanel {
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
         CustomerDineInJPanel cdip = new CustomerDineInJPanel(userProcessContainer,account, ecoSystem, restaurantDirectory, restaurantTableDirectory);
-        userProcessContainer.add("headChefWorkAreaJPanel",cdip);
+        userProcessContainer.add("CustomerDineInJPanel",cdip);
         CardLayout layout = (CardLayout) userProcessContainer.getLayout();
         layout.next(userProcessContainer);
     }//GEN-LAST:event_jButton1ActionPerformed
 
     private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
-        CustomerDineInJPanel cdip = new CustomerDineInJPanel(userProcessContainer,account, ecoSystem, restaurantDirectory, restaurantTableDirectory);
-        userProcessContainer.add("headChefWorkAreaJPanel",cdip);
+        CustomerDeliveryJPanel cdelp = new CustomerDeliveryJPanel(userProcessContainer, account, ecoSystem, customerDirectory, restaurantDirectory, deliveryManDirectory, menuDirectory, orderDirectory);
+        userProcessContainer.add("CustomerDeliveryJPanel",cdelp);
         CardLayout layout = (CardLayout) userProcessContainer.getLayout();
         layout.next(userProcessContainer); 
     }//GEN-LAST:event_jButton2ActionPerformed

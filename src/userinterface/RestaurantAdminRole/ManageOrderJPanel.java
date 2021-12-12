@@ -45,12 +45,13 @@ public class ManageOrderJPanel extends javax.swing.JPanel {
         for(Order order : ecoSystem.getOrderDirectory().getOrderDirectory()) {
             System.out.println(" Rest  " + account.getEmployee().getName() + "  " + order.getRestaurant().getRestaurantName());
             if(account.getEmployee().getName().equals(order.getRestaurant().getRestaurantName())) {
-                Object [] row = new Object[5];
+                Object [] row = new Object[6];
                 row[0] = order;
-                row[1] = order.getMenu().getItemName();
-                row[2] = order.getQuantity();
-                row[3] = order.getQuantity() * order.getMenu().getPrice();
-                row[4] = order.getOrderStatus();
+                row[1] = order.getCustomer().getName();
+                row[2] = order.getMenu().getItemName();
+                row[3] = order.getQuantity();
+                row[4] = order.getQuantity() * order.getMenu().getPrice();
+                row[5] = order.getOrderStatus();
                 dtm.addRow(row);
             }
         }
@@ -76,15 +77,23 @@ public class ManageOrderJPanel extends javax.swing.JPanel {
 
         tblOrder.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
-                {null, null, null, null, null},
-                {null, null, null, null, null},
-                {null, null, null, null, null},
-                {null, null, null, null, null}
+                {null, null, null, null, null, null},
+                {null, null, null, null, null, null},
+                {null, null, null, null, null, null},
+                {null, null, null, null, null, null}
             },
             new String [] {
-                "Order ID", "Item Name", "Quantity", "Price", "Order Status"
+                "Order ID", "Customer Name", "Item Name", "Quantity", "Price", "Order Status"
             }
-        ));
+        ) {
+            boolean[] canEdit = new boolean [] {
+                true, false, false, false, true, true
+            };
+
+            public boolean isCellEditable(int rowIndex, int columnIndex) {
+                return canEdit [columnIndex];
+            }
+        });
         jScrollPane1.setViewportView(tblOrder);
 
         btnCompleted.setText("Completed");

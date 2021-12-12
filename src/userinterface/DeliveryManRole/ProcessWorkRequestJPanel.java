@@ -36,7 +36,7 @@ public class ProcessWorkRequestJPanel extends javax.swing.JPanel {
         backJButton = new javax.swing.JButton();
         jLabel3 = new javax.swing.JLabel();
 
-        setBackground(new java.awt.Color(0, 0, 0));
+        setBackground(new java.awt.Color(255, 204, 153));
         setLayout(null);
 
         submitJButton.setBackground(new java.awt.Color(255, 255, 255));
@@ -48,31 +48,30 @@ public class ProcessWorkRequestJPanel extends javax.swing.JPanel {
             }
         });
         add(submitJButton);
-        submitJButton.setBounds(378, 246, 164, 68);
+        submitJButton.setBounds(170, 290, 164, 68);
 
         jLabel1.setBackground(new java.awt.Color(0, 0, 0));
         jLabel1.setFont(new java.awt.Font("Sathu", 1, 60)); // NOI18N
-        jLabel1.setForeground(new java.awt.Color(255, 255, 255));
         jLabel1.setText("Result");
         add(jLabel1);
-        jLabel1.setBounds(232, 22, 213, 74);
+        jLabel1.setBounds(150, 60, 213, 74);
         add(resultJTextField);
-        resultJTextField.setBounds(172, 114, 293, 97);
+        resultJTextField.setBounds(100, 160, 293, 97);
 
         backJButton.setBackground(new java.awt.Color(255, 255, 255));
         backJButton.setFont(new java.awt.Font("Lucida Grande", 0, 18)); // NOI18N
-        backJButton.setText("Back");
+        backJButton.setText("< Back");
         backJButton.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 backJButtonActionPerformed(evt);
             }
         });
         add(backJButton);
-        backJButton.setBounds(104, 246, 158, 68);
+        backJButton.setBounds(20, 20, 100, 30);
 
         jLabel3.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Images/Result.png"))); // NOI18N
         add(jLabel3);
-        jLabel3.setBounds(456, 317, 191, 180);
+        jLabel3.setBounds(430, 50, 191, 330);
     }// </editor-fold>//GEN-END:initComponents
 
     private void backJButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_backJButtonActionPerformed

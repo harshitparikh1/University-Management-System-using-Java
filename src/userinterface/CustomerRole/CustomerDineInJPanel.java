@@ -91,10 +91,12 @@ public class CustomerDineInJPanel extends javax.swing.JPanel {
         jScrollPane2 = new javax.swing.JScrollPane();
         tableOfTable = new javax.swing.JTable();
         jButton1 = new javax.swing.JButton();
+        jLabel1 = new javax.swing.JLabel();
 
-        setBackground(new java.awt.Color(102, 102, 102));
+        setBackground(new java.awt.Color(255, 204, 153));
         setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
+        boxRestaurant.setBackground(new java.awt.Color(204, 204, 255));
         boxRestaurant.setFont(new java.awt.Font("Optima", 0, 14)); // NOI18N
         boxRestaurant.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
         boxRestaurant.addActionListener(new java.awt.event.ActionListener() {
@@ -104,31 +106,35 @@ public class CustomerDineInJPanel extends javax.swing.JPanel {
         });
         add(boxRestaurant, new org.netbeans.lib.awtextra.AbsoluteConstraints(168, 77, 214, -1));
 
+        showTablesButton.setBackground(new java.awt.Color(255, 255, 255));
+        showTablesButton.setFont(new java.awt.Font("Lucida Grande", 1, 18)); // NOI18N
         showTablesButton.setText("Show Tables");
         showTablesButton.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 showTablesButtonActionPerformed(evt);
             }
         });
-        add(showTablesButton, new org.netbeans.lib.awtextra.AbsoluteConstraints(510, 74, -1, -1));
+        add(showTablesButton, new org.netbeans.lib.awtextra.AbsoluteConstraints(460, 70, 200, 50));
 
-        enterpriseLabel.setFont(new java.awt.Font("Optima", 0, 14)); // NOI18N
-        enterpriseLabel.setForeground(new java.awt.Color(204, 204, 204));
+        enterpriseLabel.setFont(new java.awt.Font("Optima", 1, 18)); // NOI18N
         enterpriseLabel.setText("Select Resturant: ");
         add(enterpriseLabel, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 74, 154, 30));
 
         enterpriseLabel1.setFont(new java.awt.Font("Optima", 1, 18)); // NOI18N
-        enterpriseLabel1.setForeground(new java.awt.Color(204, 204, 204));
         enterpriseLabel1.setText("Customer :");
         add(enterpriseLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(11, 3, 127, 30));
 
         customerName.setFont(new java.awt.Font("Optima", 1, 18)); // NOI18N
-        customerName.setForeground(new java.awt.Color(204, 204, 204));
         customerName.setText("<value>");
         add(customerName, new org.netbeans.lib.awtextra.AbsoluteConstraints(144, 5, 158, 26));
 
+        tableOfTable.setBackground(new java.awt.Color(204, 204, 204));
         tableOfTable.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
+                {null, null, null},
+                {null, null, null},
+                {null, null, null},
+                {null, null, null},
                 {null, null, null},
                 {null, null, null},
                 {null, null, null},
@@ -148,15 +154,20 @@ public class CustomerDineInJPanel extends javax.swing.JPanel {
         });
         jScrollPane2.setViewportView(tableOfTable);
 
-        add(jScrollPane2, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 127, 601, 170));
+        add(jScrollPane2, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 150, 760, 150));
 
+        jButton1.setBackground(new java.awt.Color(255, 255, 255));
+        jButton1.setFont(new java.awt.Font("Lucida Grande", 1, 18)); // NOI18N
         jButton1.setText("Sit");
         jButton1.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jButton1ActionPerformed(evt);
             }
         });
-        add(jButton1, new org.netbeans.lib.awtextra.AbsoluteConstraints(270, 330, -1, -1));
+        add(jButton1, new org.netbeans.lib.awtextra.AbsoluteConstraints(300, 360, 120, 60));
+
+        jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Images/DineIn.png"))); // NOI18N
+        add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(570, 320, -1, -1));
     }// </editor-fold>//GEN-END:initComponents
 
     private void boxRestaurantActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_boxRestaurantActionPerformed
@@ -193,6 +204,7 @@ public class CustomerDineInJPanel extends javax.swing.JPanel {
     private javax.swing.JLabel enterpriseLabel;
     private javax.swing.JLabel enterpriseLabel1;
     private javax.swing.JButton jButton1;
+    private javax.swing.JLabel jLabel1;
     private javax.swing.JScrollPane jScrollPane2;
     private javax.swing.JButton showTablesButton;
     private javax.swing.JTable tableOfTable;

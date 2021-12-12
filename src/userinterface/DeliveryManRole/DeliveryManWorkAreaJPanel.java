@@ -130,7 +130,6 @@ public class DeliveryManWorkAreaJPanel extends javax.swing.JPanel {
         add(assignJButton);
         assignJButton.setBounds(30, 209, 160, 40);
 
-        processJButton.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Images/DeliveryOrder.jpg"))); // NOI18N
         processJButton.setText("Mark as Delivered");
         processJButton.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -138,7 +137,7 @@ public class DeliveryManWorkAreaJPanel extends javax.swing.JPanel {
             }
         });
         add(processJButton);
-        processJButton.setBounds(920, 470, 160, 140);
+        processJButton.setBounds(920, 470, 130, 50);
 
         refreshJButton.setBackground(new java.awt.Color(102, 255, 153));
         refreshJButton.setText("Refresh");

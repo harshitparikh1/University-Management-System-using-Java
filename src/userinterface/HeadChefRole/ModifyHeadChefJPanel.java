@@ -79,11 +79,10 @@ public class ModifyHeadChefJPanel extends javax.swing.JPanel {
         btnCreate = new javax.swing.JButton();
         jLabel8 = new javax.swing.JLabel();
 
-        setBackground(new java.awt.Color(0, 0, 0));
+        setBackground(new java.awt.Color(255, 204, 153));
         setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         jLabel1.setFont(new java.awt.Font("Optima", 1, 48)); // NOI18N
-        jLabel1.setForeground(new java.awt.Color(255, 255, 255));
         jLabel1.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         jLabel1.setText("Create Head Chef");
         add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 30, 710, 50));
@@ -99,7 +98,6 @@ public class ModifyHeadChefJPanel extends javax.swing.JPanel {
         add(btnBack, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 100, 83, 22));
 
         jLabel2.setFont(new java.awt.Font("Optima", 1, 18)); // NOI18N
-        jLabel2.setForeground(new java.awt.Color(255, 255, 255));
         jLabel2.setHorizontalAlignment(javax.swing.SwingConstants.RIGHT);
         jLabel2.setText("Name*:");
         add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(140, 150, 130, -1));
@@ -114,30 +112,26 @@ public class ModifyHeadChefJPanel extends javax.swing.JPanel {
         add(txtPhoneNumber, new org.netbeans.lib.awtextra.AbsoluteConstraints(340, 310, 165, -1));
 
         jLabel7.setFont(new java.awt.Font("Optima", 1, 18)); // NOI18N
-        jLabel7.setForeground(new java.awt.Color(255, 255, 255));
         jLabel7.setHorizontalAlignment(javax.swing.SwingConstants.RIGHT);
         jLabel7.setText("Phone Number*:");
-        add(jLabel7, new org.netbeans.lib.awtextra.AbsoluteConstraints(160, 310, 111, -1));
+        add(jLabel7, new org.netbeans.lib.awtextra.AbsoluteConstraints(131, 310, 140, -1));
 
         jLabel6.setFont(new java.awt.Font("Optima", 1, 18)); // NOI18N
-        jLabel6.setForeground(new java.awt.Color(255, 255, 255));
         jLabel6.setHorizontalAlignment(javax.swing.SwingConstants.RIGHT);
         jLabel6.setText("Home Address*:");
         add(jLabel6, new org.netbeans.lib.awtextra.AbsoluteConstraints(140, 270, 130, -1));
 
         jLabel5.setFont(new java.awt.Font("Optima", 1, 18)); // NOI18N
-        jLabel5.setForeground(new java.awt.Color(255, 255, 255));
         jLabel5.setHorizontalAlignment(javax.swing.SwingConstants.RIGHT);
         jLabel5.setText("Age*:");
         add(jLabel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(140, 230, 130, -1));
 
         jLabel4.setFont(new java.awt.Font("Optima", 1, 18)); // NOI18N
-        jLabel4.setForeground(new java.awt.Color(255, 255, 255));
         jLabel4.setHorizontalAlignment(javax.swing.SwingConstants.RIGHT);
         jLabel4.setText("Email Address*:");
         add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(140, 190, 130, -1));
 
-        btnCreate.setBackground(new java.awt.Color(255, 255, 51));
+        btnCreate.setBackground(new java.awt.Color(255, 255, 255));
         btnCreate.setFont(new java.awt.Font("Lucida Grande", 1, 18)); // NOI18N
         btnCreate.setText("Submit");
         btnCreate.addActionListener(new java.awt.event.ActionListener() {
@@ -148,7 +142,7 @@ public class ModifyHeadChefJPanel extends javax.swing.JPanel {
         add(btnCreate, new org.netbeans.lib.awtextra.AbsoluteConstraints(250, 390, 170, 60));
 
         jLabel8.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Images/ChefDetails.png"))); // NOI18N
-        add(jLabel8, new org.netbeans.lib.awtextra.AbsoluteConstraints(450, 430, -1, 130));
+        add(jLabel8, new org.netbeans.lib.awtextra.AbsoluteConstraints(450, 400, -1, 130));
     }// </editor-fold>//GEN-END:initComponents
 
     private void btnBackActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnBackActionPerformed

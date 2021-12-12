@@ -77,12 +77,15 @@ public class ManageMenuIngredientsJPanel extends javax.swing.JPanel {
         jLabel2 = new javax.swing.JLabel();
         jLabel3 = new javax.swing.JLabel();
         refreshJButton = new javax.swing.JButton();
+        jLabel4 = new javax.swing.JLabel();
 
-        setBackground(new java.awt.Color(102, 102, 102));
+        setBackground(new java.awt.Color(255, 204, 153));
         setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
+        tblMenu.setBackground(new java.awt.Color(204, 204, 204));
         tblMenu.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
+                {null, null},
                 {null, null},
                 {null, null},
                 {null, null},
@@ -102,32 +105,42 @@ public class ManageMenuIngredientsJPanel extends javax.swing.JPanel {
         });
         jScrollPane1.setViewportView(tblMenu);
 
-        add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 110, -1, 100));
+        add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 130, -1, 100));
 
+        viewIngredients.setBackground(new java.awt.Color(255, 255, 255));
+        viewIngredients.setFont(new java.awt.Font("Lucida Grande", 1, 18)); // NOI18N
         viewIngredients.setText("View Ingredients");
         viewIngredients.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 viewIngredientsActionPerformed(evt);
             }
         });
-        add(viewIngredients, new org.netbeans.lib.awtextra.AbsoluteConstraints(210, 230, -1, -1));
+        add(viewIngredients, new org.netbeans.lib.awtextra.AbsoluteConstraints(180, 250, 200, 60));
 
         jLabel1.setFont(new java.awt.Font("Optima", 1, 36)); // NOI18N
-        jLabel1.setForeground(new java.awt.Color(204, 204, 204));
         jLabel1.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         jLabel1.setText("Manage Menu Ingredients Panel");
-        add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 1210, -1));
+        add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(-100, 60, 1200, -1));
 
+        btnBack.setBackground(new java.awt.Color(255, 255, 255));
+        btnBack.setFont(new java.awt.Font("Lucida Grande", 1, 13)); // NOI18N
         btnBack.setText("<Back");
         btnBack.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnBackActionPerformed(evt);
             }
         });
-        add(btnBack, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 70, -1, -1));
+        add(btnBack, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 20, -1, -1));
 
+        tableIngredient.setBackground(new java.awt.Color(204, 204, 204));
+        tableIngredient.setFont(new java.awt.Font("Lucida Grande", 0, 14)); // NOI18N
         tableIngredient.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
+                {null, null},
+                {null, null},
+                {null, null},
+                {null, null},
+                {null, null},
                 {null, null},
                 {null, null},
                 {null, null},
@@ -154,40 +167,51 @@ public class ManageMenuIngredientsJPanel extends javax.swing.JPanel {
         });
         jScrollPane2.setViewportView(tableIngredient);
 
-        add(jScrollPane2, new org.netbeans.lib.awtextra.AbsoluteConstraints(620, 70, 300, 172));
+        add(jScrollPane2, new org.netbeans.lib.awtextra.AbsoluteConstraints(620, 130, 320, 170));
 
+        btnCreate.setBackground(new java.awt.Color(255, 255, 255));
+        btnCreate.setFont(new java.awt.Font("Lucida Grande", 1, 12)); // NOI18N
         btnCreate.setText("Add Ingredient");
         btnCreate.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnCreateActionPerformed(evt);
             }
         });
-        add(btnCreate, new org.netbeans.lib.awtextra.AbsoluteConstraints(610, 350, 144, -1));
+        add(btnCreate, new org.netbeans.lib.awtextra.AbsoluteConstraints(594, 459, 160, 40));
 
+        btnDelete.setBackground(new java.awt.Color(255, 255, 255));
+        btnDelete.setFont(new java.awt.Font("Lucida Grande", 1, 12)); // NOI18N
         btnDelete.setText("Delete Ingredient");
         btnDelete.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnDeleteActionPerformed(evt);
             }
         });
-        add(btnDelete, new org.netbeans.lib.awtextra.AbsoluteConstraints(790, 350, 165, -1));
+        add(btnDelete, new org.netbeans.lib.awtextra.AbsoluteConstraints(785, 459, 170, 40));
         add(jSeparator1, new org.netbeans.lib.awtextra.AbsoluteConstraints(560, 102, -1, 180));
-        add(txtIngredient, new org.netbeans.lib.awtextra.AbsoluteConstraints(750, 260, 90, -1));
-        add(txtQuantity, new org.netbeans.lib.awtextra.AbsoluteConstraints(750, 300, 90, -1));
+        add(txtIngredient, new org.netbeans.lib.awtextra.AbsoluteConstraints(790, 340, 150, -1));
+        add(txtQuantity, new org.netbeans.lib.awtextra.AbsoluteConstraints(790, 400, 150, -1));
 
+        jLabel2.setFont(new java.awt.Font("Lucida Grande", 1, 14)); // NOI18N
         jLabel2.setText("Quantity Required");
-        add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(630, 300, 120, -1));
+        add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(610, 410, 150, -1));
 
+        jLabel3.setFont(new java.awt.Font("Lucida Grande", 1, 14)); // NOI18N
         jLabel3.setText("Ingredient");
-        add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(670, 260, 80, -1));
+        add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(670, 350, 80, -1));
 
+        refreshJButton.setBackground(new java.awt.Color(204, 255, 204));
+        refreshJButton.setFont(new java.awt.Font("Lucida Grande", 1, 13)); // NOI18N
         refreshJButton.setText("Refresh");
         refreshJButton.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 refreshJButtonActionPerformed(evt);
             }
         });
-        add(refreshJButton, new org.netbeans.lib.awtextra.AbsoluteConstraints(430, 70, -1, -1));
+        add(refreshJButton, new org.netbeans.lib.awtextra.AbsoluteConstraints(851, 9, 100, 30));
+
+        jLabel4.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Images/Ingredients.jpg"))); // NOI18N
+        add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(150, 330, 320, -1));
     }// </editor-fold>//GEN-END:initComponents
 
     private void viewIngredientsActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_viewIngredientsActionPerformed
@@ -304,6 +328,7 @@ public class ManageMenuIngredientsJPanel extends javax.swing.JPanel {
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
+    private javax.swing.JLabel jLabel4;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JScrollPane jScrollPane2;
     private javax.swing.JSeparator jSeparator1;

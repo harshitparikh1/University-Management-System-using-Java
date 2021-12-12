@@ -82,6 +82,7 @@ public class AdminWorkAreaJPanel extends javax.swing.JPanel {
         manageServers = new javax.swing.JButton();
         manageHeadChef = new javax.swing.JButton();
         manageTables = new javax.swing.JButton();
+        manageInventory = new javax.swing.JButton();
 
         setBackground(new java.awt.Color(102, 102, 102));
         setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
@@ -148,6 +149,9 @@ public class AdminWorkAreaJPanel extends javax.swing.JPanel {
             }
         });
         add(manageTables, new org.netbeans.lib.awtextra.AbsoluteConstraints(200, 300, 230, -1));
+
+        manageInventory.setText("Manage Inventory");
+        add(manageInventory, new org.netbeans.lib.awtextra.AbsoluteConstraints(200, 380, 230, -1));
     }// </editor-fold>//GEN-END:initComponents
 
     private void userJButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_userJButtonActionPerformed
@@ -204,6 +208,7 @@ public class AdminWorkAreaJPanel extends javax.swing.JPanel {
     private javax.swing.JLabel jLabel1;
     private javax.swing.JButton manageEmployeeJButton;
     private javax.swing.JButton manageHeadChef;
+    private javax.swing.JButton manageInventory;
     private javax.swing.JButton manageOrganizationJButton;
     private javax.swing.JButton manageServers;
     private javax.swing.JButton manageTables;

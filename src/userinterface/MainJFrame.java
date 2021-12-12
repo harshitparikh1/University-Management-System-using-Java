@@ -9,6 +9,7 @@ import Business.UserAccount.UserAccount;
 import Business.Customer.CustomerDirectory;
 import Business.DeliveryMan.DeliveryManDirectory;
 import Business.HeadChef.HeadChefDirectory;
+
 import Business.Menu.MenuDirectory;
 import Business.Order.OrderDirectory;
 import Business.Restaurant.RestaurantDirectory;
@@ -41,6 +42,7 @@ public class MainJFrame extends javax.swing.JFrame {
     private HeadChefDirectory headChefDirectory;
     private RestaurantTableDirectory restaurantTableDirectory;
     
+    
 
     public MainJFrame() {
         initComponents();
@@ -58,6 +60,7 @@ public class MainJFrame extends javax.swing.JFrame {
         serverDirectory = new ServerDirectory();
         headChefDirectory = new HeadChefDirectory();
         restaurantTableDirectory = new RestaurantTableDirectory();
+       
         
     }
 
@@ -217,14 +220,17 @@ public class MainJFrame extends javax.swing.JFrame {
 logoutJButton.setEnabled(false);
 userNameJTextField.setEnabled(true);
 passwordField.setEnabled(true);
-loginJButton.setEnabled(true); userNameJTextField.setText("");
+loginJButton.setEnabled(true);
+userNameJTextField.setText("");
 passwordField.setText("");
 container.removeAll();
 JPanel blankJP = new JPanel();
 container.add("blank", blankJP);
 CardLayout crdLyt = (CardLayout) container.getLayout();
-crdLyt.next(container); userNameJTextField.setEditable(true);
-passwordField.setEditable(true); dB4OUtil.storeSystem(system);
+crdLyt.next(container);
+userNameJTextField.setEditable(true);
+passwordField.setEditable(true);
+dB4OUtil.storeSystem(system);
 
 
     }//GEN-LAST:event_logoutJButtonActionPerformed

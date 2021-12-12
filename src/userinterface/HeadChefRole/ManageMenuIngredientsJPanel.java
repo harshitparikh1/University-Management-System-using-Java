@@ -7,12 +7,18 @@ package userinterface.HeadChefRole;
 
 import Business.Customer.Customer;
 import Business.EcoSystem;
+import Business.HeadChef.HeadChef;
+import Business.HeadChef.HeadChefDirectory;
+import Business.Menu.Ingredients;
 import Business.Menu.Menu;
 import Business.Menu.MenuDirectory;
+import Business.UserAccount.UserAccount;
 import java.awt.CardLayout;
+import java.util.Iterator;
 import javax.swing.JOptionPane;
 import javax.swing.JPanel;
 import javax.swing.table.DefaultTableModel;
+import org.json.simple.JSONObject;
 import userinterface.SystemAdminWorkArea.ModifyCustomerJPanel;
 import userinterface.HeadChefRole.IngredientWorkAreaJPanel;
 
@@ -23,18 +29,25 @@ import userinterface.HeadChefRole.IngredientWorkAreaJPanel;
 public class ManageMenuIngredientsJPanel extends javax.swing.JPanel {
     
     private JPanel userProcessContainer; 
+    private UserAccount account;
     private EcoSystem ecoSystem; 
     private MenuDirectory menuDirectory;
+    private HeadChefDirectory headChefDirectory;
+   
+    
 
     /**
      * Creates new form ManageMenuIngredientsJPanel
      */
 
-    public ManageMenuIngredientsJPanel(JPanel userProcessContainer, EcoSystem ecoSystem, MenuDirectory menuDirectory) {
+    public ManageMenuIngredientsJPanel(JPanel userProcessContainer, UserAccount account, EcoSystem ecoSystem, MenuDirectory menuDirectory, HeadChefDirectory headChefDirectory) {
         initComponents();
         this.userProcessContainer = userProcessContainer;
         this.ecoSystem = ecoSystem;
-        this.menuDirectory = menuDirectory;
+        this.account = account;
+        this.menuDirectory = ecoSystem.getMenuDirectory();
+        this.headChefDirectory = ecoSystem.getHeadChefDirectory();
+        
         
         populateTable();
     }
@@ -54,10 +67,14 @@ public class ManageMenuIngredientsJPanel extends javax.swing.JPanel {
         jLabel1 = new javax.swing.JLabel();
         btnBack = new javax.swing.JButton();
         jScrollPane2 = new javax.swing.JScrollPane();
-        tblMenu1 = new javax.swing.JTable();
+        tableIngredient = new javax.swing.JTable();
         btnCreate = new javax.swing.JButton();
-        btnModify = new javax.swing.JButton();
         btnDelete = new javax.swing.JButton();
+        jSeparator1 = new javax.swing.JSeparator();
+        txtIngredient = new javax.swing.JTextField();
+        txtQuantity = new javax.swing.JTextField();
+        jLabel2 = new javax.swing.JLabel();
+        jLabel3 = new javax.swing.JLabel();
 
         setBackground(new java.awt.Color(102, 102, 102));
         setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
@@ -83,7 +100,7 @@ public class ManageMenuIngredientsJPanel extends javax.swing.JPanel {
         });
         jScrollPane1.setViewportView(tblMenu);
 
-        add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(80, 110, -1, 100));
+        add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 110, -1, 100));
 
         viewIngredients.setText("View Ingredients");
         viewIngredients.addActionListener(new java.awt.event.ActionListener() {
@@ -91,7 +108,7 @@ public class ManageMenuIngredientsJPanel extends javax.swing.JPanel {
                 viewIngredientsActionPerformed(evt);
             }
         });
-        add(viewIngredients, new org.netbeans.lib.awtextra.AbsoluteConstraints(240, 240, -1, -1));
+        add(viewIngredients, new org.netbeans.lib.awtextra.AbsoluteConstraints(210, 230, -1, -1));
 
         jLabel1.setFont(new java.awt.Font("Optima", 1, 36)); // NOI18N
         jLabel1.setForeground(new java.awt.Color(204, 204, 204));
@@ -105,9 +122,9 @@ public class ManageMenuIngredientsJPanel extends javax.swing.JPanel {
                 btnBackActionPerformed(evt);
             }
         });
-        add(btnBack, new org.netbeans.lib.awtextra.AbsoluteConstraints(80, 70, -1, -1));
+        add(btnBack, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 70, -1, -1));
 
-        tblMenu1.setModel(new javax.swing.table.DefaultTableModel(
+        tableIngredient.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
                 {null, null},
                 {null, null},
@@ -133,9 +150,9 @@ public class ManageMenuIngredientsJPanel extends javax.swing.JPanel {
                 return canEdit [columnIndex];
             }
         });
-        jScrollPane2.setViewportView(tblMenu1);
+        jScrollPane2.setViewportView(tableIngredient);
 
-        add(jScrollPane2, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 300, 594, 172));
+        add(jScrollPane2, new org.netbeans.lib.awtextra.AbsoluteConstraints(620, 60, 300, 172));
 
         btnCreate.setText("Add Ingredient");
         btnCreate.addActionListener(new java.awt.event.ActionListener() {
@@ -143,15 +160,7 @@ public class ManageMenuIngredientsJPanel extends javax.swing.JPanel {
                 btnCreateActionPerformed(evt);
             }
         });
-        add(btnCreate, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 500, 144, -1));
-
-        btnModify.setText("Update Ingredient");
-        btnModify.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnModifyActionPerformed(evt);
-            }
-        });
-        add(btnModify, new org.netbeans.lib.awtextra.AbsoluteConstraints(240, 500, 165, -1));
+        add(btnCreate, new org.netbeans.lib.awtextra.AbsoluteConstraints(610, 350, 144, -1));
 
         btnDelete.setText("Delete Ingredient");
         btnDelete.addActionListener(new java.awt.event.ActionListener() {
@@ -159,7 +168,16 @@ public class ManageMenuIngredientsJPanel extends javax.swing.JPanel {
                 btnDeleteActionPerformed(evt);
             }
         });
-        add(btnDelete, new org.netbeans.lib.awtextra.AbsoluteConstraints(460, 500, 165, -1));
+        add(btnDelete, new org.netbeans.lib.awtextra.AbsoluteConstraints(790, 350, 165, -1));
+        add(jSeparator1, new org.netbeans.lib.awtextra.AbsoluteConstraints(560, 102, -1, 180));
+        add(txtIngredient, new org.netbeans.lib.awtextra.AbsoluteConstraints(670, 260, 90, -1));
+        add(txtQuantity, new org.netbeans.lib.awtextra.AbsoluteConstraints(660, 310, 90, -1));
+
+        jLabel2.setText("Quantity Required");
+        add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(530, 310, 120, -1));
+
+        jLabel3.setText("Ingredient");
+        add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(540, 260, 80, -1));
     }// </editor-fold>//GEN-END:initComponents
 
     private void viewIngredientsActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_viewIngredientsActionPerformed
@@ -172,10 +190,20 @@ public class ManageMenuIngredientsJPanel extends javax.swing.JPanel {
         }
         Menu menu = (Menu)tblMenu.getValueAt(selectedRow,0);
         
-        IngredientWorkAreaJPanel ingredientWorkArea = new IngredientWorkAreaJPanel(userProcessContainer, ecoSystem, menuDirectory, menu);
-        userProcessContainer.add("IngredientWorkAreaJPanel",ingredientWorkArea);
-        CardLayout layout=(CardLayout)userProcessContainer.getLayout();
-        layout.next(userProcessContainer);
+        DefaultTableModel dtm = (DefaultTableModel) tableIngredient.getModel();
+        dtm.setRowCount(0);
+        for(Ingredients ing : menu.getIngredients()){
+         
+        
+        Object [] row = new Object[2];
+            row[0] = ing.getName();
+            row[1] = ing.getQuantity();
+            dtm.addRow(row);
+        }
+        
+        
+        
+       
         
     }//GEN-LAST:event_viewIngredientsActionPerformed
 
@@ -187,15 +215,45 @@ public class ManageMenuIngredientsJPanel extends javax.swing.JPanel {
     }//GEN-LAST:event_btnBackActionPerformed
 
     private void btnCreateActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCreateActionPerformed
-        // TODO add your handling code here:
+        int selectedRow = tblMenu.getSelectedRow();
+        if(selectedRow < 0) {
+            JOptionPane.showMessageDialog(null,"Please Select a row from table first", "Warining", JOptionPane.WARNING_MESSAGE);
+            return;
+        } 
+        Menu menu = (Menu)tblMenu.getValueAt(selectedRow,0);
+        Ingredients ing1 = new Ingredients(txtIngredient.getText(),Integer.parseInt(txtQuantity.getText()));
+        menu.getIngredients().add(ing1);
+        
+        DefaultTableModel dtm = (DefaultTableModel) tableIngredient.getModel();
+        dtm.setRowCount(0);
+        for(Ingredients ing : menu.getIngredients()){
+         
+        
+        Object [] row = new Object[2];
+            row[0] = ing.getName();
+            row[1] = ing.getQuantity();
+            dtm.addRow(row);
+        }
+        
+        
     }//GEN-LAST:event_btnCreateActionPerformed
 
-    private void btnModifyActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnModifyActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_btnModifyActionPerformed
-
     private void btnDeleteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnDeleteActionPerformed
-        // TODO add your handling code here:
+        int selectedRow = tableIngredient.getSelectedRow();
+        if(selectedRow < 0){
+            
+        }
+        Menu menu = (Menu)tblMenu.getValueAt(selectedRow,0);
+        for(Ingredients ing : menu.getIngredients()){
+            if(ing.getName().equals(tableIngredient.getValueAt(selectedRow,0))){
+                menu.getIngredients().remove(ing);
+            }
+        }
+        
+        
+        
+        
+        
     }//GEN-LAST:event_btnDeleteActionPerformed
 
 
@@ -203,23 +261,36 @@ public class ManageMenuIngredientsJPanel extends javax.swing.JPanel {
     private javax.swing.JButton btnBack;
     private javax.swing.JButton btnCreate;
     private javax.swing.JButton btnDelete;
-    private javax.swing.JButton btnModify;
     private javax.swing.JLabel jLabel1;
+    private javax.swing.JLabel jLabel2;
+    private javax.swing.JLabel jLabel3;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JScrollPane jScrollPane2;
+    private javax.swing.JSeparator jSeparator1;
+    private javax.swing.JTable tableIngredient;
     private javax.swing.JTable tblMenu;
-    private javax.swing.JTable tblMenu1;
+    private javax.swing.JTextField txtIngredient;
+    private javax.swing.JTextField txtQuantity;
     private javax.swing.JButton viewIngredients;
     // End of variables declaration//GEN-END:variables
 
     private void populateTable() {
         DefaultTableModel dtm = (DefaultTableModel) tblMenu.getModel();
         dtm.setRowCount(0);
-        for(Menu menu: ecoSystem.getMenuDirectory().getMenuDirectory()){
+        String restaurantName = "";
+        for(HeadChef headChef : ecoSystem.getHeadChefDirectory().getHeadChefDirectory()){
+            if(headChef.getName().equals(account.getEmployee().getName())){
+                restaurantName = headChef.getRestaurantName();
+                
+            }
+        }
+        for(Menu menu: menuDirectory.getMenuDirectory()){
+            if(menu.getRestaurantName().equals(restaurantName)){
             Object [] row = new Object[2];
             row[0] = menu;
-            row[1] = 1;
+            row[1] = menu.getIngredients().size();
             dtm.addRow(row);
+            }
 
         }
     }

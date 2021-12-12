@@ -36,7 +36,8 @@ public class ChefWorkAreaJPanel extends javax.swing.JPanel {
     private DeliveryManDirectory deliveryManDirectory; 
     private MenuDirectory menuDirectory;
     private OrderDirectory orderDirectory; 
-    private RestaurantTableDirectory RestaurantTableDirectory;	
+    private RestaurantTableDirectory RestaurantTableDirectory;
+    
     
 
     public ChefWorkAreaJPanel(JPanel userProcessContainer, UserAccount account, EcoSystem business, CustomerDirectory customerDirectory, RestaurantDirectory restaurantDirectory, DeliveryManDirectory deliveryManDirectory, MenuDirectory menuDirectory, OrderDirectory orderDirectory, RestaurantTableDirectory restaurantTableDirectory) {
@@ -49,7 +50,8 @@ public class ChefWorkAreaJPanel extends javax.swing.JPanel {
         this.deliveryManDirectory = deliveryManDirectory; 
         this.menuDirectory = menuDirectory;
         this.orderDirectory = orderDirectory; 
-        this.RestaurantTableDirectory = RestaurantTableDirectory;	
+        this.RestaurantTableDirectory = RestaurantTableDirectory;
+        
     }
 
     /** This method is called from within the constructor to

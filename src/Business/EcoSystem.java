@@ -34,7 +34,8 @@ public class EcoSystem extends Organization{
     private ChefDirectory chefDirectory;
     private ServerDirectory serverDirectory;
     private HeadChefDirectory headChefDirectory;
-    private RestaurantTableDirectory restaurantTableDirectory;
+    private RestaurantTableDirectory restaurantTableDirectory; 
+    
 
     public EcoSystem(RestaurantDirectory restaurantDirectory, CustomerDirectory customerDirectory, DeliveryManDirectory deliveryManDirectory, ChefDirectory chefDirectory, ServerDirectory serverDirectory,HeadChefDirectory headChefDirectory, RestaurantTableDirectory restaurantTableDirectory) {
 
@@ -45,6 +46,7 @@ public class EcoSystem extends Organization{
         this.serverDirectory = serverDirectory;
         this.headChefDirectory = headChefDirectory;
         this.restaurantTableDirectory = restaurantTableDirectory;
+        
         
     }
 

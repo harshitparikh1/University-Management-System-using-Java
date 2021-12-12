@@ -181,6 +181,7 @@ public class EcoSystem extends Organization{
         headChefDirectory = new HeadChefDirectory();
         restaurantTableDirectory = new RestaurantTableDirectory();
         donationDirectory = new DonationDirectory();
+        supplierDirectory = new SupplierDirectory();
         
        // networkList=new ArrayList<Network>();
     }

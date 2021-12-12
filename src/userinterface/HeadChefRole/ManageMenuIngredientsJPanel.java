@@ -275,10 +275,12 @@ public class ManageMenuIngredientsJPanel extends javax.swing.JPanel {
 
                     restaurant.getInventory().put(txtIngredient.getText(), 100);
                     JOptionPane.showMessageDialog(null, "Successfully added a ingredient");
+                    txtIngredient.setText("");
+                    txtQuantity.setText("");
                     populateTable();
                 }
-                
-                
+                 
+               
             }
         }
         

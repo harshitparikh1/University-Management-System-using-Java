@@ -8,6 +8,7 @@ package Business.Menu;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.Collections;
+import java.util.HashMap;
 import java.util.List;
 import java.util.Objects;
 
@@ -30,14 +31,9 @@ public class MenuDirectory {
         this.menuDirectory = menuDirectory;
     }
     
-    public Menu newItem(String itemName, double price, String res, List<Ingredients> ingredients) {
-        Menu menu = null;
-        if(Objects.nonNull(ingredients)){
-          menu = new Menu(itemName, price, res,ingredients);   
-        }
-        else{
-          menu = new Menu(itemName, price, res, new ArrayList<Ingredients>());   
-        }
+    public Menu newItem(String itemName, double price, String res, HashMap<String, Integer> ingredients) {
+        
+        Menu  menu = new Menu(itemName, price, res, new HashMap<String, Integer>() );   
         
         menuDirectory.add(menu);
         return menu;

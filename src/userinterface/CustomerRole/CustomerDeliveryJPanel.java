@@ -14,6 +14,9 @@ import Business.Restaurant.RestaurantDirectory;
 import Business.UserAccount.UserAccount;
 import Business.WorkQueue.WorkRequest;
 import java.awt.CardLayout;
+import java.util.HashMap;
+import java.util.Iterator;
+import java.util.Map;
 import javax.swing.JOptionPane;
 import javax.swing.JPanel;
 import javax.swing.table.DefaultTableModel;
@@ -60,12 +63,27 @@ public class CustomerDeliveryJPanel extends javax.swing.JPanel {
         dTableModel.setRowCount(0);
         String restaurantName = boxRestaurant.getSelectedItem().toString();
         Restaurant restaurant = ecoSystem.getRestaurantDirectory().getRestaurant(restaurantName);
+        HashMap<String, Integer> restaurantInventory = restaurant.getInventory();
+        Iterator<Map.Entry<String, Integer>> itrInventory = restaurantInventory.entrySet().iterator();
         for(Menu menu : ecoSystem.getMenuDirectory().getMenuDirectory()){
             if(restaurant.getRestaurantName().equals(menu.getRestaurantName())) {
-                Object [] row = new Object[2];
-                row[0] = menu;
-                row[1] = menu.getPrice();
-                dTableModel.addRow(row);
+                
+                HashMap<String, Integer> ingredients = menu.getIngredients();
+                Iterator<Map.Entry<String, Integer>> itrMenu = ingredients.entrySet().iterator();
+                while(itrMenu.hasNext()){
+                    Map.Entry<String, Integer> entry = itrMenu.next();
+                    if(restaurantInventory.get(entry.getKey()) > entry.getValue()){
+                       Object [] row = new Object[2];
+                        row[0] = menu;
+                        row[1] = menu.getPrice();
+                        dTableModel.addRow(row); 
+                    }
+                }
+                
+                
+                
+                
+                
             }
         }
     }
@@ -383,10 +401,24 @@ public class CustomerDeliveryJPanel extends javax.swing.JPanel {
         }
         
         int quantity = Integer.parseInt(txtQuantity.getText());
+        
         String restaurantName = boxRestaurant.getSelectedItem().toString();
+        
         Restaurant restaurant = ecoSystem.getRestaurantDirectory().getRestaurant(restaurantName);
+        HashMap<String, Integer> restaurantInventory = restaurant.getInventory();
+        
         Customer customer = ecoSystem.getCustomerDirectory().getCustomer(account.getEmployee().getName());
         Menu menu = (Menu) tblItem.getValueAt(selectedRow, 0);
+        
+        HashMap<String, Integer> ingredients = menu.getIngredients();
+                Iterator<Map.Entry<String, Integer>> itrMenu = ingredients.entrySet().iterator();
+                while(itrMenu.hasNext()){
+                    Map.Entry<String, Integer> entry = itrMenu.next();
+                    restaurantInventory.put(entry.getKey(),restaurantInventory.get(entry.getKey()) - (quantity*entry.getValue()) );
+                     
+                }
+                System.out.println(restaurantInventory);
+        
         String status = "Order Placed";
         
         Order order = ecoSystem.getOrderDirectory().newOrder();

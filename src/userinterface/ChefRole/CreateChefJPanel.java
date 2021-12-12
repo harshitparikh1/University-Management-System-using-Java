@@ -321,7 +321,7 @@ public class CreateChefJPanel extends javax.swing.JPanel {
         Employee employee = ecoSystem.getEmployeeDirectory().createEmployee(name);
         UserAccount usserAccount = ecoSystem.getUserAccountDirectory().createUserAccount(userName, password, employee, new ChefRole());
 
-        JOptionPane.showMessageDialog(null, "New customer added successfully");
+        JOptionPane.showMessageDialog(null, "New chef added successfully");
 
         // Empty All Fields
         txtAge.setText("");

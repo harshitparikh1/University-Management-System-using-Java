@@ -17,6 +17,9 @@ public class Chef {
     private int age;
     private String homeAddress;
     private String userName;
+    
+    private String restaurantName;
+
 
     public Chef(String name, String email, String phoneNumber, int age, String homeAddress, String userName) {
         this.name = name;
@@ -74,6 +77,15 @@ public class Chef {
     public void setUserName(String userName) {
         this.userName = userName;
     }
+    
+    public String getRestaurantName() {
+        return restaurantName;
+    }
+
+    public void setRestaurantName(String restaurantName) {
+        this.restaurantName = restaurantName;
+    }
+
     
     @Override
     public String toString() {

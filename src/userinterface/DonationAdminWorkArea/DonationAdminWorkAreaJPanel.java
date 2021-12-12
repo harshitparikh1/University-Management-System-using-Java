@@ -157,8 +157,8 @@ public class DonationAdminWorkAreaJPanel extends javax.swing.JPanel {
                 List<DonatedItem> list = donation.getDonationList();
                 Object [] row = new Object[3];
                 for(int i=0;i<list.size();i++){
-                row[0] = list.get(i).getItemName();
-                row[1] = list.get(i).getRestaurantName();
+                row[0] = list.get(i).getRestaurantName();
+                row[1] = list.get(i).getItemName();
                 row[2] = list.get(i).getItemQuantity();
                 
                 dtm.addRow(row);

@@ -191,7 +191,7 @@ public class CreateSupplierJPanel extends javax.swing.JPanel {
         Employee employee = ecoSystem.getEmployeeDirectory().createEmployee(supplierName);
         UserAccount userAccount = ecoSystem.getUserAccountDirectory().createUserAccount(userName, password, employee, new SupplierRole());
 
-        JOptionPane.showMessageDialog(null, "New NGO added successfully");
+        JOptionPane.showMessageDialog(null, "New Supplier added successfully");
 
         // Empty All Fields
         txtDonationName.setText("");

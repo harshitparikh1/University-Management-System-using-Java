@@ -265,6 +265,8 @@ public class ManageDonationJPanel extends javax.swing.JPanel {
             return;
         }
         
+        
+        
         DefaultTableModel model = (DefaultTableModel) tblItem.getModel();
         Menu selectedItem = (Menu)model.getValueAt(selectedRowIndex, 0);
         
@@ -291,18 +293,51 @@ public class ManageDonationJPanel extends javax.swing.JPanel {
 
     private void btnMenuShow1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnMenuShow1ActionPerformed
 
-        
+        int quantity = 0;
+        try {
+            quantity = Integer.parseInt(txtQty.getText());
+        } catch(Exception e) {
+            JOptionPane.showMessageDialog(null, "Quantity must have 0-9 integers only");
+            return;
+        }
         
         String itemName = txtItemName.getText();
-        int quantity = Integer.parseInt(txtQty.getText());
-        for(Donation donation : ecoSystem.getDonationDirectory().getDonationDirectory()){
-            if(donation.getDonationName().equals(boxNgo.getSelectedItem().toString())){
-                DonatedItem ditem = new DonatedItem(itemName, account.getEmployee().getName(), quantity);
-                donation.getDonationList().add(ditem);
-                
-            }
+        
+        String restaurantName = account.getEmployee().getName();
+        
+        
+        if(itemName.isEmpty()){
+            JOptionPane.showMessageDialog(null, "Please select a item to donate. :) ");
+            return;
         }
-        JOptionPane.showMessageDialog(null, "Thanks for the donation. We appreciate your consideration.");
+        else if(quantity <= 0){
+            JOptionPane.showMessageDialog(null, "Please donate atleast 1 item :) ");
+            return;
+        }
+        else if(boxNgo.getSelectedIndex() == 0) {
+            JOptionPane.showMessageDialog(null, "Please select a NGO.");
+            return;
+        }
+        else{
+            for (Menu menu: ecoSystem.getMenuDirectory().getMenuDirectory()){
+                if(menu.getRestaurantName().equals(restaurantName)){
+                    if(menu.getItemName() == itemName){
+                        for(Donation donation : ecoSystem.getDonationDirectory().getDonationDirectory()){
+                            if(donation.getDonationName().equals(boxNgo.getSelectedItem().toString())){
+                                DonatedItem ditem = new DonatedItem(itemName, account.getEmployee().getName(), quantity);
+                                donation.getDonationList().add(ditem);
+                            }
+                        }
+                        JOptionPane.showMessageDialog(null, "Thanks for the donation. We appreciate your consideration.");
+                    }
+                    else{
+                        JOptionPane.showMessageDialog(null, "Item name does not exist in the menu. Please select an appropriate item.");
+                    }
+                }
+            }
+
+        }
+        
     }//GEN-LAST:event_btnMenuShow1ActionPerformed
 
 

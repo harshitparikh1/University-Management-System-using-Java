@@ -95,12 +95,17 @@ public class ManageChefJPanel extends javax.swing.JPanel {
         deleteChef = new javax.swing.JButton();
         btnBack = new javax.swing.JButton();
         refreshJButton = new javax.swing.JButton();
+        jLabel2 = new javax.swing.JLabel();
 
-        setBackground(new java.awt.Color(102, 102, 102));
+        setBackground(new java.awt.Color(255, 204, 153));
         setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
+        tblChef.setBackground(new java.awt.Color(204, 204, 204));
         tblChef.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
+                {null, null, null, null, null, null},
+                {null, null, null, null, null, null},
+                {null, null, null, null, null, null},
                 {null, null, null, null, null, null},
                 {null, null, null, null, null, null},
                 {null, null, null, null, null, null},
@@ -120,37 +125,41 @@ public class ManageChefJPanel extends javax.swing.JPanel {
         });
         jScrollPane1.setViewportView(tblChef);
 
-        add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 106, 598, 132));
+        add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 100, 640, 132));
 
         jLabel1.setFont(new java.awt.Font("Optima", 1, 36)); // NOI18N
-        jLabel1.setForeground(new java.awt.Color(204, 204, 204));
         jLabel1.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         jLabel1.setText("Manage Chefs ");
-        add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 630, -1));
+        add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 40, 630, 40));
 
+        createChef.setFont(new java.awt.Font("Lucida Grande", 1, 14)); // NOI18N
         createChef.setText("Create Chef");
         createChef.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 createChefActionPerformed(evt);
             }
         });
-        add(createChef, new org.netbeans.lib.awtextra.AbsoluteConstraints(102, 284, -1, -1));
+        add(createChef, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 260, 170, 50));
 
+        modifyChef.setBackground(new java.awt.Color(255, 255, 255));
+        modifyChef.setFont(new java.awt.Font("Lucida Grande", 1, 14)); // NOI18N
         modifyChef.setText("Modify Chef");
         modifyChef.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 modifyChefActionPerformed(evt);
             }
         });
-        add(modifyChef, new org.netbeans.lib.awtextra.AbsoluteConstraints(258, 284, -1, -1));
+        add(modifyChef, new org.netbeans.lib.awtextra.AbsoluteConstraints(280, 260, 150, 50));
 
+        deleteChef.setBackground(new java.awt.Color(255, 255, 255));
+        deleteChef.setFont(new java.awt.Font("Lucida Grande", 1, 14)); // NOI18N
         deleteChef.setText("Delete Chef");
         deleteChef.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 deleteChefActionPerformed(evt);
             }
         });
-        add(deleteChef, new org.netbeans.lib.awtextra.AbsoluteConstraints(408, 284, -1, -1));
+        add(deleteChef, new org.netbeans.lib.awtextra.AbsoluteConstraints(510, 260, 170, 50));
 
         btnBack.setText("<Back");
         btnBack.addActionListener(new java.awt.event.ActionListener() {
@@ -158,7 +167,7 @@ public class ManageChefJPanel extends javax.swing.JPanel {
                 btnBackActionPerformed(evt);
             }
         });
-        add(btnBack, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 53, -1, -1));
+        add(btnBack, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 10, -1, -1));
 
         refreshJButton.setText("Refresh");
         refreshJButton.addActionListener(new java.awt.event.ActionListener() {
@@ -166,7 +175,10 @@ public class ManageChefJPanel extends javax.swing.JPanel {
                 refreshJButtonActionPerformed(evt);
             }
         });
-        add(refreshJButton, new org.netbeans.lib.awtextra.AbsoluteConstraints(530, 70, -1, -1));
+        add(refreshJButton, new org.netbeans.lib.awtextra.AbsoluteConstraints(550, 10, 120, 40));
+
+        jLabel2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Images/ChefIcon.png"))); // NOI18N
+        add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(730, 80, -1, -1));
     }// </editor-fold>//GEN-END:initComponents
 
     private void createChefActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_createChefActionPerformed
@@ -225,6 +237,7 @@ public class ManageChefJPanel extends javax.swing.JPanel {
     private javax.swing.JButton createChef;
     private javax.swing.JButton deleteChef;
     private javax.swing.JLabel jLabel1;
+    private javax.swing.JLabel jLabel2;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JButton modifyChef;
     private javax.swing.JButton refreshJButton;

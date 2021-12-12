@@ -6,10 +6,19 @@
 
 package userinterface.ChefRole;
 
+import Business.Customer.CustomerDirectory;
 import Business.DeliveryMan.DeliveryMan;
+import Business.DeliveryMan.DeliveryManDirectory;
+import Business.EcoSystem;
+import Business.Menu.MenuDirectory;
 import Business.Order.Order;
+import Business.Order.OrderDirectory;
+import Business.Restaurant.RestaurantDirectory;
+import Business.RestaurantTable.RestaurantTableDirectory;
+import Business.UserAccount.UserAccount;
 import java.util.ArrayList;
 import javax.swing.JOptionPane;
+import javax.swing.JPanel;
 import javax.swing.table.DefaultTableModel;
 
 /**
@@ -19,8 +28,28 @@ import javax.swing.table.DefaultTableModel;
 public class ChefWorkAreaJPanel extends javax.swing.JPanel {
 
     /** Creates new form ChefWorkAreaJPanel */
-    public ChefWorkAreaJPanel() {
+    private JPanel userProcessContainer; 
+    private UserAccount account; 
+    private EcoSystem business; 
+    private CustomerDirectory customerDirectory; 
+    private RestaurantDirectory restaurantDirectory; 
+    private DeliveryManDirectory deliveryManDirectory; 
+    private MenuDirectory menuDirectory;
+    private OrderDirectory orderDirectory; 
+    private RestaurantTableDirectory RestaurantTableDirectory;	
+    
+
+    public ChefWorkAreaJPanel(JPanel userProcessContainer, UserAccount account, EcoSystem business, CustomerDirectory customerDirectory, RestaurantDirectory restaurantDirectory, DeliveryManDirectory deliveryManDirectory, MenuDirectory menuDirectory, OrderDirectory orderDirectory, RestaurantTableDirectory restaurantTableDirectory) {
         initComponents();
+        this.userProcessContainer = userProcessContainer; 
+        this.account = account; 
+        this.business = business; 
+        this.customerDirectory = customerDirectory; 
+        this.restaurantDirectory = restaurantDirectory; 
+        this.deliveryManDirectory = deliveryManDirectory; 
+        this.menuDirectory = menuDirectory;
+        this.orderDirectory = orderDirectory; 
+        this.RestaurantTableDirectory = RestaurantTableDirectory;	
     }
 
     /** This method is called from within the constructor to

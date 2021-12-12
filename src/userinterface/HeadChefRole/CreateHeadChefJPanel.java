@@ -78,35 +78,38 @@ public class CreateHeadChefJPanel extends javax.swing.JPanel {
         headChefYearsOfExperience = new javax.swing.JTextField();
         jLabel1 = new javax.swing.JLabel();
         btnBack = new javax.swing.JButton();
+        jLabel11 = new javax.swing.JLabel();
 
-        setBackground(new java.awt.Color(102, 102, 102));
+        setBackground(new java.awt.Color(0, 0, 0));
         setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
+        createHeadChefButton.setBackground(new java.awt.Color(255, 255, 51));
+        createHeadChefButton.setFont(new java.awt.Font("Lucida Grande", 1, 18)); // NOI18N
         createHeadChefButton.setText("Create Head Chef");
         createHeadChefButton.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 createHeadChefButtonActionPerformed(evt);
             }
         });
-        add(createHeadChefButton, new org.netbeans.lib.awtextra.AbsoluteConstraints(330, 470, -1, -1));
+        add(createHeadChefButton, new org.netbeans.lib.awtextra.AbsoluteConstraints(290, 490, 230, 50));
 
-        jLabel6.setFont(new java.awt.Font("Optima", 0, 14)); // NOI18N
-        jLabel6.setForeground(new java.awt.Color(204, 204, 204));
+        jLabel6.setFont(new java.awt.Font("Optima", 1, 18)); // NOI18N
+        jLabel6.setForeground(new java.awt.Color(255, 255, 255));
         jLabel6.setHorizontalAlignment(javax.swing.SwingConstants.RIGHT);
         jLabel6.setText("Home Address*:");
-        add(jLabel6, new org.netbeans.lib.awtextra.AbsoluteConstraints(220, 280, -1, -1));
+        add(jLabel6, new org.netbeans.lib.awtextra.AbsoluteConstraints(200, 280, -1, -1));
 
-        jLabel9.setFont(new java.awt.Font("Optima", 0, 14)); // NOI18N
-        jLabel9.setForeground(new java.awt.Color(204, 204, 204));
+        jLabel9.setFont(new java.awt.Font("Optima", 1, 18)); // NOI18N
+        jLabel9.setForeground(new java.awt.Color(255, 255, 255));
         jLabel9.setHorizontalAlignment(javax.swing.SwingConstants.RIGHT);
         jLabel9.setText("Password*:");
-        add(jLabel9, new org.netbeans.lib.awtextra.AbsoluteConstraints(190, 390, 132, -1));
+        add(jLabel9, new org.netbeans.lib.awtextra.AbsoluteConstraints(200, 390, 132, -1));
 
-        jLabel7.setFont(new java.awt.Font("Optima", 0, 14)); // NOI18N
-        jLabel7.setForeground(new java.awt.Color(204, 204, 204));
+        jLabel7.setFont(new java.awt.Font("Optima", 1, 18)); // NOI18N
+        jLabel7.setForeground(new java.awt.Color(255, 255, 255));
         jLabel7.setHorizontalAlignment(javax.swing.SwingConstants.RIGHT);
         jLabel7.setText("Phone Number*:");
-        add(jLabel7, new org.netbeans.lib.awtextra.AbsoluteConstraints(190, 320, 132, -1));
+        add(jLabel7, new org.netbeans.lib.awtextra.AbsoluteConstraints(200, 320, 132, -1));
         add(headChefUserName, new org.netbeans.lib.awtextra.AbsoluteConstraints(350, 360, 165, -1));
         add(headChefPhoneNumber, new org.netbeans.lib.awtextra.AbsoluteConstraints(350, 320, 165, -1));
         add(headChefFirstName, new org.netbeans.lib.awtextra.AbsoluteConstraints(350, 130, 165, -1));
@@ -115,57 +118,62 @@ public class CreateHeadChefJPanel extends javax.swing.JPanel {
         add(headChefAge, new org.netbeans.lib.awtextra.AbsoluteConstraints(350, 240, 165, -1));
         add(headChefEmailId, new org.netbeans.lib.awtextra.AbsoluteConstraints(350, 210, 165, -1));
 
-        jLabel2.setFont(new java.awt.Font("Optima", 0, 14)); // NOI18N
-        jLabel2.setForeground(new java.awt.Color(204, 204, 204));
+        jLabel2.setFont(new java.awt.Font("Optima", 1, 18)); // NOI18N
+        jLabel2.setForeground(new java.awt.Color(255, 255, 255));
         jLabel2.setHorizontalAlignment(javax.swing.SwingConstants.RIGHT);
         jLabel2.setText("First Name*:");
-        add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(230, 130, 95, -1));
+        add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(185, 130, 140, -1));
         add(headChefHomeAddress, new org.netbeans.lib.awtextra.AbsoluteConstraints(350, 280, 165, -1));
 
-        jLabel3.setFont(new java.awt.Font("Optima", 0, 14)); // NOI18N
-        jLabel3.setForeground(new java.awt.Color(204, 204, 204));
+        jLabel3.setFont(new java.awt.Font("Optima", 1, 18)); // NOI18N
+        jLabel3.setForeground(new java.awt.Color(255, 255, 255));
         jLabel3.setHorizontalAlignment(javax.swing.SwingConstants.RIGHT);
         jLabel3.setText("Last Name*:");
-        add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(230, 170, 95, -1));
+        add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(205, 170, 120, -1));
 
-        jLabel4.setFont(new java.awt.Font("Optima", 0, 14)); // NOI18N
-        jLabel4.setForeground(new java.awt.Color(204, 204, 204));
+        jLabel4.setFont(new java.awt.Font("Optima", 1, 18)); // NOI18N
+        jLabel4.setForeground(new java.awt.Color(255, 255, 255));
         jLabel4.setHorizontalAlignment(javax.swing.SwingConstants.RIGHT);
         jLabel4.setText("Email Address*:");
-        add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(210, 210, 110, -1));
+        add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(180, 210, 140, -1));
 
-        jLabel5.setFont(new java.awt.Font("Optima", 0, 14)); // NOI18N
-        jLabel5.setForeground(new java.awt.Color(204, 204, 204));
+        jLabel5.setFont(new java.awt.Font("Optima", 1, 18)); // NOI18N
+        jLabel5.setForeground(new java.awt.Color(255, 255, 255));
         jLabel5.setHorizontalAlignment(javax.swing.SwingConstants.RIGHT);
         jLabel5.setText("Age*:");
         add(jLabel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(230, 240, 95, -1));
 
-        jLabel8.setFont(new java.awt.Font("Optima", 0, 14)); // NOI18N
-        jLabel8.setForeground(new java.awt.Color(204, 204, 204));
+        jLabel8.setFont(new java.awt.Font("Optima", 1, 18)); // NOI18N
+        jLabel8.setForeground(new java.awt.Color(255, 255, 255));
         jLabel8.setHorizontalAlignment(javax.swing.SwingConstants.RIGHT);
         jLabel8.setText("Username*:");
-        add(jLabel8, new org.netbeans.lib.awtextra.AbsoluteConstraints(190, 360, 132, -1));
+        add(jLabel8, new org.netbeans.lib.awtextra.AbsoluteConstraints(200, 360, 132, -1));
 
-        jLabel10.setFont(new java.awt.Font("Optima", 0, 14)); // NOI18N
-        jLabel10.setForeground(new java.awt.Color(204, 204, 204));
+        jLabel10.setFont(new java.awt.Font("Optima", 1, 18)); // NOI18N
+        jLabel10.setForeground(new java.awt.Color(255, 255, 255));
         jLabel10.setHorizontalAlignment(javax.swing.SwingConstants.RIGHT);
         jLabel10.setText("Years Of Experience:");
-        add(jLabel10, new org.netbeans.lib.awtextra.AbsoluteConstraints(190, 430, -1, -1));
+        add(jLabel10, new org.netbeans.lib.awtextra.AbsoluteConstraints(170, 430, -1, -1));
         add(headChefYearsOfExperience, new org.netbeans.lib.awtextra.AbsoluteConstraints(350, 430, 165, -1));
 
-        jLabel1.setFont(new java.awt.Font("Optima", 1, 36)); // NOI18N
-        jLabel1.setForeground(new java.awt.Color(204, 204, 204));
+        jLabel1.setFont(new java.awt.Font("Optima", 1, 48)); // NOI18N
+        jLabel1.setForeground(new java.awt.Color(255, 255, 255));
         jLabel1.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         jLabel1.setText("Create Head Chef");
-        add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 710, 50));
+        add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 10, 710, 50));
 
+        btnBack.setBackground(new java.awt.Color(255, 255, 255));
+        btnBack.setFont(new java.awt.Font("Lucida Grande", 1, 14)); // NOI18N
         btnBack.setText("<Back");
         btnBack.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnBackActionPerformed(evt);
             }
         });
-        add(btnBack, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 100, 83, 22));
+        add(btnBack, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 90, 83, 22));
+
+        jLabel11.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Images/CreateHeadChef.jpg"))); // NOI18N
+        add(jLabel11, new org.netbeans.lib.awtextra.AbsoluteConstraints(450, 540, 360, 160));
     }// </editor-fold>//GEN-END:initComponents
 
     private void createHeadChefButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_createHeadChefButtonActionPerformed
@@ -319,6 +327,7 @@ public class CreateHeadChefJPanel extends javax.swing.JPanel {
     private javax.swing.JTextField headChefYearsOfExperience;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel10;
+    private javax.swing.JLabel jLabel11;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;

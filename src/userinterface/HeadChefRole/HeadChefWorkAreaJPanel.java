@@ -65,31 +65,38 @@ public class HeadChefWorkAreaJPanel extends javax.swing.JPanel {
         manageChefButton = new javax.swing.JButton();
         manageMenuButton = new javax.swing.JButton();
         jLabel1 = new javax.swing.JLabel();
+        jLabel2 = new javax.swing.JLabel();
 
-        setBackground(new java.awt.Color(102, 102, 102));
+        setBackground(new java.awt.Color(0, 0, 0));
         setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
+        manageChefButton.setFont(new java.awt.Font("Lucida Grande", 1, 18)); // NOI18N
         manageChefButton.setText("Manage Chefs");
         manageChefButton.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 manageChefButtonActionPerformed(evt);
             }
         });
-        add(manageChefButton, new org.netbeans.lib.awtextra.AbsoluteConstraints(57, 148, 150, -1));
+        add(manageChefButton, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 150, 170, 60));
 
-        manageMenuButton.setText("Manage Menu ingredients");
+        manageMenuButton.setFont(new java.awt.Font("Lucida Grande", 1, 14)); // NOI18N
+        manageMenuButton.setText("Manage Menu Ingredients");
         manageMenuButton.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 manageMenuButtonActionPerformed(evt);
             }
         });
-        add(manageMenuButton, new org.netbeans.lib.awtextra.AbsoluteConstraints(241, 148, -1, -1));
+        add(manageMenuButton, new org.netbeans.lib.awtextra.AbsoluteConstraints(290, 150, 220, 60));
 
-        jLabel1.setFont(new java.awt.Font("Optima", 1, 36)); // NOI18N
-        jLabel1.setForeground(new java.awt.Color(204, 204, 204));
+        jLabel1.setBackground(new java.awt.Color(255, 255, 255));
+        jLabel1.setFont(new java.awt.Font("Optima", 1, 48)); // NOI18N
+        jLabel1.setForeground(new java.awt.Color(255, 255, 255));
         jLabel1.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         jLabel1.setText(" Head Chef Work Area");
-        add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 580, 50));
+        add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 30, 580, 50));
+
+        jLabel2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Images/ChefIngredients.jpg"))); // NOI18N
+        add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(310, 180, 360, 260));
     }// </editor-fold>//GEN-END:initComponents
 
     private void manageChefButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_manageChefButtonActionPerformed
@@ -114,6 +121,7 @@ public class HeadChefWorkAreaJPanel extends javax.swing.JPanel {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JLabel jLabel1;
+    private javax.swing.JLabel jLabel2;
     private javax.swing.JButton manageChefButton;
     private javax.swing.JButton manageMenuButton;
     // End of variables declaration//GEN-END:variables

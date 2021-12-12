@@ -54,7 +54,6 @@ public class IngredientWorkAreaJPanel extends javax.swing.JPanel {
         tblMenu = new javax.swing.JTable();
         btnCreate = new javax.swing.JButton();
         btnModify = new javax.swing.JButton();
-        btnDelete = new javax.swing.JButton();
         btnBack = new javax.swing.JButton();
 
         setBackground(new java.awt.Color(102, 102, 102));
@@ -102,23 +101,15 @@ public class IngredientWorkAreaJPanel extends javax.swing.JPanel {
                 btnCreateActionPerformed(evt);
             }
         });
-        add(btnCreate, new org.netbeans.lib.awtextra.AbsoluteConstraints(57, 336, 144, -1));
+        add(btnCreate, new org.netbeans.lib.awtextra.AbsoluteConstraints(120, 330, 144, -1));
 
-        btnModify.setText("Update Ingredient");
+        btnModify.setText("Place an Order");
         btnModify.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnModifyActionPerformed(evt);
             }
         });
-        add(btnModify, new org.netbeans.lib.awtextra.AbsoluteConstraints(258, 336, 165, -1));
-
-        btnDelete.setText("Delete Ingredient");
-        btnDelete.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnDeleteActionPerformed(evt);
-            }
-        });
-        add(btnDelete, new org.netbeans.lib.awtextra.AbsoluteConstraints(486, 336, 165, -1));
+        add(btnModify, new org.netbeans.lib.awtextra.AbsoluteConstraints(450, 330, 165, -1));
 
         btnBack.setText("<Back");
         add(btnBack, new org.netbeans.lib.awtextra.AbsoluteConstraints(57, 97, -1, -1));
@@ -135,16 +126,10 @@ public class IngredientWorkAreaJPanel extends javax.swing.JPanel {
         
     }//GEN-LAST:event_btnModifyActionPerformed
 
-    private void btnDeleteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnDeleteActionPerformed
-        // TODO add your handling code here:
-        
-    }//GEN-LAST:event_btnDeleteActionPerformed
-
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btnBack;
     private javax.swing.JButton btnCreate;
-    private javax.swing.JButton btnDelete;
     private javax.swing.JButton btnModify;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JScrollPane jScrollPane1;

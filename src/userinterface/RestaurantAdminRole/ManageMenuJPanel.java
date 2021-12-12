@@ -2,12 +2,15 @@
 package userinterface.RestaurantAdminRole;
 
 import Business.EcoSystem;
+import Business.Menu.Ingredients;
 import Business.Menu.Menu;
 import Business.Menu.MenuDirectory;
 import Business.Restaurant.Restaurant;
 import Business.Restaurant.RestaurantDirectory;
 import Business.UserAccount.UserAccount;
 import java.awt.CardLayout;
+import java.util.ArrayList;
+import java.util.Collections;
 import javax.swing.JOptionPane;
 import javax.swing.JPanel;
 import javax.swing.table.DefaultTableModel;
@@ -232,7 +235,7 @@ public class ManageMenuJPanel extends javax.swing.JPanel {
         
         String res = account.getEmployee().getName();
         
-        menuDirectory.newItem(itemName, price, res);
+        menuDirectory.newItem(itemName, price, res, new ArrayList<Ingredients>());
         populateTable();
         JOptionPane.showMessageDialog(null, "Item added successfully!");
         

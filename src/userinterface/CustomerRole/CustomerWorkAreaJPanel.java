@@ -38,6 +38,7 @@ public class CustomerWorkAreaJPanel extends javax.swing.JPanel {
     private OrderDirectory orderDirectory;
     private HeadChefDirectory headChefDirectory;
     private RestaurantTableDirectory restaurantTableDirectory;
+   
     private static int count = 1;
     
     
@@ -55,6 +56,7 @@ public class CustomerWorkAreaJPanel extends javax.swing.JPanel {
        this.deliveryManDirectory = ecoSystem.getDeliveryManDirectory();
        this.restaurantDirectory = ecoSystem.getRestaurantDirectory();
        this.restaurantTableDirectory = ecoSystem.getRestaurantTableDirectory();
+       
        
         
     }
@@ -103,7 +105,10 @@ public class CustomerWorkAreaJPanel extends javax.swing.JPanel {
     }//GEN-LAST:event_jButton1ActionPerformed
 
     private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
-        // TODO add your handling code here:
+        CustomerDineInJPanel cdip = new CustomerDineInJPanel(userProcessContainer,account, ecoSystem, restaurantDirectory, restaurantTableDirectory);
+        userProcessContainer.add("headChefWorkAreaJPanel",cdip);
+        CardLayout layout = (CardLayout) userProcessContainer.getLayout();
+        layout.next(userProcessContainer); 
     }//GEN-LAST:event_jButton2ActionPerformed
 
 

@@ -103,7 +103,7 @@ public class HeadChefWorkAreaJPanel extends javax.swing.JPanel {
     private void manageMenuButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_manageMenuButtonActionPerformed
         // TODO add your handling code here:
         
-        ManageMenuIngredientsJPanel manageIngredients = new ManageMenuIngredientsJPanel(userProcessContainer, ecoSystem, menuDirectory);
+        ManageMenuIngredientsJPanel manageIngredients = new ManageMenuIngredientsJPanel(userProcessContainer, account, ecoSystem, menuDirectory, headChefDirectory);
         userProcessContainer.add("ManageIngredientsJPanel",manageIngredients);
         CardLayout layout=(CardLayout)userProcessContainer.getLayout();
         layout.next(userProcessContainer);

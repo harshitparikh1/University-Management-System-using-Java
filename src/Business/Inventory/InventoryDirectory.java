@@ -7,6 +7,7 @@ package Business.Inventory;
 
 import Business.Menu.Menu;
 import java.util.ArrayList;
+import java.util.Map;
 
 
 /**
@@ -15,10 +16,26 @@ import java.util.ArrayList;
  */
 public class InventoryDirectory {
     private ArrayList<Inventory> inventoryDirectory;
+    private Map<String,Integer> inventory;
     
     public InventoryDirectory() {
         inventoryDirectory = new ArrayList();
+        
     }
+
+    public Map<String, Integer> getInventory() {
+        return inventory;
+    }
+
+    public void setInventory(Map<String, Integer> inventory) {
+        this.inventory = inventory;
+    }
+    
+    
+    
+    
+    
+    
     
     public ArrayList<Inventory> getInventoryDirectory() {
         return inventoryDirectory;

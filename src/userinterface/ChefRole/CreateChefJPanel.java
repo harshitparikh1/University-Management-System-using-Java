@@ -8,8 +8,15 @@ package userinterface.ChefRole;
 import Business.Chef.Chef;
 import Business.Chef.ChefDirectory;
 import Business.EcoSystem;
+import Business.Employee.Employee;
+import Business.Role.ChefRole;
+import Business.Role.CustomerRole;
+import Business.UserAccount.UserAccount;
+import java.awt.CardLayout;
+import java.awt.Component;
 import javax.swing.JOptionPane;
 import javax.swing.JPanel;
+import userinterface.HeadChefRole.ManageChefJPanel;
 
 /**
  *
@@ -280,8 +287,8 @@ public class CreateChefJPanel extends javax.swing.JPanel {
             JOptionPane.showMessageDialog(null, "Phone Number must have 0-9 digits only");
             return;
         }
-        for(Customer customer : customerDirectory.getCustomerDirectory()) {
-            if(customer.getPhoneNumber().equals(phoneNumber)) {
+        for(Chef chef : chefDirectory.getChefDirectory()) {
+            if(chef.getPhoneNumber().equals(phoneNumber)) {
                 JOptionPane.showMessageDialog(null, "Phone Number already exists");
             }
         }
@@ -310,9 +317,9 @@ public class CreateChefJPanel extends javax.swing.JPanel {
 
         //        Customer customer = customerDirectory.newCustomer(name, email, phoneNumber, age, homeAddress, userName);
         System.out.println(ecoSystem.toString());
-        ecoSystem.getCustomerDirectory().newCustomer(name, email, phoneNumber, age, homeAddress, userName);
+        ecoSystem.getChefDirectory().newChef(name, email, phoneNumber, age, homeAddress, userName);
         Employee employee = ecoSystem.getEmployeeDirectory().createEmployee(name);
-        UserAccount usserAccount = ecoSystem.getUserAccountDirectory().createUserAccount(userName, password, employee, new CustomerRole());
+        UserAccount usserAccount = ecoSystem.getUserAccountDirectory().createUserAccount(userName, password, employee, new ChefRole());
 
         JOptionPane.showMessageDialog(null, "New customer added successfully");
 
@@ -333,8 +340,8 @@ public class CreateChefJPanel extends javax.swing.JPanel {
         userProcessContainer.remove(this);
         Component[] componentArray = userProcessContainer.getComponents();
         Component component = componentArray[componentArray.length - 1];
-        ManageCustomerJPanel mcjp = (ManageCustomerJPanel) component;
-        mcjp.refreshTable();
+        ManageChefJPanel mcjp = (ManageChefJPanel) component;
+        mcjp.populateTable();
         CardLayout layout = (CardLayout) userProcessContainer.getLayout();
         layout.previous(userProcessContainer);
 

@@ -13,9 +13,12 @@ import Business.Menu.MenuDirectory;
 import Business.Order.OrderDirectory;
 import Business.Restaurant.Restaurant;
 import Business.Restaurant.RestaurantDirectory;
+import Business.RestaurantTable.RestaurantTableDirectory;
+import Business.RestaurantTable.Table;
 import Business.UserAccount.UserAccount;
 import javax.swing.JOptionPane;
 import javax.swing.JPanel;
+import javax.swing.table.DefaultTableModel;
 
 /**
  *
@@ -38,13 +41,14 @@ public class CustomerDineInJPanel extends javax.swing.JPanel {
     private MenuDirectory menuDirectory;
     private OrderDirectory orderDirectory;
     private HeadChefDirectory headChefDirectory;
+    private RestaurantTableDirectory restaurantTableDirectory;
     
     
     public CustomerDineInJPanel() {
         
     }
 
-    CustomerDineInJPanel(JPanel userProcessContainer, UserAccount account, EcoSystem ecoSystem, RestaurantDirectory restaurantDirectory) {
+    CustomerDineInJPanel(JPanel userProcessContainer, UserAccount account, EcoSystem ecoSystem, RestaurantDirectory restaurantDirectory, RestaurantTableDirectory restaurantTableDirectory) {
         initComponents();
         this.userProcessContainer = userProcessContainer;
         this.account = account;
@@ -54,8 +58,9 @@ public class CustomerDineInJPanel extends javax.swing.JPanel {
         this.deliveryManDirectory = ecoSystem.getDeliveryManDirectory();
         this.menuDirectory = ecoSystem.getMenuDirectory();
         this.orderDirectory = ecoSystem.getOrderDirectory();
-        
         this.headChefDirectory = ecoSystem.getHeadChefDirectory();
+        this.restaurantTableDirectory = ecoSystem.getRestaurantTableDirectory();
+        customerName.setText(account.getEmployee().getName());
         populateRestaurantCombo();
     }
     
@@ -82,9 +87,10 @@ public class CustomerDineInJPanel extends javax.swing.JPanel {
         showTablesButton = new javax.swing.JButton();
         enterpriseLabel = new javax.swing.JLabel();
         enterpriseLabel1 = new javax.swing.JLabel();
-        valueLabel = new javax.swing.JLabel();
+        customerName = new javax.swing.JLabel();
         jScrollPane2 = new javax.swing.JScrollPane();
-        tblItem = new javax.swing.JTable();
+        tableOfTable = new javax.swing.JTable();
+        jButton1 = new javax.swing.JButton();
 
         setBackground(new java.awt.Color(102, 102, 102));
         setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
@@ -116,25 +122,41 @@ public class CustomerDineInJPanel extends javax.swing.JPanel {
         enterpriseLabel1.setText("Customer :");
         add(enterpriseLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(11, 3, 127, 30));
 
-        valueLabel.setFont(new java.awt.Font("Optima", 1, 18)); // NOI18N
-        valueLabel.setForeground(new java.awt.Color(204, 204, 204));
-        valueLabel.setText("<value>");
-        add(valueLabel, new org.netbeans.lib.awtextra.AbsoluteConstraints(144, 5, 158, 26));
+        customerName.setFont(new java.awt.Font("Optima", 1, 18)); // NOI18N
+        customerName.setForeground(new java.awt.Color(204, 204, 204));
+        customerName.setText("<value>");
+        add(customerName, new org.netbeans.lib.awtextra.AbsoluteConstraints(144, 5, 158, 26));
 
-        tblItem.setModel(new javax.swing.table.DefaultTableModel(
+        tableOfTable.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
-                {null, null},
-                {null, null},
-                {null, null},
-                {null, null}
+                {null, null, null},
+                {null, null, null},
+                {null, null, null},
+                {null, null, null}
             },
             new String [] {
-                "Table Number", "Available"
+                "Table Number", "Available", "Capacity"
             }
-        ));
-        jScrollPane2.setViewportView(tblItem);
+        ) {
+            boolean[] canEdit = new boolean [] {
+                false, true, false
+            };
+
+            public boolean isCellEditable(int rowIndex, int columnIndex) {
+                return canEdit [columnIndex];
+            }
+        });
+        jScrollPane2.setViewportView(tableOfTable);
 
         add(jScrollPane2, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 127, 601, 170));
+
+        jButton1.setText("Sit");
+        jButton1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton1ActionPerformed(evt);
+            }
+        });
+        add(jButton1, new org.netbeans.lib.awtextra.AbsoluteConstraints(270, 330, -1, -1));
     }// </editor-fold>//GEN-END:initComponents
 
     private void boxRestaurantActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_boxRestaurantActionPerformed
@@ -147,17 +169,53 @@ public class CustomerDineInJPanel extends javax.swing.JPanel {
             JOptionPane.showMessageDialog(null, "Please select a restaurant");
             return;
         }
-        //populateTable();
+        populateTable();
     }//GEN-LAST:event_showTablesButtonActionPerformed
+
+    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
+        int selectedTable = tableOfTable.getSelectedColumn();
+        if(selectedTable < 0) {
+            JOptionPane.showMessageDialog(null,"Please Select a row from table first", "Warining", JOptionPane.WARNING_MESSAGE);
+            return;
+            }
+        
+        
+         
+    
+    
+    
+    }//GEN-LAST:event_jButton1ActionPerformed
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JComboBox<String> boxRestaurant;
+    private javax.swing.JLabel customerName;
     private javax.swing.JLabel enterpriseLabel;
     private javax.swing.JLabel enterpriseLabel1;
+    private javax.swing.JButton jButton1;
     private javax.swing.JScrollPane jScrollPane2;
     private javax.swing.JButton showTablesButton;
-    private javax.swing.JTable tblItem;
-    private javax.swing.JLabel valueLabel;
+    private javax.swing.JTable tableOfTable;
     // End of variables declaration//GEN-END:variables
+
+    public void populateTable() {
+        String restaurantName = boxRestaurant.getSelectedItem().toString();
+        
+        DefaultTableModel dtm = (DefaultTableModel) tableOfTable.getModel();
+        dtm.setRowCount(0);
+
+        for(Table table: ecoSystem.getRestaurantTableDirectory().getRestaurantTableDirectory()){
+
+            if(table.getRestaurantName().equals(restaurantName)){
+                Object [] row = new Object[3];
+                row[0] = table;
+                row[1] = table.isIsAvailable();
+                row[2] = table.getCapacity();
+                dtm.addRow(row);
+            }
+
+
+            }
+
+    }
 }

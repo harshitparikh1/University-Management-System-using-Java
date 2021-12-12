@@ -6,12 +6,15 @@
 package userinterface.DonationAdminWorkArea;
 
 import Business.Chef.ChefDirectory;
+import Business.Donation.DonatedItem;
+import Business.Donation.Donation;
 import Business.Donation.DonationDirectory;
 import Business.EcoSystem;
 import Business.HeadChef.HeadChefDirectory;
 import Business.Menu.MenuDirectory;
 import Business.Restaurant.RestaurantDirectory;
 import Business.UserAccount.UserAccount;
+import java.util.List;
 import javax.swing.JOptionPane;
 import javax.swing.JPanel;
 import javax.swing.table.DefaultTableModel;
@@ -34,15 +37,17 @@ public class DonationAdminWorkAreaJPanel extends javax.swing.JPanel {
     private MenuDirectory menuDirectory;
     private DonationDirectory donationDirectory;
     
-    public DonationAdminWorkAreaJPanel(JPanel userProcessContainer) {
-        
-    }
+    
 
-    public DonationAdminWorkAreaJPanel(JPanel userProcessContainer, UserAccount account, EcoSystem business, RestaurantDirectory restaurantDirectory, HeadChefDirectory headChefDirectory, ChefDirectory chefDirectory, MenuDirectory menuDirectory, DonationDirectory donationDirectory) {
-    initComponents();
-    this.userProcessContainer = userProcessContainer;
+    public DonationAdminWorkAreaJPanel(JPanel userProcessContainer, UserAccount account, EcoSystem ecoSystem, RestaurantDirectory restaurantDirectory, HeadChefDirectory headChefDirectory, ChefDirectory chefDirectory, MenuDirectory menuDirectory, DonationDirectory donationDirectory) {
+        initComponents();
+        this.userProcessContainer = userProcessContainer;
         this.account = account;
         this.ecoSystem = ecoSystem;
+        this.restaurantDirectory = ecoSystem.getRestaurantDirectory();
+        this.headChefDirectory = ecoSystem.getHeadChefDirectory();
+        this.donationDirectory = ecoSystem.getDonationDirectory();
+        populateTable();
         
     
     }
@@ -129,15 +134,7 @@ public class DonationAdminWorkAreaJPanel extends javax.swing.JPanel {
     private void tblDonationMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_tblDonationMouseClicked
         // TODO add your handling code here:
 
-        int selectedRowIndex = tblDonation.getSelectedRow();
-
-        if (selectedRowIndex < 0) {
-            JOptionPane.showMessageDialog(null, "Please select a row.");
-            return;
-        }
-
-        DefaultTableModel model = (DefaultTableModel) tblDonation.getModel();
-//        Menu selectedItem = (Menu)model.getValueAt(selectedRowIndex, 0);
+        
     }//GEN-LAST:event_tblDonationMouseClicked
 
 
@@ -147,4 +144,25 @@ public class DonationAdminWorkAreaJPanel extends javax.swing.JPanel {
     private javax.swing.JScrollPane jScrollPane2;
     private javax.swing.JTable tblDonation;
     // End of variables declaration//GEN-END:variables
+
+    private void populateTable() {
+        DefaultTableModel dtm = (DefaultTableModel) tblDonation.getModel();
+        dtm.setRowCount(0);
+        String donationName = account.getEmployee().getName();
+        
+        for(Donation donation : ecoSystem.getDonationDirectory().getDonationDirectory()){
+            if(donation.getDonationName().equals(donationName)){
+                List<DonatedItem> list = donation.getDonationList();
+                Object [] row = new Object[3];
+                for(int i=0;i<list.size();i++){
+                row[0] = list.get(i).getItemName();
+                row[1] = list.get(i).getRestaurantName();
+                row[2] = list.get(i).getItemQuantity();
+                
+                dtm.addRow(row);
+            }
+        }
+         
+    }
+    }
 }

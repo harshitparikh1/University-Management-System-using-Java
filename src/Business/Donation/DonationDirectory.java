@@ -7,6 +7,7 @@ package Business.Donation;
 
 import Business.Restaurant.Restaurant;
 import java.util.ArrayList;
+import java.util.List;
 
 /**
  *
@@ -28,9 +29,9 @@ public class DonationDirectory {
         this.donationDirectory = donationDirectory;
     }
 
-    public Donation newDonation(String donationName, String userName, String address, String phoneNumber) {
+    public Donation newDonation(String donationName, String userName, String address, String phoneNumber, List<DonatedItem> donationList) {
         Donation donation = null;
-        donation = new Donation(donationName, userName, address, phoneNumber);
+        donation = new Donation(donationName, userName, address, phoneNumber, new ArrayList());
         donationDirectory.add(donation);
         System.out.println(donationDirectory.size() + "New Donation");
         return donation;

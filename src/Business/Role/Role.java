@@ -32,7 +32,8 @@ public abstract class Role {
         Chef("Chef"),
         HeadChef("HeadChef"),
         Supplier("Supplier"),
-        Food("Food");
+        Food("Food"),
+        Donation("Donation");
         
         private String value;
         private RoleType(String value){

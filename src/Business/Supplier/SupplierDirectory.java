@@ -29,8 +29,8 @@ public class SupplierDirectory {
     }
 
     public Supplier newSupplier(String supplierName, String userName, String address, String phoneNumber) {
-        Supplier supplier = null;
-        supplier = new Supplier(supplierName, userName, address, phoneNumber);
+        
+       Supplier supplier = new Supplier(supplierName, userName, address, phoneNumber);
         supplierDirectory.add(supplier);
         System.out.println(supplierDirectory.size() + "New Donation");
         return supplier;

@@ -39,7 +39,7 @@ public class ManageSupplierJPanel extends javax.swing.JPanel {
         this.restaurantDirectory = ecoSystem.getRestaurantDirectory();
         this.serverDirectory = ecoSystem.getServerDirectory();
         this.supplierDirectory = ecoSystem.getSupplierDirectory();
-//        populateTable();
+        populateTable();
     }
     
     public void populateTable() {

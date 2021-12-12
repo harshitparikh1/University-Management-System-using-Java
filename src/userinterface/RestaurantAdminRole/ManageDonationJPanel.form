@@ -43,8 +43,8 @@
                   </Group>
                   <Group type="102" alignment="0" attributes="0">
                       <EmptySpace min="-2" pref="38" max="-2" attributes="0"/>
-                      <Group type="103" groupAlignment="0" max="-2" attributes="0">
-                          <Component id="jScrollPane2" max="32767" attributes="0"/>
+                      <Group type="103" groupAlignment="0" attributes="0">
+                          <Component id="jScrollPane2" min="-2" pref="525" max="-2" attributes="0"/>
                           <Group type="102" attributes="0">
                               <Component id="enterpriseLabel1" min="-2" pref="154" max="-2" attributes="0"/>
                               <EmptySpace max="-2" attributes="0"/>
@@ -54,8 +54,6 @@
                               <Component id="enterpriseLabel" min="-2" pref="160" max="-2" attributes="0"/>
                               <EmptySpace min="10" pref="10" max="-2" attributes="0"/>
                               <Component id="valueLabel" min="-2" pref="210" max="-2" attributes="0"/>
-                              <EmptySpace min="-2" pref="56" max="-2" attributes="0"/>
-                              <Component id="btnMenuShow" min="-2" max="-2" attributes="0"/>
                           </Group>
                       </Group>
                   </Group>
@@ -71,10 +69,7 @@
               <EmptySpace min="-2" pref="16" max="-2" attributes="0"/>
               <Group type="103" groupAlignment="0" attributes="0">
                   <Component id="enterpriseLabel" min="-2" pref="30" max="-2" attributes="0"/>
-                  <Group type="103" groupAlignment="3" attributes="0">
-                      <Component id="valueLabel" alignment="3" min="-2" pref="30" max="-2" attributes="0"/>
-                      <Component id="btnMenuShow" alignment="3" min="-2" max="-2" attributes="0"/>
-                  </Group>
+                  <Component id="valueLabel" min="-2" pref="30" max="-2" attributes="0"/>
               </Group>
               <EmptySpace type="unrelated" max="-2" attributes="0"/>
               <Group type="103" groupAlignment="3" attributes="0">
@@ -173,14 +168,6 @@
       <AuxValues>
         <AuxValue name="JavaCodeGenerator_TypeParameters" type="java.lang.String" value="&lt;String&gt;"/>
       </AuxValues>
-    </Component>
-    <Component class="javax.swing.JButton" name="btnMenuShow">
-      <Properties>
-        <Property name="text" type="java.lang.String" value="Show Menu"/>
-      </Properties>
-      <Events>
-        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btnMenuShowActionPerformed"/>
-      </Events>
     </Component>
     <Container class="javax.swing.JScrollPane" name="jScrollPane2">
       <AuxValues>

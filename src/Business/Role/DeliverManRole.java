@@ -31,5 +31,12 @@ public class DeliverManRole extends Role {
             DeliveryManDirectory deliveryManDirectory, MenuDirectory menuDirectory, OrderDirectory orderDirectory, ChefDirectory chefDirectory, ServerDirectory serverDirectory, HeadChefDirectory headChefDirectory, RestaurantTableDirectory restaurantTableDirectory) {
         return new DeliveryManWorkAreaJPanel(userProcessContainer,account,business, deliveryManDirectory, orderDirectory);//To change body of generated methods, choose Tools | Templates.
     }
+
+    @Override
+    public JPanel createWorkArea1(JPanel userProcessContainer) {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    }
+
+    
     
 }

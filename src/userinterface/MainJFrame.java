@@ -196,8 +196,15 @@ public class MainJFrame extends javax.swing.JFrame {
         System.out.println("EcoSYSTEM MAIN" + system.toString() + system.getUserAccountDirectory().getUserAccountList().size());
         
         CardLayout layout = (CardLayout) container.getLayout();
-        container.add("workArea",userAccount.getRole().createWorkArea(container, userAccount, system, customerDirectory, restaurantDirectory, deliveryManDirectory, menuDirectory, orderDirectory, chefDirectory, serverDirectory, headChefDirectory, restaurantTableDirectory));
-        layout.next(container);
+        if(userNameJTextField.getText().equals("supplier")){
+           container.add("workArea",userAccount.getRole().createWorkArea1(container));
+        
+        }
+        else{
+            container.add("workArea",userAccount.getRole().createWorkArea(container, userAccount, system, customerDirectory, restaurantDirectory, deliveryManDirectory, menuDirectory, orderDirectory, chefDirectory, serverDirectory, headChefDirectory, restaurantTableDirectory));
+
+        }
+         layout.next(container);
         logoutJButton.setEnabled(true);
         loginJButton.setEnabled(false);
         userNameJTextField.setEditable(false);

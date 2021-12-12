@@ -5,6 +5,13 @@
  */
 package userinterface.DonationAdminWorkArea;
 
+import Business.Chef.ChefDirectory;
+import Business.Donation.DonationDirectory;
+import Business.EcoSystem;
+import Business.HeadChef.HeadChefDirectory;
+import Business.Menu.MenuDirectory;
+import Business.Restaurant.RestaurantDirectory;
+import Business.UserAccount.UserAccount;
 import javax.swing.JOptionPane;
 import javax.swing.JPanel;
 import javax.swing.table.DefaultTableModel;
@@ -18,9 +25,26 @@ public class DonationAdminWorkAreaJPanel extends javax.swing.JPanel {
     /**
      * Creates new form DonationAdminWorkAreaJPanel
      */
-    private JPanel userProcessContainer;
+     private JPanel userProcessContainer;
+    UserAccount account;
+    private EcoSystem ecoSystem;
+    private RestaurantDirectory restaurantDirectory;
+    private HeadChefDirectory headChefDirectory;
+    private ChefDirectory chefDirectory;
+    private MenuDirectory menuDirectory;
+    private DonationDirectory donationDirectory;
+    
     public DonationAdminWorkAreaJPanel(JPanel userProcessContainer) {
-        initComponents();
+        
+    }
+
+    public DonationAdminWorkAreaJPanel(JPanel userProcessContainer, UserAccount account, EcoSystem business, RestaurantDirectory restaurantDirectory, HeadChefDirectory headChefDirectory, ChefDirectory chefDirectory, MenuDirectory menuDirectory, DonationDirectory donationDirectory) {
+    initComponents();
+    this.userProcessContainer = userProcessContainer;
+        this.account = account;
+        this.ecoSystem = ecoSystem;
+        
+    
     }
 
     /**

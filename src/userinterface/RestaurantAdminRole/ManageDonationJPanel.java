@@ -5,6 +5,8 @@
  */
 package userinterface.RestaurantAdminRole;
 
+import Business.Donation.Donation;
+import Business.Donation.DonationDirectory;
 import Business.EcoSystem;
 import Business.Menu.Menu;
 import Business.Menu.MenuDirectory;
@@ -30,11 +32,12 @@ public class ManageDonationJPanel extends javax.swing.JPanel {
     private Restaurant restaurant;
     private MenuDirectory menuDirectory;
     private RestaurantTableDirectory restaurantTableDirectory;
+    private DonationDirectory donationDirectory;
 
     /**
      * Creates new form ManageDonationJPanel
      */
-    public ManageDonationJPanel(JPanel userProcessContainer, UserAccount account, EcoSystem ecoSystem, RestaurantDirectory restaurantDirectory, MenuDirectory menuDirectory, RestaurantTableDirectory restaurantTableDirectory) {
+    public ManageDonationJPanel(JPanel userProcessContainer, UserAccount account, EcoSystem ecoSystem, RestaurantDirectory restaurantDirectory, MenuDirectory menuDirectory, RestaurantTableDirectory restaurantTableDirectory, DonationDirectory donationDirectory) {
         initComponents();
         this.userProcessContainer = userProcessContainer;
         this.account = account;
@@ -42,11 +45,22 @@ public class ManageDonationJPanel extends javax.swing.JPanel {
         this.restaurantDirectory = ecoSystem.getRestaurantDirectory();
         this.menuDirectory = ecoSystem.getMenuDirectory();
         this.restaurantTableDirectory = ecoSystem.getRestaurantTableDirectory();
+        this.donationDirectory = ecoSystem.getDonationDirectory();
         valueLabel.setText(account.getEmployee().getName());
         populateTable();
+        populateRestaurantCombo();
+        
+    
         
     }
-    
+        public void populateRestaurantCombo() {
+        boxNgo.removeAllItems();
+        boxNgo.addItem("  ");
+        for(Donation donation : ecoSystem.getDonationDirectory().getDonationDirectory()) {
+            //System.out.println("res" + res);
+            boxNgo.addItem(donation.getDonationName());
+        }
+        }
     public void populateTable() {
         DefaultTableModel dTableModel = (DefaultTableModel) tblItem.getModel();
         dTableModel.setRowCount(0);
@@ -76,7 +90,7 @@ public class ManageDonationJPanel extends javax.swing.JPanel {
         valueLabel = new javax.swing.JLabel();
         jLabel1 = new javax.swing.JLabel();
         enterpriseLabel1 = new javax.swing.JLabel();
-        boxRestaurant = new javax.swing.JComboBox<>();
+        boxNgo = new javax.swing.JComboBox<>();
         btnMenuShow = new javax.swing.JButton();
         jScrollPane2 = new javax.swing.JScrollPane();
         tblItem = new javax.swing.JTable();
@@ -105,11 +119,11 @@ public class ManageDonationJPanel extends javax.swing.JPanel {
         enterpriseLabel1.setForeground(new java.awt.Color(204, 204, 204));
         enterpriseLabel1.setText("Select who to donate: ");
 
-        boxRestaurant.setFont(new java.awt.Font("Optima", 0, 14)); // NOI18N
-        boxRestaurant.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
-        boxRestaurant.addActionListener(new java.awt.event.ActionListener() {
+        boxNgo.setFont(new java.awt.Font("Optima", 0, 14)); // NOI18N
+        boxNgo.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
+        boxNgo.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                boxRestaurantActionPerformed(evt);
+                boxNgoActionPerformed(evt);
             }
         });
 
@@ -205,7 +219,7 @@ public class ManageDonationJPanel extends javax.swing.JPanel {
                             .addGroup(layout.createSequentialGroup()
                                 .addComponent(enterpriseLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 154, javax.swing.GroupLayout.PREFERRED_SIZE)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(boxRestaurant, javax.swing.GroupLayout.PREFERRED_SIZE, 214, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                .addComponent(boxNgo, javax.swing.GroupLayout.PREFERRED_SIZE, 214, javax.swing.GroupLayout.PREFERRED_SIZE))
                             .addGroup(layout.createSequentialGroup()
                                 .addComponent(enterpriseLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 160, javax.swing.GroupLayout.PREFERRED_SIZE)
                                 .addGap(10, 10, 10)
@@ -226,15 +240,15 @@ public class ManageDonationJPanel extends javax.swing.JPanel {
                         .addComponent(btnMenuShow)))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(boxRestaurant, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(boxNgo, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(enterpriseLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(26, 26, 26)
                 .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 170, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(layout.createSequentialGroup()
                         .addGap(18, 18, 18)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(txtItemName, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(txtItemName, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(lblModelName, javax.swing.GroupLayout.PREFERRED_SIZE, 20, javax.swing.GroupLayout.PREFERRED_SIZE))
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
@@ -248,9 +262,9 @@ public class ManageDonationJPanel extends javax.swing.JPanel {
         );
     }// </editor-fold>//GEN-END:initComponents
 
-    private void boxRestaurantActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_boxRestaurantActionPerformed
+    private void boxNgoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_boxNgoActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_boxRestaurantActionPerformed
+    }//GEN-LAST:event_boxNgoActionPerformed
 
     private void btnMenuShowActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnMenuShowActionPerformed
         // TODO add your handling code here:
@@ -298,7 +312,7 @@ public class ManageDonationJPanel extends javax.swing.JPanel {
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JComboBox<String> boxRestaurant;
+    private javax.swing.JComboBox<String> boxNgo;
     private javax.swing.JButton btnMenuShow;
     private javax.swing.JButton btnMenuShow1;
     private javax.swing.JLabel enterpriseLabel;

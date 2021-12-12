@@ -5,6 +5,7 @@
  */
 package Business.Menu;
 
+import java.util.HashMap;
 import java.util.List;
 
 /**
@@ -15,9 +16,10 @@ public class Menu {
     private String itemName;
     private double price;
     private String restaurantName;
-    private List<Ingredients> ingredients;
     
-    public Menu(String itemName, double price, String restaurantName,List<Ingredients> ingredients ) {
+    private HashMap<String, Integer> ingredients;
+    
+    public Menu(String itemName, double price, String restaurantName,HashMap<String, Integer> ingredients) {
         this.itemName = itemName;
         this.price = price;
         this.restaurantName = restaurantName;
@@ -25,13 +27,19 @@ public class Menu {
         
     }
 
-    public List<Ingredients> getIngredients() {
+    public HashMap<String, Integer> getIngredients() {
         return ingredients;
     }
 
-    public void setIngredients(List<Ingredients> ingredients) {
+    public void setIngredients(HashMap<String, Integer> ingredients) {
         this.ingredients = ingredients;
     }
+
+    
+
+   
+
+    
 
     public String getItemName() {
         return itemName;

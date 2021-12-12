@@ -11,6 +11,7 @@ import Business.UserAccount.UserAccount;
 import java.awt.CardLayout;
 import java.util.ArrayList;
 import java.util.Collections;
+import java.util.HashMap;
 import javax.swing.JOptionPane;
 import javax.swing.JPanel;
 import javax.swing.table.DefaultTableModel;
@@ -235,7 +236,7 @@ public class ManageMenuJPanel extends javax.swing.JPanel {
         
         String res = account.getEmployee().getName();
         
-        menuDirectory.newItem(itemName, price, res, new ArrayList<Ingredients>());
+        menuDirectory.newItem(itemName, price, res,new HashMap<String, Integer>());
         populateTable();
         JOptionPane.showMessageDialog(null, "Item added successfully!");
         

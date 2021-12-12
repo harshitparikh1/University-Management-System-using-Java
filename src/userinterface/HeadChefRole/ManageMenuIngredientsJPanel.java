@@ -15,7 +15,9 @@ import Business.Menu.MenuDirectory;
 import Business.Restaurant.Restaurant;
 import Business.UserAccount.UserAccount;
 import java.awt.CardLayout;
+import java.util.HashMap;
 import java.util.Iterator;
+import java.util.Map;
 import javax.swing.JOptionPane;
 import javax.swing.JPanel;
 import javax.swing.table.DefaultTableModel;
@@ -226,12 +228,14 @@ public class ManageMenuIngredientsJPanel extends javax.swing.JPanel {
         
         DefaultTableModel dtm = (DefaultTableModel) tableIngredient.getModel();
         dtm.setRowCount(0);
-        for(Ingredients ing : menu.getIngredients()){
-         
         
+        HashMap<String, Integer> inga = menu.getIngredients();
+        Iterator<Map.Entry<String, Integer>> itr = inga.entrySet().iterator();
+        while(itr.hasNext()){
+            Map.Entry<String, Integer> entry = itr.next();
         Object [] row = new Object[2];
-            row[0] = ing.getName();
-            row[1] = ing.getQuantity();
+            row[0] = entry.getKey();
+            row[1] = entry.getValue();
             dtm.addRow(row);
         }
         
@@ -255,8 +259,9 @@ public class ManageMenuIngredientsJPanel extends javax.swing.JPanel {
             return;
         } 
         Menu menu = (Menu)tblMenu.getValueAt(selectedRow,0);
-        Ingredients ing1 = new Ingredients(txtIngredient.getText(),Integer.parseInt(txtQuantity.getText()));
-        menu.getIngredients().add(ing1);
+        menu.getIngredients().put(txtIngredient.getText(), Integer.parseInt(txtQuantity.getText()));
+        
+        
         for(Restaurant restaurant : ecoSystem.getRestaurantDirectory().getRestaurantDirectory()){
             if(restaurant.getRestaurantName().equals(menu.getRestaurantName())){
                 if(txtIngredient.getText().isEmpty() || txtQuantity.getText().isEmpty()) {
@@ -286,12 +291,14 @@ public class ManageMenuIngredientsJPanel extends javax.swing.JPanel {
         
         DefaultTableModel dtm = (DefaultTableModel) tableIngredient.getModel();
         dtm.setRowCount(0);
-        for(Ingredients ing : menu.getIngredients()){
-         
-        
+        HashMap<String, Integer> inga = menu.getIngredients();
+       
+        Iterator<Map.Entry<String, Integer>> itr = inga.entrySet().iterator();
+        while(itr.hasNext()){
+            Map.Entry<String, Integer> entry = itr.next();
         Object [] row = new Object[2];
-            row[0] = ing.getName();
-            row[1] = ing.getQuantity();
+            row[0] = entry.getKey();
+            row[1] = entry.getValue();
             dtm.addRow(row);
         }
         
@@ -300,17 +307,28 @@ public class ManageMenuIngredientsJPanel extends javax.swing.JPanel {
 
     private void btnDeleteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnDeleteActionPerformed
         int selectedRow = tableIngredient.getSelectedRow();
+        int selectedMenuRow = tblMenu.getSelectedRow();
         if(selectedRow < 0){
             JOptionPane.showMessageDialog(null,"Please Select a row from table first", "Warining", JOptionPane.WARNING_MESSAGE);
             return;
         }
-        Menu menu = (Menu)tblMenu.getValueAt(selectedRow,0);
-        for(Ingredients ing : menu.getIngredients()){
-            if(ing.getName().equals(tableIngredient.getValueAt(selectedRow,0))){
-                menu.getIngredients().remove(ing);
-                populateTable();
-            }
+        Menu menu = (Menu)tblMenu.getValueAt(selectedMenuRow,0);
+        
+         HashMap<String, Integer> inga = menu.getIngredients();
+        
+         
+         Iterator<Map.Entry<String, Integer>> itr = inga.entrySet().iterator();
+        while(itr.hasNext()){
+            Map.Entry<String, Integer> entry = itr.next();
+        
+            if(entry.getKey().equals(tableIngredient.getValueAt(selectedRow,0))){
+                inga.remove(entry.getKey());
+                menu.setIngredients(inga);
+           
+                }
         }
+        populateIngredients();
+        populateTable();
         
         
         
@@ -342,6 +360,23 @@ public class ManageMenuIngredientsJPanel extends javax.swing.JPanel {
     private javax.swing.JButton viewIngredients;
     // End of variables declaration//GEN-END:variables
 
+    private void populateIngredients(){
+        int selectedMenuRow = tblMenu.getSelectedRow();
+        Menu menu = (Menu)tblMenu.getValueAt(selectedMenuRow,0);
+       DefaultTableModel dtm = (DefaultTableModel) tableIngredient.getModel();
+        dtm.setRowCount(0);
+        HashMap<String, Integer> inga = menu.getIngredients();
+       
+        Iterator<Map.Entry<String, Integer>> itr = inga.entrySet().iterator();
+        while(itr.hasNext()){
+            Map.Entry<String, Integer> entry = itr.next();
+        Object [] row = new Object[2];
+            row[0] = entry.getKey();
+            row[1] = entry.getValue();
+            dtm.addRow(row);
+        } 
+    }
+    
     private void populateTable() {
         DefaultTableModel dtm = (DefaultTableModel) tblMenu.getModel();
         dtm.setRowCount(0);

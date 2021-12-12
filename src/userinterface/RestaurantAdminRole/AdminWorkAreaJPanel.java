@@ -54,8 +54,9 @@ public class AdminWorkAreaJPanel extends javax.swing.JPanel {
         this.headChefDirectory = ecoSystem.getHeadChefDirectory();
         this.restaurantTableDirectory = ecoSystem.getRestaurantTableDirectory();
         this.donationDirectory = ecoSystem.getDonationDirectory();
+        
         Restaurant res = ecoSystem.getRestaurantDirectory().getRestaurant(account.getEmployee().getName());
-        System.out.println(res.getInventory());
+        
         valueLabel.setText(account.getEmployee().getName());
         
         for(Restaurant restaurant : ecoSystem.getRestaurantDirectory().getRestaurantDirectory()){
@@ -226,7 +227,7 @@ public class AdminWorkAreaJPanel extends javax.swing.JPanel {
 
     private void manageDonationActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_manageDonationActionPerformed
         // TODO add your handling code here:
-        ManageDonationJPanel mdjp = new ManageDonationJPanel(userProcessContainer,account, ecoSystem, restaurantDirectory, menuDirectory, restaurantTableDirectory);
+        ManageDonationJPanel mdjp = new ManageDonationJPanel(userProcessContainer,account, ecoSystem, restaurantDirectory, menuDirectory, restaurantTableDirectory, donationDirectory);
         userProcessContainer.add("ManageDonationJPanel",mdjp);
         CardLayout layout = (CardLayout) userProcessContainer.getLayout();
         layout.next(userProcessContainer);

@@ -12,6 +12,7 @@ import Business.Donation.Donation;
 import Business.Donation.DonationDirectory;
 import Business.Employee.Employee;
 import Business.Role.AdminRole;
+import Business.Role.DonationRole;
 import Business.Server.ServerDirectory;
 import Business.UserAccount.UserAccount;
 import java.awt.CardLayout;
@@ -195,7 +196,7 @@ public class CreateDonationJPanel extends javax.swing.JPanel {
         
 
         Employee employee = ecoSystem.getEmployeeDirectory().createEmployee(donationName);
-        UserAccount userAccount = ecoSystem.getUserAccountDirectory().createUserAccount(userName, password, employee, new AdminRole());
+        UserAccount userAccount = ecoSystem.getUserAccountDirectory().createUserAccount(userName, password, employee, new DonationRole());
 
         JOptionPane.showMessageDialog(null, "New NGO added successfully");
 

@@ -12,6 +12,8 @@ import Business.Restaurant.RestaurantDirectory;
 import Business.UserAccount.UserAccount;
 import java.awt.CardLayout;
 import javax.swing.JPanel;
+import userinterface.ChefRole.CreateChefJPanel;
+import userinterface.SystemAdminWorkArea.CreateCustomerJPanel;
 
 /**
  *
@@ -126,6 +128,11 @@ public class ManageChefJPanel extends javax.swing.JPanel {
 
     private void createChefActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_createChefActionPerformed
         // TODO add your handling code here:
+        CreateChefJPanel createChef = new CreateChefJPanel(userProcessContainer, ecoSystem, chefDirectory);
+        userProcessContainer.add("CreateChefJPanel",createChef);
+        CardLayout layout=(CardLayout)userProcessContainer.getLayout();
+        layout.next(userProcessContainer);
+
     }//GEN-LAST:event_createChefActionPerformed
 
     private void modifyChefActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_modifyChefActionPerformed

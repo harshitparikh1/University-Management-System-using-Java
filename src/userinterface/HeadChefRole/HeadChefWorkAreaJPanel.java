@@ -12,6 +12,7 @@ import Business.EcoSystem;
 import Business.HeadChef.HeadChefDirectory;
 import Business.Menu.MenuDirectory;
 import Business.Restaurant.RestaurantDirectory;
+import Business.Supplier.SupplierDirectory;
 import Business.UserAccount.UserAccount;
 import java.awt.CardLayout;
 import static java.awt.SystemColor.menu;
@@ -35,13 +36,13 @@ public class HeadChefWorkAreaJPanel extends javax.swing.JPanel {
     private ChefDirectory chefDirectory;
     private MenuDirectory menuDirectory;
     private DonationDirectory donationDirectory;
-    
+    private SupplierDirectory supplierDirectory;
     
     public HeadChefWorkAreaJPanel() {
         
     }
 
-    public HeadChefWorkAreaJPanel(JPanel userProcessContainer, UserAccount account, EcoSystem ecoSystem, RestaurantDirectory restaurantDirectory,HeadChefDirectory headChefDirectory, ChefDirectory chefDirectory, MenuDirectory menuDirectory, DonationDirectory donationDirectory) {
+    public HeadChefWorkAreaJPanel(JPanel userProcessContainer, UserAccount account, EcoSystem ecoSystem, RestaurantDirectory restaurantDirectory,HeadChefDirectory headChefDirectory, ChefDirectory chefDirectory, MenuDirectory menuDirectory, DonationDirectory donationDirectory, SupplierDirectory supplierDirectory) {
         initComponents();
         this.userProcessContainer = userProcessContainer;
         this.account = account;
@@ -51,6 +52,7 @@ public class HeadChefWorkAreaJPanel extends javax.swing.JPanel {
         this.chefDirectory = ecoSystem.getChefDirectory();
         this.menuDirectory = ecoSystem.getMenuDirectory();
         this.donationDirectory = ecoSystem.getDonationDirectory();
+        this.supplierDirectory = ecoSystem.getSupplierDirectory();
         
     }
 

@@ -7,6 +7,7 @@ import Business.EcoSystem;
 
 import Business.Order.Order;
 import Business.Order.OrderDirectory;
+import Business.Supplier.SupplierDirectory;
 
 import Business.UserAccount.UserAccount;
 import Business.WorkQueue.WorkRequest;
@@ -27,10 +28,11 @@ public class DeliveryManWorkAreaJPanel extends javax.swing.JPanel {
     private DeliveryManDirectory deliveryManDirectory;
     private OrderDirectory orderDirectory;
     private DonationDirectory donationDirectory;
+    private SupplierDirectory supplierDirectory;
    
     
    
-    public DeliveryManWorkAreaJPanel(JPanel userProcessContainer, UserAccount account, EcoSystem business, DeliveryManDirectory deliveryManDirectory, OrderDirectory orderDirectory, DonationDirectory donationDirectory) {
+    public DeliveryManWorkAreaJPanel(JPanel userProcessContainer, UserAccount account, EcoSystem business, DeliveryManDirectory deliveryManDirectory, OrderDirectory orderDirectory, DonationDirectory donationDirectory, SupplierDirectory supplierDirectory) {
         initComponents();
         
         this.userProcessContainer = userProcessContainer;
@@ -39,6 +41,7 @@ public class DeliveryManWorkAreaJPanel extends javax.swing.JPanel {
         this.orderDirectory = business.getOrderDirectory();
         this.deliveryManDirectory = business.getDeliveryManDirectory();
         this.donationDirectory = business.getDonationDirectory();
+        this.supplierDirectory = business.getSupplierDirectory();
         
         populateTable();
     }

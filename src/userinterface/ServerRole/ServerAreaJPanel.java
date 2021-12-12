@@ -13,6 +13,7 @@ import Business.Menu.MenuDirectory;
 import Business.Order.OrderDirectory;
 import Business.Restaurant.RestaurantDirectory;
 import Business.Server.ServerDirectory;
+import Business.Supplier.SupplierDirectory;
 import Business.UserAccount.UserAccount;
 import javax.swing.JPanel;
 
@@ -32,12 +33,13 @@ public class ServerAreaJPanel extends javax.swing.JPanel {
     private OrderDirectory orderDirectory;
     private ServerDirectory serverDirectory;  
     private DonationDirectory donationDirectory;
+    private SupplierDirectory supplierDirectory;
     
     public ServerAreaJPanel() {
         
     }
 
-    public ServerAreaJPanel(JPanel userProcessContainer, UserAccount account, EcoSystem business, RestaurantDirectory restaurantDirectory, ServerDirectory serverDirectory, DonationDirectory donationDirectory ) {
+    public ServerAreaJPanel(JPanel userProcessContainer, UserAccount account, EcoSystem business, RestaurantDirectory restaurantDirectory, ServerDirectory serverDirectory, DonationDirectory donationDirectory, SupplierDirectory supplierDirectory ) {
     initComponents();    
     this.userProcessContainer = userProcessContainer;
         this.account = account;
@@ -45,6 +47,8 @@ public class ServerAreaJPanel extends javax.swing.JPanel {
         this.serverDirectory = ecoSystem.getServerDirectory();
         this.restaurantDirectory = ecoSystem.getRestaurantDirectory();
         this.donationDirectory = ecoSystem.getDonationDirectory();
+        this.supplierDirectory = ecoSystem.getSupplierDirectory();
+        
        ;
         
         

@@ -13,6 +13,7 @@ import Business.EcoSystem;
 import Business.HeadChef.HeadChefDirectory;
 import Business.Menu.MenuDirectory;
 import Business.Restaurant.RestaurantDirectory;
+import Business.Supplier.SupplierDirectory;
 import Business.UserAccount.UserAccount;
 import java.util.List;
 import javax.swing.JOptionPane;
@@ -36,10 +37,10 @@ public class DonationAdminWorkAreaJPanel extends javax.swing.JPanel {
     private ChefDirectory chefDirectory;
     private MenuDirectory menuDirectory;
     private DonationDirectory donationDirectory;
-    
+    private SupplierDirectory supplierDirectory;
     
 
-    public DonationAdminWorkAreaJPanel(JPanel userProcessContainer, UserAccount account, EcoSystem ecoSystem, RestaurantDirectory restaurantDirectory, HeadChefDirectory headChefDirectory, ChefDirectory chefDirectory, MenuDirectory menuDirectory, DonationDirectory donationDirectory) {
+    public DonationAdminWorkAreaJPanel(JPanel userProcessContainer, UserAccount account, EcoSystem ecoSystem, RestaurantDirectory restaurantDirectory, HeadChefDirectory headChefDirectory, ChefDirectory chefDirectory, MenuDirectory menuDirectory, DonationDirectory donationDirectory, SupplierDirectory supplierDirectory) {
         initComponents();
         this.userProcessContainer = userProcessContainer;
         this.account = account;
@@ -47,6 +48,7 @@ public class DonationAdminWorkAreaJPanel extends javax.swing.JPanel {
         this.restaurantDirectory = ecoSystem.getRestaurantDirectory();
         this.headChefDirectory = ecoSystem.getHeadChefDirectory();
         this.donationDirectory = ecoSystem.getDonationDirectory();
+        this.supplierDirectory = ecoSystem.getSupplierDirectory();
         populateTable();
         
     

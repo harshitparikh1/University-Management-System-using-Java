@@ -116,6 +116,7 @@
                                   <Component id="btnDelivery" min="-2" pref="185" max="-2" attributes="0"/>
                                   <Component id="btnDonations" alignment="0" max="32767" attributes="0"/>
                                   <Component id="btnSuppliers" alignment="0" max="32767" attributes="0"/>
+                                  <Component id="btnSuppliers1" alignment="0" max="32767" attributes="0"/>
                               </Group>
                           </Group>
                       </Group>
@@ -141,7 +142,9 @@
                       <Component id="btnDonations" min="-2" max="-2" attributes="0"/>
                       <EmptySpace type="separate" max="-2" attributes="0"/>
                       <Component id="btnSuppliers" min="-2" max="-2" attributes="0"/>
-                      <EmptySpace pref="146" max="32767" attributes="0"/>
+                      <EmptySpace type="separate" max="-2" attributes="0"/>
+                      <Component id="btnSuppliers1" min="-2" max="-2" attributes="0"/>
+                      <EmptySpace pref="105" max="32767" attributes="0"/>
                   </Group>
               </Group>
             </DimensionLayout>
@@ -207,6 +210,14 @@
               </Properties>
               <Events>
                 <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btnSuppliersActionPerformed"/>
+              </Events>
+            </Component>
+            <Component class="javax.swing.JButton" name="btnSuppliers1">
+              <Properties>
+                <Property name="text" type="java.lang.String" value="Manage Insurance"/>
+              </Properties>
+              <Events>
+                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btnSuppliers1ActionPerformed"/>
               </Events>
             </Component>
           </SubComponents>

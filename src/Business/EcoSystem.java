@@ -19,6 +19,7 @@ import Business.Role.Role;
 import Business.Role.SystemAdminRole;
 import Business.Server.ServerDirectory;
 import Business.Supplier.SupplierDirectory;
+import Business.Insurance.InsuranceDirectory;
 import java.util.ArrayList;
 
 /**
@@ -39,6 +40,7 @@ public class EcoSystem extends Organization{
     private RestaurantTableDirectory restaurantTableDirectory; 
     private DonationDirectory donationDirectory;
     private SupplierDirectory supplierDirectory;
+    private InsuranceDirectory insuranceDirectory;
     
 
     public EcoSystem(RestaurantDirectory restaurantDirectory, CustomerDirectory customerDirectory, DeliveryManDirectory deliveryManDirectory, ChefDirectory chefDirectory, ServerDirectory serverDirectory,HeadChefDirectory headChefDirectory, RestaurantTableDirectory restaurantTableDirectory, DonationDirectory donationDirectory, SupplierDirectory supplierDirectory ) {
@@ -52,6 +54,7 @@ public class EcoSystem extends Organization{
         this.restaurantTableDirectory = restaurantTableDirectory;
         this.donationDirectory = donationDirectory;
         this.supplierDirectory = supplierDirectory;
+        this.insuranceDirectory = insuranceDirectory;
         
         
     }
@@ -146,6 +149,14 @@ public class EcoSystem extends Organization{
 
     public void setSupplierDirectory(SupplierDirectory supplierDirectory) {
         this.supplierDirectory = supplierDirectory;
+    }
+    
+    public InsuranceDirectory getInsuranceDirectory() {
+        return insuranceDirectory;
+    }
+
+    public void setInsuranceDirectory(InsuranceDirectory onsuranceDirectory) {
+        this.insuranceDirectory = onsuranceDirectory;
     }
 
 

@@ -5,8 +5,15 @@
  */
 package userinterface.SystemAdminWorkArea;
 
-import Business.Donation.DonationDirectory;
 import Business.EcoSystem;
+import Business.Employee.Employee;
+import Business.Insurance.Insurance;
+import Business.Insurance.InsuranceDirectory;
+import Business.Role.InsuranceRole;
+import Business.UserAccount.UserAccount;
+import java.awt.CardLayout;
+import java.awt.Component;
+import javax.swing.JOptionPane;
 import javax.swing.JPanel;
 
 /**
@@ -17,13 +24,16 @@ public class CreateInsuranceJPanel extends javax.swing.JPanel {
     
     private JPanel userProcessContainer;
     private EcoSystem ecoSystem;
-    private DonationDirectory donationDirectory;
+    private InsuranceDirectory insuranceDirectory;
 
     /**
      * Creates new form CreateInsuranceJPanel
      */
-    public CreateInsuranceJPanel() {
+    public CreateInsuranceJPanel(JPanel userProcessContainer, EcoSystem ecoSystem, InsuranceDirectory insuranceDirectory) {
         initComponents();
+        this.userProcessContainer = userProcessContainer;
+        this.ecoSystem = ecoSystem;
+        this.insuranceDirectory = ecoSystem.getInsuranceDirectory();
         
     }
 
@@ -47,7 +57,7 @@ public class CreateInsuranceJPanel extends javax.swing.JPanel {
         txtUsername = new javax.swing.JTextField();
         jLabel2 = new javax.swing.JLabel();
         jLabel9 = new javax.swing.JLabel();
-        txtDonationName = new javax.swing.JTextField();
+        txtInsuranceName = new javax.swing.JTextField();
         txtPassword = new javax.swing.JPasswordField();
 
         setBackground(new java.awt.Color(102, 102, 102));
@@ -107,7 +117,7 @@ public class CreateInsuranceJPanel extends javax.swing.JPanel {
         jLabel9.setHorizontalAlignment(javax.swing.SwingConstants.RIGHT);
         jLabel9.setText("Password*:");
         add(jLabel9, new org.netbeans.lib.awtextra.AbsoluteConstraints(201, 286, 86, -1));
-        add(txtDonationName, new org.netbeans.lib.awtextra.AbsoluteConstraints(318, 131, 165, -1));
+        add(txtInsuranceName, new org.netbeans.lib.awtextra.AbsoluteConstraints(318, 131, 165, -1));
         add(txtPassword, new org.netbeans.lib.awtextra.AbsoluteConstraints(318, 287, 165, -1));
     }// </editor-fold>//GEN-END:initComponents
 
@@ -124,21 +134,21 @@ public class CreateInsuranceJPanel extends javax.swing.JPanel {
 
     private void btnCreate1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCreate1ActionPerformed
         // TODO add your handling code here:
-        if(txtDonationName.getText().isEmpty() || txtAddress.getText().isEmpty() || txtPhoneNumber.getText().isEmpty() ||
+        if(txtInsuranceName.getText().isEmpty() || txtAddress.getText().isEmpty() || txtPhoneNumber.getText().isEmpty() ||
             txtUsername.getText().isEmpty() || txtPassword.getText().isEmpty() ) {
             JOptionPane.showMessageDialog(null, "Fields cannot be left empty");
             return;
         }
 
-        String donationName = txtDonationName.getText();
+        String insuranceName = txtInsuranceName.getText();
 
         boolean flag ;
 
-        flag = donationName.matches("^[a-zA-Z0-9 ,.'-]+$");
+        flag = insuranceName.matches("^[a-zA-Z0-9 ,.'-]+$");
 
         if(flag == false) {
-            JOptionPane.showMessageDialog(null, "Invalid NGO name. Name can only contain alphabets, numbers and some special characters (,'-). )");
-            return;
+            JOptionPane.showMessageDialog(null, "Invalid Insurance name. Name can only contain alphabets, numbers and some special characters (,'-). )");
+            return; 
         }
 
         String phoneNumber = txtPhoneNumber.getText();
@@ -153,8 +163,8 @@ public class CreateInsuranceJPanel extends javax.swing.JPanel {
             return;
         }
 
-        for(Donation donation : donationDirectory.getDonationDirectory()) {
-            if(donation.getPhoneNumber().equals(phoneNumber)) {
+        for(Insurance insurance : insuranceDirectory.getInsuranceDirectory()) {
+            if(insurance.getPhoneNumber().equals(phoneNumber)) {
                 JOptionPane.showMessageDialog(null, "Phone Number already exists.");
                 return;
             }
@@ -171,16 +181,16 @@ public class CreateInsuranceJPanel extends javax.swing.JPanel {
             }
         }
 
-        System.out.println("Eco" + ecoSystem.getDonationDirectory().getDonationDirectory().size());
-        ecoSystem.getDonationDirectory().newDonation(donationName, userName, address, phoneNumber, new ArrayList());
+        System.out.println("Eco" + ecoSystem.getInsuranceDirectory().getInsuranceDirectory().size());
+        ecoSystem.getInsuranceDirectory().newInsurance(insuranceName, userName, address, phoneNumber);
 
-        Employee employee = ecoSystem.getEmployeeDirectory().createEmployee(donationName);
-        UserAccount userAccount = ecoSystem.getUserAccountDirectory().createUserAccount(userName, password, employee, new DonationRole());
+        Employee employee = ecoSystem.getEmployeeDirectory().createEmployee(insuranceName);
+        UserAccount userAccount = ecoSystem.getUserAccountDirectory().createUserAccount(userName, password, employee, new InsuranceRole());
 
         JOptionPane.showMessageDialog(null, "New NGO added successfully");
 
         // Empty All Fields
-        txtDonationName.setText("");
+        txtInsuranceName.setText("");
         txtPhoneNumber.setText("");
         txtAddress.setText("");
         txtPassword.setText("");
@@ -198,7 +208,7 @@ public class CreateInsuranceJPanel extends javax.swing.JPanel {
     private javax.swing.JLabel jLabel8;
     private javax.swing.JLabel jLabel9;
     private javax.swing.JTextField txtAddress;
-    private javax.swing.JTextField txtDonationName;
+    private javax.swing.JTextField txtInsuranceName;
     private javax.swing.JPasswordField txtPassword;
     private javax.swing.JTextField txtPhoneNumber;
     private javax.swing.JTextField txtUsername;

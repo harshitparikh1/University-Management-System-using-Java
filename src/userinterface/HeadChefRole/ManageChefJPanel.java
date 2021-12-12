@@ -5,13 +5,21 @@
  */
 package userinterface.HeadChefRole;
 
+import Business.Chef.Chef;
 import Business.Chef.ChefDirectory;
+import Business.Customer.Customer;
 import Business.EcoSystem;
 import Business.HeadChef.HeadChefDirectory;
 import Business.Restaurant.RestaurantDirectory;
 import Business.UserAccount.UserAccount;
 import java.awt.CardLayout;
+import javax.swing.JOptionPane;
 import javax.swing.JPanel;
+import javax.swing.table.DefaultTableModel;
+import userinterface.ChefRole.CreateChefJPanel;
+import userinterface.ChefRole.ModifyChefJPanel;
+import userinterface.SystemAdminWorkArea.CreateCustomerJPanel;
+import userinterface.SystemAdminWorkArea.ModifyCustomerJPanel;
 
 /**
  *
@@ -41,6 +49,32 @@ public class ManageChefJPanel extends javax.swing.JPanel {
         this.chefDirectory = ecoSystem.getChefDirectory();
         
         }
+    
+    public void populateTable() {
+        String restaurantName = account.getEmployee().getName();
+        DefaultTableModel dtm = (DefaultTableModel) tblChef.getModel();
+        dtm.setRowCount(0);
+        for(Chef chef : ecoSystem.getChefDirectory().getChefDirectory()){
+            System.out.println("userinterface.HeadChefRole.ManageChefJPanel.populateTable()" + chef.getRestaurantName());
+            if(chef.getRestaurantName().equals(restaurantName)){
+                
+                System.out.println("resname" + restaurantName);
+                
+                Object [] row = new Object[6];
+                row[0] = chef;
+                row[1] = chef.getName();
+                row[2] = chef.getEmail();
+                row[3] = chef.getHomeAddress();
+                row[4] = chef.getPhoneNumber();
+                row[5] = chef.getAge();
+                dtm.addRow(row);
+            }
+        }
+    }
+
+    public void refreshTable() {
+        populateTable();
+    }
 
     /**
      * This method is called from within the constructor to initialize the form.
@@ -52,17 +86,18 @@ public class ManageChefJPanel extends javax.swing.JPanel {
     private void initComponents() {
 
         jScrollPane1 = new javax.swing.JScrollPane();
-        tblCustomer = new javax.swing.JTable();
+        tblChef = new javax.swing.JTable();
         jLabel1 = new javax.swing.JLabel();
         createChef = new javax.swing.JButton();
         modifyChef = new javax.swing.JButton();
         deleteChef = new javax.swing.JButton();
         btnBack = new javax.swing.JButton();
+        refreshJButton = new javax.swing.JButton();
 
         setBackground(new java.awt.Color(102, 102, 102));
         setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        tblCustomer.setModel(new javax.swing.table.DefaultTableModel(
+        tblChef.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
                 {null, null, null, null, null, null},
                 {null, null, null, null, null, null},
@@ -81,7 +116,7 @@ public class ManageChefJPanel extends javax.swing.JPanel {
                 return canEdit [columnIndex];
             }
         });
-        jScrollPane1.setViewportView(tblCustomer);
+        jScrollPane1.setViewportView(tblChef);
 
         add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 106, 598, 132));
 
@@ -89,7 +124,7 @@ public class ManageChefJPanel extends javax.swing.JPanel {
         jLabel1.setForeground(new java.awt.Color(204, 204, 204));
         jLabel1.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         jLabel1.setText("Manage Chefs ");
-        add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 618, -1));
+        add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 630, -1));
 
         createChef.setText("Create Chef");
         createChef.addActionListener(new java.awt.event.ActionListener() {
@@ -122,18 +157,52 @@ public class ManageChefJPanel extends javax.swing.JPanel {
             }
         });
         add(btnBack, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 53, -1, -1));
+
+        refreshJButton.setText("Refresh");
+        refreshJButton.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                refreshJButtonActionPerformed(evt);
+            }
+        });
+        add(refreshJButton, new org.netbeans.lib.awtextra.AbsoluteConstraints(530, 70, -1, -1));
     }// </editor-fold>//GEN-END:initComponents
 
     private void createChefActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_createChefActionPerformed
         // TODO add your handling code here:
+        CreateChefJPanel createChef = new CreateChefJPanel(userProcessContainer, ecoSystem, chefDirectory);
+        userProcessContainer.add("CreateChefJPanel",createChef);
+        CardLayout layout=(CardLayout)userProcessContainer.getLayout();
+        layout.next(userProcessContainer);
+
     }//GEN-LAST:event_createChefActionPerformed
 
     private void modifyChefActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_modifyChefActionPerformed
         // TODO add your handling code here:
+        int selectedRow = tblChef.getSelectedRow();
+        if(selectedRow < 0) {
+            JOptionPane.showMessageDialog(null,"Please Select a row from table first", "Warining", JOptionPane.WARNING_MESSAGE);
+            return;
+        }
+        Chef chef = (Chef)tblChef.getValueAt(selectedRow,0);
+        ModifyChefJPanel modifyChef = new ModifyChefJPanel(userProcessContainer, ecoSystem, chefDirectory, chef);
+        userProcessContainer.add("ModifyChefJPanel",modifyChef);
+        CardLayout layout=(CardLayout)userProcessContainer.getLayout();
+        layout.next(userProcessContainer);
+        
     }//GEN-LAST:event_modifyChefActionPerformed
 
     private void deleteChefActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_deleteChefActionPerformed
         // TODO add your handling code here:
+        int selectedRow = tblChef.getSelectedRow();
+        if(selectedRow < 0) {
+            JOptionPane.showMessageDialog(null,"Please Select a row from table first", "Warining", JOptionPane.WARNING_MESSAGE);
+            return;
+        }
+        
+        Chef chef = (Chef) tblChef.getValueAt(selectedRow, 0);
+        chefDirectory.removeChef(chef);
+        populateTable();
+        
     }//GEN-LAST:event_deleteChefActionPerformed
 
     private void btnBackActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnBackActionPerformed
@@ -144,6 +213,10 @@ public class ManageChefJPanel extends javax.swing.JPanel {
         // TODO add your handling code here:
     }//GEN-LAST:event_btnBackActionPerformed
 
+    private void refreshJButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_refreshJButtonActionPerformed
+        populateTable();
+    }//GEN-LAST:event_refreshJButtonActionPerformed
+
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btnBack;
@@ -152,6 +225,9 @@ public class ManageChefJPanel extends javax.swing.JPanel {
     private javax.swing.JLabel jLabel1;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JButton modifyChef;
-    private javax.swing.JTable tblCustomer;
+    private javax.swing.JButton refreshJButton;
+    private javax.swing.JTable tblChef;
     // End of variables declaration//GEN-END:variables
+
+    
 }

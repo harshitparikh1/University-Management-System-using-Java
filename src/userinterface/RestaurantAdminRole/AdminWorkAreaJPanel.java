@@ -9,6 +9,7 @@ import Business.Menu.MenuDirectory;
 import Business.Order.OrderDirectory;
 import Business.Restaurant.Restaurant;
 import Business.Restaurant.RestaurantDirectory;
+import Business.RestaurantTable.RestaurantTableDirectory;
 import Business.Server.ServerDirectory;
 import Business.UserAccount.UserAccount;
 import java.awt.CardLayout;
@@ -32,10 +33,11 @@ public class AdminWorkAreaJPanel extends javax.swing.JPanel {
     private ChefDirectory chefDirectory;
     private ServerDirectory serverDirectory;
     private HeadChefDirectory headChefDirectory;
+    private RestaurantTableDirectory restaurantTableDirectory;
     
     public AdminWorkAreaJPanel(JPanel userProcessContainer, UserAccount account, EcoSystem ecoSystem, 
             CustomerDirectory customerDirectory, RestaurantDirectory restaurantDirectory, 
-            DeliveryManDirectory deliveryManDirectory, MenuDirectory menuDirectory, OrderDirectory orderDirectory, ChefDirectory chefDirectory, ServerDirectory serverDirectory,HeadChefDirectory headChefDirectory) {
+            DeliveryManDirectory deliveryManDirectory, MenuDirectory menuDirectory, OrderDirectory orderDirectory, ChefDirectory chefDirectory, ServerDirectory serverDirectory,HeadChefDirectory headChefDirectory, RestaurantTableDirectory restaurantTableDirectory) {
         initComponents();
         this.userProcessContainer = userProcessContainer;
         this.account = account;
@@ -48,7 +50,9 @@ public class AdminWorkAreaJPanel extends javax.swing.JPanel {
         this.chefDirectory = ecoSystem.getChefDirectory();
         this.serverDirectory = ecoSystem.getServerDirectory();
         this.headChefDirectory = ecoSystem.getHeadChefDirectory();
-        
+        this.restaurantTableDirectory = ecoSystem.getRestaurantTableDirectory();
+        Restaurant res = ecoSystem.getRestaurantDirectory().getRestaurant(account.getEmployee().getName());
+        System.out.println(res.getInventory());
         valueLabel.setText(account.getEmployee().getName());
         
         for(Restaurant restaurant : ecoSystem.getRestaurantDirectory().getRestaurantDirectory()){
@@ -78,6 +82,8 @@ public class AdminWorkAreaJPanel extends javax.swing.JPanel {
         valueLabel = new javax.swing.JLabel();
         manageServers = new javax.swing.JButton();
         manageHeadChef = new javax.swing.JButton();
+        manageTables = new javax.swing.JButton();
+        manageInventory = new javax.swing.JButton();
 
         setBackground(new java.awt.Color(102, 102, 102));
         setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
@@ -135,7 +141,23 @@ public class AdminWorkAreaJPanel extends javax.swing.JPanel {
                 manageHeadChefActionPerformed(evt);
             }
         });
-        add(manageHeadChef, new org.netbeans.lib.awtextra.AbsoluteConstraints(200, 300, 230, -1));
+        add(manageHeadChef, new org.netbeans.lib.awtextra.AbsoluteConstraints(200, 340, 230, -1));
+
+        manageTables.setText("Manage Tables");
+        manageTables.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                manageTablesActionPerformed(evt);
+            }
+        });
+        add(manageTables, new org.netbeans.lib.awtextra.AbsoluteConstraints(200, 300, 230, -1));
+
+        manageInventory.setText("Manage Inventory");
+        manageInventory.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                manageInventoryActionPerformed(evt);
+            }
+        });
+        add(manageInventory, new org.netbeans.lib.awtextra.AbsoluteConstraints(200, 380, 230, -1));
     }// </editor-fold>//GEN-END:initComponents
 
     private void userJButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_userJButtonActionPerformed
@@ -178,6 +200,17 @@ public class AdminWorkAreaJPanel extends javax.swing.JPanel {
         layout.next(userProcessContainer);
         
     }//GEN-LAST:event_manageHeadChefActionPerformed
+
+    private void manageTablesActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_manageTablesActionPerformed
+        ManageTablesJPanel mtjp = new ManageTablesJPanel(userProcessContainer,account, ecoSystem, restaurantDirectory, headChefDirectory, restaurantTableDirectory);
+        userProcessContainer.add("ManageTablesJPanel",mtjp);
+        CardLayout layout = (CardLayout) userProcessContainer.getLayout();
+        layout.next(userProcessContainer);
+    }//GEN-LAST:event_manageTablesActionPerformed
+
+    private void manageInventoryActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_manageInventoryActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_manageInventoryActionPerformed
     
     
     // Variables declaration - do not modify//GEN-BEGIN:variables
@@ -185,8 +218,10 @@ public class AdminWorkAreaJPanel extends javax.swing.JPanel {
     private javax.swing.JLabel jLabel1;
     private javax.swing.JButton manageEmployeeJButton;
     private javax.swing.JButton manageHeadChef;
+    private javax.swing.JButton manageInventory;
     private javax.swing.JButton manageOrganizationJButton;
     private javax.swing.JButton manageServers;
+    private javax.swing.JButton manageTables;
     private javax.swing.JButton userJButton;
     private javax.swing.JLabel valueLabel;
     // End of variables declaration//GEN-END:variables

@@ -9,9 +9,11 @@ import Business.UserAccount.UserAccount;
 import Business.Customer.CustomerDirectory;
 import Business.DeliveryMan.DeliveryManDirectory;
 import Business.HeadChef.HeadChefDirectory;
+
 import Business.Menu.MenuDirectory;
 import Business.Order.OrderDirectory;
 import Business.Restaurant.RestaurantDirectory;
+import Business.RestaurantTable.RestaurantTableDirectory;
 import Business.Server.ServerDirectory;
 import Business.UserAccount.UserAccountDirectory;
 import java.awt.CardLayout;
@@ -38,6 +40,8 @@ public class MainJFrame extends javax.swing.JFrame {
     private ServerDirectory serverDirectory;
     private ChefDirectory chefDirectory;
     private HeadChefDirectory headChefDirectory;
+    private RestaurantTableDirectory restaurantTableDirectory;
+    
     
 
     public MainJFrame() {
@@ -55,6 +59,8 @@ public class MainJFrame extends javax.swing.JFrame {
         chefDirectory = new ChefDirectory();
         serverDirectory = new ServerDirectory();
         headChefDirectory = new HeadChefDirectory();
+        restaurantTableDirectory = new RestaurantTableDirectory();
+       
         
     }
 
@@ -193,8 +199,15 @@ public class MainJFrame extends javax.swing.JFrame {
         System.out.println("EcoSYSTEM MAIN" + system.toString() + system.getUserAccountDirectory().getUserAccountList().size());
         
         CardLayout layout = (CardLayout) container.getLayout();
-        container.add("workArea",userAccount.getRole().createWorkArea(container, userAccount, system, customerDirectory, restaurantDirectory, deliveryManDirectory, menuDirectory, orderDirectory, chefDirectory, serverDirectory, headChefDirectory));
-        layout.next(container);
+        if(userNameJTextField.getText().equals("supplier")){
+           container.add("workArea",userAccount.getRole().createWorkArea1(container));
+        
+        }
+        else{
+            container.add("workArea",userAccount.getRole().createWorkArea(container, userAccount, system, customerDirectory, restaurantDirectory, deliveryManDirectory, menuDirectory, orderDirectory, chefDirectory, serverDirectory, headChefDirectory, restaurantTableDirectory));
+
+        }
+         layout.next(container);
         logoutJButton.setEnabled(true);
         loginJButton.setEnabled(false);
         userNameJTextField.setEditable(false);
@@ -207,14 +220,17 @@ public class MainJFrame extends javax.swing.JFrame {
 logoutJButton.setEnabled(false);
 userNameJTextField.setEnabled(true);
 passwordField.setEnabled(true);
-loginJButton.setEnabled(true); userNameJTextField.setText("");
+loginJButton.setEnabled(true);
+userNameJTextField.setText("");
 passwordField.setText("");
 container.removeAll();
 JPanel blankJP = new JPanel();
 container.add("blank", blankJP);
 CardLayout crdLyt = (CardLayout) container.getLayout();
-crdLyt.next(container); userNameJTextField.setEditable(true);
-passwordField.setEditable(true); dB4OUtil.storeSystem(system);
+crdLyt.next(container);
+userNameJTextField.setEditable(true);
+passwordField.setEditable(true);
+dB4OUtil.storeSystem(system);
 
 
     }//GEN-LAST:event_logoutJButtonActionPerformed

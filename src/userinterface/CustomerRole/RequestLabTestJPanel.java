@@ -57,7 +57,7 @@ public class RequestLabTestJPanel extends javax.swing.JPanel {
             }
         });
         add(requestTestJButton);
-        requestTestJButton.setBounds(210, 119, 97, 23);
+        requestTestJButton.setBounds(210, 119, 200, 25);
 
         jLabel1.setForeground(new java.awt.Color(204, 204, 204));
         jLabel1.setText("Message");
@@ -65,7 +65,7 @@ public class RequestLabTestJPanel extends javax.swing.JPanel {
         add(jLabel1);
         jLabel1.setBounds(112, 73, 82, 14);
         add(messageJTextField);
-        messageJTextField.setBounds(170, 70, 143, 20);
+        messageJTextField.setBounds(170, 70, 143, 22);
 
         backJButton.setText("<<Back");
         backJButton.addActionListener(new java.awt.event.ActionListener() {
@@ -74,7 +74,7 @@ public class RequestLabTestJPanel extends javax.swing.JPanel {
             }
         });
         add(backJButton);
-        backJButton.setBounds(100, 119, 71, 23);
+        backJButton.setBounds(100, 119, 77, 25);
 
         valueLabel.setForeground(new java.awt.Color(204, 204, 204));
         valueLabel.setText("<value>");

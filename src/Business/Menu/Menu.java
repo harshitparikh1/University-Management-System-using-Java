@@ -5,6 +5,8 @@
  */
 package Business.Menu;
 
+import java.util.List;
+
 /**
  *
  * @author jshar
@@ -13,11 +15,22 @@ public class Menu {
     private String itemName;
     private double price;
     private String restaurantName;
+    private List<Ingredients> ingredients;
     
-    public Menu(String itemName, double price, String restaurantName) {
+    public Menu(String itemName, double price, String restaurantName,List<Ingredients> ingredients ) {
         this.itemName = itemName;
         this.price = price;
         this.restaurantName = restaurantName;
+        this.ingredients = ingredients;
+        
+    }
+
+    public List<Ingredients> getIngredients() {
+        return ingredients;
+    }
+
+    public void setIngredients(List<Ingredients> ingredients) {
+        this.ingredients = ingredients;
     }
 
     public String getItemName() {

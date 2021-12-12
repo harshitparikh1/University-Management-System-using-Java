@@ -168,7 +168,7 @@ public class ManageRestaurantInfoJPanel extends javax.swing.JPanel {
             return;
         }
         Restaurant restaurant = (Restaurant)tblRestaurant.getValueAt(selectedRow,0);
-        ModifyRestaurantInfoJPanel modifyManager = new ModifyRestaurantInfoJPanel(userProcessContainer, ecoSystem, restaurantDirectory, restaurant);
+        ModifyRestaurantInfoJPanel modifyManager = new ModifyRestaurantInfoJPanel(userProcessContainer, account, ecoSystem, restaurantDirectory, restaurant);
         userProcessContainer.add("ModifyRestaurantInfoJPanel",modifyManager);
         CardLayout layout=(CardLayout)userProcessContainer.getLayout();
         layout.next(userProcessContainer);

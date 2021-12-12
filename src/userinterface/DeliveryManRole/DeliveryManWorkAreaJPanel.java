@@ -3,6 +3,7 @@ package userinterface.DeliveryManRole;
 
 import Business.DeliveryMan.DeliveryManDirectory;
 import Business.EcoSystem;
+
 import Business.Order.Order;
 import Business.Order.OrderDirectory;
 
@@ -24,6 +25,7 @@ public class DeliveryManWorkAreaJPanel extends javax.swing.JPanel {
     private UserAccount userAccount;
     private DeliveryManDirectory deliveryManDirectory;
     private OrderDirectory orderDirectory;
+   
     
    
     public DeliveryManWorkAreaJPanel(JPanel userProcessContainer, UserAccount account, EcoSystem business, DeliveryManDirectory deliveryManDirectory, OrderDirectory orderDirectory) {

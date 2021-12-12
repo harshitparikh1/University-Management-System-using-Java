@@ -6,6 +6,8 @@
 package Business.Restaurant;
 
 import Business.Menu.MenuDirectory;
+import java.util.HashMap;
+import java.util.Map;
 
 /**
  *
@@ -19,10 +21,11 @@ public class Restaurant {
     private Boolean isDineInAvailable;
     private int numberOfTables;
     private MenuDirectory MenuDirectory;
+    private HashMap<String, Integer> inventory;
     
     
     
-     public Restaurant(String restaurantName, String userName, String address, Boolean isDineInAvailable, int numberOfTables, String phoneNumber) 
+     public Restaurant(String restaurantName, String userName, String address, Boolean isDineInAvailable, int numberOfTables, String phoneNumber, HashMap<String, Integer> inventory) 
      {
         this.restaurantName = restaurantName;
         this.address = address;
@@ -30,7 +33,19 @@ public class Restaurant {
         this.numberOfTables = numberOfTables;
         this.phoneNumber = phoneNumber;
         this.userName = userName;
+        this.inventory = inventory;
     }
+
+    public HashMap<String, Integer> getInventory() {
+        return inventory;
+    }
+
+    public void setInventory(HashMap<String, Integer> inventory) {
+        this.inventory = inventory;
+    }
+
+   
+     
 
     public Boolean getIsDineInAvailable() {
         return isDineInAvailable;

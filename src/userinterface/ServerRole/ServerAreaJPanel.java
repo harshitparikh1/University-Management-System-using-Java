@@ -29,7 +29,7 @@ public class ServerAreaJPanel extends javax.swing.JPanel {
     private DeliveryManDirectory deliveryManDirectory;
     private MenuDirectory menuDirectory;
     private OrderDirectory orderDirectory;
-    private ServerDirectory serverDirectory;    
+    private ServerDirectory serverDirectory;  
     
     public ServerAreaJPanel() {
         
@@ -42,6 +42,7 @@ public class ServerAreaJPanel extends javax.swing.JPanel {
         this.ecoSystem = ecoSystem;
         this.serverDirectory = ecoSystem.getServerDirectory();
         this.restaurantDirectory = ecoSystem.getRestaurantDirectory();
+       ;
         
         
         

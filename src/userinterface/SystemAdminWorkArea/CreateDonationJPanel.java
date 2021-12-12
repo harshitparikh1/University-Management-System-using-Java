@@ -17,6 +17,7 @@ import Business.Server.ServerDirectory;
 import Business.UserAccount.UserAccount;
 import java.awt.CardLayout;
 import java.awt.Component;
+import java.util.ArrayList;
 import javax.swing.JOptionPane;
 import javax.swing.JPanel;
 
@@ -191,7 +192,7 @@ public class CreateDonationJPanel extends javax.swing.JPanel {
         }
 
         System.out.println("Eco" + ecoSystem.getDonationDirectory().getDonationDirectory().size());
-        ecoSystem.getDonationDirectory().newDonation(donationName, userName, address, phoneNumber);
+        ecoSystem.getDonationDirectory().newDonation(donationName, userName, address, phoneNumber, new ArrayList());
 
         
 

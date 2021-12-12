@@ -32,7 +32,8 @@ public abstract class Organization {
         Server("Server"),
         HeadChef("HeadChef"),
         Supplier("Supplier"),
-        Food("Food");
+        Food("Food"),
+        Donation("Donation");
         
         private String value;
         private Type(String value) {

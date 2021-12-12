@@ -5,6 +5,8 @@
  */
 package Business.Donation;
 
+import java.util.List;
+
 /**
  *
  * @author Harshit
@@ -14,12 +16,22 @@ public class Donation {
     private String address;
     private String userName;
     private String phoneNumber;
+    private List<DonatedItem> donationList;
 
-    Donation(String donationName, String userName, String address, String phoneNumber) {
+    Donation(String donationName, String userName, String address, String phoneNumber, List<DonatedItem> donationList) {
         this.donationName = donationName;
         this.address = address;
         this.phoneNumber = phoneNumber;
         this.userName = userName;
+        this.donationList = donationList;
+    }
+
+    public List<DonatedItem> getDonationList() {
+        return donationList;
+    }
+
+    public void setDonationList(List<DonatedItem> donationList) {
+        this.donationList = donationList;
     }
 
     public String getDonationName() {

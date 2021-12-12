@@ -5,6 +5,7 @@
  */
 package userinterface.RestaurantAdminRole;
 
+import Business.Donation.DonatedItem;
 import Business.Donation.Donation;
 import Business.Donation.DonationDirectory;
 import Business.EcoSystem;
@@ -306,7 +307,15 @@ public class ManageDonationJPanel extends javax.swing.JPanel {
     }//GEN-LAST:event_txtQtyKeyReleased
 
     private void btnMenuShow1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnMenuShow1ActionPerformed
-        // TODO add your handling code here:
+        String itemName = txtItemName.getText();
+        int quantity = Integer.parseInt(txtQty.getText());
+        for(Donation donation : ecoSystem.getDonationDirectory().getDonationDirectory()){
+            if(donation.getDonationName().equals(boxNgo.getSelectedItem().toString())){
+                DonatedItem ditem = new DonatedItem(itemName, account.getEmployee().getName(), quantity);
+                donation.getDonationList().add(ditem);
+                
+            }
+        }
         JOptionPane.showMessageDialog(null, "Thanks for the donation. We appreciate your consideration.");
     }//GEN-LAST:event_btnMenuShow1ActionPerformed
 

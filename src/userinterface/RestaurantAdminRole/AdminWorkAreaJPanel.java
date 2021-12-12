@@ -3,6 +3,7 @@ package userinterface.RestaurantAdminRole;
 import Business.Chef.ChefDirectory;
 import Business.Customer.CustomerDirectory;
 import Business.DeliveryMan.DeliveryManDirectory;
+import Business.Donation.DonationDirectory;
 import Business.EcoSystem;
 import Business.HeadChef.HeadChefDirectory;
 import Business.Menu.MenuDirectory;
@@ -34,10 +35,11 @@ public class AdminWorkAreaJPanel extends javax.swing.JPanel {
     private ServerDirectory serverDirectory;
     private HeadChefDirectory headChefDirectory;
     private RestaurantTableDirectory restaurantTableDirectory;
+    private DonationDirectory donationDirectory;
     
     public AdminWorkAreaJPanel(JPanel userProcessContainer, UserAccount account, EcoSystem ecoSystem, 
             CustomerDirectory customerDirectory, RestaurantDirectory restaurantDirectory, 
-            DeliveryManDirectory deliveryManDirectory, MenuDirectory menuDirectory, OrderDirectory orderDirectory, ChefDirectory chefDirectory, ServerDirectory serverDirectory,HeadChefDirectory headChefDirectory, RestaurantTableDirectory restaurantTableDirectory) {
+            DeliveryManDirectory deliveryManDirectory, MenuDirectory menuDirectory, OrderDirectory orderDirectory, ChefDirectory chefDirectory, ServerDirectory serverDirectory,HeadChefDirectory headChefDirectory, RestaurantTableDirectory restaurantTableDirectory, DonationDirectory donationDirectory) {
         initComponents();
         this.userProcessContainer = userProcessContainer;
         this.account = account;
@@ -51,6 +53,7 @@ public class AdminWorkAreaJPanel extends javax.swing.JPanel {
         this.serverDirectory = ecoSystem.getServerDirectory();
         this.headChefDirectory = ecoSystem.getHeadChefDirectory();
         this.restaurantTableDirectory = ecoSystem.getRestaurantTableDirectory();
+        this.donationDirectory = ecoSystem.getDonationDirectory();
         Restaurant res = ecoSystem.getRestaurantDirectory().getRestaurant(account.getEmployee().getName());
         System.out.println(res.getInventory());
         valueLabel.setText(account.getEmployee().getName());

@@ -7,6 +7,7 @@ package userinterface.ServerRole;
 
 import Business.Customer.CustomerDirectory;
 import Business.DeliveryMan.DeliveryManDirectory;
+import Business.Donation.DonationDirectory;
 import Business.EcoSystem;
 import Business.Menu.MenuDirectory;
 import Business.Order.OrderDirectory;
@@ -30,18 +31,20 @@ public class ServerAreaJPanel extends javax.swing.JPanel {
     private MenuDirectory menuDirectory;
     private OrderDirectory orderDirectory;
     private ServerDirectory serverDirectory;  
+    private DonationDirectory donationDirectory;
     
     public ServerAreaJPanel() {
         
     }
 
-    public ServerAreaJPanel(JPanel userProcessContainer, UserAccount account, EcoSystem business, RestaurantDirectory restaurantDirectory, ServerDirectory serverDirectory) {
+    public ServerAreaJPanel(JPanel userProcessContainer, UserAccount account, EcoSystem business, RestaurantDirectory restaurantDirectory, ServerDirectory serverDirectory, DonationDirectory donationDirectory ) {
     initComponents();    
     this.userProcessContainer = userProcessContainer;
         this.account = account;
         this.ecoSystem = ecoSystem;
         this.serverDirectory = ecoSystem.getServerDirectory();
         this.restaurantDirectory = ecoSystem.getRestaurantDirectory();
+        this.donationDirectory = ecoSystem.getDonationDirectory();
        ;
         
         

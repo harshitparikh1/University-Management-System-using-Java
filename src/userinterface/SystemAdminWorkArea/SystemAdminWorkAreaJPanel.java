@@ -8,6 +8,7 @@ import Business.EcoSystem;
 import Business.Customer.CustomerDirectory;
 import Business.DeliveryMan.DeliveryMan;
 import Business.DeliveryMan.DeliveryManDirectory;
+import Business.Donation.DonationDirectory;
 
 import Business.Restaurant.Restaurant;
 import Business.Restaurant.RestaurantDirectory;
@@ -34,9 +35,10 @@ public class SystemAdminWorkAreaJPanel extends javax.swing.JPanel {
     ChefDirectory chefDirectory;
     ServerDirectory serverDirectory;
     UserAccount account;
+    DonationDirectory donationDirectory;
 
 
-    public SystemAdminWorkAreaJPanel(JPanel userProcessContainer, UserAccount account, EcoSystem ecosystem, CustomerDirectory customerDirectory, RestaurantDirectory restaurantDirectory, DeliveryManDirectory deliveryManDirectory,ChefDirectory chefDirectory, ServerDirectory serverDirectory) {
+    public SystemAdminWorkAreaJPanel(JPanel userProcessContainer, UserAccount account, EcoSystem ecosystem, CustomerDirectory customerDirectory, RestaurantDirectory restaurantDirectory, DeliveryManDirectory deliveryManDirectory,ChefDirectory chefDirectory, ServerDirectory serverDirectory, DonationDirectory donationDirectory) {
     
         initComponents();
         this.userProcessContainer = userProcessContainer;
@@ -47,6 +49,7 @@ public class SystemAdminWorkAreaJPanel extends javax.swing.JPanel {
         this.restaurantDirectory = ecosystem.getRestaurantDirectory();
         this.chefDirectory = ecosystem.getChefDirectory();
         this.serverDirectory = ecosystem.getServerDirectory();
+        this.donationDirectory = ecosystem.getDonationDirectory();
 
         populateTree();
         
@@ -120,6 +123,7 @@ public class SystemAdminWorkAreaJPanel extends javax.swing.JPanel {
         btnCustomer = new javax.swing.JButton();
         btnRestaurant = new javax.swing.JButton();
         btnDelivery = new javax.swing.JButton();
+        btnDonations = new javax.swing.JButton();
 
         setLayout(new java.awt.BorderLayout());
 
@@ -185,6 +189,13 @@ public class SystemAdminWorkAreaJPanel extends javax.swing.JPanel {
             }
         });
 
+        btnDonations.setText("Manage Donations");
+        btnDonations.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnDonationsActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
         jPanel2.setLayout(jPanel2Layout);
         jPanel2Layout.setHorizontalGroup(
@@ -201,7 +212,8 @@ public class SystemAdminWorkAreaJPanel extends javax.swing.JPanel {
                         .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                             .addComponent(btnRestaurant, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                             .addComponent(btnCustomer, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                            .addComponent(btnDelivery, javax.swing.GroupLayout.PREFERRED_SIZE, 185, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                            .addComponent(btnDelivery, javax.swing.GroupLayout.PREFERRED_SIZE, 185, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(btnDonations, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))))
                 .addContainerGap(27, Short.MAX_VALUE))
         );
         jPanel2Layout.setVerticalGroup(
@@ -217,7 +229,9 @@ public class SystemAdminWorkAreaJPanel extends javax.swing.JPanel {
                 .addComponent(btnRestaurant)
                 .addGap(18, 18, 18)
                 .addComponent(btnDelivery)
-                .addContainerGap(228, Short.MAX_VALUE))
+                .addGap(18, 18, 18)
+                .addComponent(btnDonations)
+                .addContainerGap(187, Short.MAX_VALUE))
         );
 
         jSplitPane.setRightComponent(jPanel2);
@@ -255,10 +269,20 @@ public class SystemAdminWorkAreaJPanel extends javax.swing.JPanel {
         }
     }//GEN-LAST:event_jTreeValueChanged
 
+    private void btnDonationsActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnDonationsActionPerformed
+        // TODO add your handling code here:
+        ManageDonationJPanel mDonJPnl = new ManageDonationJPanel(userProcessContainer, account, ecosystem, restaurantDirectory, serverDirectory, donationDirectory);
+        userProcessContainer.add("ManageRestaurantJPanel", mDonJPnl);
+        CardLayout layout = (CardLayout) userProcessContainer.getLayout();
+        layout.next(userProcessContainer);
+
+    }//GEN-LAST:event_btnDonationsActionPerformed
+
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btnCustomer;
     private javax.swing.JButton btnDelivery;
+    private javax.swing.JButton btnDonations;
     private javax.swing.JButton btnRestaurant;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JPanel jPanel1;

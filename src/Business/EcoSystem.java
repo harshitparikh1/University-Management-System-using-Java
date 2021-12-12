@@ -9,6 +9,7 @@ package Business;
 import Business.Chef.ChefDirectory;
 import Business.Customer.CustomerDirectory;
 import Business.DeliveryMan.DeliveryManDirectory;
+import Business.Donation.DonationDirectory;
 import Business.HeadChef.HeadChefDirectory;
 import Business.Menu.MenuDirectory;
 import Business.Order.OrderDirectory;
@@ -35,9 +36,10 @@ public class EcoSystem extends Organization{
     private ServerDirectory serverDirectory;
     private HeadChefDirectory headChefDirectory;
     private RestaurantTableDirectory restaurantTableDirectory; 
+    private DonationDirectory donationDirectory; 
     
 
-    public EcoSystem(RestaurantDirectory restaurantDirectory, CustomerDirectory customerDirectory, DeliveryManDirectory deliveryManDirectory, ChefDirectory chefDirectory, ServerDirectory serverDirectory,HeadChefDirectory headChefDirectory, RestaurantTableDirectory restaurantTableDirectory) {
+    public EcoSystem(RestaurantDirectory restaurantDirectory, CustomerDirectory customerDirectory, DeliveryManDirectory deliveryManDirectory, ChefDirectory chefDirectory, ServerDirectory serverDirectory,HeadChefDirectory headChefDirectory, RestaurantTableDirectory restaurantTableDirectory, DonationDirectory donationDirectory) {
 
         this.restaurantDirectory = restaurantDirectory;
         this.customerDirectory = customerDirectory;
@@ -46,9 +48,11 @@ public class EcoSystem extends Organization{
         this.serverDirectory = serverDirectory;
         this.headChefDirectory = headChefDirectory;
         this.restaurantTableDirectory = restaurantTableDirectory;
+        this.donationDirectory = donationDirectory;
         
         
     }
+
 
     public OrderDirectory getOrderDirectory() {
         return orderDirectory;
@@ -124,6 +128,15 @@ public class EcoSystem extends Organization{
         this.restaurantTableDirectory = restaurantTableDirectory;
     }
     
+    public DonationDirectory getDonationDirectory() {
+        return donationDirectory;
+    }
+
+    public void setDonationDirectory(DonationDirectory donationDirectory) {
+        this.donationDirectory = donationDirectory;
+    }
+
+    
     
     
     
@@ -154,6 +167,7 @@ public class EcoSystem extends Organization{
         serverDirectory = new ServerDirectory();
         headChefDirectory = new HeadChefDirectory();
         restaurantTableDirectory = new RestaurantTableDirectory();
+        donationDirectory = new DonationDirectory();
         
        // networkList=new ArrayList<Network>();
     }

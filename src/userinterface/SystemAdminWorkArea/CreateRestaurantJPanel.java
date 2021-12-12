@@ -237,8 +237,7 @@ public class CreateRestaurantJPanel extends javax.swing.JPanel {
         }
 
         String restaurantName = txtRestaurantName.getText();
-//        String managerName = txtManagerName.getText();
-
+        
         boolean flag ;
 
         flag = restaurantName.matches("^[a-zA-Z0-9 ,.'-]+$");
@@ -248,12 +247,6 @@ public class CreateRestaurantJPanel extends javax.swing.JPanel {
             return;
         }
 
-//        flag = managerName.matches("^[a-zA-Z ,.'-]+$");
-
-//        if(!flag) {
-//            JOptionPane.showMessageDialog(null, "Invalid Manager name. Name can only contain alphabets and some special characters (,'-). )");
-//            return;
-//        }
 
         String phoneNumber = txtPhoneNumber.getText();
 

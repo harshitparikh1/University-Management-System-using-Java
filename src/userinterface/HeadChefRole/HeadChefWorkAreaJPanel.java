@@ -7,6 +7,7 @@ package userinterface.HeadChefRole;
 
 import Business.Chef.ChefDirectory;
 import Business.Customer.CustomerDirectory;
+import Business.Donation.DonationDirectory;
 import Business.EcoSystem;
 import Business.HeadChef.HeadChefDirectory;
 import Business.Menu.MenuDirectory;
@@ -33,13 +34,14 @@ public class HeadChefWorkAreaJPanel extends javax.swing.JPanel {
     private HeadChefDirectory headChefDirectory;
     private ChefDirectory chefDirectory;
     private MenuDirectory menuDirectory;
+    private DonationDirectory donationDirectory;
     
     
     public HeadChefWorkAreaJPanel() {
         
     }
 
-    public HeadChefWorkAreaJPanel(JPanel userProcessContainer, UserAccount account, EcoSystem ecoSystem, RestaurantDirectory restaurantDirectory,HeadChefDirectory headChefDirectory, ChefDirectory chefDirectory, MenuDirectory menuDirectory) {
+    public HeadChefWorkAreaJPanel(JPanel userProcessContainer, UserAccount account, EcoSystem ecoSystem, RestaurantDirectory restaurantDirectory,HeadChefDirectory headChefDirectory, ChefDirectory chefDirectory, MenuDirectory menuDirectory, DonationDirectory donationDirectory) {
         initComponents();
         this.userProcessContainer = userProcessContainer;
         this.account = account;
@@ -48,6 +50,7 @@ public class HeadChefWorkAreaJPanel extends javax.swing.JPanel {
         this.headChefDirectory = ecoSystem.getHeadChefDirectory();
         this.chefDirectory = ecoSystem.getChefDirectory();
         this.menuDirectory = ecoSystem.getMenuDirectory();
+        this.donationDirectory = ecoSystem.getDonationDirectory();
         
     }
 

@@ -8,6 +8,7 @@ import Business.Organization;
 import Business.UserAccount.UserAccount;
 import Business.Customer.CustomerDirectory;
 import Business.DeliveryMan.DeliveryManDirectory;
+import Business.Donation.DonationDirectory;
 import Business.HeadChef.HeadChefDirectory;
 
 import Business.Menu.MenuDirectory;
@@ -41,6 +42,7 @@ public class MainJFrame extends javax.swing.JFrame {
     private ChefDirectory chefDirectory;
     private HeadChefDirectory headChefDirectory;
     private RestaurantTableDirectory restaurantTableDirectory;
+    private DonationDirectory donationDirectory;
     
     
 
@@ -60,6 +62,7 @@ public class MainJFrame extends javax.swing.JFrame {
         serverDirectory = new ServerDirectory();
         headChefDirectory = new HeadChefDirectory();
         restaurantTableDirectory = new RestaurantTableDirectory();
+        donationDirectory = new DonationDirectory();
        
         
     }
@@ -204,7 +207,7 @@ public class MainJFrame extends javax.swing.JFrame {
         
         }
         else{
-            container.add("workArea",userAccount.getRole().createWorkArea(container, userAccount, system, customerDirectory, restaurantDirectory, deliveryManDirectory, menuDirectory, orderDirectory, chefDirectory, serverDirectory, headChefDirectory, restaurantTableDirectory));
+            container.add("workArea",userAccount.getRole().createWorkArea(container, userAccount, system, customerDirectory, restaurantDirectory, deliveryManDirectory, menuDirectory, orderDirectory, chefDirectory, serverDirectory, headChefDirectory, restaurantTableDirectory, donationDirectory));
 
         }
          layout.next(container);

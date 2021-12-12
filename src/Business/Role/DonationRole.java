@@ -17,24 +17,24 @@ import Business.RestaurantTable.RestaurantTableDirectory;
 import Business.Server.ServerDirectory;
 import Business.UserAccount.UserAccount;
 import javax.swing.JPanel;
-import userinterface.ServerRole.ServerAreaJPanel;
+import userinterface.DonationAdminWorkArea.DonationAdminWorkAreaJPanel;
 
 /**
  *
  * @author talre
  */
-public class ServerRole extends Role {
+public class DonationRole extends Role {
 
     @Override
     public JPanel createWorkArea(JPanel userProcessContainer, UserAccount account, EcoSystem business, CustomerDirectory customerDirectory, RestaurantDirectory restaurantDirectory, DeliveryManDirectory deliveryManDirectory, MenuDirectory menuDirectory, OrderDirectory oderDirectory, ChefDirectory chefDirectory, ServerDirectory serverDirectory, HeadChefDirectory headChefDirectory, RestaurantTableDirectory restaurantTableDirectory) {
-        return new ServerAreaJPanel(userProcessContainer,account,business,restaurantDirectory, serverDirectory);
-    }
-
-    @Override
-    public JPanel createWorkArea1(JPanel userProcessContainer) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+        return null;
     }
 
     
+    public JPanel createWorkArea1(JPanel userProcessContainer) {
+        return new DonationAdminWorkAreaJPanel(userProcessContainer);
+    }
+
+  
     
 }

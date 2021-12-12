@@ -7,10 +7,7 @@ package Business.Order;
 
 import java.util.ArrayList;
 
-/**
- *
- * @author jshar
- */
+
 public class OrderDirectory {
     private ArrayList<Order> orderDirectory;
     

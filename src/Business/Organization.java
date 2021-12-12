@@ -30,7 +30,9 @@ public abstract class Organization {
         SysAdmin("Sysadmin"),
         Chef("Chef"),
         Server("Server"),
-        HeadChef("HeadChef");
+        HeadChef("HeadChef"),
+        Supplier("Supplier"),
+        Food("Food");
         
         private String value;
         private Type(String value) {

@@ -10,6 +10,8 @@ import Business.Server.ServerDirectory;
 import Business.UserAccount.UserAccount;
 import java.awt.CardLayout;
 import java.awt.Component;
+import java.util.Collections;
+import java.util.HashMap;
 import javax.swing.JOptionPane;
 import javax.swing.JPanel;
 
@@ -296,7 +298,7 @@ public class CreateRestaurantJPanel extends javax.swing.JPanel {
         //Restaurant restaurant = restaurantDirectory.newRestaurant(restaurantName, address, managerName, phoneNumber);
         //System.out.println(restaurant.getRestaurantName() + " + ");
         System.out.println("Eco" + ecoSystem.getRestaurantDirectory().getRestaurantDirectory().size());
-        ecoSystem.getRestaurantDirectory().newRestaurant(restaurantName, userName, address, isDineInAvailable, numberOfTables, phoneNumber);
+        ecoSystem.getRestaurantDirectory().newRestaurant(restaurantName, userName, address, isDineInAvailable, numberOfTables, phoneNumber, new HashMap<String, Integer>());
         
         
         if(isDineInAvailable){

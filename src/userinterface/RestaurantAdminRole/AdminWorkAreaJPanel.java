@@ -51,7 +51,8 @@ public class AdminWorkAreaJPanel extends javax.swing.JPanel {
         this.serverDirectory = ecoSystem.getServerDirectory();
         this.headChefDirectory = ecoSystem.getHeadChefDirectory();
         this.restaurantTableDirectory = ecoSystem.getRestaurantTableDirectory();
-        
+        Restaurant res = ecoSystem.getRestaurantDirectory().getRestaurant(account.getEmployee().getName());
+        System.out.println(res.getInventory());
         valueLabel.setText(account.getEmployee().getName());
         
         for(Restaurant restaurant : ecoSystem.getRestaurantDirectory().getRestaurantDirectory()){
@@ -151,6 +152,11 @@ public class AdminWorkAreaJPanel extends javax.swing.JPanel {
         add(manageTables, new org.netbeans.lib.awtextra.AbsoluteConstraints(200, 300, 230, -1));
 
         manageInventory.setText("Manage Inventory");
+        manageInventory.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                manageInventoryActionPerformed(evt);
+            }
+        });
         add(manageInventory, new org.netbeans.lib.awtextra.AbsoluteConstraints(200, 380, 230, -1));
     }// </editor-fold>//GEN-END:initComponents
 
@@ -201,6 +207,10 @@ public class AdminWorkAreaJPanel extends javax.swing.JPanel {
         CardLayout layout = (CardLayout) userProcessContainer.getLayout();
         layout.next(userProcessContainer);
     }//GEN-LAST:event_manageTablesActionPerformed
+
+    private void manageInventoryActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_manageInventoryActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_manageInventoryActionPerformed
     
     
     // Variables declaration - do not modify//GEN-BEGIN:variables

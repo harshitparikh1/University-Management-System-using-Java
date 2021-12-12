@@ -12,6 +12,7 @@ import Business.HeadChef.HeadChefDirectory;
 import Business.Menu.Ingredients;
 import Business.Menu.Menu;
 import Business.Menu.MenuDirectory;
+import Business.Restaurant.Restaurant;
 import Business.UserAccount.UserAccount;
 import java.awt.CardLayout;
 import java.util.Iterator;
@@ -223,6 +224,11 @@ public class ManageMenuIngredientsJPanel extends javax.swing.JPanel {
         Menu menu = (Menu)tblMenu.getValueAt(selectedRow,0);
         Ingredients ing1 = new Ingredients(txtIngredient.getText(),Integer.parseInt(txtQuantity.getText()));
         menu.getIngredients().add(ing1);
+        for(Restaurant restaurant : ecoSystem.getRestaurantDirectory().getRestaurantDirectory()){
+            if(restaurant.getRestaurantName().equals(menu.getRestaurantName())){
+            restaurant.getInventory().put(txtIngredient.getText(), 100);
+            }
+        }
         
         DefaultTableModel dtm = (DefaultTableModel) tableIngredient.getModel();
         dtm.setRowCount(0);

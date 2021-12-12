@@ -12,6 +12,7 @@ import Business.Restaurant.Restaurant;
 import Business.Restaurant.RestaurantDirectory;
 import Business.RestaurantTable.RestaurantTableDirectory;
 import Business.Server.ServerDirectory;
+import Business.Supplier.SupplierDirectory;
 import Business.UserAccount.UserAccount;
 import java.awt.CardLayout;
 import javax.swing.JPanel;
@@ -36,10 +37,11 @@ public class AdminWorkAreaJPanel extends javax.swing.JPanel {
     private HeadChefDirectory headChefDirectory;
     private RestaurantTableDirectory restaurantTableDirectory;
     private DonationDirectory donationDirectory;
+    private SupplierDirectory supplierDirectory;
     
     public AdminWorkAreaJPanel(JPanel userProcessContainer, UserAccount account, EcoSystem ecoSystem, 
             CustomerDirectory customerDirectory, RestaurantDirectory restaurantDirectory, 
-            DeliveryManDirectory deliveryManDirectory, MenuDirectory menuDirectory, OrderDirectory orderDirectory, ChefDirectory chefDirectory, ServerDirectory serverDirectory,HeadChefDirectory headChefDirectory, RestaurantTableDirectory restaurantTableDirectory, DonationDirectory donationDirectory) {
+            DeliveryManDirectory deliveryManDirectory, MenuDirectory menuDirectory, OrderDirectory orderDirectory, ChefDirectory chefDirectory, ServerDirectory serverDirectory,HeadChefDirectory headChefDirectory, RestaurantTableDirectory restaurantTableDirectory, DonationDirectory donationDirectory, SupplierDirectory supplierDirectory) {
         initComponents();
         this.userProcessContainer = userProcessContainer;
         this.account = account;
@@ -54,6 +56,7 @@ public class AdminWorkAreaJPanel extends javax.swing.JPanel {
         this.headChefDirectory = ecoSystem.getHeadChefDirectory();
         this.restaurantTableDirectory = ecoSystem.getRestaurantTableDirectory();
         this.donationDirectory = ecoSystem.getDonationDirectory();
+        this.supplierDirectory = ecoSystem.getSupplierDirectory();
         
         Restaurant res = ecoSystem.getRestaurantDirectory().getRestaurant(account.getEmployee().getName());
         

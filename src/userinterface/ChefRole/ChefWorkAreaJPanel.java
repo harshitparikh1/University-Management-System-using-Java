@@ -16,6 +16,7 @@ import Business.Order.Order;
 import Business.Order.OrderDirectory;
 import Business.Restaurant.RestaurantDirectory;
 import Business.RestaurantTable.RestaurantTableDirectory;
+import Business.Supplier.SupplierDirectory;
 import Business.UserAccount.UserAccount;
 import java.util.ArrayList;
 import javax.swing.JOptionPane;
@@ -39,10 +40,11 @@ public class ChefWorkAreaJPanel extends javax.swing.JPanel {
     private OrderDirectory orderDirectory; 
     private RestaurantTableDirectory RestaurantTableDirectory;
     private DonationDirectory donationDirectory;
+    private SupplierDirectory supplierDirectory;
     
     
 
-    public ChefWorkAreaJPanel(JPanel userProcessContainer, UserAccount account, EcoSystem business, CustomerDirectory customerDirectory, RestaurantDirectory restaurantDirectory, DeliveryManDirectory deliveryManDirectory, MenuDirectory menuDirectory, OrderDirectory orderDirectory, RestaurantTableDirectory restaurantTableDirectory, DonationDirectory donationDirectory) {
+    public ChefWorkAreaJPanel(JPanel userProcessContainer, UserAccount account, EcoSystem business, CustomerDirectory customerDirectory, RestaurantDirectory restaurantDirectory, DeliveryManDirectory deliveryManDirectory, MenuDirectory menuDirectory, OrderDirectory orderDirectory, RestaurantTableDirectory restaurantTableDirectory, DonationDirectory donationDirectory, SupplierDirectory supplierDirectory) {
         initComponents();
         this.userProcessContainer = userProcessContainer; 
         this.account = account; 
@@ -54,6 +56,7 @@ public class ChefWorkAreaJPanel extends javax.swing.JPanel {
         this.orderDirectory = orderDirectory; 
         this.RestaurantTableDirectory = RestaurantTableDirectory;
         this.donationDirectory = donationDirectory;
+        this.supplierDirectory = supplierDirectory;
         
     }
 

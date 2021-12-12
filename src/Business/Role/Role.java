@@ -19,6 +19,7 @@ import Business.Menu.MenuDirectory;
 import Business.Order.OrderDirectory;
 import Business.RestaurantTable.RestaurantTableDirectory;
 import Business.Server.ServerDirectory;
+import Business.Supplier.SupplierDirectory;
 
 
 public abstract class Role {
@@ -52,7 +53,7 @@ public abstract class Role {
     
     public abstract JPanel createWorkArea(JPanel userProcessContainer, UserAccount account, EcoSystem business
             , CustomerDirectory customerDirectory, RestaurantDirectory restaurantDirectory, 
-            DeliveryManDirectory deliveryManDirectory, MenuDirectory menuDirectory, OrderDirectory oderDirectory, ChefDirectory chefDirectory, ServerDirectory serverDirectory, HeadChefDirectory headChefDirectory, RestaurantTableDirectory restaurantTableDirectory, DonationDirectory donationDirectory);
+            DeliveryManDirectory deliveryManDirectory, MenuDirectory menuDirectory, OrderDirectory oderDirectory, ChefDirectory chefDirectory, ServerDirectory serverDirectory, HeadChefDirectory headChefDirectory, RestaurantTableDirectory restaurantTableDirectory, DonationDirectory donationDirectory, SupplierDirectory supplierDirectory);
     
     public abstract JPanel createWorkArea1(JPanel userProcessContainer);
     

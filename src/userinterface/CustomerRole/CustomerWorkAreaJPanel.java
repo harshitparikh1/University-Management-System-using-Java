@@ -14,6 +14,7 @@ import Business.Menu.MenuDirectory;
 import Business.Order.OrderDirectory;
 import Business.Restaurant.RestaurantDirectory;
 import Business.RestaurantTable.RestaurantTableDirectory;
+import Business.Supplier.SupplierDirectory;
 import Business.UserAccount.UserAccount;
 import userinterface.CustomerRole.CustomerDineInJPanel;
 import java.awt.CardLayout;
@@ -40,6 +41,7 @@ public class CustomerWorkAreaJPanel extends javax.swing.JPanel {
     private HeadChefDirectory headChefDirectory;
     private RestaurantTableDirectory restaurantTableDirectory;
     private DonationDirectory donationDirectory;
+    private SupplierDirectory supplierDirectory;
    
     private static int count = 1;
     
@@ -48,7 +50,7 @@ public class CustomerWorkAreaJPanel extends javax.swing.JPanel {
         
     }
 
-    public CustomerWorkAreaJPanel(JPanel userProcessContainer, UserAccount account, EcoSystem ecoSystem, CustomerDirectory customerDirectory, RestaurantDirectory restaurantDirectory, DeliveryManDirectory deliveryManDirectory, MenuDirectory menuDirectory, OrderDirectory orderDirectory, RestaurantTableDirectory restaurantTableDirectory, DonationDirectory donationDirectory) {
+    public CustomerWorkAreaJPanel(JPanel userProcessContainer, UserAccount account, EcoSystem ecoSystem, CustomerDirectory customerDirectory, RestaurantDirectory restaurantDirectory, DeliveryManDirectory deliveryManDirectory, MenuDirectory menuDirectory, OrderDirectory orderDirectory, RestaurantTableDirectory restaurantTableDirectory, DonationDirectory donationDirectory, SupplierDirectory supplierDirectory) {
         initComponents();
         
         this.userProcessContainer = userProcessContainer;
@@ -59,6 +61,7 @@ public class CustomerWorkAreaJPanel extends javax.swing.JPanel {
        this.restaurantDirectory = ecoSystem.getRestaurantDirectory();
        this.restaurantTableDirectory = ecoSystem.getRestaurantTableDirectory();
        this.donationDirectory = ecoSystem.getDonationDirectory();
+       this.supplierDirectory = ecoSystem.getSupplierDirectory();
        
         customerName.setText("Hello " + account.getEmployee().getName());
        

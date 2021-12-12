@@ -16,6 +16,7 @@ import Business.Order.OrderDirectory;
 import Business.Restaurant.RestaurantDirectory;
 import Business.RestaurantTable.RestaurantTableDirectory;
 import Business.Server.ServerDirectory;
+import Business.Supplier.SupplierDirectory;
 import Business.UserAccount.UserAccount;
 import javax.swing.JPanel;
 import userinterface.HeadChefRole.HeadChefWorkAreaJPanel;
@@ -26,9 +27,8 @@ import userinterface.HeadChefRole.HeadChefWorkAreaJPanel;
  */
 public class HeadChefRole extends Role{
 
-    @Override
-    public JPanel createWorkArea(JPanel userProcessContainer, UserAccount account, EcoSystem business, CustomerDirectory customerDirectory, RestaurantDirectory restaurantDirectory, DeliveryManDirectory deliveryManDirectory, MenuDirectory menuDirectory, OrderDirectory oderDirectory, ChefDirectory chefDirectory, ServerDirectory serverDirectory, HeadChefDirectory headChefDirectory, RestaurantTableDirectory restaurantTableDirectory, DonationDirectory donationDirectory) {
-        return new HeadChefWorkAreaJPanel(userProcessContainer, account, business, restaurantDirectory, headChefDirectory, chefDirectory, menuDirectory, donationDirectory);
+    public JPanel createWorkArea(JPanel userProcessContainer, UserAccount account, EcoSystem business, CustomerDirectory customerDirectory, RestaurantDirectory restaurantDirectory, DeliveryManDirectory deliveryManDirectory, MenuDirectory menuDirectory, OrderDirectory oderDirectory, ChefDirectory chefDirectory, ServerDirectory serverDirectory, HeadChefDirectory headChefDirectory, RestaurantTableDirectory restaurantTableDirectory, DonationDirectory donationDirectory, SupplierDirectory supplierDirectory) {
+        return new HeadChefWorkAreaJPanel(userProcessContainer, account, business, restaurantDirectory, headChefDirectory, chefDirectory, menuDirectory, donationDirectory, supplierDirectory);
     }
 
     @Override

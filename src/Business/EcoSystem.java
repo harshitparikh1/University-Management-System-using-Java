@@ -18,6 +18,7 @@ import Business.RestaurantTable.RestaurantTableDirectory;
 import Business.Role.Role;
 import Business.Role.SystemAdminRole;
 import Business.Server.ServerDirectory;
+import Business.Supplier.SupplierDirectory;
 import java.util.ArrayList;
 
 /**
@@ -36,10 +37,11 @@ public class EcoSystem extends Organization{
     private ServerDirectory serverDirectory;
     private HeadChefDirectory headChefDirectory;
     private RestaurantTableDirectory restaurantTableDirectory; 
-    private DonationDirectory donationDirectory; 
+    private DonationDirectory donationDirectory;
+    private SupplierDirectory supplierDirectory;
     
 
-    public EcoSystem(RestaurantDirectory restaurantDirectory, CustomerDirectory customerDirectory, DeliveryManDirectory deliveryManDirectory, ChefDirectory chefDirectory, ServerDirectory serverDirectory,HeadChefDirectory headChefDirectory, RestaurantTableDirectory restaurantTableDirectory, DonationDirectory donationDirectory) {
+    public EcoSystem(RestaurantDirectory restaurantDirectory, CustomerDirectory customerDirectory, DeliveryManDirectory deliveryManDirectory, ChefDirectory chefDirectory, ServerDirectory serverDirectory,HeadChefDirectory headChefDirectory, RestaurantTableDirectory restaurantTableDirectory, DonationDirectory donationDirectory, SupplierDirectory supplierDirectory ) {
 
         this.restaurantDirectory = restaurantDirectory;
         this.customerDirectory = customerDirectory;
@@ -49,9 +51,11 @@ public class EcoSystem extends Organization{
         this.headChefDirectory = headChefDirectory;
         this.restaurantTableDirectory = restaurantTableDirectory;
         this.donationDirectory = donationDirectory;
+        this.supplierDirectory = supplierDirectory;
         
         
     }
+
 
 
     public OrderDirectory getOrderDirectory() {
@@ -135,6 +139,15 @@ public class EcoSystem extends Organization{
     public void setDonationDirectory(DonationDirectory donationDirectory) {
         this.donationDirectory = donationDirectory;
     }
+    
+    public SupplierDirectory getSupplierDirectory() {
+        return supplierDirectory;
+    }
+
+    public void setSupplierDirectory(SupplierDirectory supplierDirectory) {
+        this.supplierDirectory = supplierDirectory;
+    }
+
 
     
     

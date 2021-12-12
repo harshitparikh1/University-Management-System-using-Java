@@ -17,6 +17,7 @@ import Business.Organization;
 import Business.Restaurant.RestaurantDirectory;
 import Business.RestaurantTable.RestaurantTableDirectory;
 import Business.Server.ServerDirectory;
+import Business.Supplier.SupplierDirectory;
 import Business.UserAccount.UserAccount;
 import userinterface.CustomerRole.CustomerDeliveryJPanel;
 import javax.swing.JPanel;
@@ -29,8 +30,8 @@ import userinterface.CustomerRole.CustomerWorkAreaJPanel;
 public class CustomerRole extends Role{
 
     
-    public JPanel createWorkArea(JPanel userProcessContainer, UserAccount account, EcoSystem business, CustomerDirectory customerDirectory, RestaurantDirectory restaurantDirectory, DeliveryManDirectory deliveryManDirectory, MenuDirectory menuDirectory, OrderDirectory orderDirectory, ChefDirectory chefDirectory, ServerDirectory serverDirectory, HeadChefDirectory headChefDirectory, RestaurantTableDirectory restaurantTableDirectory, DonationDirectory donationDirectory) {
-        return new CustomerWorkAreaJPanel(userProcessContainer, account, business, customerDirectory, restaurantDirectory, deliveryManDirectory, menuDirectory, orderDirectory, restaurantTableDirectory, donationDirectory);
+    public JPanel createWorkArea(JPanel userProcessContainer, UserAccount account, EcoSystem business, CustomerDirectory customerDirectory, RestaurantDirectory restaurantDirectory, DeliveryManDirectory deliveryManDirectory, MenuDirectory menuDirectory, OrderDirectory orderDirectory, ChefDirectory chefDirectory, ServerDirectory serverDirectory, HeadChefDirectory headChefDirectory, RestaurantTableDirectory restaurantTableDirectory, DonationDirectory donationDirectory, SupplierDirectory supplierDirectory) {
+        return new CustomerWorkAreaJPanel(userProcessContainer, account, business, customerDirectory, restaurantDirectory, deliveryManDirectory, menuDirectory, orderDirectory, restaurantTableDirectory, donationDirectory, supplierDirectory);
     }
 
     @Override

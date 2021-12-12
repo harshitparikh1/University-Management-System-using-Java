@@ -20,6 +20,7 @@ import Business.RestaurantTable.RestaurantTableDirectory;
 import Business.Server.ServerDirectory;
 import userinterface.RestaurantAdminRole.AdminWorkAreaJPanel;
 import Business.Donation.DonationDirectory;
+import Business.Supplier.SupplierDirectory;
 
 /**
  *
@@ -28,8 +29,8 @@ import Business.Donation.DonationDirectory;
 public class SystemAdminRole extends Role{
 
   
-    public JPanel createWorkArea(JPanel userProcessContainer, UserAccount account, EcoSystem business, CustomerDirectory customerDirectory, RestaurantDirectory restaurantDirectory, DeliveryManDirectory deliveryManDirectory, MenuDirectory menuDirectory, OrderDirectory orderDirectory,ChefDirectory chefDirectory, ServerDirectory serverDirectory, HeadChefDirectory headChefDirectory, RestaurantTableDirectory restaurantTableDirectory, DonationDirectory donationDirectory) {
-        return new SystemAdminWorkAreaJPanel(userProcessContainer, account, business, customerDirectory, restaurantDirectory, deliveryManDirectory, chefDirectory, serverDirectory, donationDirectory);
+    public JPanel createWorkArea(JPanel userProcessContainer, UserAccount account, EcoSystem business, CustomerDirectory customerDirectory, RestaurantDirectory restaurantDirectory, DeliveryManDirectory deliveryManDirectory, MenuDirectory menuDirectory, OrderDirectory orderDirectory,ChefDirectory chefDirectory, ServerDirectory serverDirectory, HeadChefDirectory headChefDirectory, RestaurantTableDirectory restaurantTableDirectory, DonationDirectory donationDirectory, SupplierDirectory supplierDirectory) {
+        return new SystemAdminWorkAreaJPanel(userProcessContainer, account, business, customerDirectory, restaurantDirectory, deliveryManDirectory, chefDirectory, serverDirectory, donationDirectory, supplierDirectory);
     }
 
     @Override

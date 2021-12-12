@@ -51,17 +51,24 @@ public class ManageChefJPanel extends javax.swing.JPanel {
         }
     
     public void populateTable() {
+        String restaurantName = account.getEmployee().getName();
         DefaultTableModel dtm = (DefaultTableModel) tblChef.getModel();
         dtm.setRowCount(0);
         for(Chef chef : ecoSystem.getChefDirectory().getChefDirectory()){
-            Object [] row = new Object[6];
-            row[0] = chef;
-            row[1] = chef.getName();
-            row[2] = chef.getEmail();
-            row[3] = chef.getHomeAddress();
-            row[4] = chef.getPhoneNumber();
-            row[5] = chef.getAge();
-            dtm.addRow(row);
+            System.out.println("userinterface.HeadChefRole.ManageChefJPanel.populateTable()" + chef.getRestaurantName());
+            if(chef.getRestaurantName().equals(restaurantName)){
+                
+                System.out.println("resname" + restaurantName);
+                
+                Object [] row = new Object[6];
+                row[0] = chef;
+                row[1] = chef.getName();
+                row[2] = chef.getEmail();
+                row[3] = chef.getHomeAddress();
+                row[4] = chef.getPhoneNumber();
+                row[5] = chef.getAge();
+                dtm.addRow(row);
+            }
         }
     }
 

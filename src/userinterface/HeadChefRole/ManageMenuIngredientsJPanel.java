@@ -76,6 +76,7 @@ public class ManageMenuIngredientsJPanel extends javax.swing.JPanel {
         txtQuantity = new javax.swing.JTextField();
         jLabel2 = new javax.swing.JLabel();
         jLabel3 = new javax.swing.JLabel();
+        refreshJButton = new javax.swing.JButton();
 
         setBackground(new java.awt.Color(102, 102, 102));
         setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
@@ -115,7 +116,7 @@ public class ManageMenuIngredientsJPanel extends javax.swing.JPanel {
         jLabel1.setForeground(new java.awt.Color(204, 204, 204));
         jLabel1.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         jLabel1.setText("Manage Menu Ingredients Panel");
-        add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 630, -1));
+        add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 1210, -1));
 
         btnBack.setText("<Back");
         btnBack.addActionListener(new java.awt.event.ActionListener() {
@@ -153,7 +154,7 @@ public class ManageMenuIngredientsJPanel extends javax.swing.JPanel {
         });
         jScrollPane2.setViewportView(tableIngredient);
 
-        add(jScrollPane2, new org.netbeans.lib.awtextra.AbsoluteConstraints(620, 60, 300, 172));
+        add(jScrollPane2, new org.netbeans.lib.awtextra.AbsoluteConstraints(620, 70, 300, 172));
 
         btnCreate.setText("Add Ingredient");
         btnCreate.addActionListener(new java.awt.event.ActionListener() {
@@ -171,14 +172,22 @@ public class ManageMenuIngredientsJPanel extends javax.swing.JPanel {
         });
         add(btnDelete, new org.netbeans.lib.awtextra.AbsoluteConstraints(790, 350, 165, -1));
         add(jSeparator1, new org.netbeans.lib.awtextra.AbsoluteConstraints(560, 102, -1, 180));
-        add(txtIngredient, new org.netbeans.lib.awtextra.AbsoluteConstraints(670, 260, 90, -1));
-        add(txtQuantity, new org.netbeans.lib.awtextra.AbsoluteConstraints(660, 310, 90, -1));
+        add(txtIngredient, new org.netbeans.lib.awtextra.AbsoluteConstraints(750, 260, 90, -1));
+        add(txtQuantity, new org.netbeans.lib.awtextra.AbsoluteConstraints(750, 300, 90, -1));
 
         jLabel2.setText("Quantity Required");
-        add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(530, 310, 120, -1));
+        add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(630, 300, 120, -1));
 
         jLabel3.setText("Ingredient");
-        add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(540, 260, 80, -1));
+        add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(670, 260, 80, -1));
+
+        refreshJButton.setText("Refresh");
+        refreshJButton.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                refreshJButtonActionPerformed(evt);
+            }
+        });
+        add(refreshJButton, new org.netbeans.lib.awtextra.AbsoluteConstraints(430, 70, -1, -1));
     }// </editor-fold>//GEN-END:initComponents
 
     private void viewIngredientsActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_viewIngredientsActionPerformed
@@ -226,7 +235,26 @@ public class ManageMenuIngredientsJPanel extends javax.swing.JPanel {
         menu.getIngredients().add(ing1);
         for(Restaurant restaurant : ecoSystem.getRestaurantDirectory().getRestaurantDirectory()){
             if(restaurant.getRestaurantName().equals(menu.getRestaurantName())){
-            restaurant.getInventory().put(txtIngredient.getText(), 100);
+                if(txtIngredient.getText().isEmpty() || txtQuantity.getText().isEmpty()) {
+                    JOptionPane.showMessageDialog(null, "Fields cannot be left empty");
+                    return;
+                }
+                else{
+                    
+                    int qty = 0;
+                    try {
+                        qty = Integer.parseInt(txtQuantity.getText());
+                    } catch(Exception e) {
+                        JOptionPane.showMessageDialog(null, "Quantity must have numbers only");
+                        return;
+                    }
+
+                    restaurant.getInventory().put(txtIngredient.getText(), 100);
+                    JOptionPane.showMessageDialog(null, "Successfully added a ingredient");
+                    populateTable();
+                }
+                
+                
             }
         }
         
@@ -247,12 +275,14 @@ public class ManageMenuIngredientsJPanel extends javax.swing.JPanel {
     private void btnDeleteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnDeleteActionPerformed
         int selectedRow = tableIngredient.getSelectedRow();
         if(selectedRow < 0){
-            
+            JOptionPane.showMessageDialog(null,"Please Select a row from table first", "Warining", JOptionPane.WARNING_MESSAGE);
+            return;
         }
         Menu menu = (Menu)tblMenu.getValueAt(selectedRow,0);
         for(Ingredients ing : menu.getIngredients()){
             if(ing.getName().equals(tableIngredient.getValueAt(selectedRow,0))){
                 menu.getIngredients().remove(ing);
+                populateTable();
             }
         }
         
@@ -261,6 +291,10 @@ public class ManageMenuIngredientsJPanel extends javax.swing.JPanel {
         
         
     }//GEN-LAST:event_btnDeleteActionPerformed
+
+    private void refreshJButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_refreshJButtonActionPerformed
+        populateTable();
+    }//GEN-LAST:event_refreshJButtonActionPerformed
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
@@ -273,6 +307,7 @@ public class ManageMenuIngredientsJPanel extends javax.swing.JPanel {
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JScrollPane jScrollPane2;
     private javax.swing.JSeparator jSeparator1;
+    private javax.swing.JButton refreshJButton;
     private javax.swing.JTable tableIngredient;
     private javax.swing.JTable tblMenu;
     private javax.swing.JTextField txtIngredient;

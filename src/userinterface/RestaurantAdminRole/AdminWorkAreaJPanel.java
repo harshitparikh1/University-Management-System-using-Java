@@ -84,6 +84,7 @@ public class AdminWorkAreaJPanel extends javax.swing.JPanel {
         manageHeadChef = new javax.swing.JButton();
         manageTables = new javax.swing.JButton();
         manageInventory = new javax.swing.JButton();
+        manageDonation = new javax.swing.JButton();
 
         setBackground(new java.awt.Color(102, 102, 102));
         setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
@@ -158,6 +159,14 @@ public class AdminWorkAreaJPanel extends javax.swing.JPanel {
             }
         });
         add(manageInventory, new org.netbeans.lib.awtextra.AbsoluteConstraints(200, 380, 230, -1));
+
+        manageDonation.setText("Manage Donation");
+        manageDonation.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                manageDonationActionPerformed(evt);
+            }
+        });
+        add(manageDonation, new org.netbeans.lib.awtextra.AbsoluteConstraints(200, 420, 230, -1));
     }// </editor-fold>//GEN-END:initComponents
 
     private void userJButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_userJButtonActionPerformed
@@ -211,11 +220,20 @@ public class AdminWorkAreaJPanel extends javax.swing.JPanel {
     private void manageInventoryActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_manageInventoryActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_manageInventoryActionPerformed
+
+    private void manageDonationActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_manageDonationActionPerformed
+        // TODO add your handling code here:
+        ManageDonationJPanel mdjp = new ManageDonationJPanel(userProcessContainer,account, ecoSystem, restaurantDirectory, menuDirectory, restaurantTableDirectory);
+        userProcessContainer.add("ManageDonationJPanel",mdjp);
+        CardLayout layout = (CardLayout) userProcessContainer.getLayout();
+        layout.next(userProcessContainer);
+    }//GEN-LAST:event_manageDonationActionPerformed
     
     
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JLabel enterpriseLabel;
     private javax.swing.JLabel jLabel1;
+    private javax.swing.JButton manageDonation;
     private javax.swing.JButton manageEmployeeJButton;
     private javax.swing.JButton manageHeadChef;
     private javax.swing.JButton manageInventory;

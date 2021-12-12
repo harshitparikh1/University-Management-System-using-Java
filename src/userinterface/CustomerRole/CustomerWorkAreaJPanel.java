@@ -77,8 +77,8 @@ public class CustomerWorkAreaJPanel extends javax.swing.JPanel {
         setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         jLabel1.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        jLabel1.setText("Welcome");
-        add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(93, 22, 175, 75));
+        jLabel1.setText("Hello Customer");
+        add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 400, 75));
 
         jButton1.setText("Dine-in ?");
         jButton1.addActionListener(new java.awt.event.ActionListener() {

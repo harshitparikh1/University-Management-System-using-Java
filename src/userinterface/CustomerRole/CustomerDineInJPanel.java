@@ -8,6 +8,7 @@ package userinterface.CustomerRole;
 import Business.Customer.CustomerDirectory;
 import Business.DeliveryMan.DeliveryManDirectory;
 import Business.EcoSystem;
+import Business.HeadChef.HeadChef;
 import Business.HeadChef.HeadChefDirectory;
 import Business.Menu.MenuDirectory;
 import Business.Order.OrderDirectory;
@@ -16,6 +17,7 @@ import Business.Restaurant.RestaurantDirectory;
 import Business.RestaurantTable.RestaurantTableDirectory;
 import Business.RestaurantTable.Table;
 import Business.UserAccount.UserAccount;
+import java.awt.CardLayout;
 import javax.swing.JOptionPane;
 import javax.swing.JPanel;
 import javax.swing.table.DefaultTableModel;
@@ -91,6 +93,7 @@ public class CustomerDineInJPanel extends javax.swing.JPanel {
         jScrollPane2 = new javax.swing.JScrollPane();
         tableOfTable = new javax.swing.JTable();
         jButton1 = new javax.swing.JButton();
+        btnBack = new javax.swing.JButton();
 
         setBackground(new java.awt.Color(102, 102, 102));
         setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
@@ -102,7 +105,7 @@ public class CustomerDineInJPanel extends javax.swing.JPanel {
                 boxRestaurantActionPerformed(evt);
             }
         });
-        add(boxRestaurant, new org.netbeans.lib.awtextra.AbsoluteConstraints(168, 77, 214, -1));
+        add(boxRestaurant, new org.netbeans.lib.awtextra.AbsoluteConstraints(260, 90, 214, -1));
 
         showTablesButton.setText("Show Tables");
         showTablesButton.addActionListener(new java.awt.event.ActionListener() {
@@ -110,12 +113,12 @@ public class CustomerDineInJPanel extends javax.swing.JPanel {
                 showTablesButtonActionPerformed(evt);
             }
         });
-        add(showTablesButton, new org.netbeans.lib.awtextra.AbsoluteConstraints(510, 74, -1, -1));
+        add(showTablesButton, new org.netbeans.lib.awtextra.AbsoluteConstraints(510, 90, -1, -1));
 
         enterpriseLabel.setFont(new java.awt.Font("Optima", 0, 14)); // NOI18N
         enterpriseLabel.setForeground(new java.awt.Color(204, 204, 204));
         enterpriseLabel.setText("Select Resturant: ");
-        add(enterpriseLabel, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 74, 154, 30));
+        add(enterpriseLabel, new org.netbeans.lib.awtextra.AbsoluteConstraints(140, 80, 154, 40));
 
         enterpriseLabel1.setFont(new java.awt.Font("Optima", 1, 18)); // NOI18N
         enterpriseLabel1.setForeground(new java.awt.Color(204, 204, 204));
@@ -138,9 +141,16 @@ public class CustomerDineInJPanel extends javax.swing.JPanel {
                 "Table Number", "Available", "Capacity"
             }
         ) {
-            boolean[] canEdit = new boolean [] {
-                false, true, false
+            Class[] types = new Class [] {
+                java.lang.Object.class, java.lang.Boolean.class, java.lang.Object.class
             };
+            boolean[] canEdit = new boolean [] {
+                false, false, false
+            };
+
+            public Class getColumnClass(int columnIndex) {
+                return types [columnIndex];
+            }
 
             public boolean isCellEditable(int rowIndex, int columnIndex) {
                 return canEdit [columnIndex];
@@ -157,6 +167,14 @@ public class CustomerDineInJPanel extends javax.swing.JPanel {
             }
         });
         add(jButton1, new org.netbeans.lib.awtextra.AbsoluteConstraints(270, 330, -1, -1));
+
+        btnBack.setText("<Back");
+        btnBack.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnBackActionPerformed(evt);
+            }
+        });
+        add(btnBack, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 90, -1, -1));
     }// </editor-fold>//GEN-END:initComponents
 
     private void boxRestaurantActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_boxRestaurantActionPerformed
@@ -177,8 +195,11 @@ public class CustomerDineInJPanel extends javax.swing.JPanel {
         if(selectedTable < 0) {
             JOptionPane.showMessageDialog(null,"Please Select a row from table first", "Warining", JOptionPane.WARNING_MESSAGE);
             return;
-            }
+        }
         
+        
+//        Customer customer = (Customer)tableOfTable.getValueAt(selectedRow, 0);
+//        
         
          
     
@@ -186,9 +207,18 @@ public class CustomerDineInJPanel extends javax.swing.JPanel {
     
     }//GEN-LAST:event_jButton1ActionPerformed
 
+    private void btnBackActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnBackActionPerformed
+        // TODO add your handling code here:
+        userProcessContainer.remove(this);
+        CardLayout layout = (CardLayout) userProcessContainer.getLayout();
+        layout.previous(userProcessContainer);
+        // TODO add your handling code here:
+    }//GEN-LAST:event_btnBackActionPerformed
+
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JComboBox<String> boxRestaurant;
+    private javax.swing.JButton btnBack;
     private javax.swing.JLabel customerName;
     private javax.swing.JLabel enterpriseLabel;
     private javax.swing.JLabel enterpriseLabel1;

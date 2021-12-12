@@ -52,9 +52,11 @@ public class ManageChefJPanel extends javax.swing.JPanel {
     
     public void populateTable() {
         String restaurantName = account.getEmployee().getName();
+        System.out.println("userinterface.restaurant name " + restaurantName);
         DefaultTableModel dtm = (DefaultTableModel) tblChef.getModel();
         dtm.setRowCount(0);
         for(Chef chef : ecoSystem.getChefDirectory().getChefDirectory()){
+            System.out.println("userinterface.HeadChefRole.ManageChefJPanel.populateTable() name " + chef.getName());
             System.out.println("userinterface.HeadChefRole.ManageChefJPanel.populateTable()" + chef.getRestaurantName());
             if(chef.getRestaurantName().equals(restaurantName)){
                 

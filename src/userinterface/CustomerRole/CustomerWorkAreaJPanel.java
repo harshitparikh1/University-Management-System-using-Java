@@ -12,6 +12,7 @@ import Business.HeadChef.HeadChefDirectory;
 import Business.Menu.MenuDirectory;
 import Business.Order.OrderDirectory;
 import Business.Restaurant.RestaurantDirectory;
+import Business.RestaurantTable.RestaurantTableDirectory;
 import Business.UserAccount.UserAccount;
 import userinterface.CustomerRole.CustomerDineInJPanel;
 import java.awt.CardLayout;
@@ -36,6 +37,7 @@ public class CustomerWorkAreaJPanel extends javax.swing.JPanel {
     private MenuDirectory menuDirectory;
     private OrderDirectory orderDirectory;
     private HeadChefDirectory headChefDirectory;
+    private RestaurantTableDirectory restaurantTableDirectory;
     private static int count = 1;
     
     
@@ -43,7 +45,7 @@ public class CustomerWorkAreaJPanel extends javax.swing.JPanel {
         
     }
 
-    public CustomerWorkAreaJPanel(JPanel userProcessContainer, UserAccount account, EcoSystem ecoSystem, CustomerDirectory customerDirectory, RestaurantDirectory restaurantDirectory, DeliveryManDirectory deliveryManDirectory, MenuDirectory menuDirectory, OrderDirectory orderDirectory) {
+    public CustomerWorkAreaJPanel(JPanel userProcessContainer, UserAccount account, EcoSystem ecoSystem, CustomerDirectory customerDirectory, RestaurantDirectory restaurantDirectory, DeliveryManDirectory deliveryManDirectory, MenuDirectory menuDirectory, OrderDirectory orderDirectory, RestaurantTableDirectory restaurantTableDirectory) {
         initComponents();
         
         this.userProcessContainer = userProcessContainer;
@@ -52,6 +54,7 @@ public class CustomerWorkAreaJPanel extends javax.swing.JPanel {
        this.customerDirectory = ecoSystem.getCustomerDirectory();
        this.deliveryManDirectory = ecoSystem.getDeliveryManDirectory();
        this.restaurantDirectory = ecoSystem.getRestaurantDirectory();
+       this.restaurantTableDirectory = ecoSystem.getRestaurantTableDirectory();
        
         
     }
@@ -93,7 +96,7 @@ public class CustomerWorkAreaJPanel extends javax.swing.JPanel {
     }// </editor-fold>//GEN-END:initComponents
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
-        CustomerDineInJPanel cdip = new CustomerDineInJPanel(userProcessContainer,account, ecoSystem, restaurantDirectory);
+        CustomerDineInJPanel cdip = new CustomerDineInJPanel(userProcessContainer,account, ecoSystem, restaurantDirectory, restaurantTableDirectory);
         userProcessContainer.add("headChefWorkAreaJPanel",cdip);
         CardLayout layout = (CardLayout) userProcessContainer.getLayout();
         layout.next(userProcessContainer);

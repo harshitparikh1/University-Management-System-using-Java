@@ -16,9 +16,14 @@ import Business.Donation.DonationDirectory;
 import Business.EcoSystem;
 import Business.HeadChef.HeadChefDirectory;
 import Business.Menu.MenuDirectory;
+import Business.Restaurant.Restaurant;
 import Business.Restaurant.RestaurantDirectory;
 import Business.Supplier.SupplierDirectory;
+import Business.Supplier.SupplierOrders;
 import Business.UserAccount.UserAccount;
+import java.util.HashMap;
+import java.util.Iterator;
+import java.util.Map;
 import javax.swing.JOptionPane;
 import javax.swing.JPanel;
 import javax.swing.table.DefaultTableModel;
@@ -63,6 +68,8 @@ public class SupplierAdminWorkAreaJPanel extends javax.swing.JPanel {
         jButton1 = new javax.swing.JButton();
         jButton2 = new javax.swing.JButton();
 
+        setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+
         tblSupplier.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
                 {null, null, null, null},
@@ -96,10 +103,13 @@ public class SupplierAdminWorkAreaJPanel extends javax.swing.JPanel {
         });
         jScrollPane2.setViewportView(tblSupplier);
 
+        add(jScrollPane2, new org.netbeans.lib.awtextra.AbsoluteConstraints(62, 98, 584, 170));
+
         jLabel2.setFont(new java.awt.Font("Optima", 1, 36)); // NOI18N
         jLabel2.setForeground(new java.awt.Color(204, 204, 204));
         jLabel2.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         jLabel2.setText("Manage Supplier Work Area");
+        add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 680, -1));
 
         jButton1.setText("Accept");
         jButton1.addActionListener(new java.awt.event.ActionListener() {
@@ -107,6 +117,7 @@ public class SupplierAdminWorkAreaJPanel extends javax.swing.JPanel {
                 jButton1ActionPerformed(evt);
             }
         });
+        add(jButton1, new org.netbeans.lib.awtextra.AbsoluteConstraints(211, 300, -1, -1));
 
         jButton2.setText("Reject");
         jButton2.addActionListener(new java.awt.event.ActionListener() {
@@ -114,37 +125,7 @@ public class SupplierAdminWorkAreaJPanel extends javax.swing.JPanel {
                 jButton2ActionPerformed(evt);
             }
         });
-
-        javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
-        this.setLayout(layout);
-        layout.setHorizontalGroup(
-            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                .addGap(0, 0, Short.MAX_VALUE)
-                .addComponent(jLabel2, javax.swing.GroupLayout.PREFERRED_SIZE, 680, javax.swing.GroupLayout.PREFERRED_SIZE))
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 584, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(34, 34, 34))
-            .addGroup(layout.createSequentialGroup()
-                .addGap(211, 211, 211)
-                .addComponent(jButton1)
-                .addGap(42, 42, 42)
-                .addComponent(jButton2)
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-        );
-        layout.setVerticalGroup(
-            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
-                .addComponent(jLabel2)
-                .addGap(51, 51, 51)
-                .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 170, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 32, Short.MAX_VALUE)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jButton1)
-                    .addComponent(jButton2))
-                .addGap(23, 23, 23))
-        );
+        add(jButton2, new org.netbeans.lib.awtextra.AbsoluteConstraints(324, 300, -1, -1));
     }// </editor-fold>//GEN-END:initComponents
 
     private void tblSupplierMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_tblSupplierMouseClicked
@@ -162,7 +143,29 @@ public class SupplierAdminWorkAreaJPanel extends javax.swing.JPanel {
     }//GEN-LAST:event_tblSupplierMouseClicked
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
-        // TODO add your handling code here:
+        int selectedRow = tblSupplier.getSelectedRow();
+        if(selectedRow < 0) {
+            JOptionPane.showMessageDialog(null,"Please Select a row from table first", "Warining", JOptionPane.WARNING_MESSAGE);
+            return;
+        }
+        
+        SupplierOrders supplierOrders = (SupplierOrders) tblSupplier.getValueAt(selectedRow, 0);
+        if(supplierOrders.getStatus().equals("Accepted")){
+            JOptionPane.showMessageDialog(null, "Supply order already accepted");
+            return;
+        }
+        else{
+            for(Restaurant restaurant : ecoSystem.getRestaurantDirectory().getRestaurantDirectory()){
+                if(restaurant.getRestaurantName().equals(supplierOrders.getRestaurantName())){
+                HashMap<String, Integer> restaurantInventory = restaurant.getInventory();
+                Iterator<Map.Entry<String, Integer>> itrInventory = restaurantInventory.entrySet().iterator();
+                restaurantInventory.put(supplierOrders.getItemName(), restaurantInventory.get(supplierOrders.getItemName())+supplierOrders.getItemQuantity());
+                supplierOrders.setStatus("Accepted");
+                }
+            }
+              
+            
+        }
     }//GEN-LAST:event_jButton1ActionPerformed
 
     private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
@@ -179,5 +182,22 @@ public class SupplierAdminWorkAreaJPanel extends javax.swing.JPanel {
     // End of variables declaration//GEN-END:variables
 
     private void populateTable() {
+    DefaultTableModel dtm = (DefaultTableModel) tblSupplier.getModel();
+        dtm.setRowCount(0);
+        
+        for(SupplierOrders supplierOrders : ecoSystem.getSupplierOrderDirectory().getSupplierOrderDirectory()){
+            if(supplierOrders.getSupplierName().equals(account.getEmployee().getName())){
+                Object [] row = new Object[4];
+                row[0] = supplierOrders;
+                row[1] = supplierOrders.getItemName();
+                row[2] = supplierOrders.getItemQuantity();
+                row[3] = supplierOrders.getStatus();
+                dtm.addRow(row);
+            }
+            
+            
+            
         }
+    
+    }
 }

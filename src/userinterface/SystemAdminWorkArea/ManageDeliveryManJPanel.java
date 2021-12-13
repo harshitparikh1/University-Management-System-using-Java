@@ -4,6 +4,7 @@ package userinterface.SystemAdminWorkArea;
 import Business.DeliveryMan.DeliveryManDirectory;
 import Business.EcoSystem;
 import Business.DeliveryMan.DeliveryMan;
+import Business.UserAccount.UserAccount;
 import java.awt.CardLayout;
 import javax.swing.JOptionPane;
 import javax.swing.JPanel;
@@ -200,6 +201,12 @@ public class ManageDeliveryManJPanel extends javax.swing.JPanel {
         }
 
         DeliveryMan deliveryMan = (DeliveryMan) tblDeliveryMan.getValueAt(selectedRow, 0);
+        System.out.println("userinterface.SystemAdminWorkAreadeliveryMan()" + deliveryMan.getUsername());
+        UserAccount account1 = ecoSystem.getUserAccountDirectory().findUserAccount(deliveryMan.getUsername());
+        
+        ecoSystem.getUserAccountDirectory().deleteUserAccount(account1);
+        
+        
         deliveryManDirectory.removeDeliveryMan(deliveryMan);
         populateTable();
 

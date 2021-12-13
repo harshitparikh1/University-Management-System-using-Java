@@ -18,14 +18,17 @@ public class DeliveryMan {
     private String email;
     private String phoneNumber;
     private int age;
+    private String username;
+
     private ArrayList<Order> orderList;
     
-    public DeliveryMan(String name, String address, String email, String phoneNumber, int age) {
+    public DeliveryMan(String name, String username, String address, String email, String phoneNumber, int age) {
         this.name = name;
         this.address = address;
         this.age = age;
         this.phoneNumber = phoneNumber;
         this.email = email;
+        this.username = username;
         orderList = new ArrayList<Order>();
     }
     
@@ -82,6 +85,15 @@ public class DeliveryMan {
     public void setAge(int age) {
         this.age = age;
     }
+    
+    public String getUsername() {
+        return username;
+    }
+
+    public void setUsername(String username) {
+        this.username = username;
+    }
+
     
     @Override
     public String toString() {

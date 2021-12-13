@@ -5,6 +5,7 @@
  */
 package Business.DeliveryMan;
 
+import Business.Restaurant.Restaurant;
 import java.util.ArrayList;
 
 /**
@@ -26,8 +27,8 @@ public class DeliveryManDirectory {
         this.deliveryManDirectory = deliveryManDirectory;
     }
     
-    public DeliveryMan newDeliveryMan(String name, String address, String email, String phoneNumber, int age) {
-        DeliveryMan deliveryMan = new DeliveryMan(name, address, email, phoneNumber, age);
+    public DeliveryMan newDeliveryMan(String name, String username, String address, String email, String phoneNumber, int age) {
+        DeliveryMan deliveryMan = new DeliveryMan(name, username, address, email, phoneNumber, age);
         deliveryManDirectory.add(deliveryMan);
         return deliveryMan;
     }
@@ -35,4 +36,14 @@ public class DeliveryManDirectory {
     public void removeDeliveryMan(DeliveryMan deliveryMan) {
         deliveryManDirectory.remove(deliveryMan);
     }
+    
+    public DeliveryMan getDeliveryMan(String name) {
+        for(DeliveryMan dm : deliveryManDirectory) {
+            if(dm.getName().equals(name)) {
+                return dm;
+            }
+        }
+        return null;
+    }
+
 }

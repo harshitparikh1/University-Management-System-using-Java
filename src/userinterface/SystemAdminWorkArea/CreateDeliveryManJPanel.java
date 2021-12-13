@@ -256,7 +256,7 @@ public class CreateDeliveryManJPanel extends javax.swing.JPanel {
             }
         }
 
-        ecoSystem.getDeliveryManDirectory().newDeliveryMan(name, address, email, phoneNumber, age);
+        ecoSystem.getDeliveryManDirectory().newDeliveryMan(name, userName, address, email, phoneNumber, age);
         Employee employee = ecoSystem.getEmployeeDirectory().createEmployee(email);
         ecoSystem.getUserAccountDirectory().createUserAccount(userName, password, employee, new DeliverManRole());
 
@@ -307,7 +307,7 @@ public class CreateDeliveryManJPanel extends javax.swing.JPanel {
             }
 
             
-            ecoSystem.getDeliveryManDirectory().newDeliveryMan(autofillName.get(i), autofillAddress.get(i), autofillEmail.get(i), autofillPhoneNumber.get(i), autofillAge.get(i));
+            ecoSystem.getDeliveryManDirectory().newDeliveryMan(autofillName.get(i), autofillUsername.get(i), autofillAddress.get(i), autofillEmail.get(i), autofillPhoneNumber.get(i), autofillAge.get(i));
             Employee employee = ecoSystem.getEmployeeDirectory().createEmployee(autofillEmail.get(i));
             ecoSystem.getUserAccountDirectory().createUserAccount(autofillUsername.get(i), autofillPassword.get(i), employee, new DeliverManRole());
 

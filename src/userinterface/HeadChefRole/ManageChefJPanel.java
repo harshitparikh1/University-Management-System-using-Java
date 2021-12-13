@@ -134,6 +134,7 @@ public class ManageChefJPanel extends javax.swing.JPanel {
 
         createChef.setFont(new java.awt.Font("Lucida Grande", 1, 14)); // NOI18N
         createChef.setText("Create Chef");
+        createChef.setEnabled(false);
         createChef.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 createChefActionPerformed(evt);
@@ -144,6 +145,7 @@ public class ManageChefJPanel extends javax.swing.JPanel {
         modifyChef.setBackground(new java.awt.Color(255, 255, 255));
         modifyChef.setFont(new java.awt.Font("Lucida Grande", 1, 14)); // NOI18N
         modifyChef.setText("Modify Chef");
+        modifyChef.setEnabled(false);
         modifyChef.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 modifyChefActionPerformed(evt);
@@ -154,6 +156,7 @@ public class ManageChefJPanel extends javax.swing.JPanel {
         deleteChef.setBackground(new java.awt.Color(255, 255, 255));
         deleteChef.setFont(new java.awt.Font("Lucida Grande", 1, 14)); // NOI18N
         deleteChef.setText("Delete Chef");
+        deleteChef.setEnabled(false);
         deleteChef.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 deleteChefActionPerformed(evt);
@@ -170,6 +173,7 @@ public class ManageChefJPanel extends javax.swing.JPanel {
         add(btnBack, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 10, -1, -1));
 
         refreshJButton.setText("Refresh");
+        refreshJButton.setEnabled(false);
         refreshJButton.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 refreshJButtonActionPerformed(evt);

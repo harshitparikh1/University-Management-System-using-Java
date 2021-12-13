@@ -17,6 +17,7 @@ import Business.UserAccount.UserAccount;
 import java.awt.CardLayout;
 import javax.swing.JPanel;
 import userinterface.HeadChefRole.HeadChefWorkAreaJPanel;
+import userinterface.SupplierAdminWorkArea.RestaurantInventoryJPanel;
 
 /**
  *
@@ -92,6 +93,7 @@ public class AdminWorkAreaJPanel extends javax.swing.JPanel {
         manageTables = new javax.swing.JButton();
         manageInventory = new javax.swing.JButton();
         manageDonation = new javax.swing.JButton();
+        manageDonation1 = new javax.swing.JButton();
 
         setBackground(new java.awt.Color(102, 102, 102));
         setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
@@ -174,6 +176,14 @@ public class AdminWorkAreaJPanel extends javax.swing.JPanel {
             }
         });
         add(manageDonation, new org.netbeans.lib.awtextra.AbsoluteConstraints(200, 420, 230, -1));
+
+        manageDonation1.setText("Manage Donation");
+        manageDonation1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                manageDonation1ActionPerformed(evt);
+            }
+        });
+        add(manageDonation1, new org.netbeans.lib.awtextra.AbsoluteConstraints(200, 420, 230, -1));
     }// </editor-fold>//GEN-END:initComponents
 
     private void userJButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_userJButtonActionPerformed
@@ -225,7 +235,10 @@ public class AdminWorkAreaJPanel extends javax.swing.JPanel {
     }//GEN-LAST:event_manageTablesActionPerformed
 
     private void manageInventoryActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_manageInventoryActionPerformed
-        // TODO add your handling code here:
+        RestaurantInventoryJPanel rIJP = new RestaurantInventoryJPanel(userProcessContainer,account, ecoSystem);
+        userProcessContainer.add("ManageTablesJPanel",rIJP);
+        CardLayout layout = (CardLayout) userProcessContainer.getLayout();
+        layout.next(userProcessContainer);
     }//GEN-LAST:event_manageInventoryActionPerformed
 
     private void manageDonationActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_manageDonationActionPerformed
@@ -235,12 +248,17 @@ public class AdminWorkAreaJPanel extends javax.swing.JPanel {
         CardLayout layout = (CardLayout) userProcessContainer.getLayout();
         layout.next(userProcessContainer);
     }//GEN-LAST:event_manageDonationActionPerformed
+
+    private void manageDonation1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_manageDonation1ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_manageDonation1ActionPerformed
     
     
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JLabel enterpriseLabel;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JButton manageDonation;
+    private javax.swing.JButton manageDonation1;
     private javax.swing.JButton manageEmployeeJButton;
     private javax.swing.JButton manageHeadChef;
     private javax.swing.JButton manageInventory;

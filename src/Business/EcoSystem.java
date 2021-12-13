@@ -20,6 +20,8 @@ import Business.Role.SystemAdminRole;
 import Business.Server.ServerDirectory;
 import Business.Supplier.SupplierDirectory;
 import Business.Insurance.InsuranceDirectory;
+import Business.Supplier.SupplierOrderDirectory;
+import Business.Supplier.SupplierOrders;
 import java.util.ArrayList;
 
 /**
@@ -41,9 +43,10 @@ public class EcoSystem extends Organization{
     private DonationDirectory donationDirectory;
     private SupplierDirectory supplierDirectory;
     private InsuranceDirectory insuranceDirectory;
+    private SupplierOrderDirectory supplierOrderDirectory;
     
 
-    public EcoSystem(RestaurantDirectory restaurantDirectory, CustomerDirectory customerDirectory, DeliveryManDirectory deliveryManDirectory, ChefDirectory chefDirectory, ServerDirectory serverDirectory,HeadChefDirectory headChefDirectory, RestaurantTableDirectory restaurantTableDirectory, DonationDirectory donationDirectory, SupplierDirectory supplierDirectory ) {
+    public EcoSystem(RestaurantDirectory restaurantDirectory, CustomerDirectory customerDirectory, DeliveryManDirectory deliveryManDirectory, ChefDirectory chefDirectory, ServerDirectory serverDirectory,HeadChefDirectory headChefDirectory, RestaurantTableDirectory restaurantTableDirectory, DonationDirectory donationDirectory, SupplierDirectory supplierDirectory, SupplierOrderDirectory supplierOrderDirectory  ) {
 
         this.restaurantDirectory = restaurantDirectory;
         this.customerDirectory = customerDirectory;
@@ -55,6 +58,7 @@ public class EcoSystem extends Organization{
         this.donationDirectory = donationDirectory;
         this.supplierDirectory = supplierDirectory;
         this.insuranceDirectory = insuranceDirectory;
+        this.supplierOrderDirectory = supplierOrderDirectory;
         
         
     }
@@ -159,6 +163,18 @@ public class EcoSystem extends Organization{
         this.insuranceDirectory = onsuranceDirectory;
     }
 
+    public SupplierOrderDirectory getSupplierOrderDirectory() {
+        return supplierOrderDirectory;
+    }
+
+    public void setSupplierOrderDirectory(SupplierOrderDirectory supplierOrderDirectory) {
+        this.supplierOrderDirectory = supplierOrderDirectory;
+    }
+
+   
+    
+    
+
 
     
     
@@ -193,6 +209,7 @@ public class EcoSystem extends Organization{
         restaurantTableDirectory = new RestaurantTableDirectory();
         donationDirectory = new DonationDirectory();
         supplierDirectory = new SupplierDirectory();
+        supplierOrderDirectory = new SupplierOrderDirectory();
         
        // networkList=new ArrayList<Network>();
     }

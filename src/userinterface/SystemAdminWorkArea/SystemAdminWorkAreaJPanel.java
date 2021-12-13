@@ -168,12 +168,15 @@ public class SystemAdminWorkAreaJPanel extends javax.swing.JPanel {
         jSplitPane.setLeftComponent(jPanel1);
 
         jPanel2.setBackground(new java.awt.Color(255, 204, 153));
+        jPanel2.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         jLabel1.setFont(new java.awt.Font("Optima", 1, 18)); // NOI18N
         jLabel1.setText("Selected Node:");
+        jPanel2.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(74, 25, -1, -1));
 
         lblSelectedNode.setFont(new java.awt.Font("Optima", 1, 14)); // NOI18N
         lblSelectedNode.setText("<View_selected_node>");
+        jPanel2.add(lblSelectedNode, new org.netbeans.lib.awtextra.AbsoluteConstraints(226, 29, -1, -1));
 
         btnCustomer.setFont(new java.awt.Font("Lucida Grande", 1, 13)); // NOI18N
         btnCustomer.setText("Manage All Customers");
@@ -182,6 +185,7 @@ public class SystemAdminWorkAreaJPanel extends javax.swing.JPanel {
                 btnCustomerActionPerformed(evt);
             }
         });
+        jPanel2.add(btnCustomer, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 67, 413, 39));
 
         btnRestaurant.setFont(new java.awt.Font("Lucida Grande", 1, 13)); // NOI18N
         btnRestaurant.setText("Manage Restaurants");
@@ -190,6 +194,7 @@ public class SystemAdminWorkAreaJPanel extends javax.swing.JPanel {
                 btnRestaurantActionPerformed(evt);
             }
         });
+        jPanel2.add(btnRestaurant, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 112, 413, 41));
 
         btnDelivery.setFont(new java.awt.Font("Lucida Grande", 1, 13)); // NOI18N
         btnDelivery.setText("Manage Delivery Persons");
@@ -198,6 +203,7 @@ public class SystemAdminWorkAreaJPanel extends javax.swing.JPanel {
                 btnDeliveryActionPerformed(evt);
             }
         });
+        jPanel2.add(btnDelivery, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 159, 413, 41));
 
         btnDonations.setFont(new java.awt.Font("Lucida Grande", 1, 13)); // NOI18N
         btnDonations.setText("Manage Donations");
@@ -206,6 +212,7 @@ public class SystemAdminWorkAreaJPanel extends javax.swing.JPanel {
                 btnDonationsActionPerformed(evt);
             }
         });
+        jPanel2.add(btnDonations, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 206, 413, 41));
 
         btnSuppliers.setFont(new java.awt.Font("Lucida Grande", 1, 13)); // NOI18N
         btnSuppliers.setText("Manage Suppliers");
@@ -214,6 +221,7 @@ public class SystemAdminWorkAreaJPanel extends javax.swing.JPanel {
                 btnSuppliersActionPerformed(evt);
             }
         });
+        jPanel2.add(btnSuppliers, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 258, 413, 43));
 
         btnSuppliers1.setFont(new java.awt.Font("Lucida Grande", 1, 13)); // NOI18N
         btnSuppliers1.setText("Manage Insurance");
@@ -222,49 +230,7 @@ public class SystemAdminWorkAreaJPanel extends javax.swing.JPanel {
                 btnSuppliers1ActionPerformed(evt);
             }
         });
-
-        javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
-        jPanel2.setLayout(jPanel2Layout);
-        jPanel2Layout.setHorizontalGroup(
-            jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel2Layout.createSequentialGroup()
-                .addGap(74, 74, 74)
-                .addComponent(jLabel1)
-                .addGap(18, 18, 18)
-                .addComponent(lblSelectedNode)
-                .addContainerGap(79, Short.MAX_VALUE))
-            .addGroup(jPanel2Layout.createSequentialGroup()
-                .addContainerGap()
-                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(btnCustomer, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(btnRestaurant, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(btnDelivery, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(btnDonations, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(btnSuppliers, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(btnSuppliers1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                .addContainerGap())
-        );
-        jPanel2Layout.setVerticalGroup(
-            jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel2Layout.createSequentialGroup()
-                .addGap(25, 25, 25)
-                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel1)
-                    .addComponent(lblSelectedNode))
-                .addGap(18, 18, 18)
-                .addComponent(btnCustomer, javax.swing.GroupLayout.PREFERRED_SIZE, 39, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(btnRestaurant, javax.swing.GroupLayout.PREFERRED_SIZE, 41, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(btnDelivery, javax.swing.GroupLayout.PREFERRED_SIZE, 41, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(btnDonations, javax.swing.GroupLayout.PREFERRED_SIZE, 41, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(btnSuppliers, javax.swing.GroupLayout.PREFERRED_SIZE, 43, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(btnSuppliers1, javax.swing.GroupLayout.PREFERRED_SIZE, 41, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(45, Short.MAX_VALUE))
-        );
+        jPanel2.add(btnSuppliers1, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 307, 413, 41));
 
         jSplitPane.setRightComponent(jPanel2);
 

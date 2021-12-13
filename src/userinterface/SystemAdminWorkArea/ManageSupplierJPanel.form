@@ -79,7 +79,7 @@
   </NonVisualComponents>
   <Properties>
     <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
-      <Color blue="66" green="66" red="66" type="rgb"/>
+      <Color blue="99" green="cc" red="ff" type="rgb"/>
     </Property>
   </Properties>
   <AuxValues>
@@ -97,20 +97,22 @@
   <Layout>
     <DimensionLayout dim="0">
       <Group type="103" groupAlignment="0" attributes="0">
-          <EmptySpace min="0" pref="743" max="32767" attributes="0"/>
+          <Group type="102" alignment="1" attributes="0">
+              <EmptySpace max="-2" attributes="0"/>
+              <Component id="btnBack1" min="-2" pref="107" max="-2" attributes="0"/>
+              <EmptySpace pref="81" max="32767" attributes="0"/>
+              <Component id="jLabel2" min="-2" pref="426" max="-2" attributes="0"/>
+              <EmptySpace min="-2" pref="145" max="-2" attributes="0"/>
+          </Group>
+          <Group type="102" alignment="1" attributes="0">
+              <EmptySpace max="32767" attributes="0"/>
+              <Component id="btnRefresh1" min="-2" pref="106" max="-2" attributes="0"/>
+              <EmptySpace max="-2" attributes="0"/>
+          </Group>
           <Group type="103" rootIndex="1" groupAlignment="0" attributes="0">
               <Group type="102" attributes="0">
                   <EmptySpace min="0" pref="26" max="32767" attributes="0"/>
                   <Group type="103" groupAlignment="0" attributes="0">
-                      <Group type="102" attributes="0">
-                          <EmptySpace min="174" pref="174" max="-2" attributes="0"/>
-                          <Component id="jLabel2" min="-2" pref="426" max="-2" attributes="0"/>
-                      </Group>
-                      <Group type="102" attributes="0">
-                          <Component id="btnBack1" min="-2" max="-2" attributes="0"/>
-                          <EmptySpace min="551" pref="551" max="-2" attributes="0"/>
-                          <Component id="btnRefresh1" min="-2" pref="69" max="-2" attributes="0"/>
-                      </Group>
                       <Component id="jScrollPane2" min="-2" pref="690" max="-2" attributes="0"/>
                       <Group type="102" attributes="0">
                           <EmptySpace min="2" pref="2" max="-2" attributes="0"/>
@@ -121,35 +123,36 @@
                           <Component id="btnDeleteSupplier" min="-2" pref="165" max="-2" attributes="0"/>
                       </Group>
                   </Group>
-                  <EmptySpace min="0" pref="26" max="32767" attributes="0"/>
+                  <EmptySpace min="0" pref="49" max="32767" attributes="0"/>
               </Group>
           </Group>
       </Group>
     </DimensionLayout>
     <DimensionLayout dim="1">
       <Group type="103" groupAlignment="0" attributes="0">
-          <EmptySpace min="0" pref="336" max="32767" attributes="0"/>
+          <Group type="102" alignment="0" attributes="0">
+              <EmptySpace min="-2" pref="16" max="-2" attributes="0"/>
+              <Component id="btnRefresh1" min="-2" max="-2" attributes="0"/>
+              <EmptySpace min="-2" pref="4" max="-2" attributes="0"/>
+              <Component id="jLabel2" min="-2" max="-2" attributes="0"/>
+              <EmptySpace max="32767" attributes="0"/>
+          </Group>
+          <Group type="102" alignment="1" attributes="0">
+              <EmptySpace pref="49" max="32767" attributes="0"/>
+              <Component id="btnBack1" min="-2" pref="42" max="-2" attributes="0"/>
+              <EmptySpace min="-2" pref="290" max="-2" attributes="0"/>
+          </Group>
           <Group type="103" rootIndex="1" groupAlignment="0" attributes="0">
               <Group type="102" attributes="0">
-                  <EmptySpace min="0" pref="21" max="32767" attributes="0"/>
-                  <Component id="jLabel2" min="-2" max="-2" attributes="0"/>
-                  <EmptySpace min="20" pref="20" max="-2" attributes="0"/>
-                  <Group type="103" groupAlignment="0" attributes="0">
-                      <Component id="btnBack1" min="-2" max="-2" attributes="0"/>
-                      <Group type="102" attributes="0">
-                          <EmptySpace min="4" pref="4" max="-2" attributes="0"/>
-                          <Component id="btnRefresh1" min="-2" max="-2" attributes="0"/>
-                      </Group>
-                  </Group>
-                  <EmptySpace min="14" pref="14" max="-2" attributes="0"/>
+                  <EmptySpace pref="150" max="32767" attributes="0"/>
                   <Component id="jScrollPane2" min="-2" pref="132" max="-2" attributes="0"/>
                   <EmptySpace min="31" pref="31" max="-2" attributes="0"/>
-                  <Group type="103" groupAlignment="0" attributes="0">
-                      <Component id="btnAddSupplier" min="-2" max="-2" attributes="0"/>
-                      <Component id="btnUpdateSupplier" min="-2" max="-2" attributes="0"/>
-                      <Component id="btnDeleteSupplier" min="-2" max="-2" attributes="0"/>
+                  <Group type="103" groupAlignment="0" max="-2" attributes="0">
+                      <Component id="btnDeleteSupplier" pref="49" max="32767" attributes="0"/>
+                      <Component id="btnUpdateSupplier" alignment="0" max="32767" attributes="0"/>
+                      <Component id="btnAddSupplier" alignment="0" max="32767" attributes="0"/>
                   </Group>
-                  <EmptySpace min="0" pref="21" max="32767" attributes="0"/>
+                  <EmptySpace min="0" pref="19" max="32767" attributes="0"/>
               </Group>
           </Group>
       </Group>
@@ -158,6 +161,12 @@
   <SubComponents>
     <Component class="javax.swing.JButton" name="btnBack1">
       <Properties>
+        <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
+          <Color blue="ff" green="ff" red="ff" type="rgb"/>
+        </Property>
+        <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
+          <Font name="Lucida Grande" size="13" style="1"/>
+        </Property>
         <Property name="text" type="java.lang.String" value="&lt;&lt;Back"/>
       </Properties>
       <Events>
@@ -168,9 +177,6 @@
       <Properties>
         <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
           <Font name="Optima" size="36" style="1"/>
-        </Property>
-        <Property name="foreground" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
-          <Color blue="cc" green="cc" red="cc" type="rgb"/>
         </Property>
         <Property name="text" type="java.lang.String" value="Manage Supplier Details"/>
       </Properties>
@@ -184,8 +190,11 @@
       <SubComponents>
         <Component class="javax.swing.JTable" name="tblSupplier">
           <Properties>
+            <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
+              <Color blue="cc" green="cc" red="cc" type="rgb"/>
+            </Property>
             <Property name="model" type="javax.swing.table.TableModel" editor="org.netbeans.modules.form.editors2.TableModelEditor">
-              <Table columnCount="3" rowCount="4">
+              <Table columnCount="3" rowCount="6">
                 <Column editable="false" title="Supplier Name" type="java.lang.Object"/>
                 <Column editable="false" title="Address" type="java.lang.Object"/>
                 <Column editable="false" title="Mobile Number" type="java.lang.Object"/>
@@ -219,6 +228,12 @@
     </Container>
     <Component class="javax.swing.JButton" name="btnAddSupplier">
       <Properties>
+        <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
+          <Color blue="ff" green="ff" red="ff" type="rgb"/>
+        </Property>
+        <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
+          <Font name="Lucida Grande" size="14" style="1"/>
+        </Property>
         <Property name="text" type="java.lang.String" value="Add Supplier"/>
       </Properties>
       <Events>
@@ -227,6 +242,12 @@
     </Component>
     <Component class="javax.swing.JButton" name="btnUpdateSupplier">
       <Properties>
+        <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
+          <Color blue="ff" green="ff" red="ff" type="rgb"/>
+        </Property>
+        <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
+          <Font name="Lucida Grande" size="14" style="1"/>
+        </Property>
         <Property name="text" type="java.lang.String" value="Update Supplier"/>
       </Properties>
       <Events>
@@ -235,6 +256,12 @@
     </Component>
     <Component class="javax.swing.JButton" name="btnDeleteSupplier">
       <Properties>
+        <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
+          <Color blue="ff" green="ff" red="ff" type="rgb"/>
+        </Property>
+        <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
+          <Font name="Lucida Grande" size="14" style="1"/>
+        </Property>
         <Property name="text" type="java.lang.String" value="Delete Supplier"/>
       </Properties>
       <Events>
@@ -243,6 +270,9 @@
     </Component>
     <Component class="javax.swing.JButton" name="btnRefresh1">
       <Properties>
+        <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
+          <Color blue="99" green="ff" red="99" type="rgb"/>
+        </Property>
         <Property name="text" type="java.lang.String" value="Refresh"/>
       </Properties>
       <Events>

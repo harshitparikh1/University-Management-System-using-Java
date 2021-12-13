@@ -197,7 +197,7 @@ public class RestaurantInventoryJPanel extends javax.swing.JPanel {
         String itemName = txtItemName.getText();
         
         if(itemName.isEmpty()){
-            JOptionPane.showMessageDialog(null, "Please select a item to donate. :) ");
+            JOptionPane.showMessageDialog(null, "Please s elect a item to donate. :) ");
             return;
         }
         else if(itemQuantity <= 0){

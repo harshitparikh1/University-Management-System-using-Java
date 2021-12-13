@@ -73,10 +73,15 @@ public class ManageOrderJPanel extends javax.swing.JPanel {
         jLabel1 = new javax.swing.JLabel();
         btnBack = new javax.swing.JButton();
 
-        setBackground(new java.awt.Color(102, 102, 102));
+        setBackground(new java.awt.Color(255, 204, 153));
+        setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
+        tblOrder.setBackground(new java.awt.Color(204, 204, 204));
         tblOrder.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
+                {null, null, null, null, null, null},
+                {null, null, null, null, null, null},
+                {null, null, null, null, null, null},
                 {null, null, null, null, null, null},
                 {null, null, null, null, null, null},
                 {null, null, null, null, null, null},
@@ -96,66 +101,42 @@ public class ManageOrderJPanel extends javax.swing.JPanel {
         });
         jScrollPane1.setViewportView(tblOrder);
 
+        add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(121, 171, 822, 131));
+
+        btnCompleted.setBackground(new java.awt.Color(255, 255, 255));
+        btnCompleted.setFont(new java.awt.Font("Lucida Grande", 1, 18)); // NOI18N
         btnCompleted.setText("Completed");
         btnCompleted.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnCompletedActionPerformed(evt);
             }
         });
+        add(btnCompleted, new org.netbeans.lib.awtextra.AbsoluteConstraints(585, 369, -1, 54));
 
+        btnAccepted.setBackground(new java.awt.Color(255, 255, 255));
+        btnAccepted.setFont(new java.awt.Font("Lucida Grande", 1, 18)); // NOI18N
         btnAccepted.setText("Accepted");
         btnAccepted.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnAcceptedActionPerformed(evt);
             }
         });
+        add(btnAccepted, new org.netbeans.lib.awtextra.AbsoluteConstraints(246, 367, 146, 58));
 
         jLabel1.setBackground(new java.awt.Color(0, 102, 102));
-        jLabel1.setFont(new java.awt.Font("Optima", 1, 36)); // NOI18N
-        jLabel1.setForeground(new java.awt.Color(204, 204, 204));
+        jLabel1.setFont(new java.awt.Font("Optima", 1, 48)); // NOI18N
         jLabel1.setText("Manage Orders");
+        add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(377, 24, -1, -1));
 
+        btnBack.setBackground(new java.awt.Color(255, 255, 255));
+        btnBack.setFont(new java.awt.Font("Lucida Grande", 1, 13)); // NOI18N
         btnBack.setText("<Back");
         btnBack.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnBackActionPerformed(evt);
             }
         });
-
-        javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
-        this.setLayout(layout);
-        layout.setHorizontalGroup(
-            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
-                .addGap(35, 35, 35)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                    .addGroup(layout.createSequentialGroup()
-                        .addComponent(btnAccepted)
-                        .addGap(37, 37, 37)
-                        .addComponent(btnCompleted))
-                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                        .addGroup(layout.createSequentialGroup()
-                            .addComponent(btnBack, javax.swing.GroupLayout.PREFERRED_SIZE, 97, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addGap(194, 194, 194)
-                            .addComponent(jLabel1))
-                        .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 822, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addContainerGap(103, Short.MAX_VALUE))
-        );
-        layout.setVerticalGroup(
-            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
-                .addGap(67, 67, 67)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(btnBack)
-                    .addComponent(jLabel1))
-                .addGap(32, 32, 32)
-                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 131, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(30, 30, 30)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(btnCompleted)
-                    .addComponent(btnAccepted))
-                .addContainerGap(247, Short.MAX_VALUE))
-        );
+        add(btnBack, new org.netbeans.lib.awtextra.AbsoluteConstraints(16, 15, 120, 54));
     }// </editor-fold>//GEN-END:initComponents
 
     private void btnCompletedActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCompletedActionPerformed

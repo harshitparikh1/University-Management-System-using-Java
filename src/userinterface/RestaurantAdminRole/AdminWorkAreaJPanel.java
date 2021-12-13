@@ -93,97 +93,101 @@ public class AdminWorkAreaJPanel extends javax.swing.JPanel {
         manageTables = new javax.swing.JButton();
         manageInventory = new javax.swing.JButton();
         manageDonation = new javax.swing.JButton();
-        manageDonation1 = new javax.swing.JButton();
 
-        setBackground(new java.awt.Color(102, 102, 102));
+        setBackground(new java.awt.Color(255, 204, 153));
         setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         jLabel1.setFont(new java.awt.Font("Optima", 1, 24)); // NOI18N
-        jLabel1.setForeground(new java.awt.Color(204, 204, 204));
         jLabel1.setText("My Work Area - Adminstrative Role");
         add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(80, 40, 440, 30));
 
+        userJButton.setBackground(new java.awt.Color(255, 255, 255));
+        userJButton.setFont(new java.awt.Font("Lucida Grande", 1, 14)); // NOI18N
         userJButton.setText("Manage Restaurant Info");
         userJButton.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 userJButtonActionPerformed(evt);
             }
         });
-        add(userJButton, new org.netbeans.lib.awtextra.AbsoluteConstraints(200, 220, 230, -1));
+        add(userJButton, new org.netbeans.lib.awtextra.AbsoluteConstraints(200, 260, 260, 50));
 
+        manageEmployeeJButton.setBackground(new java.awt.Color(255, 255, 255));
+        manageEmployeeJButton.setFont(new java.awt.Font("Lucida Grande", 1, 14)); // NOI18N
         manageEmployeeJButton.setText("Manage Menu");
         manageEmployeeJButton.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 manageEmployeeJButtonActionPerformed(evt);
             }
         });
-        add(manageEmployeeJButton, new org.netbeans.lib.awtextra.AbsoluteConstraints(200, 180, 230, -1));
+        add(manageEmployeeJButton, new org.netbeans.lib.awtextra.AbsoluteConstraints(200, 200, 260, 50));
 
+        manageOrganizationJButton.setBackground(new java.awt.Color(255, 255, 255));
+        manageOrganizationJButton.setFont(new java.awt.Font("Lucida Grande", 1, 14)); // NOI18N
         manageOrganizationJButton.setText("Manage Orders");
         manageOrganizationJButton.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 manageOrganizationJButtonActionPerformed(evt);
             }
         });
-        add(manageOrganizationJButton, new org.netbeans.lib.awtextra.AbsoluteConstraints(200, 140, 230, -1));
+        add(manageOrganizationJButton, new org.netbeans.lib.awtextra.AbsoluteConstraints(200, 140, 260, 50));
 
         enterpriseLabel.setFont(new java.awt.Font("Optima", 1, 18)); // NOI18N
-        enterpriseLabel.setForeground(new java.awt.Color(204, 204, 204));
         enterpriseLabel.setText("Restaurant Name:");
         add(enterpriseLabel, new org.netbeans.lib.awtextra.AbsoluteConstraints(80, 90, 160, 30));
 
         valueLabel.setFont(new java.awt.Font("Lucida Grande", 0, 14)); // NOI18N
-        valueLabel.setForeground(new java.awt.Color(204, 204, 204));
         valueLabel.setText("<value>");
         add(valueLabel, new org.netbeans.lib.awtextra.AbsoluteConstraints(250, 90, 210, 30));
 
+        manageServers.setBackground(new java.awt.Color(255, 255, 255));
+        manageServers.setFont(new java.awt.Font("Lucida Grande", 1, 14)); // NOI18N
         manageServers.setText("Manage Servers");
         manageServers.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 manageServersActionPerformed(evt);
             }
         });
-        add(manageServers, new org.netbeans.lib.awtextra.AbsoluteConstraints(200, 260, 230, -1));
+        add(manageServers, new org.netbeans.lib.awtextra.AbsoluteConstraints(200, 310, 260, 50));
 
+        manageHeadChef.setBackground(new java.awt.Color(255, 255, 255));
+        manageHeadChef.setFont(new java.awt.Font("Lucida Grande", 1, 14)); // NOI18N
         manageHeadChef.setText("Manage Head Chef");
         manageHeadChef.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 manageHeadChefActionPerformed(evt);
             }
         });
-        add(manageHeadChef, new org.netbeans.lib.awtextra.AbsoluteConstraints(200, 340, 230, -1));
+        add(manageHeadChef, new org.netbeans.lib.awtextra.AbsoluteConstraints(200, 410, 260, 50));
 
+        manageTables.setBackground(new java.awt.Color(255, 255, 255));
+        manageTables.setFont(new java.awt.Font("Lucida Grande", 1, 14)); // NOI18N
         manageTables.setText("Manage Tables");
         manageTables.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 manageTablesActionPerformed(evt);
             }
         });
-        add(manageTables, new org.netbeans.lib.awtextra.AbsoluteConstraints(200, 300, 230, -1));
+        add(manageTables, new org.netbeans.lib.awtextra.AbsoluteConstraints(200, 360, 260, 50));
 
+        manageInventory.setBackground(new java.awt.Color(255, 255, 255));
+        manageInventory.setFont(new java.awt.Font("Lucida Grande", 1, 14)); // NOI18N
         manageInventory.setText("Manage Inventory");
         manageInventory.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 manageInventoryActionPerformed(evt);
             }
         });
-        add(manageInventory, new org.netbeans.lib.awtextra.AbsoluteConstraints(200, 380, 230, -1));
+        add(manageInventory, new org.netbeans.lib.awtextra.AbsoluteConstraints(200, 460, 260, 50));
 
+        manageDonation.setBackground(new java.awt.Color(255, 255, 255));
+        manageDonation.setFont(new java.awt.Font("Lucida Grande", 1, 14)); // NOI18N
         manageDonation.setText("Manage Donation");
         manageDonation.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 manageDonationActionPerformed(evt);
             }
         });
-        add(manageDonation, new org.netbeans.lib.awtextra.AbsoluteConstraints(200, 420, 230, -1));
-
-        manageDonation1.setText("Manage Donation");
-        manageDonation1.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                manageDonation1ActionPerformed(evt);
-            }
-        });
-        add(manageDonation1, new org.netbeans.lib.awtextra.AbsoluteConstraints(200, 420, 230, -1));
+        add(manageDonation, new org.netbeans.lib.awtextra.AbsoluteConstraints(200, 520, 260, 50));
     }// </editor-fold>//GEN-END:initComponents
 
     private void userJButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_userJButtonActionPerformed
@@ -248,17 +252,12 @@ public class AdminWorkAreaJPanel extends javax.swing.JPanel {
         CardLayout layout = (CardLayout) userProcessContainer.getLayout();
         layout.next(userProcessContainer);
     }//GEN-LAST:event_manageDonationActionPerformed
-
-    private void manageDonation1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_manageDonation1ActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_manageDonation1ActionPerformed
     
     
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JLabel enterpriseLabel;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JButton manageDonation;
-    private javax.swing.JButton manageDonation1;
     private javax.swing.JButton manageEmployeeJButton;
     private javax.swing.JButton manageHeadChef;
     private javax.swing.JButton manageInventory;

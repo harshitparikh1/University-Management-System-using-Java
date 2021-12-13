@@ -100,24 +100,28 @@ public class ManageDonationJPanel extends javax.swing.JPanel {
         txtQty = new javax.swing.JTextField();
         btnMenuShow1 = new javax.swing.JButton();
 
-        setBackground(new java.awt.Color(102, 102, 102));
+        setBackground(new java.awt.Color(255, 204, 153));
+        setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
+        enterpriseLabel.setBackground(new java.awt.Color(0, 0, 0));
         enterpriseLabel.setFont(new java.awt.Font("Optima", 1, 18)); // NOI18N
-        enterpriseLabel.setForeground(new java.awt.Color(204, 204, 204));
         enterpriseLabel.setText("Restaurant Name:");
+        add(enterpriseLabel, new org.netbeans.lib.awtextra.AbsoluteConstraints(38, 61, 160, 30));
 
+        valueLabel.setBackground(new java.awt.Color(255, 204, 153));
         valueLabel.setFont(new java.awt.Font("Lucida Grande", 0, 14)); // NOI18N
-        valueLabel.setForeground(new java.awt.Color(204, 204, 204));
         valueLabel.setText("<value>");
+        add(valueLabel, new org.netbeans.lib.awtextra.AbsoluteConstraints(204, 61, 210, 30));
 
+        jLabel1.setBackground(new java.awt.Color(255, 204, 153));
         jLabel1.setFont(new java.awt.Font("Optima", 1, 36)); // NOI18N
-        jLabel1.setForeground(new java.awt.Color(204, 204, 204));
         jLabel1.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         jLabel1.setText("Manage Donation");
+        add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 650, -1));
 
-        enterpriseLabel1.setFont(new java.awt.Font("Optima", 0, 14)); // NOI18N
-        enterpriseLabel1.setForeground(new java.awt.Color(204, 204, 204));
+        enterpriseLabel1.setFont(new java.awt.Font("Optima", 1, 14)); // NOI18N
         enterpriseLabel1.setText("Select who to donate: ");
+        add(enterpriseLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(38, 103, 154, 30));
 
         boxNgo.setFont(new java.awt.Font("Optima", 0, 14)); // NOI18N
         boxNgo.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
@@ -126,9 +130,16 @@ public class ManageDonationJPanel extends javax.swing.JPanel {
                 boxNgoActionPerformed(evt);
             }
         });
+        add(boxNgo, new org.netbeans.lib.awtextra.AbsoluteConstraints(198, 106, 214, -1));
 
+        tblItem.setBackground(new java.awt.Color(204, 204, 204));
         tblItem.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
+                {null},
+                {null},
+                {null},
+                {null},
+                {null},
                 {null},
                 {null},
                 {null},
@@ -153,19 +164,24 @@ public class ManageDonationJPanel extends javax.swing.JPanel {
         });
         jScrollPane2.setViewportView(tblItem);
 
+        add(jScrollPane2, new org.netbeans.lib.awtextra.AbsoluteConstraints(38, 159, 525, 170));
+
         lblModelName.setBackground(new java.awt.Color(255, 255, 255));
-        lblModelName.setForeground(new java.awt.Color(255, 255, 255));
+        lblModelName.setFont(new java.awt.Font("Lucida Grande", 1, 14)); // NOI18N
         lblModelName.setText("Item Name");
+        add(lblModelName, new org.netbeans.lib.awtextra.AbsoluteConstraints(68, 347, 86, 20));
 
         txtItemName.addKeyListener(new java.awt.event.KeyAdapter() {
             public void keyReleased(java.awt.event.KeyEvent evt) {
                 txtItemNameKeyReleased(evt);
             }
         });
+        add(txtItemName, new org.netbeans.lib.awtextra.AbsoluteConstraints(172, 347, 120, -1));
 
         lblManufacturer.setBackground(new java.awt.Color(255, 255, 255));
-        lblManufacturer.setForeground(new java.awt.Color(255, 255, 255));
+        lblManufacturer.setFont(new java.awt.Font("Lucida Grande", 1, 14)); // NOI18N
         lblManufacturer.setText("Quantity");
+        add(lblManufacturer, new org.netbeans.lib.awtextra.AbsoluteConstraints(68, 389, 84, -1));
 
         txtQty.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -177,78 +193,17 @@ public class ManageDonationJPanel extends javax.swing.JPanel {
                 txtQtyKeyReleased(evt);
             }
         });
+        add(txtQty, new org.netbeans.lib.awtextra.AbsoluteConstraints(170, 385, 122, -1));
 
+        btnMenuShow1.setBackground(new java.awt.Color(255, 255, 255));
+        btnMenuShow1.setFont(new java.awt.Font("Lucida Grande", 1, 14)); // NOI18N
         btnMenuShow1.setText("Donate");
         btnMenuShow1.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnMenuShow1ActionPerformed(evt);
             }
         });
-
-        javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
-        this.setLayout(layout);
-        layout.setHorizontalGroup(
-            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jLabel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-            .addGroup(layout.createSequentialGroup()
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(layout.createSequentialGroup()
-                        .addGap(68, 68, 68)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
-                            .addGroup(layout.createSequentialGroup()
-                                .addComponent(lblManufacturer, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                .addGap(18, 18, 18)
-                                .addComponent(txtQty, javax.swing.GroupLayout.PREFERRED_SIZE, 122, javax.swing.GroupLayout.PREFERRED_SIZE))
-                            .addGroup(layout.createSequentialGroup()
-                                .addComponent(lblModelName, javax.swing.GroupLayout.PREFERRED_SIZE, 86, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addGap(18, 18, 18)
-                                .addComponent(txtItemName, javax.swing.GroupLayout.PREFERRED_SIZE, 120, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                        .addGap(54, 54, 54)
-                        .addComponent(btnMenuShow1))
-                    .addGroup(layout.createSequentialGroup()
-                        .addGap(38, 38, 38)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 525, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addGroup(layout.createSequentialGroup()
-                                .addComponent(enterpriseLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 154, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(boxNgo, javax.swing.GroupLayout.PREFERRED_SIZE, 214, javax.swing.GroupLayout.PREFERRED_SIZE))
-                            .addGroup(layout.createSequentialGroup()
-                                .addComponent(enterpriseLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 160, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addGap(10, 10, 10)
-                                .addComponent(valueLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 210, javax.swing.GroupLayout.PREFERRED_SIZE)))))
-                .addContainerGap(87, Short.MAX_VALUE))
-        );
-        layout.setVerticalGroup(
-            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
-                .addComponent(jLabel1)
-                .addGap(16, 16, 16)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(enterpriseLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(valueLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(boxNgo, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(enterpriseLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(26, 26, 26)
-                .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 170, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(layout.createSequentialGroup()
-                        .addGap(18, 18, 18)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(txtItemName, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(lblModelName, javax.swing.GroupLayout.PREFERRED_SIZE, 20, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(txtQty)
-                            .addComponent(lblManufacturer, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                        .addGap(23, 23, 23))
-                    .addGroup(layout.createSequentialGroup()
-                        .addGap(31, 31, 31)
-                        .addComponent(btnMenuShow1)
-                        .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))))
-        );
+        add(btnMenuShow1, new org.netbeans.lib.awtextra.AbsoluteConstraints(397, 347, 110, 51));
     }// </editor-fold>//GEN-END:initComponents
 
     private void boxNgoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_boxNgoActionPerformed

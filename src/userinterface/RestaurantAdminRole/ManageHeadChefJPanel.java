@@ -99,11 +99,15 @@ public class ManageHeadChefJPanel extends javax.swing.JPanel {
             }
         });
 
-        setBackground(new java.awt.Color(102, 102, 102));
+        setBackground(new java.awt.Color(255, 204, 153));
         setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
+        tblHeadchef.setBackground(new java.awt.Color(204, 204, 204));
         tblHeadchef.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
+                {null, null, null, null, null, null},
+                {null, null, null, null, null, null},
+                {null, null, null, null, null, null},
                 {null, null, null, null, null, null},
                 {null, null, null, null, null, null},
                 {null, null, null, null, null, null},
@@ -126,50 +130,58 @@ public class ManageHeadChefJPanel extends javax.swing.JPanel {
         add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 110, 637, 132));
 
         jLabel1.setFont(new java.awt.Font("Optima", 1, 36)); // NOI18N
-        jLabel1.setForeground(new java.awt.Color(204, 204, 204));
         jLabel1.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         jLabel1.setText("Manage Head Chef");
-        add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 680, -1));
+        add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 40, 680, -1));
 
+        createHeadChef.setBackground(new java.awt.Color(255, 255, 255));
+        createHeadChef.setFont(new java.awt.Font("Lucida Grande", 1, 14)); // NOI18N
         createHeadChef.setText("Create Head Chef");
         createHeadChef.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 createHeadChefActionPerformed(evt);
             }
         });
-        add(createHeadChef, new org.netbeans.lib.awtextra.AbsoluteConstraints(110, 270, -1, -1));
+        add(createHeadChef, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 270, 170, 50));
 
+        modifyHeadChef.setBackground(new java.awt.Color(255, 255, 255));
+        modifyHeadChef.setFont(new java.awt.Font("Lucida Grande", 1, 14)); // NOI18N
         modifyHeadChef.setText("Modify HeadChef");
         modifyHeadChef.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 modifyHeadChefActionPerformed(evt);
             }
         });
-        add(modifyHeadChef, new org.netbeans.lib.awtextra.AbsoluteConstraints(300, 270, -1, -1));
+        add(modifyHeadChef, new org.netbeans.lib.awtextra.AbsoluteConstraints(250, 270, 180, 50));
 
+        deleteHeadChef.setBackground(new java.awt.Color(255, 255, 255));
+        deleteHeadChef.setFont(new java.awt.Font("Lucida Grande", 1, 14)); // NOI18N
         deleteHeadChef.setText("Delete Head Chef");
         deleteHeadChef.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 deleteHeadChefActionPerformed(evt);
             }
         });
-        add(deleteHeadChef, new org.netbeans.lib.awtextra.AbsoluteConstraints(480, 270, -1, -1));
+        add(deleteHeadChef, new org.netbeans.lib.awtextra.AbsoluteConstraints(480, 270, 170, 50));
 
+        btnBack.setBackground(new java.awt.Color(255, 255, 255));
+        btnBack.setFont(new java.awt.Font("Lucida Grande", 1, 13)); // NOI18N
         btnBack.setText("<Back");
         btnBack.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnBackActionPerformed(evt);
             }
         });
-        add(btnBack, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 60, -1, -1));
+        add(btnBack, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 10, 110, 40));
 
+        refreshJButton1.setBackground(new java.awt.Color(153, 255, 153));
         refreshJButton1.setText("Refresh");
         refreshJButton1.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 refreshJButton1ActionPerformed(evt);
             }
         });
-        add(refreshJButton1, new org.netbeans.lib.awtextra.AbsoluteConstraints(570, 80, -1, -1));
+        add(refreshJButton1, new org.netbeans.lib.awtextra.AbsoluteConstraints(570, 10, -1, -1));
     }// </editor-fold>//GEN-END:initComponents
 
     private void createHeadChefActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_createHeadChefActionPerformed

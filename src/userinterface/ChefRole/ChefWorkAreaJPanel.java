@@ -75,6 +75,8 @@ public class ChefWorkAreaJPanel extends javax.swing.JPanel {
         Processed = new javax.swing.JButton();
         jLabel1 = new javax.swing.JLabel();
 
+        setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+
         ChefWorkAreaTable.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
 
@@ -93,12 +95,15 @@ public class ChefWorkAreaJPanel extends javax.swing.JPanel {
         });
         jScrollPane1.setViewportView(ChefWorkAreaTable);
 
+        add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(23, 101, 565, 165));
+
         AssignDishes.setText("Assign to Self");
         AssignDishes.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 AssignDishesActionPerformed(evt);
             }
         });
+        add(AssignDishes, new org.netbeans.lib.awtextra.AbsoluteConstraints(57, 302, -1, -1));
 
         Processed.setText("Processed");
         Processed.addActionListener(new java.awt.event.ActionListener() {
@@ -106,42 +111,11 @@ public class ChefWorkAreaJPanel extends javax.swing.JPanel {
                 ProcessedActionPerformed(evt);
             }
         });
+        add(Processed, new org.netbeans.lib.awtextra.AbsoluteConstraints(359, 302, -1, -1));
 
         jLabel1.setFont(new java.awt.Font("Lucida Grande", 1, 36)); // NOI18N
         jLabel1.setText("Assign Dishes");
-
-        javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
-        this.setLayout(layout);
-        layout.setHorizontalGroup(
-            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
-                .addGap(57, 57, 57)
-                .addComponent(AssignDishes)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(Processed)
-                .addGap(163, 163, 163))
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(jLabel1)
-                .addGap(169, 169, 169))
-            .addGroup(layout.createSequentialGroup()
-                .addGap(23, 23, 23)
-                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 565, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(25, Short.MAX_VALUE))
-        );
-        layout.setVerticalGroup(
-            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
-                .addGap(27, 27, 27)
-                .addComponent(jLabel1)
-                .addGap(27, 27, 27)
-                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 165, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(36, 36, 36)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(AssignDishes)
-                    .addComponent(Processed))
-                .addContainerGap(93, Short.MAX_VALUE))
-        );
+        add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(197, 27, -1, -1));
     }// </editor-fold>//GEN-END:initComponents
 
     private void AssignDishesActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_AssignDishesActionPerformed

@@ -65,5 +65,8 @@ public class SupplierOrders{
         this.status = status;
     }
     
-    
+    @Override
+    public String toString() {
+        return restaurantName;
+    }
 }

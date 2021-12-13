@@ -84,6 +84,7 @@ public class CustomerWorkAreaJPanel extends javax.swing.JPanel {
         jButton2 = new javax.swing.JButton();
         txtDo = new javax.swing.JLabel();
 
+        setBackground(new java.awt.Color(255, 204, 153));
         setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         customerName.setFont(new java.awt.Font("Tahoma", 0, 36)); // NOI18N
@@ -91,21 +92,25 @@ public class CustomerWorkAreaJPanel extends javax.swing.JPanel {
         customerName.setText("Hello <value>");
         add(customerName, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 430, 75));
 
+        jButton1.setBackground(new java.awt.Color(255, 255, 255));
+        jButton1.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
         jButton1.setText("Dine-in ?");
         jButton1.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jButton1ActionPerformed(evt);
             }
         });
-        add(jButton1, new org.netbeans.lib.awtextra.AbsoluteConstraints(100, 200, -1, -1));
+        add(jButton1, new org.netbeans.lib.awtextra.AbsoluteConstraints(100, 200, 100, 50));
 
+        jButton2.setBackground(new java.awt.Color(255, 255, 255));
+        jButton2.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
         jButton2.setText("Delivery?");
         jButton2.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jButton2ActionPerformed(evt);
             }
         });
-        add(jButton2, new org.netbeans.lib.awtextra.AbsoluteConstraints(250, 200, -1, -1));
+        add(jButton2, new org.netbeans.lib.awtextra.AbsoluteConstraints(250, 200, 110, 50));
 
         txtDo.setFont(new java.awt.Font("Tahoma", 0, 24)); // NOI18N
         txtDo.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);

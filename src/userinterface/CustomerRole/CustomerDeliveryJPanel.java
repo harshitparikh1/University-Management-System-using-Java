@@ -73,11 +73,16 @@ public class CustomerDeliveryJPanel extends javax.swing.JPanel {
                 while(itrMenu.hasNext()){
                     Map.Entry<String, Integer> entry = itrMenu.next();
                     if(restaurantInventory.get(entry.getKey()) > entry.getValue()){
-                       Object [] row = new Object[2];
+                        
+                        Object [] row = new Object[2];
                         row[0] = menu;
                         row[1] = menu.getPrice();
-                        dTableModel.addRow(row); 
+                        dTableModel.addRow(row);
+                        break;
                     }
+                    
+                    
+                    
                 }
                 
                 

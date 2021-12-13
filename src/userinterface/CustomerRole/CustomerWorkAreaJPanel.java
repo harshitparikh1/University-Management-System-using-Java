@@ -18,6 +18,7 @@ import Business.Supplier.SupplierDirectory;
 import Business.UserAccount.UserAccount;
 import userinterface.CustomerRole.CustomerDineInJPanel;
 import java.awt.CardLayout;
+import javax.swing.JOptionPane;
 import javax.swing.JPanel;
 
 /**
@@ -83,9 +84,12 @@ public class CustomerWorkAreaJPanel extends javax.swing.JPanel {
         jButton2 = new javax.swing.JButton();
         txtDo = new javax.swing.JLabel();
 
+        setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+
         customerName.setFont(new java.awt.Font("Tahoma", 0, 36)); // NOI18N
         customerName.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         customerName.setText("Hello <value>");
+        add(customerName, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 430, 75));
 
         jButton1.setText("Dine-in ?");
         jButton1.addActionListener(new java.awt.event.ActionListener() {
@@ -93,6 +97,7 @@ public class CustomerWorkAreaJPanel extends javax.swing.JPanel {
                 jButton1ActionPerformed(evt);
             }
         });
+        add(jButton1, new org.netbeans.lib.awtextra.AbsoluteConstraints(100, 200, -1, -1));
 
         jButton2.setText("Delivery?");
         jButton2.addActionListener(new java.awt.event.ActionListener() {
@@ -100,48 +105,26 @@ public class CustomerWorkAreaJPanel extends javax.swing.JPanel {
                 jButton2ActionPerformed(evt);
             }
         });
+        add(jButton2, new org.netbeans.lib.awtextra.AbsoluteConstraints(250, 200, -1, -1));
 
         txtDo.setFont(new java.awt.Font("Tahoma", 0, 24)); // NOI18N
         txtDo.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         txtDo.setText("What would you like to do today?");
-
-        javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
-        this.setLayout(layout);
-        layout.setHorizontalGroup(
-            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(layout.createSequentialGroup()
-                        .addGap(90, 90, 90)
-                        .addComponent(jButton1)
-                        .addGap(78, 78, 78)
-                        .addComponent(jButton2))
-                    .addComponent(customerName, javax.swing.GroupLayout.PREFERRED_SIZE, 430, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-            .addComponent(txtDo, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-        );
-        layout.setVerticalGroup(
-            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
-                .addComponent(customerName, javax.swing.GroupLayout.PREFERRED_SIZE, 75, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(txtDo, javax.swing.GroupLayout.PREFERRED_SIZE, 75, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jButton1)
-                    .addComponent(jButton2))
-                .addGap(18, 18, 18))
-        );
+        add(txtDo, new org.netbeans.lib.awtextra.AbsoluteConstraints(-20, 80, 570, 75));
     }// </editor-fold>//GEN-END:initComponents
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
-        CustomerDineInJPanel cdip = new CustomerDineInJPanel(userProcessContainer,account, ecoSystem, restaurantDirectory, restaurantTableDirectory);
-        userProcessContainer.add("CustomerDineInJPanel",cdip);
-        CardLayout layout = (CardLayout) userProcessContainer.getLayout();
-        layout.next(userProcessContainer);
+        JOptionPane.showMessageDialog(null,"Sorry, We are still working on this feature, Please get back to us in future update.");
+
+//        
+//        CustomerDineInJPanel cdip = new CustomerDineInJPanel(userProcessContainer,account, ecoSystem, restaurantDirectory, restaurantTableDirectory);
+//        userProcessContainer.add("CustomerDineInJPanel",cdip);
+//        CardLayout layout = (CardLayout) userProcessContainer.getLayout();
+//        layout.next(userProcessContainer);
     }//GEN-LAST:event_jButton1ActionPerformed
 
     private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
+        //JOptionPane.showMessageDialog(null,"Sorry, We are still working on this feature, Please get back to us in future update.");
         CustomerDeliveryJPanel cdelp = new CustomerDeliveryJPanel(userProcessContainer, account, ecoSystem, customerDirectory, restaurantDirectory, deliveryManDirectory, menuDirectory, orderDirectory);
         userProcessContainer.add("CustomerDeliveryJPanel",cdelp);
         CardLayout layout = (CardLayout) userProcessContainer.getLayout();

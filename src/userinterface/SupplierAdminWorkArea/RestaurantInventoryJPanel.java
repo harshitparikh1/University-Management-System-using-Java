@@ -9,6 +9,7 @@ import Business.EcoSystem;
 import Business.Restaurant.Restaurant;
 import Business.Supplier.Supplier;
 import Business.UserAccount.UserAccount;
+import java.awt.CardLayout;
 import java.util.HashMap;
 import java.util.Iterator;
 import java.util.Map;
@@ -67,6 +68,7 @@ public class RestaurantInventoryJPanel extends javax.swing.JPanel {
         txtItemName = new javax.swing.JTextField();
         txtItemQuantity = new javax.swing.JTextField();
         jButton1 = new javax.swing.JButton();
+        btnBack1 = new javax.swing.JButton();
 
         addComponentListener(new java.awt.event.ComponentAdapter() {
             public void componentHidden(java.awt.event.ComponentEvent evt) {
@@ -108,10 +110,10 @@ public class RestaurantInventoryJPanel extends javax.swing.JPanel {
         });
         jScrollPane2.setViewportView(tblSupplier);
 
-        add(jScrollPane2, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 65, 584, 110));
+        add(jScrollPane2, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 110, 584, 110));
 
         jLabel1.setText("Inventory");
-        add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(200, 20, -1, -1));
+        add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(270, 20, -1, -1));
 
         boxSupplier.setFont(new java.awt.Font("Optima", 0, 14)); // NOI18N
         boxSupplier.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
@@ -146,6 +148,14 @@ public class RestaurantInventoryJPanel extends javax.swing.JPanel {
             }
         });
         add(jButton1, new org.netbeans.lib.awtextra.AbsoluteConstraints(80, 440, -1, -1));
+
+        btnBack1.setText("<<Back");
+        btnBack1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnBack1ActionPerformed(evt);
+            }
+        });
+        add(btnBack1, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 70, -1, -1));
     }// </editor-fold>//GEN-END:initComponents
 
     private void tblSupplierMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_tblSupplierMouseClicked
@@ -159,6 +169,10 @@ public class RestaurantInventoryJPanel extends javax.swing.JPanel {
         }
 
         DefaultTableModel model = (DefaultTableModel) tblSupplier.getModel();
+        String selectedItem = (String)model.getValueAt(selectedRowIndex, 0);
+        
+        txtItemName.setText(selectedItem);
+
         //        Menu selectedItem = (Menu)model.getValueAt(selectedRowIndex, 0);
     }//GEN-LAST:event_tblSupplierMouseClicked
 
@@ -171,21 +185,55 @@ public class RestaurantInventoryJPanel extends javax.swing.JPanel {
     }//GEN-LAST:event_boxSupplierActionPerformed
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
-        String supplierName = boxSupplier.getSelectedItem().toString();
-        String restaurantName = account.getEmployee().getName();
+        
+        int itemQuantity = 0;
+        try {
+            itemQuantity = Integer.parseInt(txtItemQuantity.getText());
+        } catch (Exception e) {
+            JOptionPane.showMessageDialog(null, "Quantity must have 0-9 integers only");
+            return;
+        }
+        
         String itemName = txtItemName.getText();
-        int itemQuantity = Integer.parseInt(txtItemQuantity.getText());
-        String status = "Open";
-        ecoSystem.getSupplierOrderDirectory().newSupplierOrders(restaurantName, supplierName, itemName, itemQuantity, status);
+        
+        if(itemName.isEmpty()){
+            JOptionPane.showMessageDialog(null, "Please select a item to donate. :) ");
+            return;
+        }
+        else if(itemQuantity <= 0){
+            JOptionPane.showMessageDialog(null, "Please donate atleast 1 item :) ");
+            return;
+        }
+        else if(boxSupplier.getSelectedIndex() == 0){
+            JOptionPane.showMessageDialog(null, "Please select a supplier.");
+        }
+        else{
+            String supplierName = boxSupplier.getSelectedItem().toString();
+            String restaurantName = account.getEmployee().getName();
+
+            String status = "Open";
+            ecoSystem.getSupplierOrderDirectory().newSupplierOrders(restaurantName, supplierName, itemName, itemQuantity, status);
+            JOptionPane.showMessageDialog(null, "Sent the order to supplier.");
+        }
+        
+
     }//GEN-LAST:event_jButton1ActionPerformed
 
     private void txtItemNameActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtItemNameActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_txtItemNameActionPerformed
 
+    private void btnBack1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnBack1ActionPerformed
+        // TODO add your handling code here:
+        userProcessContainer.remove(this);
+        CardLayout layout = (CardLayout) userProcessContainer.getLayout();
+        layout.previous(userProcessContainer);
+    }//GEN-LAST:event_btnBack1ActionPerformed
+
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JComboBox<String> boxSupplier;
+    private javax.swing.JButton btnBack1;
     private javax.swing.JButton jButton1;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;

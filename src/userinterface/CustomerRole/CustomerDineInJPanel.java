@@ -95,7 +95,7 @@ public class CustomerDineInJPanel extends javax.swing.JPanel {
         jButton1 = new javax.swing.JButton();
         btnBack = new javax.swing.JButton();
 
-        setBackground(new java.awt.Color(102, 102, 102));
+        setBackground(new java.awt.Color(255, 204, 153));
         setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         boxRestaurant.setFont(new java.awt.Font("Optima", 0, 14)); // NOI18N
@@ -116,17 +116,14 @@ public class CustomerDineInJPanel extends javax.swing.JPanel {
         add(showTablesButton, new org.netbeans.lib.awtextra.AbsoluteConstraints(510, 90, -1, -1));
 
         enterpriseLabel.setFont(new java.awt.Font("Optima", 0, 14)); // NOI18N
-        enterpriseLabel.setForeground(new java.awt.Color(204, 204, 204));
         enterpriseLabel.setText("Select Resturant: ");
         add(enterpriseLabel, new org.netbeans.lib.awtextra.AbsoluteConstraints(140, 80, 154, 40));
 
         enterpriseLabel1.setFont(new java.awt.Font("Optima", 1, 18)); // NOI18N
-        enterpriseLabel1.setForeground(new java.awt.Color(204, 204, 204));
         enterpriseLabel1.setText("Customer :");
         add(enterpriseLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(11, 3, 127, 30));
 
         customerName.setFont(new java.awt.Font("Optima", 1, 18)); // NOI18N
-        customerName.setForeground(new java.awt.Color(204, 204, 204));
         customerName.setText("<value>");
         add(customerName, new org.netbeans.lib.awtextra.AbsoluteConstraints(144, 5, 158, 26));
 

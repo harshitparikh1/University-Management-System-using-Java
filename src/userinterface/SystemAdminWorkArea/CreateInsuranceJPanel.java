@@ -29,7 +29,11 @@ public class CreateInsuranceJPanel extends javax.swing.JPanel {
     /**
      * Creates new form CreateInsuranceJPanel
      */
-    public CreateInsuranceJPanel(JPanel userProcessContainer, EcoSystem ecoSystem, InsuranceDirectory insuranceDirectory) {
+    
+    public CreateInsuranceJPanel() {
+    }
+    
+    CreateInsuranceJPanel(JPanel userProcessContainer, EcoSystem ecoSystem, InsuranceDirectory insuranceDirectory) {
         initComponents();
         this.userProcessContainer = userProcessContainer;
         this.ecoSystem = ecoSystem;
@@ -126,8 +130,8 @@ public class CreateInsuranceJPanel extends javax.swing.JPanel {
         userProcessContainer.remove(this);
         Component[] componentArray = userProcessContainer.getComponents();
         Component component = componentArray[componentArray.length - 1];
-        ManageDonationJPanel mdjp = (ManageDonationJPanel) component;
-        mdjp.populateTable();
+        ManageInsuranceJPanel mijp = (ManageInsuranceJPanel) component;
+        mijp.populateTable();
         CardLayout layout = (CardLayout) userProcessContainer.getLayout();
         layout.previous(userProcessContainer);
     }//GEN-LAST:event_btnBackActionPerformed

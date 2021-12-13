@@ -5,6 +5,7 @@
  */
 package userinterface.SystemAdminWorkArea;
 
+import Business.Donation.Donation;
 import Business.EcoSystem;
 import Business.Insurance.Insurance;
 import Business.UserAccount.UserAccount;
@@ -14,6 +15,7 @@ import javax.swing.JPanel;
 
 import Business.Insurance.Insurance;
 import Business.Insurance.InsuranceDirectory;
+import javax.swing.table.DefaultTableModel;
 
 /**
  *
@@ -37,9 +39,18 @@ public class ManageInsuranceJPanel extends javax.swing.JPanel {
         this.userProcessContainer = userProcessContainer;
         this.account = account;
         this.ecoSystem =  ecoSystem;
-        
-        
-        
+    }
+    
+    public void populateTable() {
+        DefaultTableModel dtm = (DefaultTableModel) tblInsurance.getModel();
+        dtm.setRowCount(0);
+        for(Insurance insurance : ecoSystem.getInsuranceDirectory().getInsuranceDirectory()){
+            Object [] row = new Object[3];
+            row[0] = insurance;
+            row[1] = insurance.getAddress();
+            row[2] = insurance.getPhoneNumber();
+            dtm.addRow(row);
+        }
     }
 
     /**
@@ -60,16 +71,21 @@ public class ManageInsuranceJPanel extends javax.swing.JPanel {
         btnDelete = new javax.swing.JButton();
         btnRefresh = new javax.swing.JButton();
 
+        setBackground(new java.awt.Color(102, 102, 102));
+        setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+
         btnBack.setText("<<Back");
         btnBack.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnBackActionPerformed(evt);
             }
         });
+        add(btnBack, new org.netbeans.lib.awtextra.AbsoluteConstraints(48, 106, -1, -1));
 
         jLabel1.setFont(new java.awt.Font("Optima", 1, 36)); // NOI18N
         jLabel1.setForeground(new java.awt.Color(204, 204, 204));
         jLabel1.setText("Manage Insurance Details");
+        add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(222, 39, -1, -1));
 
         tblInsurance.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
@@ -79,7 +95,7 @@ public class ManageInsuranceJPanel extends javax.swing.JPanel {
                 {null, null, null}
             },
             new String [] {
-                "Donation NGO Name", "Address", "Mobile Number"
+                "Insurance Name", "Address", "Mobile Number"
             }
         ) {
             boolean[] canEdit = new boolean [] {
@@ -92,26 +108,31 @@ public class ManageInsuranceJPanel extends javax.swing.JPanel {
         });
         jScrollPane1.setViewportView(tblInsurance);
 
-        btnCreate.setText("Add Donation (NGO)");
+        add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(48, 147, 690, 132));
+
+        btnCreate.setText("Add Insurance");
         btnCreate.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnCreateActionPerformed(evt);
             }
         });
+        add(btnCreate, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 310, 165, -1));
 
-        btnModify.setText("Update NGO");
+        btnModify.setText("Update Insurance");
         btnModify.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnModifyActionPerformed(evt);
             }
         });
+        add(btnModify, new org.netbeans.lib.awtextra.AbsoluteConstraints(310, 310, 165, -1));
 
-        btnDelete.setText("Delete NGO");
+        btnDelete.setText("Delete Insurance");
         btnDelete.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnDeleteActionPerformed(evt);
             }
         });
+        add(btnDelete, new org.netbeans.lib.awtextra.AbsoluteConstraints(570, 310, 165, -1));
 
         btnRefresh.setText("Refresh");
         btnRefresh.addActionListener(new java.awt.event.ActionListener() {
@@ -119,56 +140,7 @@ public class ManageInsuranceJPanel extends javax.swing.JPanel {
                 btnRefreshActionPerformed(evt);
             }
         });
-
-        javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
-        this.setLayout(layout);
-        layout.setHorizontalGroup(
-            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 691, Short.MAX_VALUE)
-            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                .addGroup(layout.createSequentialGroup()
-                    .addGap(0, 0, Short.MAX_VALUE)
-                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                        .addGroup(layout.createSequentialGroup()
-                            .addComponent(btnBack)
-                            .addGap(551, 551, 551)
-                            .addComponent(btnRefresh, javax.swing.GroupLayout.PREFERRED_SIZE, 69, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 690, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGroup(layout.createSequentialGroup()
-                            .addGap(2, 2, 2)
-                            .addComponent(btnCreate, javax.swing.GroupLayout.PREFERRED_SIZE, 165, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addGap(95, 95, 95)
-                            .addComponent(btnModify, javax.swing.GroupLayout.PREFERRED_SIZE, 165, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addGap(95, 95, 95)
-                            .addComponent(btnDelete, javax.swing.GroupLayout.PREFERRED_SIZE, 165, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                    .addGap(0, 0, Short.MAX_VALUE))
-                .addGroup(layout.createSequentialGroup()
-                    .addGap(138, 138, 138)
-                    .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 496, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
-        );
-        layout.setVerticalGroup(
-            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 300, Short.MAX_VALUE)
-            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                .addGroup(layout.createSequentialGroup()
-                    .addGap(0, 0, Short.MAX_VALUE)
-                    .addComponent(jLabel1)
-                    .addGap(20, 20, 20)
-                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                        .addComponent(btnBack)
-                        .addGroup(layout.createSequentialGroup()
-                            .addGap(4, 4, 4)
-                            .addComponent(btnRefresh)))
-                    .addGap(14, 14, 14)
-                    .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 132, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addGap(31, 31, 31)
-                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                        .addComponent(btnCreate)
-                        .addComponent(btnModify)
-                        .addComponent(btnDelete))
-                    .addGap(0, 0, Short.MAX_VALUE)))
-        );
+        add(btnRefresh, new org.netbeans.lib.awtextra.AbsoluteConstraints(629, 110, 110, -1));
     }// </editor-fold>//GEN-END:initComponents
 
     private void btnBackActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnBackActionPerformed
@@ -181,7 +153,7 @@ public class ManageInsuranceJPanel extends javax.swing.JPanel {
     private void btnCreateActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCreateActionPerformed
         // TODO add your handling code here:
         CreateInsuranceJPanel createInsurance = new CreateInsuranceJPanel(userProcessContainer, ecoSystem, insuranceDirectory);
-        userProcessContainer.add("CreateDonationJPanel",createInsurance);
+        userProcessContainer.add("CreateInsuranceJPanel",createInsurance);
         CardLayout layout=(CardLayout)userProcessContainer.getLayout();
         layout.next(userProcessContainer);
     }//GEN-LAST:event_btnCreateActionPerformed
@@ -233,7 +205,4 @@ public class ManageInsuranceJPanel extends javax.swing.JPanel {
     private javax.swing.JTable tblInsurance;
     // End of variables declaration//GEN-END:variables
 
-    private void populateTable() {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
-    }
 }

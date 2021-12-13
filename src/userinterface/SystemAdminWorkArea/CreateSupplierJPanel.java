@@ -127,11 +127,11 @@ public class CreateSupplierJPanel extends javax.swing.JPanel {
 
     private void btnBackActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnBackActionPerformed
         // TODO add your handling code here:
-        userProcessContainer.remove(this);
-        Component[] componentArray = userProcessContainer.getComponents();
-        Component component = componentArray[componentArray.length - 1];
-        ManageDonationJPanel mdjp = (ManageDonationJPanel) component;
-        mdjp.populateTable();
+        userProcessContainer.remove(this); 
+        Component[] componentArray = userProcessContainer.getComponents(); 
+        Component component = componentArray[componentArray.length - 1]; 
+        ManageSupplierJPanel msjp = (ManageSupplierJPanel) component; 
+        msjp.populateTable(); 
         CardLayout layout = (CardLayout) userProcessContainer.getLayout();
         layout.previous(userProcessContainer);
     }//GEN-LAST:event_btnBackActionPerformed

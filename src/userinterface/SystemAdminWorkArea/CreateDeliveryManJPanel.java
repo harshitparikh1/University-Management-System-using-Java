@@ -9,6 +9,8 @@ import Business.Role.DeliverManRole;
 import Business.UserAccount.UserAccount;
 import java.awt.CardLayout;
 import java.awt.Component;
+import java.util.ArrayList;
+import java.util.Collections;
 import javax.swing.JOptionPane;
 import javax.swing.JPanel;
 
@@ -60,22 +62,28 @@ public class CreateDeliveryManJPanel extends javax.swing.JPanel {
         btnCreate = new javax.swing.JButton();
         jLabel10 = new javax.swing.JLabel();
         txtPassword = new javax.swing.JPasswordField();
+        btnAutofill = new javax.swing.JButton();
 
         setBackground(new java.awt.Color(102, 102, 102));
+        setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         jLabel8.setFont(new java.awt.Font("Optima", 0, 13)); // NOI18N
         jLabel8.setForeground(new java.awt.Color(204, 204, 204));
         jLabel8.setHorizontalAlignment(javax.swing.SwingConstants.RIGHT);
         jLabel8.setText("Username*:");
+        add(jLabel8, new org.netbeans.lib.awtextra.AbsoluteConstraints(186, 422, 121, -1));
+        add(txtUsername, new org.netbeans.lib.awtextra.AbsoluteConstraints(380, 422, 165, -1));
 
         jLabel9.setFont(new java.awt.Font("Optima", 0, 13)); // NOI18N
         jLabel9.setForeground(new java.awt.Color(204, 204, 204));
         jLabel9.setHorizontalAlignment(javax.swing.SwingConstants.RIGHT);
         jLabel9.setText("Password*:");
+        add(jLabel9, new org.netbeans.lib.awtextra.AbsoluteConstraints(186, 469, 121, -1));
 
         jLabel1.setFont(new java.awt.Font("Optima", 1, 36)); // NOI18N
         jLabel1.setForeground(new java.awt.Color(204, 204, 204));
         jLabel1.setText("Add New Delivery Man");
+        add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(242, 39, 435, -1));
 
         btnBack.setText("<Back");
         btnBack.addActionListener(new java.awt.event.ActionListener() {
@@ -83,35 +91,48 @@ public class CreateDeliveryManJPanel extends javax.swing.JPanel {
                 btnBackActionPerformed(evt);
             }
         });
+        add(btnBack, new org.netbeans.lib.awtextra.AbsoluteConstraints(57, 47, -1, -1));
 
         jLabel2.setForeground(new java.awt.Color(204, 204, 204));
         jLabel2.setHorizontalAlignment(javax.swing.SwingConstants.RIGHT);
         jLabel2.setText("First Name*:");
+        add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(147, 151, 160, -1));
+        add(txtFirstName, new org.netbeans.lib.awtextra.AbsoluteConstraints(380, 148, 165, -1));
 
         jLabel3.setFont(new java.awt.Font("Optima", 0, 13)); // NOI18N
         jLabel3.setForeground(new java.awt.Color(204, 204, 204));
         jLabel3.setHorizontalAlignment(javax.swing.SwingConstants.RIGHT);
         jLabel3.setText("Last Name*:");
+        add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(144, 192, 163, -1));
+        add(txtLastName, new org.netbeans.lib.awtextra.AbsoluteConstraints(380, 188, 165, -1));
 
         jLabel4.setFont(new java.awt.Font("Optima", 0, 13)); // NOI18N
         jLabel4.setForeground(new java.awt.Color(204, 204, 204));
         jLabel4.setHorizontalAlignment(javax.swing.SwingConstants.RIGHT);
         jLabel4.setText("Email Address*:");
+        add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(186, 234, 121, -1));
+        add(txtEmailAddress, new org.netbeans.lib.awtextra.AbsoluteConstraints(380, 234, 165, -1));
 
         jLabel5.setFont(new java.awt.Font("Optima", 0, 13)); // NOI18N
         jLabel5.setForeground(new java.awt.Color(204, 204, 204));
         jLabel5.setHorizontalAlignment(javax.swing.SwingConstants.RIGHT);
         jLabel5.setText("Age*:");
+        add(jLabel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(186, 281, 121, -1));
+        add(txtAge, new org.netbeans.lib.awtextra.AbsoluteConstraints(380, 281, 165, -1));
 
         jLabel6.setFont(new java.awt.Font("Optima", 0, 13)); // NOI18N
         jLabel6.setForeground(new java.awt.Color(204, 204, 204));
         jLabel6.setHorizontalAlignment(javax.swing.SwingConstants.RIGHT);
         jLabel6.setText("Home Address*:");
+        add(jLabel6, new org.netbeans.lib.awtextra.AbsoluteConstraints(186, 328, 121, -1));
+        add(txtHomeAddress, new org.netbeans.lib.awtextra.AbsoluteConstraints(380, 328, 165, -1));
 
         jLabel7.setFont(new java.awt.Font("Optima", 0, 13)); // NOI18N
         jLabel7.setForeground(new java.awt.Color(204, 204, 204));
         jLabel7.setHorizontalAlignment(javax.swing.SwingConstants.RIGHT);
         jLabel7.setText("Phone Number*:");
+        add(jLabel7, new org.netbeans.lib.awtextra.AbsoluteConstraints(216, 375, -1, -1));
+        add(txtPhoneNumber, new org.netbeans.lib.awtextra.AbsoluteConstraints(380, 375, 165, -1));
 
         btnCreate.setText("Submit");
         btnCreate.addActionListener(new java.awt.event.ActionListener() {
@@ -119,107 +140,22 @@ public class CreateDeliveryManJPanel extends javax.swing.JPanel {
                 btnCreateActionPerformed(evt);
             }
         });
+        add(btnCreate, new org.netbeans.lib.awtextra.AbsoluteConstraints(317, 553, 115, -1));
 
         jLabel10.setFont(new java.awt.Font("Optima", 0, 14)); // NOI18N
         jLabel10.setForeground(new java.awt.Color(204, 204, 204));
         jLabel10.setHorizontalAlignment(javax.swing.SwingConstants.RIGHT);
         jLabel10.setText("*Mandatory fields");
+        add(jLabel10, new org.netbeans.lib.awtextra.AbsoluteConstraints(174, 516, 133, -1));
+        add(txtPassword, new org.netbeans.lib.awtextra.AbsoluteConstraints(380, 469, 165, -1));
 
-        javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
-        this.setLayout(layout);
-        layout.setHorizontalGroup(
-            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
-                    .addGroup(layout.createSequentialGroup()
-                        .addGap(57, 57, 57)
-                        .addComponent(btnBack)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 379, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                        .addGroup(layout.createSequentialGroup()
-                            .addGap(144, 144, 144)
-                            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                .addGroup(layout.createSequentialGroup()
-                                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                                        .addComponent(jLabel3, javax.swing.GroupLayout.PREFERRED_SIZE, 163, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                        .addGroup(layout.createSequentialGroup()
-                                            .addGap(3, 3, 3)
-                                            .addComponent(jLabel2, javax.swing.GroupLayout.PREFERRED_SIZE, 160, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                                    .addGap(73, 73, 73)
-                                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                        .addComponent(txtLastName, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 165, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                        .addComponent(txtFirstName, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 165, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                                .addGroup(layout.createSequentialGroup()
-                                    .addGap(30, 30, 30)
-                                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                                        .addComponent(jLabel5, javax.swing.GroupLayout.PREFERRED_SIZE, 121, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                        .addComponent(jLabel4, javax.swing.GroupLayout.PREFERRED_SIZE, 121, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                        .addComponent(jLabel6, javax.swing.GroupLayout.PREFERRED_SIZE, 121, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                        .addComponent(jLabel7)
-                                        .addComponent(jLabel8, javax.swing.GroupLayout.PREFERRED_SIZE, 121, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                        .addComponent(jLabel9, javax.swing.GroupLayout.PREFERRED_SIZE, 121, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                        .addComponent(jLabel10, javax.swing.GroupLayout.PREFERRED_SIZE, 133, javax.swing.GroupLayout.PREFERRED_SIZE))
-                                    .addGap(73, 73, 73)
-                                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                                        .addComponent(txtPhoneNumber, javax.swing.GroupLayout.DEFAULT_SIZE, 165, Short.MAX_VALUE)
-                                        .addComponent(txtHomeAddress, javax.swing.GroupLayout.DEFAULT_SIZE, 165, Short.MAX_VALUE)
-                                        .addComponent(txtAge, javax.swing.GroupLayout.DEFAULT_SIZE, 165, Short.MAX_VALUE)
-                                        .addComponent(txtEmailAddress, javax.swing.GroupLayout.DEFAULT_SIZE, 165, Short.MAX_VALUE)
-                                        .addComponent(txtUsername, javax.swing.GroupLayout.DEFAULT_SIZE, 165, Short.MAX_VALUE)
-                                        .addComponent(txtPassword)))))
-                        .addGroup(layout.createSequentialGroup()
-                            .addGap(317, 317, 317)
-                            .addComponent(btnCreate, javax.swing.GroupLayout.PREFERRED_SIZE, 115, javax.swing.GroupLayout.PREFERRED_SIZE))))
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-        );
-        layout.setVerticalGroup(
-            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
-                .addGap(39, 39, 39)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jLabel1)
-                    .addGroup(layout.createSequentialGroup()
-                        .addGap(8, 8, 8)
-                        .addComponent(btnBack)))
-                .addGap(62, 62, 62)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(txtFirstName, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jLabel2))
-                .addGap(20, 20, 20)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                    .addComponent(jLabel3)
-                    .addComponent(txtLastName, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(26, 26, 26)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel4)
-                    .addComponent(txtEmailAddress, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(27, 27, 27)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel5)
-                    .addComponent(txtAge, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(27, 27, 27)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel6)
-                    .addComponent(txtHomeAddress, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(27, 27, 27)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel7)
-                    .addComponent(txtPhoneNumber, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(27, 27, 27)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(txtUsername, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jLabel8))
-                .addGap(27, 27, 27)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel9)
-                    .addComponent(txtPassword, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(27, 27, 27)
-                .addComponent(jLabel10)
-                .addGap(18, 18, 18)
-                .addComponent(btnCreate)
-                .addContainerGap(116, Short.MAX_VALUE))
-        );
+        btnAutofill.setText("Autofill");
+        btnAutofill.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnAutofillActionPerformed(evt);
+            }
+        });
+        add(btnAutofill, new org.netbeans.lib.awtextra.AbsoluteConstraints(582, 187, 115, -1));
     }// </editor-fold>//GEN-END:initComponents
 
     private void btnBackActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnBackActionPerformed
@@ -337,8 +273,64 @@ public class CreateDeliveryManJPanel extends javax.swing.JPanel {
         txtEmailAddress.setText("");
     }//GEN-LAST:event_btnCreateActionPerformed
 
+    private void btnAutofillActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAutofillActionPerformed
+        // TODO add your handling code here:
+        
+        ArrayList<String> autofillName = new ArrayList<>();
+        Collections.addAll(autofillName, "Peter David", "Shane Michael", "Mark Johnson");
+        
+        ArrayList<String> autofillAddress = new ArrayList<>();
+        Collections.addAll(autofillAddress, "star street", "broksbury street", "appartment 2");
+        
+        ArrayList<String> autofillEmail = new ArrayList<>();
+        Collections.addAll(autofillEmail, "d.peter@gmail.com", "m.shane@gmail.com", "j.mark@gmail.com");
+        
+        ArrayList<String> autofillPhoneNumber = new ArrayList<>();
+        Collections.addAll(autofillPhoneNumber, "9988776655", "9876577889", "9283748349");
+        
+        ArrayList<Integer> autofillAge = new ArrayList<>();
+        Collections.addAll(autofillAge, 36, 34, 52);
+        
+        ArrayList<String> autofillUsername = new ArrayList<>();
+        Collections.addAll(autofillUsername, "dv1", "dv2", "dv3");
+        
+        ArrayList<String> autofillPassword = new ArrayList<>();
+        Collections.addAll(autofillPassword, "dv1", "dv2", "dv3");
+        
+        for (int i = 0; i<autofillName.size(); i++){
+            
+            for(UserAccount account : ecoSystem.getUserAccountDirectory().getUserAccountList()) {
+                if(account.getUsername().equals(autofillUsername.get(i))) {
+                    JOptionPane.showMessageDialog(null, "Cannot use autofill more than 1 time.");
+                    return;
+                }
+            }
+
+            
+            ecoSystem.getDeliveryManDirectory().newDeliveryMan(autofillName.get(i), autofillAddress.get(i), autofillEmail.get(i), autofillPhoneNumber.get(i), autofillAge.get(i));
+            Employee employee = ecoSystem.getEmployeeDirectory().createEmployee(autofillEmail.get(i));
+            ecoSystem.getUserAccountDirectory().createUserAccount(autofillUsername.get(i), autofillPassword.get(i), employee, new DeliverManRole());
+
+        }
+        
+        JOptionPane.showMessageDialog(null, "Added 3 delivery man.");
+
+
+        
+        // Empty All Fields
+        txtAge.setText("");
+        txtFirstName.setText("");
+        txtHomeAddress.setText("");
+        txtLastName.setText("");
+        txtPassword.setText("");
+        txtPhoneNumber.setText("");
+        txtUsername.setText("");
+        txtEmailAddress.setText("");
+    }//GEN-LAST:event_btnAutofillActionPerformed
+
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton btnAutofill;
     private javax.swing.JButton btnBack;
     private javax.swing.JButton btnCreate;
     private javax.swing.JLabel jLabel1;

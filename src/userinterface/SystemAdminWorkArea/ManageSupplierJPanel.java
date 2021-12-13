@@ -75,9 +75,9 @@ public class ManageSupplierJPanel extends javax.swing.JPanel {
         jLabel2 = new javax.swing.JLabel();
         jScrollPane2 = new javax.swing.JScrollPane();
         tblSupplier = new javax.swing.JTable();
-        btnCreate1 = new javax.swing.JButton();
-        btnModify1 = new javax.swing.JButton();
-        btnDelete1 = new javax.swing.JButton();
+        btnAddSupplier = new javax.swing.JButton();
+        btnUpdateSupplier = new javax.swing.JButton();
+        btnDeleteSupplier = new javax.swing.JButton();
         btnRefresh1 = new javax.swing.JButton();
 
         btnBack.setText("<<Back");
@@ -174,24 +174,24 @@ public class ManageSupplierJPanel extends javax.swing.JPanel {
         });
         jScrollPane2.setViewportView(tblSupplier);
 
-        btnCreate1.setText("Add Supplier");
-        btnCreate1.addActionListener(new java.awt.event.ActionListener() {
+        btnAddSupplier.setText("Add Supplier");
+        btnAddSupplier.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnCreate1ActionPerformed(evt);
+                btnAddSupplierActionPerformed(evt);
             }
         });
 
-        btnModify1.setText("Update Supplier");
-        btnModify1.addActionListener(new java.awt.event.ActionListener() {
+        btnUpdateSupplier.setText("Update Supplier");
+        btnUpdateSupplier.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnModify1ActionPerformed(evt);
+                btnUpdateSupplierActionPerformed(evt);
             }
         });
 
-        btnDelete1.setText("Delete Supplier");
-        btnDelete1.addActionListener(new java.awt.event.ActionListener() {
+        btnDeleteSupplier.setText("Delete Supplier");
+        btnDeleteSupplier.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnDelete1ActionPerformed(evt);
+                btnDeleteSupplierActionPerformed(evt);
             }
         });
 
@@ -221,11 +221,11 @@ public class ManageSupplierJPanel extends javax.swing.JPanel {
                         .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 690, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGroup(layout.createSequentialGroup()
                             .addGap(2, 2, 2)
-                            .addComponent(btnCreate1, javax.swing.GroupLayout.PREFERRED_SIZE, 165, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(btnAddSupplier, javax.swing.GroupLayout.PREFERRED_SIZE, 165, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addGap(95, 95, 95)
-                            .addComponent(btnModify1, javax.swing.GroupLayout.PREFERRED_SIZE, 165, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(btnUpdateSupplier, javax.swing.GroupLayout.PREFERRED_SIZE, 165, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addGap(95, 95, 95)
-                            .addComponent(btnDelete1, javax.swing.GroupLayout.PREFERRED_SIZE, 165, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                            .addComponent(btnDeleteSupplier, javax.swing.GroupLayout.PREFERRED_SIZE, 165, javax.swing.GroupLayout.PREFERRED_SIZE)))
                     .addGap(0, 26, Short.MAX_VALUE)))
         );
         layout.setVerticalGroup(
@@ -245,9 +245,9 @@ public class ManageSupplierJPanel extends javax.swing.JPanel {
                     .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 132, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addGap(31, 31, 31)
                     .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                        .addComponent(btnCreate1)
-                        .addComponent(btnModify1)
-                        .addComponent(btnDelete1))
+                        .addComponent(btnAddSupplier)
+                        .addComponent(btnUpdateSupplier)
+                        .addComponent(btnDeleteSupplier))
                     .addGap(0, 21, Short.MAX_VALUE)))
         );
     }// </editor-fold>//GEN-END:initComponents
@@ -309,15 +309,15 @@ public class ManageSupplierJPanel extends javax.swing.JPanel {
         layout.previous(userProcessContainer);
     }//GEN-LAST:event_btnBack1ActionPerformed
 
-    private void btnCreate1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCreate1ActionPerformed
+    private void btnAddSupplierActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAddSupplierActionPerformed
         // TODO add your handling code here:
         CreateSupplierJPanel createSupplier = new CreateSupplierJPanel(userProcessContainer, ecoSystem, supplierDirectory);
         userProcessContainer.add("CreateSupplierJPanel",createSupplier);
         CardLayout layout=(CardLayout)userProcessContainer.getLayout();
         layout.next(userProcessContainer);
-    }//GEN-LAST:event_btnCreate1ActionPerformed
+    }//GEN-LAST:event_btnAddSupplierActionPerformed
 
-    private void btnModify1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnModify1ActionPerformed
+    private void btnUpdateSupplierActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnUpdateSupplierActionPerformed
         // TODO add your handling code here:
         int selectedRow = tblDonation.getSelectedRow();
         if(selectedRow < 0) {
@@ -329,9 +329,9 @@ public class ManageSupplierJPanel extends javax.swing.JPanel {
         userProcessContainer.add("ModifyManagerJPanel",modifySupplier);
         CardLayout layout=(CardLayout)userProcessContainer.getLayout();
         layout.next(userProcessContainer);
-    }//GEN-LAST:event_btnModify1ActionPerformed
+    }//GEN-LAST:event_btnUpdateSupplierActionPerformed
 
-    private void btnDelete1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnDelete1ActionPerformed
+    private void btnDeleteSupplierActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnDeleteSupplierActionPerformed
         // TODO add your handling code here:
         int selectedRow = tblDonation.getSelectedRow();
         if(selectedRow < 0) {
@@ -345,7 +345,7 @@ public class ManageSupplierJPanel extends javax.swing.JPanel {
 
         supplierDirectory.removeSupplier(supplier);
         populateTable();
-    }//GEN-LAST:event_btnDelete1ActionPerformed
+    }//GEN-LAST:event_btnDeleteSupplierActionPerformed
 
     private void btnRefresh1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnRefresh1ActionPerformed
         // TODO add your handling code here:
@@ -354,16 +354,16 @@ public class ManageSupplierJPanel extends javax.swing.JPanel {
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton btnAddSupplier;
     private javax.swing.JButton btnBack;
     private javax.swing.JButton btnBack1;
     private javax.swing.JButton btnCreate;
-    private javax.swing.JButton btnCreate1;
     private javax.swing.JButton btnDelete;
-    private javax.swing.JButton btnDelete1;
+    private javax.swing.JButton btnDeleteSupplier;
     private javax.swing.JButton btnModify;
-    private javax.swing.JButton btnModify1;
     private javax.swing.JButton btnRefresh;
     private javax.swing.JButton btnRefresh1;
+    private javax.swing.JButton btnUpdateSupplier;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JScrollPane jScrollPane1;

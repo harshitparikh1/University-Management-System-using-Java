@@ -70,6 +70,7 @@ public class RestaurantInventoryJPanel extends javax.swing.JPanel {
         jButton1 = new javax.swing.JButton();
         btnBack1 = new javax.swing.JButton();
 
+        setBackground(new java.awt.Color(255, 204, 153));
         addComponentListener(new java.awt.event.ComponentAdapter() {
             public void componentHidden(java.awt.event.ComponentEvent evt) {
                 formComponentHidden(evt);
@@ -79,6 +80,10 @@ public class RestaurantInventoryJPanel extends javax.swing.JPanel {
 
         tblSupplier.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
+                {null, null},
+                {null, null},
+                {null, null},
+                {null, null},
                 {null, null},
                 {null, null},
                 {null, null},
@@ -110,10 +115,11 @@ public class RestaurantInventoryJPanel extends javax.swing.JPanel {
         });
         jScrollPane2.setViewportView(tblSupplier);
 
-        add(jScrollPane2, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 110, 584, 110));
+        add(jScrollPane2, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 110, 584, 110));
 
+        jLabel1.setFont(new java.awt.Font("Lucida Grande", 1, 48)); // NOI18N
         jLabel1.setText("Inventory");
-        add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(270, 20, -1, -1));
+        add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(230, 40, -1, -1));
 
         boxSupplier.setFont(new java.awt.Font("Optima", 0, 14)); // NOI18N
         boxSupplier.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
@@ -122,40 +128,47 @@ public class RestaurantInventoryJPanel extends javax.swing.JPanel {
                 boxSupplierActionPerformed(evt);
             }
         });
-        add(boxSupplier, new org.netbeans.lib.awtextra.AbsoluteConstraints(130, 270, 140, -1));
+        add(boxSupplier, new org.netbeans.lib.awtextra.AbsoluteConstraints(330, 260, 140, -1));
 
+        jLabel2.setFont(new java.awt.Font("Lucida Grande", 1, 14)); // NOI18N
         jLabel2.setText("Supplier Name:");
-        add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 270, -1, -1));
+        add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(140, 260, -1, -1));
 
+        jLabel3.setFont(new java.awt.Font("Lucida Grande", 1, 14)); // NOI18N
         jLabel3.setText("Item");
-        add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 320, -1, -1));
+        add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(200, 330, -1, -1));
 
+        jLabel4.setFont(new java.awt.Font("Lucida Grande", 1, 14)); // NOI18N
         jLabel4.setText("Quantity");
-        add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 360, -1, -1));
+        add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(180, 380, -1, -1));
 
         txtItemName.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 txtItemNameActionPerformed(evt);
             }
         });
-        add(txtItemName, new org.netbeans.lib.awtextra.AbsoluteConstraints(140, 320, 100, -1));
-        add(txtItemQuantity, new org.netbeans.lib.awtextra.AbsoluteConstraints(140, 360, 100, -1));
+        add(txtItemName, new org.netbeans.lib.awtextra.AbsoluteConstraints(330, 320, 100, -1));
+        add(txtItemQuantity, new org.netbeans.lib.awtextra.AbsoluteConstraints(330, 370, 100, -1));
 
+        jButton1.setBackground(new java.awt.Color(255, 255, 255));
+        jButton1.setFont(new java.awt.Font("Lucida Grande", 1, 18)); // NOI18N
         jButton1.setText("Place Order");
         jButton1.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jButton1ActionPerformed(evt);
             }
         });
-        add(jButton1, new org.netbeans.lib.awtextra.AbsoluteConstraints(80, 440, -1, -1));
+        add(jButton1, new org.netbeans.lib.awtextra.AbsoluteConstraints(280, 430, 160, 50));
 
+        btnBack1.setBackground(new java.awt.Color(255, 255, 255));
+        btnBack1.setFont(new java.awt.Font("Lucida Grande", 1, 13)); // NOI18N
         btnBack1.setText("<<Back");
         btnBack1.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnBack1ActionPerformed(evt);
             }
         });
-        add(btnBack1, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 70, -1, -1));
+        add(btnBack1, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 10, 110, 40));
     }// </editor-fold>//GEN-END:initComponents
 
     private void tblSupplierMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_tblSupplierMouseClicked
@@ -197,7 +210,7 @@ public class RestaurantInventoryJPanel extends javax.swing.JPanel {
         String itemName = txtItemName.getText();
         
         if(itemName.isEmpty()){
-            JOptionPane.showMessageDialog(null, "Please s elect a item to donate. :) ");
+            JOptionPane.showMessageDialog(null, "Please select a item to donate. :) ");
             return;
         }
         else if(itemQuantity <= 0){

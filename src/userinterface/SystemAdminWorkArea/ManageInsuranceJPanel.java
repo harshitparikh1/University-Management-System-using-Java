@@ -71,24 +71,28 @@ public class ManageInsuranceJPanel extends javax.swing.JPanel {
         btnDelete = new javax.swing.JButton();
         btnRefresh = new javax.swing.JButton();
 
-        setBackground(new java.awt.Color(102, 102, 102));
+        setBackground(new java.awt.Color(255, 204, 153));
         setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
+        btnBack.setFont(new java.awt.Font("Lucida Grande", 1, 13)); // NOI18N
         btnBack.setText("<<Back");
         btnBack.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnBackActionPerformed(evt);
             }
         });
-        add(btnBack, new org.netbeans.lib.awtextra.AbsoluteConstraints(48, 106, -1, -1));
+        add(btnBack, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 10, 100, 40));
 
         jLabel1.setFont(new java.awt.Font("Optima", 1, 36)); // NOI18N
-        jLabel1.setForeground(new java.awt.Color(204, 204, 204));
         jLabel1.setText("Manage Insurance Details");
         add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(222, 39, -1, -1));
 
+        tblInsurance.setBackground(new java.awt.Color(204, 204, 204));
         tblInsurance.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
+                {null, null, null},
+                {null, null, null},
+                {null, null, null},
                 {null, null, null},
                 {null, null, null},
                 {null, null, null},
@@ -108,39 +112,46 @@ public class ManageInsuranceJPanel extends javax.swing.JPanel {
         });
         jScrollPane1.setViewportView(tblInsurance);
 
-        add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(48, 147, 690, 132));
+        add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(48, 99, 690, 140));
 
+        btnCreate.setBackground(new java.awt.Color(255, 255, 255));
+        btnCreate.setFont(new java.awt.Font("Lucida Grande", 1, 14)); // NOI18N
         btnCreate.setText("Add Insurance");
         btnCreate.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnCreateActionPerformed(evt);
             }
         });
-        add(btnCreate, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 310, 165, -1));
+        add(btnCreate, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 270, 165, 60));
 
+        btnModify.setBackground(new java.awt.Color(255, 255, 255));
+        btnModify.setFont(new java.awt.Font("Lucida Grande", 1, 14)); // NOI18N
         btnModify.setText("Update Insurance");
         btnModify.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnModifyActionPerformed(evt);
             }
         });
-        add(btnModify, new org.netbeans.lib.awtextra.AbsoluteConstraints(310, 310, 165, -1));
+        add(btnModify, new org.netbeans.lib.awtextra.AbsoluteConstraints(310, 270, 165, 60));
 
+        btnDelete.setBackground(new java.awt.Color(255, 255, 255));
+        btnDelete.setFont(new java.awt.Font("Lucida Grande", 1, 14)); // NOI18N
         btnDelete.setText("Delete Insurance");
         btnDelete.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnDeleteActionPerformed(evt);
             }
         });
-        add(btnDelete, new org.netbeans.lib.awtextra.AbsoluteConstraints(570, 310, 165, -1));
+        add(btnDelete, new org.netbeans.lib.awtextra.AbsoluteConstraints(570, 270, 165, 60));
 
+        btnRefresh.setBackground(new java.awt.Color(153, 255, 153));
         btnRefresh.setText("Refresh");
         btnRefresh.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnRefreshActionPerformed(evt);
             }
         });
-        add(btnRefresh, new org.netbeans.lib.awtextra.AbsoluteConstraints(629, 110, 110, -1));
+        add(btnRefresh, new org.netbeans.lib.awtextra.AbsoluteConstraints(740, 10, 110, -1));
     }// </editor-fold>//GEN-END:initComponents
 
     private void btnBackActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnBackActionPerformed

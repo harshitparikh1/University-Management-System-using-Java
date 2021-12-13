@@ -140,8 +140,10 @@ public class ManageSupplierJPanel extends javax.swing.JPanel {
             }
         });
 
-        setBackground(new java.awt.Color(102, 102, 102));
+        setBackground(new java.awt.Color(255, 204, 153));
 
+        btnBack1.setBackground(new java.awt.Color(255, 255, 255));
+        btnBack1.setFont(new java.awt.Font("Lucida Grande", 1, 13)); // NOI18N
         btnBack1.setText("<<Back");
         btnBack1.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -150,11 +152,13 @@ public class ManageSupplierJPanel extends javax.swing.JPanel {
         });
 
         jLabel2.setFont(new java.awt.Font("Optima", 1, 36)); // NOI18N
-        jLabel2.setForeground(new java.awt.Color(204, 204, 204));
         jLabel2.setText("Manage Supplier Details");
 
+        tblSupplier.setBackground(new java.awt.Color(204, 204, 204));
         tblSupplier.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
+                {null, null, null},
+                {null, null, null},
                 {null, null, null},
                 {null, null, null},
                 {null, null, null},
@@ -174,6 +178,8 @@ public class ManageSupplierJPanel extends javax.swing.JPanel {
         });
         jScrollPane2.setViewportView(tblSupplier);
 
+        btnAddSupplier.setBackground(new java.awt.Color(255, 255, 255));
+        btnAddSupplier.setFont(new java.awt.Font("Lucida Grande", 1, 14)); // NOI18N
         btnAddSupplier.setText("Add Supplier");
         btnAddSupplier.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -181,6 +187,8 @@ public class ManageSupplierJPanel extends javax.swing.JPanel {
             }
         });
 
+        btnUpdateSupplier.setBackground(new java.awt.Color(255, 255, 255));
+        btnUpdateSupplier.setFont(new java.awt.Font("Lucida Grande", 1, 14)); // NOI18N
         btnUpdateSupplier.setText("Update Supplier");
         btnUpdateSupplier.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -188,6 +196,8 @@ public class ManageSupplierJPanel extends javax.swing.JPanel {
             }
         });
 
+        btnDeleteSupplier.setBackground(new java.awt.Color(255, 255, 255));
+        btnDeleteSupplier.setFont(new java.awt.Font("Lucida Grande", 1, 14)); // NOI18N
         btnDeleteSupplier.setText("Delete Supplier");
         btnDeleteSupplier.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -195,6 +205,7 @@ public class ManageSupplierJPanel extends javax.swing.JPanel {
             }
         });
 
+        btnRefresh1.setBackground(new java.awt.Color(153, 255, 153));
         btnRefresh1.setText("Refresh");
         btnRefresh1.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -206,18 +217,20 @@ public class ManageSupplierJPanel extends javax.swing.JPanel {
         this.setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 743, Short.MAX_VALUE)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(btnBack1, javax.swing.GroupLayout.PREFERRED_SIZE, 107, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 81, Short.MAX_VALUE)
+                .addComponent(jLabel2, javax.swing.GroupLayout.PREFERRED_SIZE, 426, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(145, 145, 145))
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(btnRefresh1, javax.swing.GroupLayout.PREFERRED_SIZE, 106, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap())
             .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                 .addGroup(layout.createSequentialGroup()
                     .addGap(0, 26, Short.MAX_VALUE)
                     .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                        .addGroup(layout.createSequentialGroup()
-                            .addGap(174, 174, 174)
-                            .addComponent(jLabel2, javax.swing.GroupLayout.PREFERRED_SIZE, 426, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addGroup(layout.createSequentialGroup()
-                            .addComponent(btnBack1)
-                            .addGap(551, 551, 551)
-                            .addComponent(btnRefresh1, javax.swing.GroupLayout.PREFERRED_SIZE, 69, javax.swing.GroupLayout.PREFERRED_SIZE))
                         .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 690, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGroup(layout.createSequentialGroup()
                             .addGap(2, 2, 2)
@@ -226,29 +239,30 @@ public class ManageSupplierJPanel extends javax.swing.JPanel {
                             .addComponent(btnUpdateSupplier, javax.swing.GroupLayout.PREFERRED_SIZE, 165, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addGap(95, 95, 95)
                             .addComponent(btnDeleteSupplier, javax.swing.GroupLayout.PREFERRED_SIZE, 165, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                    .addGap(0, 26, Short.MAX_VALUE)))
+                    .addGap(0, 49, Short.MAX_VALUE)))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 336, Short.MAX_VALUE)
+            .addGroup(layout.createSequentialGroup()
+                .addGap(16, 16, 16)
+                .addComponent(btnRefresh1)
+                .addGap(4, 4, 4)
+                .addComponent(jLabel2)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                .addContainerGap(49, Short.MAX_VALUE)
+                .addComponent(btnBack1, javax.swing.GroupLayout.PREFERRED_SIZE, 42, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(290, 290, 290))
             .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                 .addGroup(layout.createSequentialGroup()
-                    .addGap(0, 21, Short.MAX_VALUE)
-                    .addComponent(jLabel2)
-                    .addGap(20, 20, 20)
-                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                        .addComponent(btnBack1)
-                        .addGroup(layout.createSequentialGroup()
-                            .addGap(4, 4, 4)
-                            .addComponent(btnRefresh1)))
-                    .addGap(14, 14, 14)
+                    .addContainerGap(150, Short.MAX_VALUE)
                     .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 132, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addGap(31, 31, 31)
-                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                        .addComponent(btnAddSupplier)
-                        .addComponent(btnUpdateSupplier)
-                        .addComponent(btnDeleteSupplier))
-                    .addGap(0, 21, Short.MAX_VALUE)))
+                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                        .addComponent(btnDeleteSupplier, javax.swing.GroupLayout.DEFAULT_SIZE, 49, Short.MAX_VALUE)
+                        .addComponent(btnUpdateSupplier, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addComponent(btnAddSupplier, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                    .addGap(0, 19, Short.MAX_VALUE)))
         );
     }// </editor-fold>//GEN-END:initComponents
 

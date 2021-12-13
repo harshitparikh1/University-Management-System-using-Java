@@ -64,71 +64,65 @@ public class CreateDeliveryManJPanel extends javax.swing.JPanel {
         txtPassword = new javax.swing.JPasswordField();
         btnAutofill = new javax.swing.JButton();
 
-        setBackground(new java.awt.Color(102, 102, 102));
+        setBackground(new java.awt.Color(255, 204, 153));
         setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        jLabel8.setFont(new java.awt.Font("Optima", 0, 13)); // NOI18N
-        jLabel8.setForeground(new java.awt.Color(204, 204, 204));
+        jLabel8.setFont(new java.awt.Font("Optima", 1, 13)); // NOI18N
         jLabel8.setHorizontalAlignment(javax.swing.SwingConstants.RIGHT);
         jLabel8.setText("Username*:");
         add(jLabel8, new org.netbeans.lib.awtextra.AbsoluteConstraints(186, 422, 121, -1));
         add(txtUsername, new org.netbeans.lib.awtextra.AbsoluteConstraints(380, 422, 165, -1));
 
-        jLabel9.setFont(new java.awt.Font("Optima", 0, 13)); // NOI18N
-        jLabel9.setForeground(new java.awt.Color(204, 204, 204));
+        jLabel9.setFont(new java.awt.Font("Optima", 1, 13)); // NOI18N
         jLabel9.setHorizontalAlignment(javax.swing.SwingConstants.RIGHT);
         jLabel9.setText("Password*:");
         add(jLabel9, new org.netbeans.lib.awtextra.AbsoluteConstraints(186, 469, 121, -1));
 
         jLabel1.setFont(new java.awt.Font("Optima", 1, 36)); // NOI18N
-        jLabel1.setForeground(new java.awt.Color(204, 204, 204));
         jLabel1.setText("Add New Delivery Man");
         add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(242, 39, 435, -1));
 
+        btnBack.setBackground(new java.awt.Color(255, 255, 255));
+        btnBack.setFont(new java.awt.Font("Lucida Grande", 1, 13)); // NOI18N
         btnBack.setText("<Back");
         btnBack.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnBackActionPerformed(evt);
             }
         });
-        add(btnBack, new org.netbeans.lib.awtextra.AbsoluteConstraints(57, 47, -1, -1));
+        add(btnBack, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 10, 120, 50));
 
-        jLabel2.setForeground(new java.awt.Color(204, 204, 204));
+        jLabel2.setFont(new java.awt.Font("Optima", 1, 13)); // NOI18N
         jLabel2.setHorizontalAlignment(javax.swing.SwingConstants.RIGHT);
         jLabel2.setText("First Name*:");
         add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(147, 151, 160, -1));
         add(txtFirstName, new org.netbeans.lib.awtextra.AbsoluteConstraints(380, 148, 165, -1));
 
-        jLabel3.setFont(new java.awt.Font("Optima", 0, 13)); // NOI18N
-        jLabel3.setForeground(new java.awt.Color(204, 204, 204));
+        jLabel3.setFont(new java.awt.Font("Optima", 1, 13)); // NOI18N
         jLabel3.setHorizontalAlignment(javax.swing.SwingConstants.RIGHT);
         jLabel3.setText("Last Name*:");
         add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(144, 192, 163, -1));
         add(txtLastName, new org.netbeans.lib.awtextra.AbsoluteConstraints(380, 188, 165, -1));
 
-        jLabel4.setFont(new java.awt.Font("Optima", 0, 13)); // NOI18N
-        jLabel4.setForeground(new java.awt.Color(204, 204, 204));
+        jLabel4.setFont(new java.awt.Font("Optima", 1, 13)); // NOI18N
         jLabel4.setHorizontalAlignment(javax.swing.SwingConstants.RIGHT);
         jLabel4.setText("Email Address*:");
         add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(186, 234, 121, -1));
         add(txtEmailAddress, new org.netbeans.lib.awtextra.AbsoluteConstraints(380, 234, 165, -1));
 
-        jLabel5.setFont(new java.awt.Font("Optima", 0, 13)); // NOI18N
-        jLabel5.setForeground(new java.awt.Color(204, 204, 204));
+        jLabel5.setFont(new java.awt.Font("Optima", 1, 13)); // NOI18N
         jLabel5.setHorizontalAlignment(javax.swing.SwingConstants.RIGHT);
         jLabel5.setText("Age*:");
         add(jLabel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(186, 281, 121, -1));
         add(txtAge, new org.netbeans.lib.awtextra.AbsoluteConstraints(380, 281, 165, -1));
 
-        jLabel6.setFont(new java.awt.Font("Optima", 0, 13)); // NOI18N
-        jLabel6.setForeground(new java.awt.Color(204, 204, 204));
+        jLabel6.setFont(new java.awt.Font("Optima", 1, 13)); // NOI18N
         jLabel6.setHorizontalAlignment(javax.swing.SwingConstants.RIGHT);
         jLabel6.setText("Home Address*:");
         add(jLabel6, new org.netbeans.lib.awtextra.AbsoluteConstraints(186, 328, 121, -1));
         add(txtHomeAddress, new org.netbeans.lib.awtextra.AbsoluteConstraints(380, 328, 165, -1));
 
-        jLabel7.setFont(new java.awt.Font("Optima", 0, 13)); // NOI18N
-        jLabel7.setForeground(new java.awt.Color(204, 204, 204));
+        jLabel7.setFont(new java.awt.Font("Optima", 1, 13)); // NOI18N
         jLabel7.setHorizontalAlignment(javax.swing.SwingConstants.RIGHT);
         jLabel7.setText("Phone Number*:");
         add(jLabel7, new org.netbeans.lib.awtextra.AbsoluteConstraints(216, 375, -1, -1));
@@ -142,20 +136,21 @@ public class CreateDeliveryManJPanel extends javax.swing.JPanel {
         });
         add(btnCreate, new org.netbeans.lib.awtextra.AbsoluteConstraints(317, 553, 115, -1));
 
-        jLabel10.setFont(new java.awt.Font("Optima", 0, 14)); // NOI18N
-        jLabel10.setForeground(new java.awt.Color(204, 204, 204));
+        jLabel10.setFont(new java.awt.Font("Optima", 2, 14)); // NOI18N
         jLabel10.setHorizontalAlignment(javax.swing.SwingConstants.RIGHT);
         jLabel10.setText("*Mandatory fields");
-        add(jLabel10, new org.netbeans.lib.awtextra.AbsoluteConstraints(174, 516, 133, -1));
+        add(jLabel10, new org.netbeans.lib.awtextra.AbsoluteConstraints(170, 500, 133, -1));
         add(txtPassword, new org.netbeans.lib.awtextra.AbsoluteConstraints(380, 469, 165, -1));
 
+        btnAutofill.setBackground(new java.awt.Color(255, 255, 255));
+        btnAutofill.setFont(new java.awt.Font("Lucida Grande", 1, 14)); // NOI18N
         btnAutofill.setText("Autofill");
         btnAutofill.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnAutofillActionPerformed(evt);
             }
         });
-        add(btnAutofill, new org.netbeans.lib.awtextra.AbsoluteConstraints(582, 187, 115, -1));
+        add(btnAutofill, new org.netbeans.lib.awtextra.AbsoluteConstraints(580, 150, 115, 50));
     }// </editor-fold>//GEN-END:initComponents
 
     private void btnBackActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnBackActionPerformed

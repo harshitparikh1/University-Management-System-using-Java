@@ -63,66 +63,68 @@ public class CreateInsuranceJPanel extends javax.swing.JPanel {
         jLabel9 = new javax.swing.JLabel();
         txtInsuranceName = new javax.swing.JTextField();
         txtPassword = new javax.swing.JPasswordField();
+        jLabel4 = new javax.swing.JLabel();
 
-        setBackground(new java.awt.Color(102, 102, 102));
+        setBackground(new java.awt.Color(255, 204, 153));
         setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
+        btnBack.setBackground(new java.awt.Color(255, 255, 255));
+        btnBack.setFont(new java.awt.Font("Lucida Grande", 1, 13)); // NOI18N
         btnBack.setText("<Back");
         btnBack.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnBackActionPerformed(evt);
             }
         });
-        add(btnBack, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 90, -1, -1));
+        add(btnBack, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 20, 100, 50));
 
         jLabel1.setBackground(new java.awt.Color(0, 102, 102));
         jLabel1.setFont(new java.awt.Font("Optima", 1, 36)); // NOI18N
-        jLabel1.setForeground(new java.awt.Color(204, 204, 204));
         jLabel1.setText("Add Insurance");
-        add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(161, 11, -1, -1));
+        add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(290, 30, -1, -1));
 
-        jLabel7.setFont(new java.awt.Font("Optima", 0, 14)); // NOI18N
-        jLabel7.setForeground(new java.awt.Color(204, 204, 204));
+        jLabel7.setFont(new java.awt.Font("Optima", 1, 14)); // NOI18N
         jLabel7.setHorizontalAlignment(javax.swing.SwingConstants.RIGHT);
         jLabel7.setText("Phone Number*:");
-        add(jLabel7, new org.netbeans.lib.awtextra.AbsoluteConstraints(181, 207, -1, 20));
-        add(txtPhoneNumber, new org.netbeans.lib.awtextra.AbsoluteConstraints(318, 209, 165, -1));
+        add(jLabel7, new org.netbeans.lib.awtextra.AbsoluteConstraints(181, 207, 110, 20));
+        add(txtPhoneNumber, new org.netbeans.lib.awtextra.AbsoluteConstraints(318, 209, 170, -1));
 
-        jLabel3.setFont(new java.awt.Font("Optima", 0, 14)); // NOI18N
-        jLabel3.setForeground(new java.awt.Color(204, 204, 204));
+        jLabel3.setFont(new java.awt.Font("Optima", 1, 14)); // NOI18N
         jLabel3.setHorizontalAlignment(javax.swing.SwingConstants.RIGHT);
         jLabel3.setText("Address*:");
-        add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(166, 170, 121, -1));
-        add(txtAddress, new org.netbeans.lib.awtextra.AbsoluteConstraints(318, 169, 165, -1));
+        add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(166, 170, 130, -1));
+        add(txtAddress, new org.netbeans.lib.awtextra.AbsoluteConstraints(318, 169, 170, -1));
 
+        btnCreate1.setBackground(new java.awt.Color(255, 255, 255));
+        btnCreate1.setFont(new java.awt.Font("Lucida Grande", 1, 18)); // NOI18N
         btnCreate1.setText("Submit");
         btnCreate1.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnCreate1ActionPerformed(evt);
             }
         });
-        add(btnCreate1, new org.netbeans.lib.awtextra.AbsoluteConstraints(274, 325, 122, -1));
+        add(btnCreate1, new org.netbeans.lib.awtextra.AbsoluteConstraints(250, 359, 170, 70));
 
-        jLabel8.setFont(new java.awt.Font("Optima", 0, 14)); // NOI18N
-        jLabel8.setForeground(new java.awt.Color(204, 204, 204));
+        jLabel8.setFont(new java.awt.Font("Optima", 1, 14)); // NOI18N
         jLabel8.setHorizontalAlignment(javax.swing.SwingConstants.RIGHT);
         jLabel8.setText("Username*:");
-        add(jLabel8, new org.netbeans.lib.awtextra.AbsoluteConstraints(212, 247, -1, -1));
-        add(txtUsername, new org.netbeans.lib.awtextra.AbsoluteConstraints(318, 248, 165, -1));
+        add(jLabel8, new org.netbeans.lib.awtextra.AbsoluteConstraints(212, 247, 80, -1));
+        add(txtUsername, new org.netbeans.lib.awtextra.AbsoluteConstraints(318, 248, 170, -1));
 
-        jLabel2.setFont(new java.awt.Font("Optima", 0, 14)); // NOI18N
-        jLabel2.setForeground(new java.awt.Color(204, 204, 204));
+        jLabel2.setFont(new java.awt.Font("Optima", 1, 14)); // NOI18N
         jLabel2.setHorizontalAlignment(javax.swing.SwingConstants.RIGHT);
         jLabel2.setText("Insurance Name*:");
-        add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(129, 132, 158, -1));
+        add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(129, 132, 160, -1));
 
-        jLabel9.setFont(new java.awt.Font("Optima", 0, 14)); // NOI18N
-        jLabel9.setForeground(new java.awt.Color(204, 204, 204));
+        jLabel9.setFont(new java.awt.Font("Optima", 1, 14)); // NOI18N
         jLabel9.setHorizontalAlignment(javax.swing.SwingConstants.RIGHT);
         jLabel9.setText("Password*:");
-        add(jLabel9, new org.netbeans.lib.awtextra.AbsoluteConstraints(201, 286, 86, -1));
-        add(txtInsuranceName, new org.netbeans.lib.awtextra.AbsoluteConstraints(318, 131, 165, -1));
-        add(txtPassword, new org.netbeans.lib.awtextra.AbsoluteConstraints(318, 287, 165, -1));
+        add(jLabel9, new org.netbeans.lib.awtextra.AbsoluteConstraints(201, 286, 90, -1));
+        add(txtInsuranceName, new org.netbeans.lib.awtextra.AbsoluteConstraints(318, 131, 170, -1));
+        add(txtPassword, new org.netbeans.lib.awtextra.AbsoluteConstraints(318, 287, 170, -1));
+
+        jLabel4.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Images/AddInsurance.png"))); // NOI18N
+        add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(530, 120, -1, -1));
     }// </editor-fold>//GEN-END:initComponents
 
     private void btnBackActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnBackActionPerformed
@@ -208,6 +210,7 @@ public class CreateInsuranceJPanel extends javax.swing.JPanel {
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
+    private javax.swing.JLabel jLabel4;
     private javax.swing.JLabel jLabel7;
     private javax.swing.JLabel jLabel8;
     private javax.swing.JLabel jLabel9;
